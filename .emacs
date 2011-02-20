@@ -28,7 +28,7 @@
  
 ;;底栏显示列号
 (setq column-number-mode t)
- 
+
 ;;显示括号匹配
 (show-paren-mode t)
 
@@ -58,6 +58,11 @@
  
 ;;语法加亮
 (global-font-lock-mode t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 模块初始化 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; linum-mode 
+(require 'linum)
+(global-linum-mode t) 
 
 ;; org-mode 初始化
 ;; (require 'org-install)
