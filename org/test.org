@@ -1,0 +1,22 @@
+* Tasks
+** DONE learn org-mode basic use
+** TODO learn org-mode
+   SCHEDULED: <2011-02-20 日>
+** TODO write a server to store my emacs files and org files
+   SCHEDULED: <2011-02-25 五>
+
+
+
+* learn org-mode basic use
+Goto org-mode's official website, read it's tutorials.
+[[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][David O'Toole Org tutorial]]
+** Write a table
+
+| book                           | price   |
+|--------------------------------+---------|
+| iphone develop                 | 19.1$   |
+| imac develop                   | 99.99$  |
+| see the gost in the mild night | 110.89$ |
+
+* Write server
+Store .emacs file. [[file:~/.emacs::mode%20lisp%20interaction%20coding%20gbk%20dos][.emacs]]
