@@ -72,6 +72,7 @@
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/test.org"))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 全局设定 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;y/n替代yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
