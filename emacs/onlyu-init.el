@@ -5,6 +5,7 @@
 (require 'redo)
 
 (global-set-key "\C-z" 'undo)
+(global-set-key "\C-Z" 'redo)
 
 
 ;; add .org file to agenda
