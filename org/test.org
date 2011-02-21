@@ -2,10 +2,9 @@
 ** DONE learn org-mode basic use
 ** TODO learn org-mode
    SCHEDULED: <2011-02-20 日>
-** TODO write a server to store my emacs files and org files
-   SCHEDULED: <2011-02-25 五>
-
-
+** DONE write a server to store my emacs files and org files
+   CLOSED: [2011-02-21 一 23:31]
+   use git to do it (github.com only/onlyu-s-configure-files.git)			
 
 * learn org-mode basic use
 Goto org-mode's official website, read it's tutorials.
