@@ -8,6 +8,11 @@
 ;;(color-theme-initialize)
 ;;(color-theme-wombat)
 
+(set-background-color "black")
+(set-foreground-color "green")
+(set-cursor-color "ivory3")
+(set-mouse-color "white")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 外观显示 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;禁用启动画面
 (setq inhibit-startup-message t)
@@ -16,7 +21,7 @@
 ;;尺寸
 (setq initial-frame-alist '( (width . 80) (height . 25))) 
 ;;标题格式, "文件名  @  全路径文件名"
-(setq frame-title-format '("%b   @   " buffer-file-name))
+(setq frame-title-format '("%b@" buffer-file-name))
 ;;取消显示工具栏
 ;;(tool-bar-mode nil)
  
@@ -31,6 +36,7 @@
 
 ;;显示括号匹配
 (show-paren-mode t)
+(setq show-paren-style 'parenthesis)
 
  
 ;;显示日期
@@ -64,6 +70,11 @@
 (require 'linum)
 (global-linum-mode t) 
 
+;; lua-mode 
+(require 'lua-mode)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+
 ;; org-mode 初始化
 ;; (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)) 
@@ -72,7 +83,7 @@
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/test.org"))
 
-
+(require 'onlyu-init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 全局设定 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;y/n替代yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -124,6 +135,18 @@
 (global-set-key [f5] 'call-last-kbd-macro)
 
 ; for search
-(defalias 'qrr 'query-replace-regexp)
 (global-set-key "\M-s" 'isearch-forward-regexp)
 (global-set-key "\M-r" 'isearch-backward-regexp)
+
+;; command alias
+(defalias 'gf 'grep-find)
+(defalias 'fd 'find-dired)
+(defalias 'sh 'shell)
+
+(defalias 'qrr 'query-replace-regexp)
+(defalias 'lml 'list-matching-lines)
+(defalias 'dml 'delete-matching-lines)
+(defalias 'rof 'recentf-open-files)
+
+(defalias 'eb 'eval-buffer)
+(defalias 'er 'eval-region)
