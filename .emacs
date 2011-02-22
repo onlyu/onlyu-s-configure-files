@@ -1,17 +1,39 @@
 ;; -*-mode:lisp-interaction-*- -*- coding: gbk-dos -*-
 
 ;; load path
-(add-to-list 'load-path "emacs")
+(add-to-list 'load-path "~/emacs/")
 
 ;; color theme
-;;(require 'color-theme)
-;;(color-theme-initialize)
-;;(color-theme-wombat)
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-wombat)
 
-(set-background-color "black")
-(set-foreground-color "green")
-(set-cursor-color "ivory3")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inverse-video t)
+ '(python-indent 8)
+ '(standard-indent 8))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "outline" :family "新宋体")))))
+
+;(set-cursor-color "ivory3")
 (set-mouse-color "white")
+
+(setq w32-pass-lwindow-to-system nil 
+      w32-pass-rwindow-to-system nil 
+      w32-pass-apps-to-system nil 
+      w32-lwindow-modifier 'super ;; Left Windows key 
+      w32-rwindow-modifier 'super ;; Right Windows key 
+      w32-apps-modifier 'hyper) ;; Menu key
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 外观显示 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;禁用启动画面
@@ -23,13 +45,13 @@
 ;;标题格式, "文件名  @  全路径文件名"
 (setq frame-title-format '("%b@" buffer-file-name))
 ;;取消显示工具栏
-;;(tool-bar-mode nil)
+(tool-bar-mode nil)
  
 ;; 取消显示菜单栏
 (menu-bar-mode nil)
  
 ;;去掉滚动条, 鼠标滚轮代替
-;;(set-scroll-bar-mode nil)
+(set-scroll-bar-mode nil)
  
 ;;底栏显示列号
 (setq column-number-mode t)

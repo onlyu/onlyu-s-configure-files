@@ -7,7 +7,6 @@
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-Z" 'redo)
 
-
 ;; add .org file to agenda
 (setq org-agenda-files (file-expand-wildcards "~/org/*.org"))
 
