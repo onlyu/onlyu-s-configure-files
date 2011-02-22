@@ -45,13 +45,13 @@
 ;;标题格式, "文件名  @  全路径文件名"
 (setq frame-title-format '("%b@" buffer-file-name))
 ;;取消显示工具栏
-(tool-bar-mode nil)
- 
+(if (functionp 'tool-bar-mode) (tool-bar-mode nil)) 
+
 ;; 取消显示菜单栏
-(menu-bar-mode nil)
+(if (functionp 'menu-bar-mode) (menu-bar-mode nil))
  
 ;;去掉滚动条, 鼠标滚轮代替
-(set-scroll-bar-mode nil)
+(if (functionp 'set-scroll-bar-mode) (set-scroll-bar-mode nil))
  
 ;;底栏显示列号
 (setq column-number-mode t)

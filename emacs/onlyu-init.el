@@ -16,3 +16,7 @@
 (yas/initialize)
 (yas/load-directory "~/emacs/yasnippet/snippets")
 (setq yas/prompt-functions '(yas/dropdown-prompt))
+
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/emacs/dict")
+(ac-config-default)

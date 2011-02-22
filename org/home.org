@@ -10,8 +10,14 @@
    |    6 |                       |
    |    7 |                       | 
 ** DONE 调整本地emacs配置
-   CLOSED: [2011-02-21 一 22:43]
+   CLOSED: [2011-02-22 二 21:20]
 ** DONE 把org目录下所有.org文件加入到agenda中
-   CLOSED: [2011-02-21 一 23:29]
-** TODO 学习org-mode 使用
-   SCHEDULED: <2011-02-21 一>
+   CLOSED: [2011-02-22 二 21:20]
+** DONE 学习org-mode 使用
+   CLOSED: [2011-02-22 二 21:20]
+** DONE watch a video in youku.com [[http://v.youku.com/v_show/id_XNjI4MTk4ODg=.html][seven habit of editor]]
+   CLOSED: [2011-02-22 二 22:00]
+** a intersting viedo [[http://v.youku.com/v_show/id_XMjQxMjMzNjI4.html][org-mode git history]]
+** TODO emacs auto complete
+   SCHEDULED: <2011-02-22 二>
+*** [[http://cx4a.org/software/auto-complete/manual.html][auto-complete manual]]
