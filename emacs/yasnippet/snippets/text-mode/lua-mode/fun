@@ -1,0 +1,5 @@
+#name : function name(args) block end
+# --
+function ${1:name}(${2:args})
+	 $0
+end

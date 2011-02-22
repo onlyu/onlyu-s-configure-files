@@ -1,0 +1,3 @@
+#name : elseif cond then
+# --
+elseif ${1:cnd} then

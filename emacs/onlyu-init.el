@@ -15,3 +15,4 @@
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
 (yas/load-directory "~/emacs/yasnippet/snippets")
+(setq yas/prompt-functions '(yas/dropdown-prompt))

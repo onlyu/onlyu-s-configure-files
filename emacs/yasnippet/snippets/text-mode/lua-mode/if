@@ -1,0 +1,5 @@
+#name : if cond then block end
+# --
+if ${1:cnd} then
+   $0
+end

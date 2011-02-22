@@ -1,0 +1,5 @@
+#name : for i,v in ipairs(t) do something end
+# --
+for ${1:i},${2:v} in ${3:ipairs(t)} do
+    $0
+end
