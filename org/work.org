@@ -12,4 +12,15 @@
 ** TODO 好友系统bug
 ** TODO 商城界面bug
 ** TODO 飞行名字缩小的bug
-** TODO 交易锁定bug
+** TODO 登录界面服务器加标志，玩家信息完善
+   SCHEDULED: <2011-02-23 星期三>
+** DONE 交易锁定bug
+   CLOSED: [2011-02-23 星期三 10:45]
+** TODO 好友：删除好友二次确认
+** TODO 好友：玩家操作菜单问题
+** TODO 场景人物npc头顶图标
+** TODO 团队界面加入任务状态
+** TODO npc面板调整
+** TODO 抓蛇会导致客户端crash
+   SCHEDULED: <2011-02-23 星期三>
+** TODO 小地图

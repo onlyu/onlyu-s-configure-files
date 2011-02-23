@@ -18,6 +18,8 @@
 ** DONE watch a video in youku.com [[http://v.youku.com/v_show/id_XNjI4MTk4ODg=.html][seven habit of editor]]
    CLOSED: [2011-02-22 二 22:00]
 ** a intersting viedo [[http://v.youku.com/v_show/id_XMjQxMjMzNjI4.html][org-mode git history]]
-** TODO emacs auto complete
-   SCHEDULED: <2011-02-22 二>
+** DONE emacs auto complete
+   SCHEDULED: <2011-02-22 二> CLOSED: [2011-02-23 星期三 12:43]
 *** [[http://cx4a.org/software/auto-complete/manual.html][auto-complete manual]]
+** TODO emacs fly-make
+   SCHEDULED: <2011-02-23 星期三>
