@@ -2,7 +2,6 @@
 
 (require 'onlyu-help)
 (require 'onlyu-fs)
-(require 'redo)
 
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-Z" 'redo)
@@ -20,3 +19,17 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/emacs/dict")
 (ac-config-default)
+
+
+(setq rj-ring-length 10000)
+(require 'recent-jump)
+(global-set-key (kbd "M-,") 'recent-jump-backward)
+(global-set-key (kbd "M-.") 'recent-jump-forward)
+
+(global-set-key (kbd "C-,") 'beginning-of-buffer)
+(global-set-key (kbd "C-.") 'end-of-buffer)
+
+;; lua-mode 
+(require 'lua-mode)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)

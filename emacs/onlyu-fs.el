@@ -10,10 +10,10 @@
 (defun fs-run(file)
   ""
   (interactive)
-  (progn (setq old-default-directory default-directory) ; 保存default-directory
-	 (setq default-directory fs-dir)		; 把default-directory设成fs的根目录
+  (progn (setq old-default-directory default-directory) ; 
+	 (setq default-directory fs-dir)		; 
 	 (start-file-process "fsgame-client" "fsgame-client" (concat fs-dir file))
-	 (setq default-directory old-default-directory))) ; 恢复default-directory
+	 (setq default-directory old-default-directory))) ; 
 
 (defun fs-start()
   ""
