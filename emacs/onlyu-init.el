@@ -34,7 +34,12 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
+;; cedet 
 (load-file "~/emacs/cedet/common/cedet.el")
 (global-ede-mode 1)                      ; Enable the Project management system
 (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
 (global-srecode-minor-mode 1)            ; Enable template insertion menu
+
+;; ecb
+(add-to-list 'load-path "~/emacs/ecb/")
+(require 'ecb)

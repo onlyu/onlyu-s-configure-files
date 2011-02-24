@@ -34,3 +34,5 @@
 
 ** DONE play emacs cedit
    CLOSED: [2011-02-24 四 23:24]
+** DONE ecb
+   CLOSED: [2011-02-24 四 23:38]
