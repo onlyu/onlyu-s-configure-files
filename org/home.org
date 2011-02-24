@@ -31,3 +31,5 @@
 *** [[http://cx4a.org/software/auto-complete/manual.html][auto-complete manual]]
 ** TODO emacs fly-make
    SCHEDULED: <2011-02-23 星期三>
+
+** TODO play emacs cedit
