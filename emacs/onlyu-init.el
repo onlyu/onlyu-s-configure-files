@@ -42,4 +42,4 @@
 
 ;; ecb
 (add-to-list 'load-path "~/emacs/ecb/")
-(require 'ecb)
+(require 'ecb-autoloads)

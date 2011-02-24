@@ -14,6 +14,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
+ '(ecb-layout-name "right1")
  '(inverse-video t)
  '(python-indent 8)
  '(standard-indent 8))

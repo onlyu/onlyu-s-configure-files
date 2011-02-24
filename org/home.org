@@ -32,7 +32,9 @@
 ** TODO emacs fly-make
    SCHEDULED: <2011-02-23 星期三>
 
-** DONE play emacs cedit
+** DONE play emacs cedet
    CLOSED: [2011-02-24 四 23:24]
 ** DONE ecb
    CLOSED: [2011-02-24 四 23:38]
+** TODO learn more about ecb
+** TODO learn more about cedet
