@@ -21,6 +21,7 @@
 ** TODO 场景人物npc头顶图标
 ** TODO 团队界面加入任务状态
 ** TODO npc面板调整
-** TODO 抓蛇会导致客户端crash
-   SCHEDULED: <2011-02-23 星期三>
+** DONE 抓蛇会导致客户端crash
+   SCHEDULED: <2011-02-23 星期三> CLOSED: [2011-02-25 星期五 14:49]
 ** TODO 小地图
+** TODO 增加更换名字和称谓颜色的协议

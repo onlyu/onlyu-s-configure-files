@@ -14,6 +14,13 @@
 	 (setq default-directory fs-dir)		; 
 	 (start-file-process "fsgame-client" "fsgame-client" (concat fs-dir file))
 	 (setq default-directory old-default-directory))) ; 
+;; (defun fs-run-bat(file)
+;;   ""
+;;   (interactive)
+;;   (progn (setq old-default-directory default-directory)
+;; 	 (setq default-directory )
+;; 	 (start-file-process "fs-start", "fs-start" (concat current-directory file))
+;; 	 (setq default-directory old-default-directory)))
 
 (defun fs-start()
   ""
