@@ -36,5 +36,25 @@
    CLOSED: [2011-02-24 四 23:24]
 ** DONE ecb
    CLOSED: [2011-02-24 四 23:38]
-** TODO learn more about ecb
+** DONE learn more about ecb
+   SCHEDULED: <2011-02-25 五> CLOSED: [2011-02-26 六 15:25]
+   ecb is not so good for use, change it someday.
+*** read the menu of ecb
 ** TODO learn more about cedet
+** DONE use emacs info mode
+   SCHEDULED: <2011-02-25 五> CLOSED: [2011-02-25 五 22:16]
+*** remember the following key is enough:
+**** u: up node 
+**** p: prev page
+**** n: next page
+**** SPC: scroll down
+**** DEL: scroll up
+**** 1-9: menu item 1 to 9
+**** s: search 
+*** spend 5 minutes to read the menu will save a lot of time for the following use!!
+** learn regex form [[~/org/regex.org][<<精通正则表达式>>]]    
+   DEADLINE: <2011-03-26 六> SCHEDULED: <2011-02-26 六>
+** TODO read the source of linum, lean lisp programing
+   SCHEDULED: <2011-02-26 六> DEADLINE: <2011-02-26 六>
+** iswitchb-mode is good!
+** ido-mode and anything.el

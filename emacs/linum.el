@@ -32,7 +32,7 @@
 
 ;;; Code:
 
-(defconst linum-version "0.9wza")
+(defconst linum-version "1.0")
 
 (defvar linum-overlays nil "Overlays used in this buffer.")
 (defvar linum-available nil "Overlays available for reuse.")

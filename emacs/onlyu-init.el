@@ -3,8 +3,8 @@
 (require 'onlyu-help)
 (require 'onlyu-fs)
 
-(global-set-key "\C-z" 'undo)
-(global-set-key "\C-Z" 'redo)
+;;(global-set-key "\C-z" 'undo)
+;;(global-set-key "\C-Z" 'redo)
 
 ;; add .org file to agenda
 (setq org-agenda-files (file-expand-wildcards "~/org/*.org"))
@@ -35,11 +35,32 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
 ;; cedet 
-(load-file "~/emacs/cedet/common/cedet.el")
-(global-ede-mode 1)                      ; Enable the Project management system
-(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;; (load-file "~/emacs/cedet/common/cedet.el")
+;; (global-ede-mode 1)                      ; Enable the Project management system
+;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
 
 ;; ecb
-(add-to-list 'load-path "~/emacs/ecb/")
-(require 'ecb-autoloads)
+;; (add-to-list 'load-path "~/emacs/ecb/")
+;; (require 'ecb-autoloads)
+
+
+(require 'ido)
+(ido-mode)
+
+;; (iswitchb-mode)
+(require 'anything)
+
+;; flyspell-mode
+(require 'flyspell)
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(setq-default ispell-program-name "aspell")
+(setq flyspell-issue-message-flag nil)
+;; (dolist (hook '(text-mode-hook))
+;;       (add-hook hook (lambda () (flyspell-mode 1))))
+;;     (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+;;       (add-hook hook (lambda () (flyspell-mode -1))))
+;; (add-hook 'c++-mode-hook
+;;           (lambda ()
+;;             (flyspell-prog-mode)
+;; 	    ))
