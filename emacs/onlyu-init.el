@@ -54,12 +54,17 @@
 ;; flyspell-mode
 (require 'flyspell)
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'lua-mode-hook 'flyspell-prog-mode)
+
 (setq-default ispell-program-name "aspell")
 (setq flyspell-issue-message-flag nil)
-;; (dolist (hook '(text-mode-hook))
-;;       (add-hook hook (lambda () (flyspell-mode 1))))
-;;     (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
-;;       (add-hook hook (lambda () (flyspell-mode -1))))
+(dolist (hook '(text-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
 ;; (add-hook 'c++-mode-hook
 ;;           (lambda ()
 ;;             (flyspell-prog-mode)
