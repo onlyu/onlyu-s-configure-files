@@ -54,7 +54,9 @@
 *** spend 5 minutes to read the menu will save a lot of time for the following use!!
 ** learn regex form [[~/org/regex.org][<<精通正则表达式>>]]    
    DEADLINE: <2011-03-26 六> SCHEDULED: <2011-02-26 六>
-** TODO read the source of linum, lean lisp programing
-   SCHEDULED: <2011-02-26 六> DEADLINE: <2011-02-26 六>
+** DONE read the source of linum, lean lisp programing
+   SCHEDULED: <2011-02-26 六> DEADLINE: <2011-02-26 六> CLOSED: [2011-02-26 六 23:09]
+*** have learned how to use emacs overlay
+*** emacs string usage
 ** iswitchb-mode is good!
 ** ido-mode and anything.el

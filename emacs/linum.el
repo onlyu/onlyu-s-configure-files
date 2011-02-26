@@ -60,6 +60,11 @@ should evaluate to a string to be shown on that line. See also
   "Face for displaying line numbers in the display margin."
   :group 'linum)
 
+(defface linum-board
+  '((t :inherit (shadow default)))
+  "Face for the board of linum buffer and editor buffer."
+  :group 'linum)
+
 (defcustom linum-eager t
   "Whether line numbers should be updated after each command.
 The conservative setting `nil' might miss some buffer changes,
@@ -145,7 +150,8 @@ and you have to scroll or press C-l to update the numbers."
     ;; line visible in this window, if necessary.
     (while (and (not (eobp)) (<= (point) limit))
       (let* ((str (if fmt
-                      (propertize (format fmt line) 'face 'linum)
+                      (concat (propertize (format fmt line) 'face 'linum)
+			 (propertize " " 'face 'linum-board))
                     (funcall linum-format line)))
              (visited (catch 'visited
                         (dolist (o (overlays-in (point) (point)))
@@ -154,7 +160,7 @@ and you have to scroll or press C-l to update the numbers."
                               (push o linum-overlays))
                             (setq linum-available (delete o linum-available))
                             (throw 'visited t))))))
-        (setq width (max width (+ (length str) 1 )))
+        (setq width (max width (+ (length str) 0 )))
         (unless visited
           (let ((ov (if (null linum-available)
                         (make-overlay (point) (point))
@@ -162,7 +168,10 @@ and you have to scroll or press C-l to update the numbers."
             (push ov linum-overlays)
             (overlay-put ov 'before-string
                          (propertize " " 'display `((margin left-margin) ,str)))
-            (overlay-put ov 'linum-str str))))
+	    (overlay-put ov 'linum-str str)
+	    ;; (overlay-put ov 'after-string
+	    ;; 		 (propertize " " 'face 'linum-board) )
+	    )))
       (forward-line)
       (setq line (1+ line)))
     (set-window-margins win width)))
