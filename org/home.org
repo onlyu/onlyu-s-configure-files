@@ -60,3 +60,8 @@
 *** emacs string usage
 ** iswitchb-mode is good!
 ** ido-mode and anything.el
+** TODO write a dict for chinese
+   SCHEDULED: <2011-02-27 日>
+** TODO emebed system copy resource
+   SCHEDULED: <2011-02-27 日>
+

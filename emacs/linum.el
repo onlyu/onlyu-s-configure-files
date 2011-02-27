@@ -139,6 +139,7 @@ and you have to scroll or press C-l to update the numbers."
   (goto-char (window-start win))
   (let ((line (line-number-at-pos))
         (limit (window-end win t))
+	;;(limit (window-height win))
         (fmt (cond ((stringp linum-format) linum-format)
                    ((eq linum-format 'dynamic)
                     (let ((w (length (number-to-string

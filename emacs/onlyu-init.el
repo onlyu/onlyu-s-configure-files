@@ -2,6 +2,7 @@
 
 (require 'onlyu-help)
 (require 'onlyu-fs)
+(require 'onlyu-dict)
 
 ;;(global-set-key "\C-z" 'undo)
 ;;(global-set-key "\C-Z" 'redo)
