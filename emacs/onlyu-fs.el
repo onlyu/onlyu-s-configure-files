@@ -37,6 +37,11 @@
   (interactive)
   (fs-run "start.bat"))
 
+(defun fs-build()
+  "build fengshen's engine"
+  (interactive)
+  (fs-run "build-release.bat"))
+
 (defun fs-lua-editor()
   "start fengshen's ui editor and scene editor"
   (interactive)
