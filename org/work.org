@@ -11,7 +11,8 @@
 ** TODO 小地图寻路目标点k点
 ** TODO 好友系统bug
 ** TODO 商城界面bug
-** TODO 飞行名字缩小的bug
+** DONE 飞行名字缩小的bug
+   CLOSED: [2011-02-28 星期一 22:32]
 ** TODO 登录界面服务器加标志，玩家信息完善
    SCHEDULED: <2011-02-23 星期三>
 ** DONE 交易锁定bug
