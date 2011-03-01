@@ -13,8 +13,12 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(ac-compatible-packages-regexp "^ac-")
+ '(ac-delay 0.0)
+ '(ac-expand-on-auto-complete nil)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
+ '(fs-dir "F:/fs/trunk/" t)
  '(inverse-video t)
  '(ispell-dictionary "en")
  '(linum-delay t)
@@ -83,7 +87,7 @@
 (setq display-time-interval 10)
  
 ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
-(mouse-avoidance-mode 'animate)
+;;(mouse-avoidance-mode 'animate)
  
 ;;指针不闪，不恍花眼睛。
 (blink-cursor-mode -1)

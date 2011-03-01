@@ -9,11 +9,39 @@
    |    5 |                       |
    |    6 |                       |
    |    7 |                       | 
-** DONE 调整本地emacs配置
+** learn regex form [[~/org/regex.org][<<精通正则表达式>>]]    
+   DEADLINE: <2011-03-26 六> SCHEDULED: <2011-02-26 六>
+** TODO emebed system copy resource
+   SCHEDULED: <2011-02-27 日>
+
+
+* emacs
+** [[http://xahlee.org/emacs/elisp_idioms.html][xahlee's ariticale]]
+** [[http://xahlee.org/emacs/elisp.html][Xah Emacs Lisp Tutorial]]
+** ido-mode and anything.el
+** DONE read the source of linum, lean lisp programing
+   SCHEDULED: <2011-02-26 六> DEADLINE: <2011-02-26 六> CLOSED: [2011-02-26 六 23:09]
+*** have learned how to use emacs overlay
+*** emacs string usage
+** iswitchb-mode is good!
+** TODO write a dict for chinese
+   SCHEDULED: <2011-02-27 日>
+
+** DONE play emacs cedet
+   CLOSED: [2011-02-24 四 23:24]
+** DONE emacs auto complete
+   SCHEDULED: <2011-02-22 二> CLOSED: [2011-02-23 星期三 12:43]
+*** [[http://cx4a.org/software/auto-complete/manual.html][auto-complete manual]]
+** TODO emacs fly-make
+   SCHEDULED: <2011-02-23 星期三>
+
+
+** DONE 学习org-mode 使用
    CLOSED: [2011-02-22 二 21:20]
 ** DONE 把org目录下所有.org文件加入到agenda中
    CLOSED: [2011-02-22 二 21:20]
-** DONE 学习org-mode 使用
+
+** DONE 调整本地emacs配置
    CLOSED: [2011-02-22 二 21:20]
 ** DONE watch a video in youku.com [[http://v.youku.com/v_show/id_XNjI4MTk4ODg=.html][seven habit of editor]]
    CLOSED: [2011-02-22 二 22:00]
@@ -26,21 +54,6 @@
 
 =======
 ** a intersting viedo [[http://v.youku.com/v_show/id_XMjQxMjMzNjI4.html][org-mode git history]]
-** DONE emacs auto complete
-   SCHEDULED: <2011-02-22 二> CLOSED: [2011-02-23 星期三 12:43]
-*** [[http://cx4a.org/software/auto-complete/manual.html][auto-complete manual]]
-** TODO emacs fly-make
-   SCHEDULED: <2011-02-23 星期三>
-
-** DONE play emacs cedet
-   CLOSED: [2011-02-24 四 23:24]
-** DONE ecb
-   CLOSED: [2011-02-24 四 23:38]
-** DONE learn more about ecb
-   SCHEDULED: <2011-02-25 五> CLOSED: [2011-02-26 六 15:25]
-   ecb is not so good for use, change it someday.
-*** read the menu of ecb
-** TODO learn more about cedet
 ** DONE use emacs info mode
    SCHEDULED: <2011-02-25 五> CLOSED: [2011-02-25 五 22:16]
 *** remember the following key is enough:
@@ -52,16 +65,10 @@
 **** 1-9: menu item 1 to 9
 **** s: search 
 *** spend 5 minutes to read the menu will save a lot of time for the following use!!
-** learn regex form [[~/org/regex.org][<<精通正则表达式>>]]    
-   DEADLINE: <2011-03-26 六> SCHEDULED: <2011-02-26 六>
-** DONE read the source of linum, lean lisp programing
-   SCHEDULED: <2011-02-26 六> DEADLINE: <2011-02-26 六> CLOSED: [2011-02-26 六 23:09]
-*** have learned how to use emacs overlay
-*** emacs string usage
-** iswitchb-mode is good!
-** ido-mode and anything.el
-** TODO write a dict for chinese
-   SCHEDULED: <2011-02-27 日>
-** TODO emebed system copy resource
-   SCHEDULED: <2011-02-27 日>
-
+** DONE ecb
+   CLOSED: [2011-02-24 四 23:38]
+** DONE learn more about ecb
+   SCHEDULED: <2011-02-25 五> CLOSED: [2011-02-26 六 15:25]
+   ecb is not so good for use, change it someday.
+*** read the menu of ecb
+** TODO learn more about cedet
