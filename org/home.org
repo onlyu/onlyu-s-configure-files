@@ -62,6 +62,6 @@
 ** ido-mode and anything.el
 ** TODO write a dict for chinese
    SCHEDULED: <2011-02-27 日>
-** TODO emebed system copy resource
-   SCHEDULED: <2011-02-27 日>
+** DONE emebed system copy resource
+   SCHEDULED: <2011-02-27 日> CLOSED: [2011-02-28 一 01:36]
 
