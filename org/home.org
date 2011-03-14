@@ -72,3 +72,6 @@
    ecb is not so good for use, change it someday.
 *** read the menu of ecb
 ** TODO learn more about cedet
+
+* usefull command
+** 遍历目录删除.svn文件夹 ls  -aR | grep "\.svn:" | awk -F":" '{print $1}' | xargs rm -rf

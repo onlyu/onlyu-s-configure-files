@@ -4,7 +4,7 @@
   "emacs mode for fengshen project"
   :group 'convenience)
 
-(defcustom fs-dir "F:/fs/trunk/"
+(defcustom fs-dir "F:/fs/trunk1/"
   "the root directory of fengshen project codes"
   :group 'fs
   :type 'sexp)

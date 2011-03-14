@@ -88,4 +88,4 @@
      '(fs-dir "~/fs/trunk/"))
   ;; for windows settings
   (custom-set-variables
-   '(fs-dir "F:/fs/trunk/")))
+   '(fs-dir "F:/fs/trunk1/")))
