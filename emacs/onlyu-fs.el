@@ -4,7 +4,7 @@
   "emacs mode for fengshen project"
   :group 'convenience)
 
-(defcustom fs-dir "F:/fs/trunk/"
+(defcustom fs-dir "F:/fs/trunk1/"
   "the root directory of fengshen project codes"
   :group 'fs
   :type 'sexp)
@@ -40,6 +40,11 @@
   "start fengshen's game"
   (interactive)
   (fs-run "start.bat"))
+
+(defun fs-build()
+  "build fengshen's engine"
+  (interactive)
+  (fs-run "build-release.bat"))
 
 (defun fs-lua-editor()
   "start fengshen's ui editor and scene editor"

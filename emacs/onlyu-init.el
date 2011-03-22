@@ -87,5 +87,5 @@
     (custom-set-variables
      '(fs-dir "~/fs/trunk/"))
   ;; for windows settings
-  (customize-set-variables
-   '(fs-dir "F:/fs/trunk/")))
+  (custom-set-variables
+   '(fs-dir "F:/fs/trunk1/")))
