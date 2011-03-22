@@ -19,7 +19,7 @@
  '(ispell-dictionary "en")
  '(linum-delay t)
  '(linum-eager nil)
- '(linum-format "%3d")
+ '(linum-format "%4d")
  '(python-indent 8)
  '(standard-indent 8))
 

@@ -964,23 +964,23 @@ Returns t unless search stops due to beginning or end of buffer."
   (or arg
       (setq arg 1))
   (let ((found nil)
-                  (ret t))
+	(ret t))
     (if (and (< arg 0)
-                                 (looking-at "^function[ \t]"))
-                  (forward-char 1))
+	     (looking-at "^function[ \t]"))
+	(forward-char 1))
     (while (< arg 0)
       (if (re-search-forward "^function[ \t]" nil t)
-                         (setq arg (1+ arg)
-                                         found t)
-                  (setq ret nil
-                                  arg 0)))
+	  (setq arg (1+ arg)
+		found t)
+	(setq ret nil
+	      arg 0)))
     (if found
-                  (beginning-of-line))
+	(beginning-of-line))
     (while (> arg 0)
       (if (re-search-backward "^function[ \t]" nil t)
-                         (setq arg (1- arg))
-                  (setq ret nil
-                                  arg 0)))
+	  (setq arg (1- arg))
+	(setq ret nil
+	      arg 0)))
     ret))
 
 ;;}}}
@@ -1032,7 +1032,7 @@ This function just searches for a `end' at the beginning of a line."
   ;; wait for prompt
   (with-current-buffer lua-process-buffer
     (while (not (lua-prompt-line))
-      (accept-process-output (get-buffer-process (current-buffer)))
+ (accept-process-output (get-buffer-process (current-buffer)))
       (goto-char (point-max)))))
 
 ;;}}}

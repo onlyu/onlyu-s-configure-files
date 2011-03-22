@@ -17,6 +17,10 @@
   "fengshen engine's engine code directory"
   (concat fs-dir "fsengine"))
 
+(defun fs-init-lua-tags()
+  "init the fengshen's script tags, generate a tags table in the root directory"
+  ())
+
 (defun fs-goto-script()
   "goto the fengshen's script directory"
   (interactive)
