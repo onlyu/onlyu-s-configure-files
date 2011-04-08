@@ -62,10 +62,13 @@
 *** DONE 删除好友的二次确认
     CLOSED: [2011-03-07 星期一 12:53]
 
-*** TODO 15.好友列表内搜索功能未实现(点聊天信息栏里对方的名字加好友时，如果光标在最左方，将不能加好友)
+*** DONE 15.好友列表内搜索功能未实现(点聊天信息栏里对方的名字加好友时，如果光标在最左方，将不能加好友)
+    CLOSED: [2011-04-07 星期四 14:55]
 *** TODO 20.好友列表修改备注后显示不到
 *** TODO 21.聊天框最小化按钮功能没有,不能最小化
 
+*** DONE alt打开未读取的消息
+    CLOSED: [2011-04-07 星期四 14:57]
 ** DONE 系统设置界面
    CLOSED: [2011-03-22 星期二 14:22]
 ** TODO 新手图鉴
@@ -89,18 +92,22 @@
 ** TODO 场景相关
 *** DONE 场景人物npc头顶图标
     CLOSED: [2011-03-09 星期三 11:41]
-*** TODO fchar dir有可能为负数
-*** TODO npc走动之后无法点击
+*** DONE fchar dir有可能为负数
+    CLOSED: [2011-04-06 星期三 17:37]
+*** DONE npc走动之后无法点击
+    CLOSED: [2011-04-06 星期三 17:37]
 *** TODO 战争迷雾
     
-*** TODO 飞行抖动
-*** TODO 特效消失
+*** DONE 飞行抖动
+    CLOSED: [2011-04-06 星期三 17:37]
+*** DONE 特效消失
+    CLOSED: [2011-04-06 星期三 17:37]
 
 
 ** DONE launch 界面
    CLOSED: [2011-03-22 星期二 14:22]
-** TODO 打包程序过滤log
-   SCHEDULED: <2011-03-07 星期一>
+** DONE 打包程序过滤log
+   SCHEDULED: <2011-03-07 星期一> CLOSED: [2011-04-06 星期三 16:24]
 ** DONE 限制窗口大小
    CLOSED: [2011-03-04 星期五 14:36]
 ** DONE 团队界面加入任务状态
@@ -146,9 +153,10 @@
    DEADLINE: <2011-03-01 星期二> SCHEDULED: <2011-03-01 星期二> CLOSED: [2011-03-02 星期三 12:09]
 ** DONE 组队队伍人满之后队伍图标变色
    SCHEDULED: <2011-03-02 星期三> CLOSED: [2011-03-02 星期三 23:40]
-** TODO 组队邀请消息显示在左边的队伍提示信息    
-   DEADLINE: <2011-03-10 星期四>
-** TODO 运维crash问题
+** DONE 组队邀请消息显示在左边的队伍提示信息    
+   DEADLINE: <2011-03-10 星期四> CLOSED: [2011-04-06 星期三 16:20]
+** DONE 运维crash问题
+   CLOSED: [2011-04-06 星期三 16:20]
 
 ** DONE 头像
    CLOSED: [2011-03-02 星期三 12:25]
@@ -168,20 +176,26 @@
 ** TODO 配置文件
 ** DONE 模态框
    CLOSED: [2011-03-21 星期一 10:31]
-** TODO 物品拆分
-** TODO 系统设置
+** DONE 物品拆分
+   CLOSED: [2011-03-25 星期五 10:58]
+** DONE 系统设置
+   CLOSED: [2011-04-06 星期三 16:20]
 ** DONE 目标头像右键菜单
    CLOSED: [2011-03-15 星期二 21:17]
 
 ** TODO 退出战斗之后继续自动寻路
-** TODO 系统配置文件
+** DONE 系统配置文件
+   CLOSED: [2011-04-06 星期三 16:20]
 ** DONE 缓存名字和称谓的颜色
    CLOSED: [2011-03-22 星期二 14:23]
-** TODO 脚本报错
+** DONE 脚本报错
+   发送到web服务器方便查看
+   CLOSED: [2011-03-24 星期四 11:10]
 ** DONE 组队加追踪
    CLOSED: [2011-03-21 星期一 13:50]
 ** TODO 小地图加等级提示
-** TODO 掉线之后退出到登录界面
+** DONE 掉线之后退出到登录界面
+   CLOSED: [2011-03-24 星期四 15:55]
 
 ** DONE 屏蔽字库
    CLOSED: [2011-03-21 星期一 19:52]
@@ -191,5 +205,31 @@
    CLOSED: [2011-03-21 星期一 23:09]
 ** DONE 邀请组队界面无法关闭
    CLOSED: [2011-03-21 星期一 23:09]
-** TODO 装备图标拆成小图标
-** TODO 好友系统好友多了的话会卡
+** DONE 装备图标拆成小图标
+   CLOSED: [2011-03-29 星期二 11:55]
+** DONE 好友系统好友多了的话会卡
+   CLOSED: [2011-03-24 星期四 11:09]
+
+** TODO 受击音效
+** DONE 组队飞行落到阻挡，队员留到空中(耗子修改)
+   CLOSED: [2011-03-25 星期五 11:08]
+** TODO 成就界面
+
+
+server
+* 183.62.45.75
+* 32222
+* key 
+---- BEGIN SSH2 PUBLIC KEY ----
+AAAAB3NzaC1kc3MAAACBALS6/qunRm268oMokzzIYtIy5KQtClzThUk0NKe6GwWT3TUz
+Krs6kNgYEVRBfLzm1t91caLlY5CH+il2hPRHnwt8UlHuZEYjj/zgKoWFwiSZJ85ylXNH
+WraovMWDpi9AWxHLNVkA1aH21CaH7Z1QCYEAiI+5gnO/WxSAOj6n9vcNAAAAFQC1lKnd
+Ub0Irz0X1nF5uR/GdOV3UQAAAIAJv+wAZL2885ZZ7DJ2d1FHbGmQz+dM2K1W7cf0BZCw
+kVl3hGmousfX0GChkrLPkavJRVS/zEQtIta2Tu2a8Dxdi1E1qBpVNmJjtTDUmUlPWv2s
+ImdpUMMQmgKqyhLEv4hJtirMvrL6lWsMt3jsdVCbxsDhJmAw38ts4T6YsyOTSQAAAIBo
+9zy0tyaOuA2gd0o2VxRyz7GMEkxAPXoZuEz32m1fQjxelGlG/IcxqjGDfoi/U2qslMnL
+JLbIeca+JB2NvzQZJ/qMh2rl0enxqoLfqTZajL9zZatRiRF8uB4noILI3TxJHt0aRsru
+2tHswb7zsHCvhSD1TdwgojOCtIFxwhWPGA==
+---- END SSH2 PUBLIC KEY ----
+
+
