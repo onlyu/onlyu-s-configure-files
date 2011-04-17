@@ -1,0 +1,13 @@
+* www.net.cn
+** usr:53541835
+** pwd:zhang53541835
+
+
+* http://cp.hichina.com/login.aspx
+** while1
+** hichina2012
+
+* ftp
+** ip:121.199.9.137
+** usr:zf73o1
+** pwd:hichina2012
