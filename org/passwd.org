@@ -10,3 +10,6 @@
 ** pwd:hichina2012
 * 175game.org
 ** pwd:175game2012
+* nusm1i1.chinaw3.com 
+** pwd:net2012
+** ip:112.126.111.53
