@@ -9,6 +9,7 @@ my $cgi = new CGI;
 my $mid = $cgi->param("mid");
 my $pid = $cgi->param("pid");
 
+# this is for debug
 if(not defined($mid)){
     $mid = 1;
     $pid = 2;
