@@ -89,3 +89,5 @@
   ;; for windows settings
   (custom-set-variables
    '(fs-dir "F:/fs/trunk/")))
+;; cscope
+(require 'xcscope)
