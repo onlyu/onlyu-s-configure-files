@@ -4,8 +4,9 @@
 (require 'onlyu-fs)
 (require 'onlyu-dict)
 
-;;(global-set-key "\C-z" 'undo)
-;;(global-set-key "\C-Z" 'redo)
+;;(require 'redo)
+
+;;(global-set-key "\C-\S-z" 'redo)
 
 ;; add .org file to agenda
 (setq org-agenda-files (file-expand-wildcards "~/org/*.org"))
@@ -70,6 +71,8 @@
 (define-key ctl-x-map "r\C-w" 'rm-kill-region)
 (define-key ctl-x-map "r\M-w" 'rm-kill-ring-save)
 (define-key global-map [S-down-mouse-1] 'rm-mouse-drag-region)
+
+
 (autoload 'rm-set-mark "rect-mark"
   "Set mark for rectangle." t)
 (autoload 'rm-exchange-point-and-mark "rect-mark"

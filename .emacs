@@ -1,4 +1,4 @@
-;; -*-mode:lisp-interaction-*- -*- coding: gbk-dos -*-
+;; -*-code:lisp-interaction-*- -*- coding: gbk-dos -*-
 
 ;; load path
 (add-to-list 'load-path "~/emacs/")
@@ -93,9 +93,6 @@
 (blink-cursor-mode -1)
 (transient-mark-mode 1)
 
-;; 显示行号切换
-(global-set-key [C-f6] 'global-linum-mode)
- 
 ;;语法加亮
 (global-font-lock-mode t)
 
@@ -109,6 +106,11 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)) 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+;; fix the backspace problem
+(global-set-key [?\C-h] 'delete-backward-char)
+(global-set-key [?\C-x ?h] 'help-command)
+
+                           ;; overrides mark-whole-buffer
 (setq org-log-done t)
 
 
@@ -150,15 +152,16 @@
 (setq mac-control-modifier nil)
 
 ;; 不使用alt键执行命令
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
+(global-set-key "\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-c\C-k" 'kill-region)
+(global-set-key "\C-z" 'undo)
 
-;(global-set-key (kbd "C-,") 'beginning-of-buffer)
-;(global-set-key (kbd "C-.") 'end-of-buffer) 
+(global-set-key "\M-a" 'beginning-of-buffer)
+(global-set-key "\M-e" 'end-of-buffer)
+
+;; (global-set-key (kbd "C-,") 'beginning-of-buffer)
+;; (global-set-key (kbd "C-.") 'end-of-buffer) 
 
 ; for macro
 (global-set-key [f5] 'call-last-kbd-macro)
