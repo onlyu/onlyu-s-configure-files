@@ -4,9 +4,7 @@
 (require 'onlyu-fs)
 (require 'onlyu-dict)
 
-;;(require 'redo)
-
-;;(global-set-key "\C-\S-z" 'redo)
+(require 'redo)
 
 ;; add .org file to agenda
 (setq org-agenda-files (file-expand-wildcards "~/org/*.org"))
@@ -25,26 +23,10 @@
 
 (setq rj-ring-length 10000)
 (require 'recent-jump)
-(global-set-key (kbd "M-,") 'recent-jump-backward)
-(global-set-key (kbd "M-.") 'recent-jump-forward)
-
-(global-set-key (kbd "C-,") 'beginning-of-buffer)
-(global-set-key (kbd "C-.") 'end-of-buffer)
-
 ;; lua-mode 
 (require 'lua-mode)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-
-;; cedet 
-;; (load-file "~/emacs/cedet/common/cedet.el")
-;; (global-ede-mode 1)                      ; Enable the Project management system
-;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
-
-;; ecb
-;; (add-to-list 'load-path "~/emacs/ecb/")
-;; (require 'ecb-autoloads)
 
 
 (require 'ido)
@@ -94,3 +76,44 @@
    '(fs-dir "F:/fs/trunk/")))
 ;; cscope
 (require 'xcscope)
+
+;; key binddings
+;; 不使用alt键执行命令
+
+(defun kill-line-or-region()
+  (interactive)
+  (let (pos1 pos2)
+    (if (and transient-mark-mode mark-active)
+	(progn
+	  (setq pos1 (region-beginning) pos2 (region-end))
+	  (kill-region pos1 pos2))
+      (kill-line 1))
+  ))
+
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\M-=" 'redo)
+(global-set-key "\M--" 'undo)
+(global-set-key "\C-k" 'kill-line-or-region)
+
+(global-set-key "\M-p" 'beginning-of-buffer)
+(global-set-key "\M-n" 'end-of-buffer)
+
+(global-set-key "\M-m" 'execute-extended-command)
+
+;; other window use c-o
+(global-set-key "\C-o" 'other-window)
+
+;; use \C-i for backward delete char, do not use backspace or delete
+;; because of portable problem
+;;(global-set-key "\C-i" 'delete-backward-char)
+
+;; for search
+(global-set-key "\M-s" 'isearch-forward-regexp)
+(global-set-key "\M-r" 'isearch-backward-regexp)
+;;(global-set-key "\M-s" 'isearch-forward)
+;;(global-set-key "\M-r" 'isearch-backward)
+;;(global-set-key "\M-s" 'save-buffer)
+
+;; make select region more effective
+;; (global-set-key "\M- " 'set-mark-command)
+(global-set-key [deletechar] 'delete-backward-char)

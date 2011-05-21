@@ -1,8 +1,5 @@
-;; -*-code:lisp-interaction-*- -*- coding: gbk-dos -*-
-
 ;; load path
 (add-to-list 'load-path "~/emacs/")
-
 ;; color theme
 (require 'color-theme)
 (color-theme-initialize)
@@ -106,11 +103,6 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)) 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-;; fix the backspace problem
-(global-set-key [?\C-h] 'delete-backward-char)
-(global-set-key [?\C-x ?h] 'help-command)
-
-                           ;; overrides mark-whole-buffer
 (setq org-log-done t)
 
 
@@ -151,24 +143,12 @@
 (setq mac-option-modifier 'ctl)
 (setq mac-control-modifier nil)
 
-;; 不使用alt键执行命令
-(global-set-key "\C-m" 'execute-extended-command)
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-z" 'undo)
-
-(global-set-key "\M-a" 'beginning-of-buffer)
-(global-set-key "\M-e" 'end-of-buffer)
 
 ;; (global-set-key (kbd "C-,") 'beginning-of-buffer)
 ;; (global-set-key (kbd "C-.") 'end-of-buffer) 
 
 ; for macro
 (global-set-key [f5] 'call-last-kbd-macro)
-
-; for search
-(global-set-key "\M-s" 'isearch-forward-regexp)
-(global-set-key "\M-r" 'isearch-backward-regexp)
 
 ;; command alias
 (defalias 'gf 'grep-find)
