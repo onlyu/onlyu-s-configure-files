@@ -2,7 +2,6 @@ set number
 map <space> <c-f>
 map <backspace> <c-b>
 syntax on
-colorscheme putty
 set number
 set incsearch
 set ruler
@@ -25,6 +24,7 @@ function Set_color_scheme_by_time()
 	echo colors_name
 endfunction
 
-
+set st=4
+set sw=4
 set foldcolumn=3
 set foldmethod=syntax
