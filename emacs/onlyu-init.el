@@ -78,7 +78,7 @@
 (require 'xcscope)
 
 ;; key binddings
-;; 不使用alt键执行命令
+;; 涓嶄娇鐢╝lt閿墽琛屽懡浠�
 
 (defun kill-line-or-region()
   (interactive)
@@ -105,7 +105,7 @@
 
 ;; use \C-i for backward delete char, do not use backspace or delete
 ;; because of portable problem
-;;(global-set-key "\C-i" 'delete-backward-char)
+;;(global-set-key "\C-i" 'deletebackward-char)
 
 ;; for search
 (global-set-key "\M-s" 'isearch-forward-regexp)
@@ -117,3 +117,4 @@
 ;; make select region more effective
 ;; (global-set-key "\M- " 'set-mark-command)
 (global-set-key [deletechar] 'delete-backward-char)
+(global-set-key "\C-h" 'delete-backward-char)
