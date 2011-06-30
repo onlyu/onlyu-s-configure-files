@@ -29,21 +29,3 @@ set sw=4
 set foldcolumn=3
 set foldmethod=syntax
 
-if has("cscope")
-	set csprg=/usr/local/bin/cscope
-	set csto=0
-	set cst
-	set nocsverb
-	" add any database in current directory
-	if filereadable("~/trunk/cscope.out")
-	cs add ~/trunk/cscope.out
-	" else add database pointed to by environment
-	elseif $CSCOPE_DB != ""
-	cs add $CSCOPE_DB
-	endif
-	set csverb
-endif
-
-map g<C-]> :cs find 3 <C-R>=expand("<cword>")<CR><CR>
-map g<C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
-

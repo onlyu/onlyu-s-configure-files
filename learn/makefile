@@ -1,3 +1,4 @@
+CC=gcc
 CFLAGS=-g -I/usr/local/include
 CPPFLAGS=-g -I/usr/local/include
 LDFLAGS=-lgtest -L/usr/local/lib
