@@ -23,6 +23,10 @@ function! FlyMake(checker, err_regexp, warn_regexp)
 	if expand("%:e") != "c"
 		return
 	endif
+	
+	if expand('%:p') =~ '.*trunk/logic.*' 
+		return
+	endif
   call FlyMakeCloseWindows()
 
   " copy source files in build_dir into temp_dir
