@@ -26,6 +26,8 @@ endfunction
 
 set ts=4
 set sw=4
-set foldcolumn=3
-set foldmethod=syntax
-
+"set foldcolumn=3
+"set foldmethod=syntax
+"set auto save buffer
+set autowriteall
+pyfile ~/.vim/plugin/vim.py
