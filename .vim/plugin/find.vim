@@ -160,6 +160,9 @@ echon("file:(" + join_file_name(search_list) + ")" + search_string)
 
 while True:
 	char = getchar()
+	if char == 10: # ctrl + j
+		vim.command("e " + search_string)
+		break
 	if char == 13:
 		if len(search_list) != 0:
 			file_name = search_list.pop()
