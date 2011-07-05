@@ -13,11 +13,25 @@
 
 " Install command and default key mapping
 if !exists(":Buffer")
-  command Buffer :call <SID>buffer()
+  	command Buffer :call <SID>buffer()
 endif
 
 if !hasmapto("<Plug>Buffer")
     nmap <C-X>b :Buffer<CR>
+endif
+
+if !exists(":File")
+	command File :call <SID>file()
+endif
+
+if !hasmapto("<Plug>File")
+	nmap <C-X>f :File<CR>
+endif
+
+" load vim.py
+if !exists('g:loaded_python_lib') 
+	pyfile ~/.vim/plugin/vim.py
+	let g:loaded_flymake = 1
 endif
 
 python << EOF
@@ -107,6 +121,77 @@ while True:
 		sorted_list = sort_buffer_list(sorted_list, search_name)
 	buf_str = build_buffer_string(sorted_list)
 	echon("\r                      ")
-	echon("\rfind:(" + buf_str + ")" + search_name)
+	echon("\rbuffer:(" + buf_str + ")" + search_name)
+EOF
+endfunction
+
+function! <SID>file()
+python << EOF
+import os
+def join_file_name(files):
+	ret = "|".join(files)
+	if len(ret)>40:
+		return "..." + ret[ len(ret) - 40:]
+	return ret
+
+def get_ratio_func(search):
+	def ratio_func(file_name):
+		matcher = difflib.SequenceMatcher(None, file_name, search)
+		return matcher.ratio()
+	return ratio_func
+
+def sort_file_name(search):
+	return sorted(os.listdir(os.path.dirname(search)), key=get_ratio_func(os.path.basename(search)))
+
+
+current_file = bufname(current_buffer_id())
+current_dir = ""
+search_list = []
+search_string = ""
+if os.path.isdir(current_file):
+	current_dir = current_file
+else:
+	current_dir = os.path.dirname(current_file)
+
+search_string = current_dir + "/"
+search_list = os.listdir(current_dir) 
+
+echon("file:(" + join_file_name(search_list) + ")" + search_string)
+
+while True:
+	char = getchar()
+	if char == 13:
+		if len(search_list) != 0:
+			file_name = search_list.pop()
+			file_path = os.path.dirname(search_string) + "/" + file_name
+			if os.path.exists(file_path):
+				vim.command("e "+file_path)
+		break
+	if char == 27: #esc
+		echon("\r                                                                 ")
+		break
+	if char == 8: # backspace  
+		search_string = search_string[:-1]
+	elif char == 23: # ctrl+w
+		search_string = search_string.rstrip("/")
+		search_string = os.path.dirname(search_string) + "/"
+	elif char == 9: # tab
+		if len(search_list) != 0:
+			file_name = search_list.pop()
+			file_path = os.path.dirname(search_string) + "/" + file_name
+			if os.path.isdir(file_path):
+				file_path += "/"
+			search_string = file_path 
+	elif chr(char) == '/':
+		search_string = '/'
+	elif chr(char) == '~':
+		search_string = '~'
+	else:
+		search_string += chr(char)
+
+	search_list = sort_file_name(search_string)
+	echon("\r                      ")
+	echon("\rfile:(" + join_file_name(search_list) + ")" + search_string)
+
 EOF
 endfunction

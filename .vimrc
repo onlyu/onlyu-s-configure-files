@@ -30,4 +30,4 @@ set sw=4
 "set foldmethod=syntax
 "set auto save buffer
 set autowriteall
-pyfile ~/.vim/plugin/vim.py
+"pyfile ~/.vim/plugin/vim.py
