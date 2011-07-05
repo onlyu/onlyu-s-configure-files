@@ -12,12 +12,12 @@
 
 
 " Install command and default key mapping
-if !exists(":Find")
-  command Find :call <SID>find()
+if !exists(":Buffer")
+  command Buffer :call <SID>buffer()
 endif
 
-if !hasmapto("<Plug>Find")
-    nmap <C-X>b :Find<CR>
+if !hasmapto("<Plug>Buffer")
+    nmap <C-X>b :Buffer<CR>
 endif
 
 python << EOF
@@ -39,7 +39,10 @@ def build_buffer_string(buffer_list):
 	str = ""
 	for buf in buffer_list:
 		str = "|" + buffer_base_name(buf) + str
-	return str.lstrip('|')
+	str = str.lstrip('|')
+	if len(str)>40:
+		str = "..." + str[len(str) - 40:]
+	return str
 
 def shift_buffer_list(buf_list):
 	if len(buf_list) < 2:
@@ -69,7 +72,7 @@ EOF
 " silent buffer [buffer-number]
 "
 
-function! <SID>find()
+function! <SID>buffer()
 python << EOF
 search_name = ""
 current = current_buffer_id()
