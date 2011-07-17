@@ -22,6 +22,15 @@ function draw_all(){
 	draw([
 		%average_delay_data%
 		], 'average_delay_div', 'average_delay')
+	draw_pie([
+			%range_fps_data%
+			], "fps_range_div", "fps_range")
+	draw_pie([
+			%range_last_delay_data%
+			], "last_delay_range_div", "last_delay_range")
+	draw_pie([
+			%range_average_delay_data%
+			], "average_delay_range_div", "average_delay_range")
 }
 // Callback that creates and populates a data table, 
 // instantiates the pie chart, passes in the data and
@@ -40,6 +49,21 @@ function draw(data_, div_name, name) {
 	google.visualization.events.addListener(barsVisualization, 'onmouseout', barMouseOut);
 }
 
+function draw_pie(data_, div_name, name) {
+	var data = new google.visualization.DataTable();
+	data.addColumn('string', 'fps');
+	data.addColumn('number', name);
+	data.addRows(data_);
+
+	barsVisualization = new google.visualization.PieChart(document.getElementById(div_name));
+	barsVisualization.draw(data, {width:800, height:600});
+
+	// Add our over/out handlers.
+	google.visualization.events.addListener(barsVisualization, 'onmouseover', barMouseOver);
+	google.visualization.events.addListener(barsVisualization, 'onmouseout', barMouseOut);
+}
+
+
 function barMouseOver(e) {
 	barsVisualization.setSelection([e]);
 }
@@ -53,7 +77,10 @@ function barMouseOut(e) {
   <body>
     <!--Div that will hold the pie chart-->
     <div id="fps_div"></div>
+    <div id="fps_range_div"></div>
     <div id="last_delay_div"></div>
+    <div id="last_delay_range_div"></div>
     <div id="average_delay_div"></div>
+    <div id="average_delay_range_div"></div>
   </body>
 </html>

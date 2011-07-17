@@ -42,9 +42,9 @@ def build_buffer_list():
 	buffer_list = buffers()
 	current = current_buffer_id()
 	last = last_buffer_id()
-	if current>0:
+	if bufexists(current):
 		buffer_list.remove(current)
-	if last>0:
+	if bufexists(last):
 		buffer_list.remove(last)
 		buffer_list.insert(0, last)
 	return buffer_list
@@ -163,17 +163,22 @@ while True:
 	if char == 10: # ctrl + j
 		vim.command("e " + search_string)
 		break
-	if char == 13:
+	elif char == 13:
 		if len(search_list) != 0:
 			file_name = search_list.pop()
 			file_path = os.path.dirname(search_string) + "/" + file_name
 			if os.path.exists(file_path):
-				vim.command("e "+file_path)
-		break
-	if char == 27: #esc
+				if os.path.isdir(file_path):
+					search_string = file_path + "/"
+				else:
+					vim.command("e "+file_path)
+					break
+			else:
+				break
+	elif char == 27: #esc
 		echon("\r                                                                 ")
 		break
-	if char == 8: # backspace  
+	elif char == 8: # backspace  
 		search_string = search_string[:-1]
 	elif char == 23: # ctrl+w
 		search_string = search_string.rstrip("/")
