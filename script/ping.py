@@ -63,13 +63,16 @@ def usage():
 	show the help message
 (-f file, --file file) 
 	set the file to process
+(-u filter_file, --user filter_file)
+	just show the users in filter_file
 '''
 
 
 def main(argv):
 	file_name = None
+	filter_file = None
 	try:
-		opts,args = getopt.getopt(argv, "hf:", ["help", "file="])
+		opts,args = getopt.getopt(argv, "hf:u:", ["help", "file=", "user="])
 	except getopt.GetoptError:
 		usage()
 		sys.exit(-1)
@@ -80,6 +83,8 @@ def main(argv):
 			sys.exit()
 		elif opt in ("-f", "--file"):
 			file_name = arg
+		elif opt in ("-u", "--user"):
+			filter_file = arg
 		else:
 			print 'not support argument option:',opt
 			usage()
@@ -88,9 +93,17 @@ def main(argv):
 	if not file_name :
 		usage()
 		sys.exit()
+
+	filter_array = []	
+	if filter_file:
+		with open(filter_file, "r") as f:
+			filter_array = [ int(line) for line in f.readlines()]	
+	#print filter_array
 	
 	records = process(file_name)
 	
+	records = [record for record in records if record[0] in filter_array]
+
 	statics_fps = statics(records, 1)
 	statics_last_delay = statics(records, 2)
 	statics_average_delay = statics(records, 3)
@@ -101,8 +114,8 @@ def main(argv):
 
 
 	statics_range_fps = statics_range(records, 1, [24])
-	statics_range_last_delay = statics_range(records, 2, [200, 1000])
-	statics_range_average_delay = statics_range(records, 3, [200, 1000])
+	statics_range_last_delay = statics_range(records, 2, [200, 500, 1000])
+	statics_range_average_delay = statics_range(records, 3, [200, 500, 1000])
 	
 	print statics_range_fps
 	print statics_range_last_delay
