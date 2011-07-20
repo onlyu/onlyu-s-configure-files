@@ -5,6 +5,7 @@ import ConfigParser
 import sys
 import ch2py
 import os
+import inspect
 
 #用于得到数据的列表
 server_list = []
@@ -73,11 +74,15 @@ def is_number(number):
 		else:
 				return 0
 
+def current_path():
+	current_file = inspect.getfile(inspect.currentframe())
+	return os.path.dirname(current_file)
+
 def process():
 	global server_set
 	#读取配置文件
 	config = ConfigParser.ConfigParser()
-	config.read('snet.ini')
+	config.read(current_path() + '/snet.ini')
 	securecrt_path = config.get('global', 'securecrt_path')
 	username = config.get('global', 'username')
 	port = config.get('global', 'port')

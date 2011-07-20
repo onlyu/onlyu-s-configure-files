@@ -2,6 +2,7 @@
 
 import os,sys
 import string
+import inspect
 
 dict = {}
 inited = False
@@ -11,7 +12,8 @@ pinyinfile="picac_pinyin.txt"
 
 def build_dict():
 	global dict, inited
-	input = file(pinyinfile)
+	file_path = inspect.getfile(inspect.currentframe())
+	input = file(os.path.dirname(file_path) + "/" + pinyinfile)
 
 	for line in input.read().splitlines():
 		if len(line.strip()) == 0: continue
@@ -44,7 +46,8 @@ def ch2pr(ch):
 	return pr
 
 def word_2_pinyin():
-	for x in file(wordfile).readlines():
+	file_path = inspect.getfile(inspect.currentframe())
+	for x in file(os.path.dirname(file_path) + "/" + wordfile).readlines():
 			print x.strip(), ch2pr(x)
 
 if __name__ == '__main__':
