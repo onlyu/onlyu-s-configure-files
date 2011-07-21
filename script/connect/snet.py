@@ -1,3 +1,4 @@
+#! /usr/bin/python 
 # -*- coding: gbk -*-
 import urllib2
 import subprocess
@@ -5,6 +6,7 @@ import ConfigParser
 import sys
 import ch2py
 import os
+import inspect
 
 #用于得到数据的列表
 server_list = []
@@ -61,30 +63,54 @@ def parse_server_list(product):
 	#print server_set
 
 def is_number(number):
-		#if number is a number,return 1,other than return 0.a
-		number_type = type(number)
-		if  number_type == int:
-				return 1
-		elif number_type == str:
-				if number.isdigit() == True:
-						return 1
-				else:
-						return 0
-		else:
-				return 0
+	try:
+		int(number)
+		return True
+	except:
+		return False
+
+def current_path():
+	current_file = inspect.getfile(inspect.currentframe())
+	return os.path.dirname(current_file)
+
+def ssh_openssh(config, ip):
+	username = config.get('global', 'username')
+	os.system("ssh -F ~/.ssh/config " + ip + " -l " + username)
+
+def ssh_securecrt(config, ip):
+	securecrt_path = config.get('global', 'securecrt_path')
+	username = config.get('global', 'username')
+	port = config.get('global', 'port')
+	auth = config.get('global', 'auth')
+	newtab = config.get('global', 'newtab')
+	crt_ver = config.get('global', 'crt_ver')
+
+	server_name = ip 
+	if crt_ver =="6":
+		CMD_LINE = '"%s" /N %s /L "%s" /P %s  /AUTH "%s" ' % (securecrt_path, server_name, username, port, auth)
+	else:
+		CMD_LINE = '"%s" /L "%s" /P %s  /AUTH "%s" ' % (securecrt_path, username, port, auth)
+
+	if newtab == "1":
+		CMD_LINE += " /T "
+	subprocess.Popen(CMD_LINE + ip)
+
+def ssh(config, ip):
+	client = config.get('global', 'client')
+	if client == "openssh":
+		return ssh_openssh(config, ip)
+	elif client == "securecrt":
+		return ssh_securecrt(config, ip)
+	else:
+		print "client not configure: must be 'openssh' or 'securecrt'"
+		return -1
 
 def process():
 	global server_set
 	#读取配置文件
 	config = ConfigParser.ConfigParser()
-	config.read('snet.ini')
-	securecrt_path = config.get('global', 'securecrt_path')
-	username = config.get('global', 'username')
-	port = config.get('global', 'port')
-	auth = config.get('global', 'auth')
+	config.read(current_path() + '/snet.ini')
 	product = config.get('global', 'product')
-	newtab = config.get('global', 'newtab')
-	crt_ver = config.get('global', 'crt_ver')
 	
 	#得到列表
 	open_http("fs")
@@ -108,27 +134,15 @@ def process():
 			if not server_set.has_key(user_input):
 				print "没有这个hostid"
 				continue
-			#ip, py_name, cname, tag
 			ip = server_set[user_input][0]
-			server_name = user_input + "@" + server_set[user_input][2] +"@" + ip
-			'''		
-			if crt_ver =="6":
-				CMD_LINE = '"%s" /N %s /L "%s" /P %s  /AUTH "%s" ' % (securecrt_path, server_name, username, port, auth)
-			else:
-				CMD_LINE = '"%s" /L "%s" /P %s  /AUTH "%s" ' % (securecrt_path, username, port, auth)
-
-			if newtab == "1":
-				CMD_LINE += " /T "
-			'''	
-			openssh = True
-			if openssh:
-				CMD_LINE = "ssh -F ~/.ssh/config " + ip + " -l " + username	
-			print CMD_LINE
-
-			#print CMD_LINE, ip	
-			#subprocess.Popen(CMD_LINE)
-			os.system(CMD_LINE)
-
+			ssh(config, ip)
+		elif user_input in ("game", "sync"):
+			ip_table = {
+						"game":"192.168.0.8",
+						"sync":"192.168.0.9",
+						}
+			ip = ip_table[user_input]
+			ssh(config, ip)
 		else :
 			print "输入错误"
 
