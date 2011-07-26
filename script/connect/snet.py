@@ -75,7 +75,8 @@ def current_path():
 
 def ssh_openssh(config, ip):
 	username = config.get('global', 'username')
-	os.system("ssh -F ~/.ssh/config " + ip + " -l " + username)
+	cmd = "ssh -F ~/.ssh/config " + ip + " -l " + username
+	os.system(cmd)
 
 def ssh_securecrt(config, ip):
 	securecrt_path = config.get('global', 'securecrt_path')

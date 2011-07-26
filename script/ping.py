@@ -101,8 +101,8 @@ def main(argv):
 	#print filter_array
 	
 	records = process(file_name)
-	
-	records = [record for record in records if record[0] in filter_array]
+	if filter_file:	
+		records = [record for record in records if record[0] in filter_array]
 
 	statics_fps = statics(records, 1)
 	statics_last_delay = statics(records, 2)
@@ -114,8 +114,8 @@ def main(argv):
 
 
 	statics_range_fps = statics_range(records, 1, [24])
-	statics_range_last_delay = statics_range(records, 2, [200, 500, 1000])
-	statics_range_average_delay = statics_range(records, 3, [200, 500, 1000])
+	statics_range_last_delay = statics_range(records, 2, [200, 300, 400,500, 1000])
+	statics_range_average_delay = statics_range(records, 3, [200, 300, 400, 500, 1000])
 	
 	print statics_range_fps
 	print statics_range_last_delay
