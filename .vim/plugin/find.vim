@@ -193,6 +193,8 @@ while True:
 	elif chr(char) == '/':
 		if search_string[-1] == '/':
 			search_string = '/'
+		else:
+			search_string += '/'
 	elif chr(char) == '~':
 		search_string = '~'
 	else:
