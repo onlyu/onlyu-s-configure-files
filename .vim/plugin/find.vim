@@ -191,7 +191,10 @@ while True:
 				file_path += "/"
 			search_string = file_path 
 	elif chr(char) == '/':
-		search_string = '/'
+		if search_string[-1] == '/':
+			search_string = '/'
+		else:
+			search_string += '/'
 	elif chr(char) == '~':
 		search_string = '~'
 	else:

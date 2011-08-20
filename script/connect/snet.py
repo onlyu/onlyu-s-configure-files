@@ -1,5 +1,5 @@
-#! /usr/bin/python 
-# -*- coding: gbk -*-
+#!/usr/bin/python 
+#-*- coding: gbk -*-
 import urllib2
 import subprocess
 import ConfigParser
