@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+<title>WebSocket & Node.JS Test Page</title>
+<style>
+        #iostat {
+          width: 500px;
+          height: 300px;
+          overflow-y: auto;
+          background-color: black;
+          color: white;
+          padding-left: 30px;
+          margin: 0,auto;
+        }
+</style>
+</head>
+<body>
+<div id="iostat"></div>
+<script>
+var hostname = "127.0.0.1";
+var port = 8888;
+var url = "ws://"+hostname+":"+port+"/echo";
+w = new WebSocket(url);
+
+w.onopen = function() {
+}
+
+w.onmessage = function(e) {
+        var msg = e.data;
+        var ms = msg.split("%idle");
+        msg = ms.join("%idle <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+       
+        var iostat = document.getElementById("iostat");
+        var p = document.createElement("p");
+        p.innerHTML = msg;
+        iostat.appendChild(p);
+        iostat.scrollTop = iostat.scrollHeight;
+}
+
+w.onclose = function(e) {
+}
+</script>
+
+</body>
+</html>

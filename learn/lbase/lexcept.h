@@ -58,7 +58,7 @@ void lexcept_raise(const lexcept_t *e, const char *file, int line);
 #define L_END_TRY \
 		if ( except_flag == lexcept_entered )\
 			except_stack = except_stack->prev;\
-	} if ( except_flag == lexcept_raised ){ L_RERAISE; }\	
+	} if ( except_flag == lexcept_raised ){ L_RERAISE; }\
 } while (0);
 
 // raise a exception

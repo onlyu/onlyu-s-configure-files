@@ -11,7 +11,7 @@ extern void lset_free(lset_t *set);
 extern int lset_length(lset_t set);
 extern int lset_member(lset_t set, const void *member);
 extern void lset_put(lset_t set, const void *member);
-extern void lset_remove(lset_t set, const void *member);
+extern void *lset_remove(lset_t set, const void *member);
 
 extern void lset_map(lset_t set,
 					 void apply(const void *member, void *cl),

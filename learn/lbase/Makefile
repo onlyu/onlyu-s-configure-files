@@ -4,7 +4,7 @@ CPPFLAGS	= -g -I/usr/local/include
 LDFLAGS		= -lgtest -L/usr/local/lib
 BINS 		= lbase.lib
 SRCS		= *.c
-OBJS		= larith.o lstack.o lexcept.o lassert.o latom.o lmem.o lmemchk.o larena.o llist.o ltable.o lset.o
+OBJS		= larith.o lstack.o lexcept.o lassert.o latom.o lmem.o lmemchk.o larena.o llist.o ltable.o lset.o larray.o lseq.o lring.o
 
 all:$(BINS)
 

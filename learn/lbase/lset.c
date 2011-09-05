@@ -22,9 +22,9 @@ static int cmpatom(const void *x, const void *y)
 	return x != y;
 }
 
-static int hashatom(const void *x)
+static unsigned hashatom(const void *x)
 {
-	return (unsigned long) x >> 2;
+	return (unsigned) x >> 2;
 }
 
 lset_t lset_new(int hint,
@@ -101,7 +101,7 @@ void *lset_remove(lset_t set, const void *member)
 	for (pp = &set->buckets[i]; *pp; pp = &(*pp)->link){
 		if((*set->cmp)(member, (*pp)->member) == 0) {
 			struct member *p = *pp;
-			**pp = p->link;
+			**pp = *p->link;
 			member = p->member;
 			L_FREE(p);
 			set->length --;
@@ -160,7 +160,7 @@ void **lset_to_array(lset_t set, void *end)
 	lassert(set);
 	array = L_ALLOC((set->length + 1) * sizeof (*array));
 	for (i = 0; i < set->size; i++)
-		for (p = buckets[i]; p; p = p->link)
+		for (p = set->buckets[i]; p; p = p->link)
 			array[j++] = (void *)p->member;
 
 	array[j] = end;
@@ -168,10 +168,9 @@ void **lset_to_array(lset_t set, void *end)
 }
 
 #define FOR_EACH(q, t) \
-	int i;
-	struct member *##q;
-	for (i = 0; i < t->size; i++)
-		for (##q = t->bluckets[i]; ##q; ##q = ##q->link)
+	int i;\
+	for (i = 0; i < t->size; i++)\
+		for (q = t->buckets[i]; q; q = q->link)
 
 #define ADD_TO_SET(q, set)\ 
 	{ \
@@ -193,6 +192,7 @@ static lset_t copy(lset_t t, int hint)
 	lassert(t);
 	set = lset_new(hint, t->cmp, t->hash);
 	{
+		struct member *q;
 		FOR_EACH(q, t) {
 			ADD_TO_SET(q, set);
 		}
@@ -211,6 +211,7 @@ lset_t lset_union(lset_t s, lset_t t)
 		lset_t set = copy(s, larith_max(s->size, t->size));
 		lassert(s->cmp == t->cmp && s->hash == t->hash);
 		{
+			struct member *q;
 			FOR_EACH(q, t){
 				lset_put(set, q->member);
 			}
@@ -224,14 +225,15 @@ lset_t lset_inter(lset_t s, lset_t t)
 	if (s == NULL){
 		lassert(t);
 		return lset_new(t->size, t->cmp, t->hash);
-	} else if (t == NULL)
+	} else if (t == NULL){
 		return lset_new(s->size, s->cmp, s->hash);
-	else if (s->length < t->length)
-		return lset_inter(t, s)
-	else{
+	}else if (s->length < t->length){
+		return lset_inter(t, s);
+	}else{
 		lset_t set = lset_new(larith_min(s->size, t->size), s->cmp, s->hash);
 		lassert(s->cmp == t->cmp && s->hash == t->hash);
 		{
+			struct member *q;
 			FOR_EACH(q, t){
 				if (lset_member(s, q->member))
 					ADD_TO_SET(q, set);
@@ -246,13 +248,13 @@ lset_t lset_minus(lset_t s, lset_t t)
 	if (s = NULL){
 		lassert(t);
 		return copy(t, t->size);
-	} else if (t == NULL)
-		lassert(s);
+	} else if (t == NULL) {
 		return copy(s, s->size);
 	} else {
 		lset_t set = lset_new(larith_min(s->size, t->size), s->cmp, s->hash);
 		lassert(s->cmp == t->cmp && s->hash == t->hash);
 		{
+			struct member *q;
 			FOR_EACH(q, t){
 				if (!lset_member(s, q->member))
 					ADD_TO_SET(q, set);
@@ -268,13 +270,13 @@ lset_t lset_diff(lset_t s, lset_t t)
 	if (s = NULL){
 		lassert(t);
 		return copy(t, t->size);
-	} else if (t == NULL)
-		lassert(s);
+	} else if (t == NULL){
 		return copy(s, s->size);
 	} else {
 		lset_t set = Set_new(larith_min(s->size, t->size), s->cmp, s->hash);
 		lassert(s->cmp == t->cmp && s->hash == t->hash);
 		{
+			struct member *q;
 			FOR_EACH(q, t){
 				if (!lset_member(s, q->member))
 					ADD_TO_SET(q, set);
@@ -282,6 +284,7 @@ lset_t lset_diff(lset_t s, lset_t t)
 		}
 		{ lset_t u = t; t = s; s = u; }
 		{
+			struct member *q;
 			FOR_EACH(q, t){
 				if (!lset_member(s, q->member))
 					ADD_TO_SET(q, set);
