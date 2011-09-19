@@ -15,22 +15,22 @@ google.setOnLoadCallback(draw_all);
 function draw_all(){
 	draw([
 		%fps_data%
-		], 'fps_div', 'fps')
+		], 'fps_div', 'fps');
 	draw([
 		%last_delay_data%
-		], 'last_delay_div', 'last_delay')
+		], 'last_delay_div', 'last_delay');
 	draw([
 		%average_delay_data%
-		], 'average_delay_div', 'average_delay')
+		], 'average_delay_div', 'average_delay');
 	draw_pie([
 			%range_fps_data%
-			], "fps_range_div", "fps_range")
+			], "fps_range_div", "fps_range");
 	draw_pie([
 			%range_last_delay_data%
-			], "last_delay_range_div", "last_delay_range")
+			], "last_delay_range_div", "last_delay_range");
 	draw_pie([
 			%range_average_delay_data%
-			], "average_delay_range_div", "average_delay_range")
+			], "average_delay_range_div", "average_delay_range");
 }
 // Callback that creates and populates a data table, 
 // instantiates the pie chart, passes in the data and
