@@ -4,4 +4,5 @@ server = http.createServer(function (req, res) {
       res.end("Hello oschina\n");  
 })  
 server.listen(8000);  
+
 console.log("httpd start @8000"); 
