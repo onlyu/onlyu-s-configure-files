@@ -1,0 +1,30 @@
+
+// When you import this file, you import all the cocos2d classes
+#import "cocos2d.h"
+
+// Application Delegate class
+@interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate, UIApplicationDelegate>
+{
+	// main UIWindow
+	// The OpenGL view will be a attached to this UIWindow
+    UIWindow *window;
+    
+    CCSprite *test1;
+    CCMultiplexLayer *layers;
+}
+
+- (void)nextFrame:(ccTime) dt;
+
+- (void) gameSettings:(id) sender;
+- (void) startGame:(id) sender;
+
+// Make the main UIWindow a property
+@property (nonatomic, retain) UIWindow *window;
+@end
+
+// HelloWorld Layer
+@interface HelloWorld : CCLayer
+{
+    CCSprite *sprite;
+}
+@end
