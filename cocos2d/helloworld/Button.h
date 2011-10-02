@@ -17,7 +17,10 @@ typedef enum  {
 @interface Button : CCLayer {
     CCNode<CCLabelProtocol, CCRGBAProtocol> *_label;
     BOOL _autoSize;
-    NSInvocation *onClick;
+    NSInvocation *onTouchBegin;
+    NSInvocation *onTouchEnded;
+    NSInvocation *onTouchCanceled;
+    NSInvocation *onTouchMoved;
 };
 
 - (void) setText:(NSString *) text;

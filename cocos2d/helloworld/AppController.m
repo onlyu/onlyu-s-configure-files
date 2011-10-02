@@ -10,6 +10,7 @@
 #import "StartMenu.h"
 #import "MainUI.h"
 #import "HelloWorld.h"
+#import "TeriesGame.h"
 
 
 //
@@ -65,7 +66,8 @@
 	// Create and initialize parent and empty Scene
 	CCScene *scene = [CCScene node];
     [scene addChild:[HelloWorld node] z:0];
-    [scene addChild:[MainUI sharedMainUI] z:1];
+    [scene addChild:[TeriesGame sharedTeriesGame] z:1];
+    [scene addChild:[MainUI sharedMainUI] z:2];
     
     // Run!
 	[director runWithScene: scene];

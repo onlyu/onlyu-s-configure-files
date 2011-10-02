@@ -23,7 +23,10 @@
 #elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
 		self.isMouseEnabled = YES;
 #endif
-        
+        onTouchBegin = nil;
+        onTouchCanceled = nil;
+        onTouchEnded = nil;
+        onTouchMoved = nil;
     }
     return self;
 }
@@ -53,30 +56,91 @@
 
 -(void) addListener:(EventCode)event target:(id)target select:(SEL)selector
 {
+    NSMethodSignature *sig = nil;
     if (event == EVENT_TOUCH_BEGIN) {
-        NSMethodSignature *sig = nil;
         if (target && selector) {
             sig = [[target class] instanceMethodSignatureForSelector:selector];
             
-            onClick = nil;
-            onClick = [NSInvocation invocationWithMethodSignature:sig];
-            [onClick setTarget:target];
-            [onClick setSelector:selector];
+            onTouchBegin = nil;
+            onTouchBegin = [NSInvocation invocationWithMethodSignature:sig];
+            [onTouchBegin setTarget:target];
+            [onTouchBegin setSelector:selector];
             if ([sig numberOfArguments] == 3) {
-                [onClick setArgument:&self atIndex:2];
+                [onTouchBegin setArgument:&self atIndex:2];
             }
-            [onClick retain];
+            [onTouchBegin retain];
+        }
+    } else if (event == EVENT_TOUCH_CANCELED) {
+        if (target && selector) {
+            sig = [[target class] instanceMethodSignatureForSelector:selector];
+            
+            onTouchCanceled = nil;
+            onTouchCanceled = [NSInvocation invocationWithMethodSignature:sig];
+            [onTouchCanceled setTarget:target];
+            [onTouchCanceled setSelector:selector];
+            if ([sig numberOfArguments] == 3) {
+                [onTouchCanceled setArgument:&self atIndex:2];
+            }
+            [onTouchCanceled retain];
+        }
+    } else if (event == EVENT_TOUCH_ENDED) {
+        if (target && selector) {
+            sig = [[target class] instanceMethodSignatureForSelector:selector];
+            
+            onTouchEnded = nil;
+            onTouchEnded = [NSInvocation invocationWithMethodSignature:sig];
+            [onTouchEnded setTarget:target];
+            [onTouchEnded setSelector:selector];
+            if ([sig numberOfArguments] == 3) {
+                [onTouchEnded setArgument:&self atIndex:2];
+            }
+            [onTouchEnded retain];
+        }
+    } else if (event == EVENT_TOUCH_MOVED) {
+        if (target && selector) {
+            sig = [[target class] instanceMethodSignatureForSelector:selector];
+            
+            onTouchMoved = nil;
+            onTouchMoved = [NSInvocation invocationWithMethodSignature:sig];
+            [onTouchMoved setTarget:target];
+            [onTouchMoved setSelector:selector];
+            if ([sig numberOfArguments] == 3) {
+                [onTouchMoved setArgument:&self atIndex:2];
+            }
+            [onTouchMoved retain];
         }
     }
 }
 
 - (void) draw
 {
+    CGSize s = self.contentSize;
+	CGPoint vertices[4]={
+		ccp(0,0),ccp(s.width,0),
+		ccp(s.width,s.height),ccp(0,s.height),
+	};
+	ccDrawPoly(vertices, 4, YES);
     [_label draw];
 }
 
 - (void) dealloc
 {
+    if (onTouchBegin) {
+        [onTouchBegin release];
+        onTouchBegin = nil;
+    }
+    if (onTouchCanceled) {
+        [onTouchCanceled release];
+        onTouchCanceled = nil;
+    }
+    if (onTouchEnded) {
+        [onTouchEnded release];
+        onTouchEnded = nil;
+    }
+    if (onTouchMoved) {
+        [onTouchMoved release];
+        onTouchEnded = nil;
+    }
     [_label release];
     [super dealloc];
 }
@@ -100,9 +164,10 @@
         r.origin = CGPointZero;
         
         if( CGRectContainsPoint( r, local ) ){
-            if (onClick) {
-                [onClick invoke];
+            if (onTouchBegin) {
+                [onTouchBegin invoke];
             }
+            
             return YES;
         }
             
@@ -114,18 +179,29 @@
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     NSLog(@"touch ended");
+    if (onTouchEnded) {
+        [onTouchEnded invoke];
+    }
+    
 	//NSAssert(state == kCCMenuStateTrackingTouch, @"[Menu ccTouchEnded] -- invalid state");
 }
 
 -(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
     NSLog(@"touch moved");
+    if (onTouchCanceled) {
+        [onTouchCanceled invoke];
+    }
+    
 	//NSAssert(state == kCCMenuStateTrackingTouch, @"[Menu ccTouchCancelled] -- invalid state");
 }
 
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     NSLog(@"touch moved");
+    if (onTouchMoved) {
+        [onTouchMoved invoke];
+    }
 	//NSAssert(state == kCCMenuStateTrackingTouch, @"[Menu ccTouchMoved] -- invalid state");
 }
 
