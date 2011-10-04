@@ -10,7 +10,7 @@
 #import "StartMenu.h"
 #import "MainUI.h"
 #import "HelloWorld.h"
-#import "TeriesGame.h"
+#import "TetrisGame.h"
 
 
 //
@@ -31,6 +31,7 @@
 // Application entry point
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    srand(time(0));
 	// CC_DIRECTOR_INIT()
 	//
 	// 1. Initializes an EAGLView with 0-bit depth format, and RGB565 render buffer
@@ -66,7 +67,7 @@
 	// Create and initialize parent and empty Scene
 	CCScene *scene = [CCScene node];
     [scene addChild:[HelloWorld node] z:0];
-    [scene addChild:[TeriesGame sharedTeriesGame] z:1];
+    [scene addChild:[TetrisGame sharedTetrisGame] z:1];
     [scene addChild:[MainUI sharedMainUI] z:2];
     
     // Run!
