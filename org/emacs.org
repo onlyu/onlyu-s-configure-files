@@ -1,0 +1,18 @@
+* aqua-emacs
+** install
+*** [[http://aquamacs.org/][Home Page]]
+** meta-key in mac Terminal
+*** go to [[Preference]]->[[Keyboard]]->[[Use option as meta key]]
+** aqua-emacs key in mac
+*** select Meta&US Keyboard
+*** Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]] [[Control]]->[[Control]]
+
+* my emacs modules
+** org-mode
+** ido-mode
+
+* my emacs files organization
+** .emacs call emacs/init.el
+** init.el -> call onlyu/custom.el, init modules
+** onlyu directory content my special files
+** ventor directory content third part packages
