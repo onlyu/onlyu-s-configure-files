@@ -17,6 +17,7 @@
 ** onlyu directory content my special files
 ** ventor directory content third part packages
 * note
+** my faviriate font: Menlo 180
 ** info mode usage 
 *** 'n' and 'p' for next chapter and previous chapter
 *** SPE and DELETE for scroll down and scroll up

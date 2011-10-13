@@ -8,6 +8,8 @@
 
 #import "StartMenu.h"
 #import "MainMenu.h"
+#import "TetrisGame.h"
+#import "AppController.h"
 
 
 @implementation StartMenu
@@ -26,9 +28,9 @@ static StartMenu *sharedStartMenu_ = NULL;
     if ((self = [super init])) {
         CCMenuItem *startGameItem = [CCMenuItemFont itemFromString: @"Start Game" target: self selector:@selector(startGameCallback:)];
         CCMenuItem *aboutItem = [CCMenuItemFont itemFromString:@"About" target:self selector:@selector(aboutCallBack:)];
-        CCMenuItem *quitGameItem = [CCMenuItemFont itemFromString:@"Quit Game" target:self selector:@selector(quitGameCallBack:)];
+        //CCMenuItem *quitGameItem = [CCMenuItemFont itemFromString:@"Quit Game" target:self selector:@selector(quitGameCallBack:)];
         
-        CCMenu *menu = [CCMenu menuWithItems:startGameItem, aboutItem, quitGameItem, nil];
+        CCMenu *menu = [CCMenu menuWithItems:startGameItem, aboutItem, nil];
         [menu alignItemsVertically];
         [self addChild:menu];
     }
@@ -38,7 +40,11 @@ static StartMenu *sharedStartMenu_ = NULL;
 - (void) startGameCallback:(id)sender
 {
     self.visible = false;
-    [MainMenu sharedMainMenu].visible = true;
+    [[MainMenu sharedMainMenu] setVisible:true];
+    TetrisGame *game = [TetrisGame sharedTetrisGame];
+    game.visible = true;
+    [game start];
+    [game pause:NO];
 }
 
 - (void) aboutCallBack:(id)sender
@@ -46,9 +52,11 @@ static StartMenu *sharedStartMenu_ = NULL;
     self.visible = false;
 }
 
+/*
 - (void) quitGameCallBack:(id)sender
 {
-    self.visible = false;
+    [[AppController sharedAppController] applicationWillTerminate:(UIApplication *)[AppController sharedAppController]];
+    exit(0);
 }
-
+*/
 @end

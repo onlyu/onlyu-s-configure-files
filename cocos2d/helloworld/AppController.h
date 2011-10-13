@@ -17,6 +17,8 @@
     
 }
 
++ (AppController *)sharedAppController;
+
 - (void)nextFrame:(ccTime) dt;
 
 // Make the main UIWindow a property

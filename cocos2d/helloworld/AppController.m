@@ -11,7 +11,7 @@
 #import "MainUI.h"
 #import "HelloWorld.h"
 #import "TetrisGame.h"
-
+#import "GameOverPanel.h"
 
 //
 // Application Delegate implementation.
@@ -23,6 +23,12 @@
 // window is a property. @synthesize will create the accesors methods
 @synthesize window;
 
+static AppController *_sharedAppController = nil;
+
++ (AppController *)sharedAppController
+{
+    return _sharedAppController;
+}
 
 -(void) nextFrame:(ccTime)dt
 {
@@ -31,6 +37,8 @@
 // Application entry point
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    _sharedAppController = self;
+    
     srand(time(0));
 	// CC_DIRECTOR_INIT()
 	//
@@ -66,9 +74,10 @@
 	
 	// Create and initialize parent and empty Scene
 	CCScene *scene = [CCScene node];
-    [scene addChild:[HelloWorld node] z:0];
+    //[scene addChild:[HelloWorld node] z:0];
     [scene addChild:[TetrisGame sharedTetrisGame] z:1];
     [scene addChild:[MainUI sharedMainUI] z:2];
+    [scene addChild:[GameOverPanel sharedGameOverPanel] z:3];
     
     // Run!
 	[director runWithScene: scene];

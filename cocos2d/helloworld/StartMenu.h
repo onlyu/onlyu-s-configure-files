@@ -15,8 +15,4 @@
 
 + (StartMenu *) sharedStartMenu;
 
-- (void) startGameCallback:(id) sender;
-- (void) quitGameCallBack:(id) sender;
-- (void) aboutCallBack:(id) sender;
-
 @end

@@ -10,9 +10,15 @@
 
 
 @interface MainMenu : CCLayer {
-    
+    CCLabelTTF *_scoreLabel;
+    CCLabelTTF *_levelLabel;
+    CCLabelTTF *_highScoreLabel;
 }
 
-+ (MainMenu *)sharedMainMenu;
++ (id) sharedMainMenu;
+
+- (void) setScore:(int)score;
+- (void) setLevel:(int)level;
+- (void) setHighScore:(int)highScore;
 
 @end

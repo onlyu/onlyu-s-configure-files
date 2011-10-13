@@ -58,27 +58,18 @@
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
 
-;;显示日期
 (setq display-time-day-and-date t)
-;;显示时间
 (display-time)
-;;时间为24小时制
 (setq display-time-24hr-format t)
-;;时间显示包括日期和具体时间
 (setq display-time-day-and-date t)
-;;时间栏旁边启动邮件设置
 (setq display-time-use-mail-icon t)
-;;时间的变化频率
 (setq display-time-interval 10)
  
-;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
 ;;(mouse-avoidance-mode 'animate)
  
-;;指针不闪，不恍花眼睛。
 (blink-cursor-mode -1)
 (transient-mark-mode 1)
 
-;;语法加亮
 (global-font-lock-mode t)
 
 (provide 'onlyu-custom)
