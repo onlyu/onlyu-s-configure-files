@@ -16,3 +16,13 @@
 ** init.el -> call onlyu/custom.el, init modules
 ** onlyu directory content my special files
 ** ventor directory content third part packages
+* note
+** info mode usage 
+*** 'n' and 'p' for next chapter and previous chapter
+*** SPE and DELETE for scroll down and scroll up
+*** 'm'+menu name for enter the menu
+*** ENTER for enter the link under cursor
+** cc-mode Settings
+*** (setq tab-width 4)
+*** (setq indent-tabs-mode t)
+*** (setq c-basic-offset 4)

@@ -1,10 +1,9 @@
 ; custom settings
 (add-to-list 'load-path "~/emacs/onlyu/")
 
-(eval-when-compile
-  (require 'onlyu-custom))
-(eval-when-compile
- (require 'onlyu-key))
+(require 'onlyu-custom)
+(require 'onlyu-key)
+(require 'onlyu-cc-mode)
 
 ;; init
 (provide 'init)
