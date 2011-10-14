@@ -9,4 +9,17 @@
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
 * TODO 家族建设
-  
+** DONE change the protocol: send skill description string to client direct
+** TODO 细节完善
+   - skill research
+   - skill learn
+   - org cash
+   - org material
+   - item
+   - 物品投放
+     
+* TODO easy update server code
+* DONE fix bug of fsi pack tool  
+  - mask info not right
+  - easy packing home buidings
+

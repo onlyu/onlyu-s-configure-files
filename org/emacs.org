@@ -1,3 +1,4 @@
+
 * aqua-emacs
 ** install
 *** [[http://aquamacs.org/][Home Page]]
@@ -6,11 +7,9 @@
 ** aqua-emacs key in mac
 *** select Meta&US Keyboard
 *** Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]] [[Control]]->[[Control]]
-
 * my emacs modules
 ** org-mode
-** ido-mode
-
+** ido-
 * my emacs files organization
 ** .emacs call emacs/init.el
 ** init.el -> call onlyu/custom.el, init modules
@@ -27,3 +26,5 @@
 *** (setq tab-width 4)
 *** (setq indent-tabs-mode t)
 *** (setq c-basic-offset 4)
+* to learn
+** TODO git-mode
