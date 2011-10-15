@@ -64,13 +64,16 @@
 |-------------------+-------|
 
 * learning next
-** TODO git-mode
 ** TODO recv and send mail
 ** TODO org-mode
+** TODO git-mode
+*** DONE install org-mode egg
+*** TODO learn basic usage
+*** TODO looking the source code
+** TODO svn usage in emacs
+*** http://lifegoo.pluskid.org/wiki/EmacsSubversion.html
 
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
-=======
-* to learn
-** TODO git-mode
+
 
