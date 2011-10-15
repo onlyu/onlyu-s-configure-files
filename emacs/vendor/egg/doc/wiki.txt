@@ -71,26 +71,26 @@ This will eventually become the main ([[Home]]) page for Egg.
   commands. The key-prefix shown in the below section assume that
   @egg-mode-key-prefix@ is @C-x v@.
 
-  |-----------------+---------------------------------+----------------------------------------|
-  | key             | lisp                            | git                                    |
-  |-----------------+---------------------------------+----------------------------------------|
-  | C-x v v         | egg-next-action                 |                                        |
-  | C-x v w         | egg-commit-log-edit             | git commit -e or git commit -e --amend |
-  | C-x v or C-xv s | egg-status                      | git status                             |
-  | C-x v l         | egg-log                         | git log                                |
-  | C-x v L         | egg-reflog                      |                                        |
-  | C-x v h         | egg-file-log                    | git log -- $file                       |
-  | C-x v /         | egg-file-log-pickaxe            | git log -S$string -- $file             |
-  | C-x v i         | egg-file-stage-current-file     | git add $file                          |
-  | C-x v o         | egg-file-checkout-other-version | git checkout $sha1 -- $file            |
-  | C-x v u         | egg-file-cancel-modifications   | git checkout -- $file                  |
-  | C-x v =         | egg-file-diff                   | git diff -- $file                      |
-  | C-x v e         | egg-file-ediff                  |                                        |
-  | C-x v ~         | egg-file-version-other-window   | git show                               |
-  | C-x v b         | egg-start-new-branch            | git checkout -b                        |
-  | C-x v a         | egg-file-toggle-blame-mode      | git blame                              |
-  | C-x v g         | egg-grep                        | git grep                               |
-  |-----------------+---------------------------------+----------------------------------------|
+  |--------------------+---------------------------------+----------------------------------------|
+  | key                | lisp                            | git                                    |
+  |--------------------+---------------------------------+----------------------------------------|
+  | C-x v v            | egg-next-action                 |                                        |
+  | C-x v w or C-x v c | egg-commit-log-edit             | git commit -e or git commit -e --amend |
+  | C-x v d or C-x v s | egg-status                      | git status                             |
+  | C-x v l            | egg-log                         | git log                                |
+  | C-x v L            | egg-reflog                      |                                        |
+  | C-x v h            | egg-file-log                    | git log -- $file                       |
+  | C-x v /            | egg-file-log-pickaxe            | git log -S$string -- $file             |
+  | C-x v i            | egg-file-stage-current-file     | git add $file                          |
+  | C-x v o            | egg-file-checkout-other-version | git checkout $sha1 -- $file            |
+  | C-x v u            | egg-file-cancel-modifications   | git checkout -- $file                  |
+  | C-x v =            | egg-file-diff                   | git diff -- $file                      |
+  | C-x v e            | egg-file-ediff                  |                                        |
+  | C-x v ~            | egg-file-version-other-window   | git show                               |
+  | C-x v b            | egg-start-new-branch            | git checkout -b                        |
+  | C-x v a            | egg-file-toggle-blame-mode      | git blame                              |
+  | C-x v g            | egg-grep                        | git grep                               |
+  |--------------------+---------------------------------+----------------------------------------|
 
   Egg also provides a file-mode menu in the menubar which provides
   access to the above commands.

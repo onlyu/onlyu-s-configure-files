@@ -8,6 +8,7 @@
 (require 'onlyu-linum)
 (require 'onlyu-fs)
 (require 'onlyu-ido)
+(require 'onlyu-egg)
 (require 'onlyu-dict)
 (require 'onlyu-auto-complete)
 (require 'onlyu-yasnippet)

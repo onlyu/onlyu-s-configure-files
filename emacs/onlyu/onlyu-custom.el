@@ -74,8 +74,6 @@
 
 (eval-when-compile
   (when (featurep 'Aquamacs)
-    (aquamacs-toggle-full-frame)
-    (set-language-environment "chinese-gbk")
-    (prefer-coding-system 'gbk)))
+    (aquamacs-toggle-full-frame)))
 
 (provide 'onlyu-custom)
