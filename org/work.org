@@ -9,4 +9,10 @@
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
 * TODO 家族建设
-  
+
+* DONE fix the bug of nongchang
+  DEADLINE: <2011-10-16 Sun>
+** DONE complete the org skill  
+   DEADLINE: <2011-10-20 Thu>
+** DONE complete the org buid
+   DEADLINE: <2011-10-15 Sat>

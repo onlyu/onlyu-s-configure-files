@@ -8,8 +8,8 @@
       w32-apps-modifier 'hyper) ;; Menu key
 
 ;; mac key setting
-(setq mac-command-modifier 'nil)
-(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'nil)
 (setq mac-control-modifier 'control)
 
 
@@ -28,11 +28,11 @@
 (global-set-key "\M-Z" 'redo)
 (global-set-key "\M-z" 'undo)
 
-(global-set-key "\M-p" 'beginning-of-buffer)
-(global-set-key "\M-n" 'end-of-buffer)
+;; (global-set-key "\M-p" 'beginning-of-buffer)
+;; (global-set-key "\M-n" 'end-of-buffer)
 
 ;; (global-set-key "\M- " 'set-mark-command)
-(global-set-key [deletechar] 'delete-backward-char)
-(global-set-key "\C-h" 'delete-backward-char)
+;; (global-set-key [deletechar] 'delete-backward-char)
+;; (global-set-key "\C-h" 'delete-backward-char)
 
 (provide 'onlyu-key)

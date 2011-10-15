@@ -72,4 +72,10 @@
 
 (global-font-lock-mode t)
 
+(eval-when-compile
+  (when (featurep 'Aquamacs)
+    (aquamacs-toggle-full-frame)
+    (set-language-environment "chinese-gbk")
+    (prefer-coding-system 'gbk)))
+
 (provide 'onlyu-custom)
