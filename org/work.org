@@ -16,3 +16,17 @@
    DEADLINE: <2011-10-20 Thu>
 ** DONE complete the org buid
    DEADLINE: <2011-10-15 Sat>
+=======
+** DONE change the protocol: send skill description string to client direct
+** TODO 细节完善
+   - skill research
+   - skill learn
+   - org cash
+   - org material
+   - item
+   - 物品投放
+     
+* TODO easy update server code
+* DONE fix bug of fsi pack tool  
+  - mask info not right
+  - easy packing home buidings

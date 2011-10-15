@@ -1,9 +1,11 @@
+
 * aqua-emacs
 ** install
    [[http://aquamacs.org/][Home Page]]
 ** meta-key in mac Terminal
    go to [[Preference]]->[[Keyboard]]->[[Use option as meta key]]
 ** aqua-emacs key in mac
+<<<<<<< HEAD
    - select Meta&US Keyboard
    - Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]]
      [[Control]]->[[Control]] [[Command Key]]->[[Meta Key]]
@@ -28,6 +30,13 @@
 ** ido-mode
 
 
+=======
+*** select Meta&US Keyboard
+*** Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]] [[Control]]->[[Control]]
+* my emacs modules
+** org-mode
+** ido-
+>>>>>>> 5ddfca901d6d84efc9a4d6ab0c2b243ad1ff9304
 * my emacs files organization
 ** .emacs call emacs/init.el
 ** init.el -> call onlyu/custom.el, init modules
@@ -61,3 +70,7 @@
 
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
+=======
+* to learn
+** TODO git-mode
+>>>>>>> 5ddfca901d6d84efc9a4d6ab0c2b243ad1ff9304
