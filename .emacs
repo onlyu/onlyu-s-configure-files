@@ -17,8 +17,8 @@
  '(linum-delay t)
  '(linum-eager nil)
  '(linum-format "%4d")
- '(python-indent 8)
- '(standard-indent 8))
+ '(python-indent 4)
+ '(standard-indent 4))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.

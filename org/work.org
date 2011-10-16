@@ -8,7 +8,7 @@
   CLOSED: [2011-10-13 四 12:10]
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
-q* TODO 家族建设
+* TODO 家族建设
 ** DONE complete the org skill  
    DEADLINE: <2011-10-20 Thu>
 ** DONE complete the org buid
@@ -23,6 +23,8 @@ q* TODO 家族建设
    - 物品投放
      
 * TODO easy update server code
+** DONE 写一个通过web访问的更新指令
+** TODO 写一个脚本可以方便的更新代码
 * DONE fix bug of fsi pack tool  
   - mask info not right
   - easy packing home buidings
