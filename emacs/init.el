@@ -9,6 +9,7 @@
 (require 'onlyu-fs)
 (require 'onlyu-ido)
 (require 'onlyu-egg)
+(require 'onlyu-psvn)
 (require 'onlyu-dict)
 (require 'onlyu-auto-complete)
 (require 'onlyu-yasnippet)
