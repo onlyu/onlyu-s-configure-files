@@ -21,7 +21,7 @@
 	(progn
 	  (setq pos1 (region-beginning) pos2 (region-end))
 	  (kill-region pos1 pos2))
-      (kill-line 1))
+      (kill-line))
   ))
 (global-set-key "\C-k" 'kill-line-or-region)
 (global-set-key "\C-w" 'backward-kill-word)

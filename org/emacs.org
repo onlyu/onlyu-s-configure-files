@@ -68,27 +68,30 @@
 ** TODO org-mode
 ** TODO git-mode
 *** DONE install org-mode egg
-*** TODO learn basic usage
+*** DONE learn basic usage
 *** TODO looking the source code
-** TODO svn usage in emacs
+** DONE svn usage in emacs
 *** http://lifegoo.pluskid.org/wiki/EmacsSubversion.html
 *** Emacs VC mode
-|---------+-------------------------+------------------------------------------------------------|
-| C-x v v | vc-next-action          | 让当前文件进入下一个合理的version control状态              |
-| C-x v d | vc-directory            | 显示一个目录下所有注册到版本控制下的文件                   |
-| C-x v = | vc-diff                 | 产生一个diff报告                                           |
-| C-x v u | vc-revert-buffer        | 丢弃自从所以此check in以来所做的所有更改                   |
-| C-x v ~ | vc-version-other-window | 取出当前buffer在仓库里的指定版本并在另外一个窗口中显示出来 |
-| C-x v l   | vc-print-log            | 显示一个文件的历史和日志                                   |
-| C-x v i | vc-register             | 把文件注册到版本控制系统里面去                             |
-| C-x v h | vc-insert-headers       | 在文件里面插入version control headers                      |
-| C-x v r | vc-retrieve-snapshot    | check out一个named project快照                             |
-| C-x v s | vc-create-snapshot      | 创建一个named project快照                                  |
-| C-x v c | vc-cancel-version       | 丢弃一个已经保存的版本                                     |
-| C-x v a | vc-update-change-log    | 更新一个GNU-style的ChangeLog文件                           |
-|---------+-------------------------+------------------------------------------------------------|
+   |---------+-------------------------+------------------------------------------------------------|
+   | C-x v v | vc-next-action          | 让当前文件进入下一个合理的version control状态              |
+   | C-x v d | vc-directory            | 显示一个目录下所有注册到版本控制下的文件                   |
+   | C-x v = | vc-diff                 | 产生一个diff报告                                           |
+   | C-x v u | vc-revert-buffer        | 丢弃自从所以此check in以来所做的所有更改                   |
+   | C-x v ~ | vc-version-other-window | 取出当前buffer在仓库里的指定版本并在另外一个窗口中显示出来 |
+   | C-x v l | vc-print-log            | 显示一个文件的历史和日志                                   |
+   | C-x v i | vc-register             | 把文件注册到版本控制系统里面去                             |
+   | C-x v h | vc-insert-headers       | 在文件里面插入version control headers                      |
+   | C-x v r | vc-retrieve-snapshot    | check out一个named project快照                             |
+   | C-x v s | vc-create-snapshot      | 创建一个named project快照                                  |
+   | C-x v c | vc-cancel-version       | 丢弃一个已经保存的版本                                     |
+   | C-x v a | vc-update-change-log    | 更新一个GNU-style的ChangeLog文件                           |
+   |---------+-------------------------+------------------------------------------------------------|
+*** TODO psvn.el
 
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
+** DONE change C-k's behave as kill the line (not including the '\n') and the region
+   use (kill-line) not (kill-line 1)
 
 
