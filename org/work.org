@@ -14,15 +14,30 @@
 ** DONE complete the org buid
    DEADLINE: <2011-10-15 Sat>
 ** DONE change the protocol: send skill description string to client direct
-** TODO 细节完善
-   - skill research
+** DONE merge from org to trunk  -r43063 -r39305
+** DONE 家族内景
+** TODO QC反映问题
+*** TODO 技能研究没有权限限制
+*** TODO 技能研究界面等级显示都为0（客户端问题）
+*** DONE 研究所扣的资金不对
+*** TODO 研究时间不对
+*** TODO 技能研究和学习界面tips等级不对(客户端问题）
+*** TODO 家族资金没有界面显示
+*** TODO 只有本族的人可以学习和研究技能
+*** TODO 物品捐献
+** 待制作内容
    - skill learn
    - org cash
    - org material
    - item
    - 物品投放
+   - 4 skill remain
+** TODO 待制作内容
+*** TODO 属性在属性面板上显示
+*** TODO 技能在技能面板上显示
      
-* TODO easy update server code
+** TODO 技能研究时间
+* DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
 ** DONE 写一个脚本可以方便的更新代码
 * DONE fix bug of fsi pack tool  
