@@ -90,7 +90,7 @@
 *** TODO psvn.el
 *** TODO vc and svn mode is not good for use, change it
 
-** TODO fly-make in lpc
+** TODO fly-make in lpc						  :important:
 
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)

@@ -8,7 +8,7 @@
   CLOSED: [2011-10-13 四 12:10]
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
-* TODO 家族建设 [5/8]
+* TODO 家族建设 [7/9]
 ** TODO complete the org skill  
    DEADLINE: <2011-10-20 Thu>
 ** DONE complete the org buid
@@ -21,7 +21,7 @@
 *** DONE 设置家族资金
 *** DONE 设置耗材
 *** DONE 个人贡献
-** TODO QC反映问题 [11/13]					       :work:
+** DONE QC反映问题 [12/12]					       :work:
    SCHEDULED: <2011-10-18 二>
 *** DONE 技能研究没有权限限制
 *** DONE 技能研究界面等级显示都为0（客户端问题）
@@ -34,8 +34,12 @@
 *** DONE 在虚拟场景登陆之后的位置(等耗子解决)
 *** DONE 虚拟场景内景可以飞行
 *** DONE 家族内景不能pk
-*** TODO 界面同步刷新
-*** TODO 加足够多的log
+*** DONE 界面同步刷新
+** DONE 加足够多的log [4/4]
+*** DONE 技能研究
+*** DONE 技能学习
+*** DONE 研究成功
+*** DONE 物品捐献
 ** TODO 待制作内容
 *** TODO 属性在属性面板上显示
 *** TODO 技能在技能面板上显示
