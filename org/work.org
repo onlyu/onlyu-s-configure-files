@@ -44,6 +44,7 @@
 *** TODO 属性在属性面板上显示
 *** TODO 技能在技能面板上显示
 *** TODO 场景遮罩被分割
+*** TODO 家族贡献设定修改
 
 * DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
@@ -51,3 +52,8 @@
 * DONE fix bug of fsi pack tool  
   - mask info not right
   - easy packing home buidings
+
+* 其他 [0/3]
+** TODO 帐号安全设置
+** TODO 资源扫描脚本
+** TODO 地图打包工具更新 

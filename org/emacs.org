@@ -63,7 +63,7 @@
 | describe-key      | C-h k |
 |-------------------+-------|
 
-* TODO learning next [1/5]					      :emacs:
+* TODO learning next [2/6]					      :emacs:
 ** TODO recv and send mail
 ** TODO org-mode
 ** TODO git-mode
@@ -89,6 +89,9 @@
    |---------+-------------------------+------------------------------------------------------------|
 *** TODO psvn.el
 *** TODO vc and svn mode is not good for use, change it
+** DONE cscope [1/2]
+*** DONE add xcscope.el to vendor
+*** TODO learn more about cscope
 
 ** TODO fly-make in lpc						  :important:
 
