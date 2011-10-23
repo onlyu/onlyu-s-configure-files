@@ -1594,6 +1594,7 @@ This function also adds a hook to the minibuffer."
     (define-key map "\C-k" 'ido-delete-file-at-head)
     (define-key map "\C-o" 'ido-copy-current-word)
 ;;    (define-key map "\C-w" 'ido-copy-current-file-name)
+    (define-key map "\C-w" 'ido-delete-backward-word-updir)
     (define-key map [(meta ?l)] 'ido-toggle-literal)
     (define-key map "\C-v" 'ido-toggle-vc)
     (set-keymap-parent map ido-file-dir-completion-map)

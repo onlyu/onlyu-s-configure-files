@@ -845,7 +845,7 @@ Must end with a newline.")
 ;;;;
 
 (defcustom cscope-use-face t
-  "*Whether to use text highlighting (à la font-lock) or not."
+  "*Whether to use text highlighting (à¥† la font-lock) or not."
   :group 'cscope
   :type '(boolean))
 
@@ -917,8 +917,10 @@ Must end with a newline.")
   (define-key cscope-list-entry-keymap [return] 'cscope-select-entry-other-window)
   (define-key cscope-list-entry-keymap " " 'cscope-show-entry-other-window)
   (define-key cscope-list-entry-keymap "o" 'cscope-select-entry-one-window)
-  (define-key cscope-list-entry-keymap "q" 'cscope-bury-buffer)
-  (define-key cscope-list-entry-keymap "Q" 'cscope-quit)
+  ;; (define-key cscope-list-entry-keymap "q" 'cscope-bury-buffer)
+  ;; (define-key cscope-list-entry-keymap "Q" 'cscope-quit)
+  ;; we do not need cscope-bury-buffer use q for quit list view-mode
+  (define-key cscope-list-entry-keymap "q" 'cscope-quit)
   (define-key cscope-list-entry-keymap "h" 'cscope-help)
   (define-key cscope-list-entry-keymap "?" 'cscope-help)
   ;; The following line corresponds to be beginning of the "Cscope" menu.
@@ -1604,7 +1606,12 @@ overrides the current directory, which would otherwise be used."
 (defun cscope-quit ()
   (interactive)
   (cscope-bury-buffer)
-  (kill-buffer cscope-output-buffer-name)
+  ;; (kill-buffer cscope-output-buffer-name)
+
+  ;; now the current selected window is the *cscope* window
+  (if (one-window-p)
+      (quit-window nil)
+    (delete-window))
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

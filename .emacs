@@ -17,6 +17,8 @@
  '(linum-delay t)
  '(linum-eager nil)
  '(linum-format "%4d")
+ '(pop-up-frames nil)
+ '(pop-up-windows t)
  '(python-indent 4)
  '(standard-indent 4))
 
