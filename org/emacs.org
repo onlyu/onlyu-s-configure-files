@@ -1,42 +1,36 @@
 
-* aqua-emacs
-** install
+* aqua-emacs [10/10]
+** DONE install
    [[http://aquamacs.org/][Home Page]]
-** meta-key in mac Terminal
+** DONE meta-key in mac Terminal
    go to [[Preference]]->[[Keyboard]]->[[Use option as meta key]]
-** aqua-emacs key in mac
-<<<<<<< HEAD
+** DONE aqua-emacs key in mac
    - select Meta&US Keyboard
    - Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]]
      [[Control]]->[[Control]] [[Command Key]]->[[Meta Key]]
 ** DONE hide the toolbar
    full screen mode auto hide the toolbar
 ** DONE full screen while startup
-
    add then following lines to emacs/onlyu/custom.el
    (when (featurep 'Aquamacs)
    (aquamacs-toggle-full-frame))
-
 ** DONE chinese
    add the following lines to [[~/Library/Preferences/Aquamacs Emacs/Preferences.el]]
    (set-language-environment "chinese-gbk")
    (prefer-coding-system 'gbk)
-** TODO save the aquamacs special config to git
-   - ~/Library/Preferences/Aquamacs Emacs/Preferences.el
-   - ~/Library/Preferences/Aquamacs Emacs/customizations.el
-
-* my emacs modules
-** org-mode
-** ido-mode
-
-
-=======
+** DONE save the aquamacs special config to git
+   1. ~/Library/Preferences/Aquamacs Emacs/Preferences.el
+   2. ~/Library/Preferences/Aquamacs Emacs/customizations.el
+** DONE change the behave of help-mode from pop up a new frame to pop up a window in the selected-frame
+** DONE change the mouse from bar type to box type
+** DONE change ido mode \C-w's behave to ido-delete-backward-word-updir
 *** select Meta&US Keyboard
 *** Enter Preference Settings, set the modifier, [[Option Key]]->[[Meta Key]] [[Control]]->[[Control]]
 * my emacs modules
 ** org-mode
-** ido-
->>>>>>> 5ddfca901d6d84efc9a4d6ab0c2b243ad1ff9304
+** ido-mode
+** lua-mode
+
 * my emacs files organization
 ** .emacs call emacs/init.el
 ** init.el -> call onlyu/custom.el, init modules
@@ -63,7 +57,7 @@
 | describe-key      | C-h k |
 |-------------------+-------|
 
-* learning next
+* TODO learning next [2/6]					      :emacs:
 ** TODO recv and send mail
 ** TODO org-mode
 ** TODO git-mode
@@ -89,11 +83,15 @@
    |---------+-------------------------+------------------------------------------------------------|
 *** TODO psvn.el
 *** TODO vc and svn mode is not good for use, change it
+** DONE cscope [1/2]
+*** DONE add xcscope.el to vendor
+*** TODO learn more about cscope
 
+** TODO fly-make in lpc						  :important:
 
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
 ** DONE change C-k's behave as kill the line (not including the '\n') and the region
    use (kill-line) not (kill-line 1)
 
-
+   

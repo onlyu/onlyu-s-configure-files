@@ -10,6 +10,7 @@
 (require 'onlyu-ido)
 (require 'onlyu-egg)
 (require 'onlyu-psvn)
+(require 'onlyu-xcscope)
 (require 'onlyu-dict)
 (require 'onlyu-auto-complete)
 (require 'onlyu-yasnippet)

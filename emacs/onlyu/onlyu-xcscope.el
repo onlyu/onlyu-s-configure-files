@@ -1,0 +1,18 @@
+(setq cscope:map (make-sparse-keymap))
+(define-key cscope:map "\C-cs" 'cscope-find-this-symbol)
+(define-key cscope:map "\C-cd" 'cscope-find-global-definition)
+(define-key cscope:map "\C-cg" 'cscope-find-global-definition-no-prompting)
+(define-key cscope:map "\C-cf" 'cscope-find-this-file)
+(define-key cscope:map "\C-cc" 'cscope-find-functions-calling-this-function)
+(define-key cscope:map "\C-ct" 'cscope-find-this-text-string)
+(define-key cscope:map "\C-ci" 'cscope-find-files-including-file)
+(define-key cscope:map "\C-cp" 'cscope-prev-symbol)
+(define-key cscope:map "\C-cn" 'cscope-next-symbol)
+(define-key cscope:map "\C-cP" 'cscope-prev-file)
+(define-key cscope:map "\C-cN" 'cscope-next-file)
+(define-key cscope:map "\C-cb" 'cscope-display-buffer)
+(setq cscope-display-cscope-buffer nil)
+
+(require 'xcscope)
+
+(provide 'onlyu-xcscope)

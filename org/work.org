@@ -8,23 +8,52 @@
   CLOSED: [2011-10-13 四 12:10]
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
-* TODO 家族建设
-** DONE complete the org skill  
+* TODO 家族建设 [7/9]
+** TODO complete the org skill  
    DEADLINE: <2011-10-20 Thu>
 ** DONE complete the org buid
    DEADLINE: <2011-10-15 Sat>
 ** DONE change the protocol: send skill description string to client direct
-** TODO 细节完善
-   - skill research
-   - skill learn
-   - org cash
-   - org material
-   - item
-   - 物品投放
-     
-* TODO easy update server code
+** DONE merge from org to trunk  -r43063 -r39305
+** DONE 家族内景
+** DONE 测试选项[4/4]
+*** DONE 设置技能等级
+*** DONE 设置家族资金
+*** DONE 设置耗材
+*** DONE 个人贡献
+** DONE QC反映问题 [12/12]					       :work:
+   SCHEDULED: <2011-10-18 二>
+*** DONE 技能研究没有权限限制
+*** DONE 技能研究界面等级显示都为0（客户端问题）
+*** DONE 研究所扣的资金不对
+*** DONE 研究时间不对
+*** DONE 技能研究和学习界面tips等级不对(客户端问题）
+*** DONE 家族资金没有界面显示(客户端尚未实现)
+*** DONE 只有本族的人可以学习和研究技能
+*** DONE 物品捐献
+*** DONE 在虚拟场景登陆之后的位置(等耗子解决)
+*** DONE 虚拟场景内景可以飞行
+*** DONE 家族内景不能pk
+*** DONE 界面同步刷新
+** DONE 加足够多的log [4/4]
+*** DONE 技能研究
+*** DONE 技能学习
+*** DONE 研究成功
+*** DONE 物品捐献
+** TODO 待制作内容
+*** TODO 属性在属性面板上显示
+*** TODO 技能在技能面板上显示
+*** TODO 场景遮罩被分割
+*** TODO 家族贡献设定修改
+
+* DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
 ** DONE 写一个脚本可以方便的更新代码
 * DONE fix bug of fsi pack tool  
   - mask info not right
   - easy packing home buidings
+
+* 其他 [0/3]
+** TODO 帐号安全设置
+** TODO 资源扫描脚本
+** TODO 地图打包工具更新 

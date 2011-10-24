@@ -9,7 +9,10 @@
  '(aquamacs-additional-fontsets nil t)
  '(aquamacs-customization-version-id 213 t)
  '(aquamacs-tool-bar-user-customization nil t)
+ '(blink-cursor-mode t)
+ '(cursor-type (quote box))
  '(default-frame-alist (quote ((fringe) (right-fringe) (left-fringe . 1) (internal-border-width . 0) (cursor-type . box) (background-color . "black") (background-mode . dark) (border-color . "black") (cursor-color . "yellow") (foreground-color . "green") (mouse-color . "black") (tool-bar-lines . 1) (menu-bar-lines . 1) (vertical-scroll-bars))))
+ '(display-buffer-function nil)
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
@@ -25,9 +28,14 @@
  '(ns-right-alternate-modifier (quote meta))
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote regular) t)
+ '(obof-other-frame-regexps nil)
+ '(obof-same-frame-regexps "")
  '(one-buffer-one-frame-mode nil nil (aquamacs-frame-setup))
- '(python-indent 8)
- '(standard-indent 8)
+ '(pop-up-frames nil)
+ '(pop-up-windows t)
+ '(python-indent 4)
+ '(special-display-regexps nil)
+ '(standard-indent 4)
  '(visual-line-mode nil t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -35,6 +43,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Menlo"))))
+ '(cursor ((t (:background "yellow"))))
  '(linum ((t (:background "black" :foreground "red"))))
  '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 180 :width normal :family "Monaco")))))
