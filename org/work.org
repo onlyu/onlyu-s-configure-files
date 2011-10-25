@@ -40,11 +40,14 @@
 *** DONE 技能学习
 *** DONE 研究成功
 *** DONE 物品捐献
-** TODO 待制作内容
-*** TODO 属性在属性面板上显示
-*** TODO 技能在技能面板上显示
+** TODO 待制作内容 [6/7]
+*** DONE 属性在属性面板上显示
+*** DONE 技能在技能面板上显示
 *** TODO 场景遮罩被分割
-*** TODO 家族贡献设定修改
+*** DONE 增加家族商人
+*** DONE 家族界面增加耗材、资金、个人贡献 
+*** DONE 家族贡献设定修改
+*** DONE 脱离家族的惩罚
 
 * DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
@@ -53,7 +56,13 @@
   - mask info not right
   - easy packing home buidings
 
-* 其他 [0/3]
-** TODO 帐号安全设置
-** TODO 资源扫描脚本
-** TODO 地图打包工具更新 
+* 其他 [3/5]							:work:server:
+** DONE 帐号安全设置
+** DONE 资源扫描脚本
+** DONE 地图打包工具更新
+** TODO 增加自荐队长
+** TODO crash 查看
+* client [0/2]							:work:client:
+** TODO 客户端及时表现
+** TODO 客户端移植 [0/1]
+*** TODO Makefile
