@@ -11,6 +11,7 @@
 (define-key cscope:map "\C-cP" 'cscope-prev-file)
 (define-key cscope:map "\C-cN" 'cscope-next-file)
 (define-key cscope:map "\C-cb" 'cscope-display-buffer)
+(define-key cscope:map "\C-cu" 'cscope-pop-mark)
 (setq cscope-display-cscope-buffer nil)
 
 (require 'xcscope)
