@@ -95,5 +95,16 @@
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
 ** DONE change C-k's behave as kill the line (not including the '\n') and the region
    use (kill-line) not (kill-line 1)
-
-   
+** mount ssh files to local directory
+* read book [0/2]
+** TODO hacks
+** TODO org-manual
+* hack [0/1]
+** TODO make xcscope.el more ease to use [0/2]
+*** TODO change the key mapping
+    1. \C-c g: goto a define or a file (no buffer)
+    2. \C-c l: list symble ref or files including a file (automatic turn buffer display)
+    3. \C-c u: pop mark
+    4. \C-c b: cscope buffer
+*** TODO find symble or file more sample (like ido mode)
+      
