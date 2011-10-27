@@ -20,6 +20,8 @@
  '(pop-up-frames nil)
  '(pop-up-windows t)
  '(python-indent 4)
+ '(send-mail-function 'sendmail-send-it)
+ '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(standard-indent 4))
 
 (custom-set-faces
