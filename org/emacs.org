@@ -88,9 +88,6 @@
 *** TODO learn more about cscope
 ** TODO read emacs document [0/1]
 *** TODO emacs lisp tutorial
-
-** TODO fly-make in lpc						  :important:
-
 * good idea
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
 ** DONE change C-k's behave as kill the line (not including the '\n') and the region
@@ -100,8 +97,8 @@
 ** TODO hacks
 ** TODO org-manual
 * hack [0/1]
-** TODO make xcscope.el more ease to use [0/2]
-*** TODO change the key mapping
+** TODO make xcscope.el more ease to use [1/2]
+*** DONE change the key mapping
     1. \C-c g: goto a define or a file (no buffer)
     2. \C-c l: list symble ref or files including a file (automatic turn buffer display)
     3. \C-c u: pop mark

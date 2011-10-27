@@ -1,6 +1,6 @@
 (setq cscope:map (make-sparse-keymap))
 (define-key cscope:map "\C-cc" 'cscope-find-functions-calling-this-function)
-(define-key cscope:map "\C-ct" 'cscope-find-this-text-string)
+
 (define-key cscope:map "\C-cp" 'cscope-prev-symbol)
 (define-key cscope:map "\C-cn" 'cscope-next-symbol)
 (define-key cscope:map "\C-cP" 'cscope-prev-file)
@@ -130,11 +130,25 @@
   (interactive)
   (mycscope-list-prompt (myextract-symbol)))
 
+(defun mycscope-find-string (symbol)
+  (interactive (list
+		(cscope-prompt-for-symbol "Find this text string: " nil)
+		))
+  (let ( (cscope-adjust t) )	 ;; Use fuzzy matching.
+    (setq cscope-symbol symbol)
+    (setq cscope-display-cscope-buffer t)
+    (cscope-call (format "Finding text string: %s" symbol)
+		 (list "-4" symbol) nil 'cscope-process-filter
+		 'cscope-process-sentinel
+		 t)
+    ))
+
 ;; make things more simple
 (define-key cscope:map "\C-cg" 'mycscope-goto)
 (define-key cscope:map "\C-cG" 'mycscope-goto-prompt)
 (define-key cscope:map "\C-cl" 'mycscope-list)
 (define-key cscope:map "\C-cL" 'mycscope-list-prompt)
+(define-key cscope:map "\C-ct" 'mycscope-find-string)
 
 (require 'xcscope)
 
