@@ -93,6 +93,7 @@
 ** sync all files automatic for all device (imac, macbook, iphone, ipad, and else)
 ** DONE change C-k's behave as kill the line (not including the '\n') and the region
    use (kill-line) not (kill-line 1)
+** mount ssh files to local directory
 * read book [0/2]
 ** TODO hacks
 ** TODO org-manual

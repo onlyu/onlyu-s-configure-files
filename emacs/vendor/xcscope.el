@@ -2012,7 +2012,7 @@ using the mouse."
     ))
 
 
-(defun cscope-call (msg args &optional directory filter-func sentinel-func)
+(defun cscope-call (msg args &optional directory filter-func sentinel-func display-buffer)
   "Generic function to call to process cscope requests.
 ARGS is a list of command-line arguments to pass to the cscope
 process.  DIRECTORY is the current working directory to use (generally,
@@ -2064,7 +2064,7 @@ SENTINEL-FUNC are optional process filter and sentinel, respectively."
 	  (insert msg "\n"))
       (cscope-search-one-database)
       )
-    (if cscope-display-cscope-buffer
+    (if (or cscope-display-cscope-buffer display-buffer)
 	(progn
 	  (pop-to-buffer outbuf)
 	  (cscope-help))

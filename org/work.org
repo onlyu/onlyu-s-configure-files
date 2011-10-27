@@ -56,13 +56,18 @@
   - mask info not right
   - easy packing home buidings
 
-* 其他 [3/5]							:work:server:
+* 其他 [4/4]							:work:server:
 ** DONE 帐号安全设置
 ** DONE 资源扫描脚本
 ** DONE 地图打包工具更新
-** TODO 增加自荐队长
+** DONE 增加自荐队长
+* server [/]
+** TODO 64位crash问题
 ** TODO crash 查看
 * client [0/2]							:work:client:
 ** TODO 客户端及时表现
 ** TODO 客户端移植 [0/1]
 *** TODO Makefile
+** 11.24公测 [0/2]
+*** TODO 11.10客户端打包
+*** TODO 角色跳帧问题
