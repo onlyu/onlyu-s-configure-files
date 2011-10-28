@@ -3,7 +3,7 @@
 (setq user-full-name "onlyu")
 (setq user-mail-address "efiish@gmail.com")
 
-;(set-cursor-color "ivory3")
+(set-cursor-color "yellow")
 (set-mouse-color "white")
 
 ;; color theme
@@ -43,10 +43,10 @@
 ;;标题格式, "文件名  @  全路径文件名"
 (setq frame-title-format '("%b@" buffer-file-name))
 ;;取消显示工具栏
-(if (functionp 'tool-bar-mode) (tool-bar-mode nil)) 
+(if (functionp 'tool-bar-mode) (setq tool-bar-mode nil)) 
 
 ;; 取消显示菜单栏
-(if (functionp 'menu-bar-mode) (menu-bar-mode nil))
+(if (functionp 'menu-bar-mode) (setq menu-bar-mode nil))
  
 ;;去掉滚动条, 鼠标滚轮代替
 (if (functionp 'set-scroll-bar-mode) (set-scroll-bar-mode nil))
@@ -72,8 +72,14 @@
 
 (global-font-lock-mode t)
 
-(eval-when-compile
-  (when (featurep 'Aquamacs)
-    (aquamacs-toggle-full-frame)))
+(defun w32-maximize-frame ()
+  "Maximize the current frame"
+  (interactive)
+  (w32-send-sys-command 61488))
+
+(when (featurep 'Aquamacs)
+  (aquamacs-toggle-full-frame))
+(when (featurep 'emacsw32)
+    (w32-maximize-frame))
 
 (provide 'onlyu-custom)
