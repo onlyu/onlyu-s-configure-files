@@ -64,7 +64,14 @@
 * server [/]
 ** TODO 64位crash问题
 ** TODO crash 查看
-* client [0/2]							:work:client:
+* client [0/3]							:work:client:
+** TODO 封神精灵 [5/6]
+*** DONE 无vip
+*** TODO 头像
+*** DONE 无加好友，表情清屏按钮
+*** DONE 名字不带id不可点击查看
+*** DONE 位于好友列表的最前面
+*** DONE 最近联系人
 ** TODO 客户端及时表现
 ** TODO 客户端移植 [0/1]
 *** TODO Makefile
