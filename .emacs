@@ -11,6 +11,8 @@
  '(ac-expand-on-auto-complete nil)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(dired-garbage-files-regexp "\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|lo\\)\\)\\'")
+ '(dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^.*\\.lo$\\|^.*~$\\|^.svn$")
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
@@ -20,6 +22,7 @@
  '(linum-delay t)
  '(linum-eager nil)
  '(linum-format "%4d")
+ '(menu-bar-mode nil)
  '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(pop-up-frames nil)
  '(pop-up-windows t)
@@ -27,8 +30,7 @@
  '(send-mail-function (quote sendmail-send-it))
  '(show-paren-mode t)
  '(standard-indent 4)
- '(tool-bar-mode nil)
- '(menu-bar-mode nil))
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

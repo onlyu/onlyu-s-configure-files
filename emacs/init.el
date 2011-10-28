@@ -17,6 +17,7 @@
 
 (require 'onlyu-lua-mode)
 (require 'onlyu-cc-mode)
+(require 'onlyu-dired-mode)
 
 ;; init
 (provide 'init)

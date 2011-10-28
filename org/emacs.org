@@ -1,5 +1,8 @@
 
 * win32-emacs
+** dired隐藏不想看到的文件
+   1. dired-omit-mode
+   2. dired-omit-files
 * aqua-emacs [10/10]
 ** DONE install
    [[http://aquamacs.org/][Home Page]]
