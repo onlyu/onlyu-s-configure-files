@@ -21,7 +21,7 @@ enum {
 	lexcept_entered=0,
 	lexcept_raised,
 	lexcept_handled,
-	lexcept_finalized,
+	lexcept_finalized
 };
 
 extern lexcept_frame_t *except_stack;
@@ -61,7 +61,7 @@ void lexcept_raise(const lexcept_t *e, const char *file, int line);
 	} if ( except_flag == lexcept_raised ){ L_RERAISE; }\
 } while (0);
 
-// raise a exception
+/*  raise a exception */
 #define L_RAISE(e) lexcept_raise(&(e), __FILE__, __LINE__)
 #define L_RERAISE(e) lexcept_raise(except_frame.exception, except_frame.file, except_frame.line)
 

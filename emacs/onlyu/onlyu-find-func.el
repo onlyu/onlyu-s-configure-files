@@ -9,7 +9,7 @@
     (if (and (symbolp var)
 	     (not (equal var fun)))
 	(find-variable var)
-      (if (and fun (symbolp fun)) 
+      (if (and fun (symbolp fun) (equal var fun)) 
 	  (find-function fun)
 	(find-library (thing-at-point 'symbol))))
     ))
