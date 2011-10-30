@@ -45,7 +45,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Menlo"))))
- '(cursor ((t (:background "yellow"))))
- '(linum ((t (:background "black" :foreground "red"))))
  '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
+ '(linum ((t (:background "black" :foreground "red"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 180 :width normal :family "Monaco")))))

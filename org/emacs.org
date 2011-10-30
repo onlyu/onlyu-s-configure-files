@@ -60,9 +60,19 @@
 | describe-function | C-h f |
 | describe-key      | C-h k |
 |-------------------+-------|
+** how to jump to the define of a function or a variable or a library
+*** find-function
+*** find-variable
+*** find-library
+*** find-function-at-point
+*** now this is more sample (see ~/emacs/onlyu/onlyu-find-func.el)
+**** use \C-cg jump to the defination of function or variable or library
+**** use \C-cl to see the help info of function or variable
 
 * TODO learning next [2/6]					      :emacs:
-** TODO recv and send mail
+** TODO recv and send mail [1/2]
+*** DONE send mail
+*** TODO recv mail
 ** TODO org-mode
 ** TODO git-mode
 *** DONE install org-mode egg
