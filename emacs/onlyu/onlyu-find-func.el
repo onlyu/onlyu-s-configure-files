@@ -1,36 +1,30 @@
 ;; off means onlyu-find-func
 
 ;; this module base on find-func.el
-(defun off-find-at-point ()
-  "Find the function or variable or library at point"
+(defun off-function-at-point ()
+  "Find the function at point"
   (interactive)
-  (let* ((var (variable-at-point))
-	 (fun (function-called-at-point)))
-    (if (and (symbolp var)
-	     (not (equal var fun)))
-	(find-variable var)
-      (if (and fun (symbolp fun) (equal var fun)) 
-	  (find-function fun)
-	(find-library (thing-at-point 'symbol))))
-    ))
+  (find-function (function-called-at-point)))
+
+(defun off-variable-at-point ()
+  "Find the variable at point"
+  (interactive)
+  (find-variable (variable-at-point)))
+
+(defun off-library-at-point ()
+  "Find the library at point"
+  (interactive)
+  (find-library (thing-at-point 'symbol)))
 
 (defun off-describe-at-point ()
   (interactive)
-  (let* ((var (variable-at-point))
-	 (fun (function-called-at-point)))
-    (if (and (symbolp var)
-	     (not (equal var fun)))
-	(describe-variable var)
-      (describe-function fun))
-    ))
+  (describe-function (function-called-at-point)))
 
 (defun off-init-key-map (map)
-  (define-key map "\C-cg" 'off-find-at-point)
-  (define-key map "\C-cl" 'off-describe-at-point))
-
-;; the key map like my xcscope keymap:
-;; 1. \C-cg goto the function defination without promt
-;; 2. \C-cl show the help message of the function without prompt
+  (define-key map "\C-cf" 'off-function-at-point)
+  (define-key map "\C-cv" 'off-variable-at-point)
+  (define-key map "\C-cl" 'off-library-at-point)
+  (define-key map "\C-cd" 'off-describe-at-point))
 
 (defun off-lisp-mode-hook ()
   (off-init-key-map emacs-lisp-mode-map))

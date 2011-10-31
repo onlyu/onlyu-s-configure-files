@@ -9,11 +9,11 @@
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
 * TODO 家族建设 [7/9]
-** TODO complete the org skill [1/4]
+** TODO complete the org skill [2/4]
 *** TODO 追捕术
 *** DONE 议价术
 *** TODO 采矿术
-*** TODO 通灵术
+*** DONE 通灵术
 ** DONE complete the org buid
    DEADLINE: <2011-10-15 Sat>
 ** DONE change the protocol: send skill description string to client direct
@@ -43,7 +43,7 @@
 *** DONE 技能学习
 *** DONE 研究成功
 *** DONE 物品捐献
-** TODO 待制作内容 [6/8]
+** TODO 待制作内容 [6/10]
 *** DONE 属性在属性面板上显示
 *** DONE 技能在技能面板上显示
 *** TODO 场景遮罩被分割
@@ -52,6 +52,8 @@
 *** DONE 家族贡献设定修改
 *** DONE 脱离家族的惩罚
 *** TODO 某些技能快捷键不能使用
+*** TODO 家族战结束之后把玩家踢出场景
+*** TODO 家族商人改为60级以下
 
 * DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
@@ -68,7 +70,7 @@
 * server [0/2]
 ** TODO 64位crash问题
 ** TODO crash 查看
-* client [0/3]							:work:client:
+* client [0/4]							:work:client:
 ** TODO 封神精灵 [5/6]
 *** DONE 无vip
 *** TODO 头像
@@ -77,9 +79,11 @@
 *** DONE 位于好友列表的最前面
 *** DONE 最近联系人
 ** TODO 客户端及时表现
+** TODO 商城代购，赠送
 ** TODO 客户端移植 [0/1]
 *** TODO Makefile
 ** 11.24公测 [1/3]
 *** TODO 11.10客户端打包
 *** DONE 角色跳帧问题
 *** TODO texture 整理
+    
