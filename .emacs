@@ -11,8 +11,7 @@
  '(ac-expand-on-auto-complete nil)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(dired-garbage-files-regexp "\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|lo\\)\\)\\'")
- '(dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^.*\\.lo$\\|^.*~$\\|^.svn$")
+ '(completion-ignored-extensions (quote (".o" "~" ".bin" ".bak" ".obj" ".map" ".ico" ".pif" ".lnk" ".a" ".ln" ".blg" ".bbl" ".dll" ".drv" ".vxd" ".386" ".elc" ".lof" ".glo" ".idx" ".lot" ".svn/" ".hg/" ".git/" ".bzr/" "CVS/" "_darcs/" "_MTN/" ".fmt" ".tfm" ".class" ".fas" ".lib" ".mem" ".x86f" ".sparcf" ".fasl" ".ufsl" ".fsl" ".dxl" ".pfsl" ".dfsl" ".p64fsl" ".d64fsl" ".dx64fsl" ".lo" ".la" ".gmo" ".mo" ".toc" ".aux" ".cp" ".fn" ".ky" ".pg" ".tp" ".vr" ".cps" ".fns" ".kys" ".pgs" ".tps" ".vrs" ".pyc" ".pyo" ".lo" ".lua~")))
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
@@ -39,8 +38,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 143 :width normal :foundry "outline" :family "Courier New"))))
  '(cursor ((t (:background "yellow"))))
- '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(linum ((t (:background "black" :foreground "red"))))
+ '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Menlo")))))
 
 (require 'init)
