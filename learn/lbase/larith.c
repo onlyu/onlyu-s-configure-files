@@ -26,7 +26,7 @@ int larith_mod(int x, int y)
 
 int larith_ceiling(int x, int y)
 {
-	return larith_dev(x,y) + (x%y != 0);	
+	return larith_div(x,y) + (x%y != 0);
 }
 
 int larith_floor(int x, int y)

@@ -1,4 +1,4 @@
-CC			= gcc
+CC		= gcc
 CFLAGS		= -g -I/usr/local/include
 CPPFLAGS	= -g -I/usr/local/include
 LDFLAGS		= -lgtest -L/usr/local/lib
@@ -14,3 +14,8 @@ clean:
 	rm -rf $(BINS)
 	rm *.o
 
+# for flymake
+CHK_SOURCES	= lassert.c
+.PHONY: check-syntax 
+check-syntax: 
+	$(CC) -Wall -Wextra -pedantic -fsyntax-only $(CHK_SOURCES)

@@ -18,6 +18,8 @@
 (require 'onlyu-lua-mode)
 (require 'onlyu-cc-mode)
 (require 'onlyu-dired-mode)
+(require 'onlyu-flymake)
 
+(require 'onlyu-find-func)
 ;; init
 (provide 'init)
