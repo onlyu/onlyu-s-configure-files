@@ -21,8 +21,12 @@
 	    (eval choice)))
       (flymake-goto-next-error))))
 
+(defun of-c-mode-common-hook ()
+  (define-key c-mode-map "\C-ce" 'of-flymake-error))
+  
 ;; use \C-ce for flymake
-(define-key c-mode-map "\C-ce" 'of-flymake-error)
+
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
+(add-hook 'c-mode-common-hook 'of-c-mode-common-hook)
 
 (provide 'onlyu-flymake)
