@@ -1,7 +1,9 @@
 (defun my-c-mode-common-hook ()
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-  (setq c-basic-offset 4))
+  (setq c-basic-offset 4)
+  (hs-minor-mode) ;; ДњТыелЕў
+  )
   
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
