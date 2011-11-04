@@ -42,10 +42,11 @@
 ;; lpc error
 ;; module/base64_flymake.c line 4: Missing type for global variable declaration before the end of line
 (setq flymake-err-line-patterns
-      (cons '("\\(.*\\.[ch]\\) line \\([0-9]+\\): \\(.*\\)"
+      (cons '("\\(.*\\.[ch]\\) line \\([0-9]+\\): Warning: \\(.*\\)"
 	      1 2 nil 3)
-	    flymake-err-line-patterns))
-
+	    (cons '("\\(.*\\.[ch]\\) line \\([0-9]+\\): \\(.*\\)"
+		    1 2 nil 3)
+		  flymake-err-line-patterns)))
 
 ;; master file also use relative directory
 (defun flymake-master-make-init (get-incl-dirs-f master-file-masks include-regexp)

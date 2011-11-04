@@ -21,5 +21,7 @@
 (require 'onlyu-flymake)
 
 (require 'onlyu-find-func)
+
+(require 'fs-server)
 ;; init
 (provide 'init)

@@ -845,7 +845,7 @@ Must end with a newline.")
 ;;;;
 
 (defcustom cscope-use-face t
-  "*Whether to use text highlighting (ॆ la font-lock) or not."
+  "*Whether to use text highlighting (啷� la font-lock) or not."
   :group 'cscope
   :type '(boolean))
 
