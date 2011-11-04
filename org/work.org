@@ -9,8 +9,8 @@
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
 * TODO 家族建设 [7/9]
-** TODO complete the org skill [2/4]
-*** TODO 追捕术
+** TODO complete the org skill [3/4]
+*** DONE 追捕术
 *** DONE 议价术
 *** TODO 采矿术
 *** DONE 通灵术
@@ -43,7 +43,7 @@
 *** DONE 技能学习
 *** DONE 研究成功
 *** DONE 物品捐献
-** TODO 待制作内容 [6/10]
+** TODO 待制作内容 [7/10]
 *** DONE 属性在属性面板上显示
 *** DONE 技能在技能面板上显示
 *** TODO 场景遮罩被分割
@@ -53,7 +53,7 @@
 *** DONE 脱离家族的惩罚
 *** TODO 某些技能快捷键不能使用
 *** TODO 家族战结束之后把玩家踢出场景
-*** TODO 家族商人改为60级以下
+*** DONE 家族商人改为60级以下
 
 * DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
