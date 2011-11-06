@@ -14,6 +14,7 @@
 (defun fs-update-filter (process str)
   (message str)
   (kill-buffer "*fs*"))
+
 (defun fs-update ()
   (interactive)
   (let* ((file-name (buffer-file-name)))
@@ -31,5 +32,9 @@
 
       (message "can not update this file!"))
     ))
+
+(add-hook 'c-mode-common-hook (lambda ()
+				(define-key c-mode-map "\C-cj" 'fs-update))
+	  )
 
 (provide 'fs-server)
