@@ -67,7 +67,8 @@
   (define-key c-mode-map "\C-ce" 'of-flymake-error))
   
 ;; use \C-ce for flymake
-(setq flymake-log-level 3)
+(setq flymake-log-level 0)
+(setq flymake-gui-warnings-enabled nil)
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
 (add-hook 'c-mode-common-hook 'of-c-mode-common-hook)
 
