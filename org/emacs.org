@@ -118,4 +118,6 @@
     3. \C-c u: pop mark
     4. \C-c b: cscope buffer
 *** TODO find symble or file more sample (like ido mode)
+* makefile
+** read manual
       

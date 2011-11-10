@@ -59,7 +59,6 @@
 *** DONE 某些技能快捷键不能使用
 *** DONE 家族战结束之后把玩家踢出场景
 *** DONE 家族商人改为60级以下
-
 * DONE easy update server code
 ** DONE 写一个通过web访问的更新指令
 ** DONE 写一个脚本可以方便的更新代码
@@ -75,14 +74,15 @@
 * server [0/2]
 ** TODO 64位crash问题
 ** TODO crash 查看
-* client [2/4]							:work:client:
-** DONE 封神精灵 [6/6]
+* client [3/5]							:work:client:
+** DONE 封神精灵 [7/7]
 *** DONE 无vip
 *** DONE 头像
 *** DONE 无加好友，表情清屏按钮
 *** DONE 名字不带id不可点击查看
 *** DONE 位于好友列表的最前面
 *** DONE 最近联系人
+** DONE 正则表达式
 ** TODO 客户端及时表现
 ** DONE 商城代购，赠送
 ** TODO 客户端移植 [0/1]
@@ -91,7 +91,8 @@
 *** TODO 11.10客户端打包
 *** DONE 角色跳帧问题
 *** TODO texture 整理
-    
+* DONE bug fix [1/1]
+** DONE 打包程序bug
 * Texture Code Review Note [0/10]
 ** TODO ftexture 的_hash字段是否还在使用(不需要)
 ** TODO ftexture reload 机制
