@@ -1,2 +1,15 @@
 * machine learning (http://open.163.com)
-** matlable or octive
+** matlable or octave
+** Machine Lerning definition
+*** Arthur Samuel (1959)
+*** Tom Mitchell (1998)
+** four types
+*** supervised learning
+**** classfication problem
+*** Learning Theory
+*** unsupervised learning
+**** Cocktail party problem
+*** Reinforcement Learning
+** Linear 
+* octave
+** http://www-mdp.eng.cam.ac.uk/web/CD/engapps/octave/octavetut.pdf

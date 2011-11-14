@@ -8,14 +8,14 @@
   CLOSED: [2011-10-13 四 12:10]
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
-* TODO 家族建设 [7/9]
-** TODO complete the org skill [3/4]
+* DONE 家族建设 [8/9]
+** DONE complete the org skill [4/4]
 *** DONE 追捕术
 *** DONE 议价术
-*** TODO 采矿术 [4/5]
+*** DONE 采矿术 [5/5]
 **** DONE 刷npc逻辑
 **** DONE npc点击逻辑
-**** TODO 客户端表现
+**** DONE 客户端表现
 **** DONE 技能提示
 **** DONE 完善
 *** DONE 通灵术
@@ -74,7 +74,7 @@
 * server [0/2]
 ** TODO 64位crash问题
 ** TODO crash 查看
-* client [3/5]							:work:client:
+* client [3/6]							:work:client:
 ** DONE 封神精灵 [7/7]
 *** DONE 无vip
 *** DONE 头像
@@ -84,16 +84,19 @@
 *** DONE 最近联系人
 ** DONE 正则表达式
 ** TODO 客户端及时表现
+** TODO 遮罩修改 [0/2]
+*** TODO 遮罩数据优化,把绿点数据转化为直线
+*** TODO 遮罩支持分层次 
 ** DONE 商城代购，赠送
 ** TODO 客户端移植 [0/1]
 *** TODO Makefile
-** 11.24公测 [1/3]
-*** TODO 11.10客户端打包
+** 11.24公测 [3/3]
+*** DONE 11.10客户端打包
 *** DONE 角色跳帧问题
-*** TODO texture 整理
+*** DONE texture 整理
 * DONE bug fix [1/1]
 ** DONE 打包程序bug
-* Texture Code Review Note [0/10]
+* Texture Code Review Note [0/11]
 ** TODO ftexture 的_hash字段是否还在使用(不需要)
 ** TODO ftexture reload 机制
 ** TODO 点选策略(整理,优化)
@@ -107,3 +110,4 @@
 ** TODO 预加载所有的fsi，加载完之后load_ftexture应该直接返回cache里面的,不再从文件系统里面load
 ** TODO 做一个本地查询服务器，录像兼容
 ** TODO 分级预加载(预加载管理器)
+** TODO 时间要用64位来存
