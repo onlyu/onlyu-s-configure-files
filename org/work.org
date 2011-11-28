@@ -8,7 +8,7 @@
   CLOSED: [2011-10-13 四 12:10]
 * DONE 帮战玩法服务器端制作
   CLOSED: [2011-10-13 四 12:11]
-* DONE 家族建设 [8/9]
+* DONE 家族建设 [9/9]
 ** DONE complete the org skill [4/4]
 *** DONE 追捕术
 *** DONE 议价术
@@ -48,10 +48,9 @@
 *** DONE 技能学习
 *** DONE 研究成功
 *** DONE 物品捐献
-** TODO 待制作内容 [9/10]
+** DONE 待制作内容 [9/9]
 *** DONE 属性在属性面板上显示
 *** DONE 技能在技能面板上显示
-*** TODO 场景遮罩被分割
 *** DONE 增加家族商人
 *** DONE 家族界面增加耗材、资金、个人贡献 
 *** DONE 家族贡献设定修改
@@ -71,9 +70,6 @@
 ** DONE 资源扫描脚本
 ** DONE 地图打包工具更新
 ** DONE 增加自荐队长
-* server [0/2]
-** TODO 64位crash问题
-** TODO crash 查看
 * client [3/8]							:work:client:
 ** DONE 封神精灵 [7/7]
 *** DONE 无vip
@@ -114,10 +110,8 @@
 ** TODO 分级预加载(预加载管理器)
 ** TODO 时间要用64位来存
 
-* client filesytem tune [2/6]
+* client filesytem tune [3/4]
 ** DONE fstream
 ** DONE support package
-** TODO support http
-** TODO streamreader streamwriter
-** TODO streamfilter
+** DONE support http
 ** TODO macos implement
