@@ -121,3 +121,5 @@
 * makefile
 ** read manual
       
+* Ìİ¶ÈÏÂ½µËã·¨
+* http://www.jirka.org/ra/realanal.pdf
