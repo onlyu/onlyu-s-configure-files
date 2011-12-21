@@ -7,3 +7,5 @@ sshfs onlyu@121.10.246.16:/home/onlyu/ /Users/while1/sshfs/1012/ -o cache=no,fol
 sshfs onlyu@121.10.246.14:/home/onlyu/ /Users/while1/sshfs/1025/ -o cache=no,follow_symlinks
 sshfs onlyu@121.10.246.13:/home/onlyu/ /Users/while1/sshfs/1026/ -o cache=no,follow_symlinks
 sshfs onlyu@121.10.246.17:/home/onlyu/ /Users/while1/sshfs/1027/ -o cache=no,follow_symlinks
+sshfs onlyu@121.10.246.26:/home/onlyu/ /Users/while1/sshfs/1033/ -o cache=no,follow_symlinks
+sshfs onlyu@121.10.246.19:/home/onlyu/ /Users/while1/sshfs/1029/ -o cache=no,follow_symlinks

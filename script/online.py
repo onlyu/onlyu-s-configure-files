@@ -28,7 +28,7 @@ if __name__ == '__main__':
     onlines = map(lambda(x): int(x), onlines)
     get_server_info()
     for i in xrange(len(lines)):
-        print get_server_name(int(lines[i])), onlines[i]
+        print get_server_name(int(lines[i])),lines[i], onlines[i]
     print sum(onlines)
 
 

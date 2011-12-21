@@ -1,7 +1,7 @@
 (require 'flymake)
 
 (setq flymake-allowed-file-name-masks
-      (cons '(".+\\.c$"
+      (cons '(".+\\.cc?$"
 	      flymake-simple-make-init
 	      flymake-simple-cleanup
 	      flymake-get-real-file-name)
