@@ -2,7 +2,7 @@ import socket
 
 if __name__ == '__main__':
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind(('localhost', 8001))
+    sock.bind(('192.168.12.35', 8001))
     sock.listen(5)
     while True:
         connection, address = sock.accept()
