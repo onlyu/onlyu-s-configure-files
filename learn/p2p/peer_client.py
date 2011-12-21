@@ -14,4 +14,6 @@ if __name__ == '__main__':
     sock.sendto("hello server", (ip, port))
     while True:
         sock.sendto("hello server", (ip, port))
+        data, addr = sock.recvfrom(1024)
+        print addr, data
         time.sleep(1)
