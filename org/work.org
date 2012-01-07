@@ -111,10 +111,13 @@
 ** TODO 分级预加载(预加载管理器)
 ** TODO 时间要用64位来存
 
-* client filesytem tune [5/6]
+* client filesytem tune [6/6]
 ** DONE fstream
 ** DONE support package
 ** DONE support http
 ** DONE macos implement
 ** DONE io statistics
-** TODO 协助光光做splite文件系统
+** DONE 协助光光做splite文件系统
+
+* miniclient
+** 121.10.246.3 
