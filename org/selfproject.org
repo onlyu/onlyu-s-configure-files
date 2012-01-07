@@ -1,0 +1,13 @@
+* build a server for self [1/7]
+** DONE Zhang Lei and me
+** TODO run a server in local machine
+*** TODO port server to macos
+*** TODO auth server
+*** TODO db server
+*** TODO web server
+*** TODO let Zhang Lei login into my local machine
+** TODO svn server for design document
+** TODO need a domain
+** TODO find a server in the internet
+** TODO microclient
+** TODO flash client
