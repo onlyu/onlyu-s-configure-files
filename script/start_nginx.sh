@@ -1,1 +1,1 @@
-sudo nginx -c /Users/onlyu/script/nginx.conf&
+nginx -c /Users/onlyu/script/nginx.conf&
