@@ -4,8 +4,11 @@
 *** TODO port server to macos
 *** TODO auth server
 *** TODO db server
-*** TODO web server
-*** TODO let Zhang Lei login into my local machine
+*** DONE web server
+    nginx: ~/www/
+*** DONE let Zhang Lei login into my local machine
+    dynamic domain: while1.oicp.net oray2012
+    git command: git clone ssh://onlyu@while1.oicp.net/Users/onlyu/adam/design
 ** TODO svn server for design document
 ** TODO need a domain
 ** TODO find a server in the internet
