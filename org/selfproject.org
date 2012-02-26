@@ -1,13 +1,23 @@
-* build a server for self [1/7]
+* build a server for self [3/7]
 ** DONE Zhang Lei and me
-** TODO run a server in local machine
-*** TODO port server to macos
-*** TODO auth server
-*** TODO db server
+** DONE run a server in local machine
+*** DONE port server to macos
+*** DONE auth server
+**** /gas/auth_ums.fcgi reponse like this
+     200,while1,1,1,0,0,0,0,0,0,0,0,0
+     code,ums, ...
+**** /gas/get_uidcount.fcgi reponse like thi
+     200,while1,2,1001
+
+*** DONE db server
 *** TODO web server
 *** TODO let Zhang Lei login into my local machine
 ** TODO svn server for design document
 ** TODO need a domain
 ** TODO find a server in the internet
-** TODO microclient
+** DONE microclient
 ** TODO flash client
+** 2012-2-12
+*** TODO update server code to the newest
+*** TODO jifei system
+*** TODO client public
