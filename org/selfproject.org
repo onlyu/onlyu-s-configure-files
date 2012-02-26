@@ -1,5 +1,6 @@
 * build a server for self [3/7]
 ** DONE Zhang Lei and me
+<<<<<<< HEAD
 ** DONE run a server in local machine
 *** DONE port server to macos
 *** DONE auth server
@@ -12,6 +13,17 @@
 *** DONE db server
 *** TODO web server
 *** TODO let Zhang Lei login into my local machine
+=======
+** TODO run a server in local machine
+*** TODO port server to macos
+*** TODO auth server
+*** TODO db server
+*** DONE web server
+    nginx: ~/www/
+*** DONE let Zhang Lei login into my local machine
+    dynamic domain: while1.oicp.net oray2012
+    git command: git clone ssh://onlyu@while1.oicp.net/Users/onlyu/adam/design
+>>>>>>> 8986265efa84f9b2bfffeebc0fb37fd34184fcaf
 ** TODO svn server for design document
 ** TODO need a domain
 ** TODO find a server in the internet
