@@ -31,12 +31,12 @@ void dump(char *word1, char *word2, int *m)
 	}
 }
 
-int edit_distance(char *word1, char *word2)
+int edit_distance(const char *word1, const char *word2)
 {
 	word1_len = strlen(word1);
 	word2_len = strlen(word2);
 
-	int *m = (int *)malloc((word1_len + 1) * (word2_len + 1));
+	int m[1000*1000];
 
 	// init
 	int i,j;
@@ -56,14 +56,17 @@ int edit_distance(char *word1, char *word2)
 			if (word1[i-1] == word2[j-1]) {
 				c = ITEM(m, i-1, j-1);
 			} else {
-				c = ITEM(m, i-1, j-1) + 2;
+				c = ITEM(m, i-1, j-1) + 1;
 			}
 			// be the minimal of the a,b,c
 			ITEM(m, i, j) = a < b ? (a < c ? a : c) : (b < c ? b : c);
 		}
-	return ITEM(m, word1_len, word2_len);
+	int distance = ITEM(m, word1_len, word2_len);
+	//free(m);
+	return distance;
 }
 
+#ifdef __MAIN__
 int main(int argc, char **argv)
 {
 	if (argc < 3) {
@@ -78,3 +81,4 @@ int main(int argc, char **argv)
 	printf("%d\n", distance);
 	return 0;
 }
+#endif
