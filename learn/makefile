@@ -21,6 +21,9 @@ gl/polygon:gl/polygon.cc
 gl/shape:gl/shape.cc
 	clang $< -lsdl -framework OpenGL -framework GLUT -o $@	
 
+npl/edit_distance:npl/edit_distance.c
+	clang $< -o $@
+
 clean:
 	rm -rf $(BINS)
 	rm -rf gdb-test.dSYM
