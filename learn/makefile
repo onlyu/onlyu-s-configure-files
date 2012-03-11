@@ -23,6 +23,9 @@ gl/polygon:gl/polygon.cc
 gl/shape:gl/shape.cc
 	clang $< -lsdl -framework OpenGL -framework GLUT -o $@	
 
+gl/texture:gl/texture.c
+	clang $< -lsdl -framework OpenGL -framework GLUT -o $@	
+
 npl/edit_distance:npl/edit_distance.c
 	clang -D __MAIN__ $< -o $@
 
