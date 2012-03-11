@@ -19,6 +19,9 @@ typedef int BOOL;
 #define FAILED -1
 
 GLuint texture[1];
+GLfloat g_light_ambient[] = {0.5f, 0.5f, 0.5f, 1.0f};
+GLfloat g_light_diffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+GLfloat g_light_position[] = {0.0f, 0.0f, 2.0f, 1.0f};
 
 int load_GL_textures()
 {
@@ -26,7 +29,7 @@ int load_GL_textures()
 	GLint num_colors;
 	GLenum format;
 	
-	image = SDL_LoadBMP("nehe.bmp");
+	image = SDL_LoadBMP("crate.bmp");
 	if (image == NULL) {
 		printf ("Unable to load bitmap: %s\n", SDL_GetError());
 		return FAILED;
@@ -97,6 +100,12 @@ BOOL init_GL()
 	}
 
 	load_GL_textures();
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, g_light_ambient);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, g_light_diffuse);
+	glLightfv(GL_LIGHT1, GL_POSITION, g_light_position);
+	glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHTING);
 	return TRUE;
 }
 
@@ -128,7 +137,7 @@ void draw_scene()
 
 	glLoadIdentity();
 	glTranslatef(-1.5f, 0.0f, -6.0f);
-	glRotatef(triangle_rot, 0.0f, 0.0f, 0.0f);
+	//glRotatef(triangle_rot, 0.0f, 0.0f, 0.0f);
 	glBegin(GL_TRIANGLES);
 	glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
 	glVertex3f(0.0f, 1.0f, 0.0f);

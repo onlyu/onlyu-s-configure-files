@@ -26,6 +26,9 @@ gl/shape:gl/shape.cc
 gl/texture:gl/texture.c
 	clang $< -lsdl -framework OpenGL -framework GLUT -o $@	
 
+gl/light:gl/light.c
+	clang $< -lsdl -framework OpenGL -framework GLUT -o $@	
+
 npl/edit_distance:npl/edit_distance.c
 	clang -D __MAIN__ $< -o $@
 
