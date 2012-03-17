@@ -3,7 +3,7 @@ import os
 import re
 import pprint
 
-my_first_pat = '(\w+)@(\w+).edu'
+
 
 """ 
 TODO
@@ -20,15 +20,43 @@ match the gold answers
 NOTE: ***don't change this interface***, as it will be called directly by
 the submit script
 """
+my_first_pat = '([a-z0-9.]+) *(@|\(at\)|&#x40;) *((\w+)\.)*(\w+)\.(edu|com|cn|org|net|jp)'
+my_first_pat1 = '([a-z0-9.]+)( at | where )((\w+) *(dot|dt|dom|;) *)*(\w+) *(dot|dt|dom|;) *(edu|com|cn|org|net|jp)'
+my_first_pat2 = 'obfuscate\([\'"]([^\']+)[\'"],[\'"]([a-z0-9.]+)[\'"]\)'
+phone_pats = [
+    '[(](\d{3})[)] *(\d{3})[- ]?(\d{4})',
+    '(\d{3})[- ](\d{3})[- ](\d{4})',
+    ]
 def process_file(name, f):
     # note that debug info should be printed to stderr
     # sys.stderr.write('[process_file]\tprocessing file: %s\n' % (path))
-    res = []
+    res = []    
     for line in f:
+        line = line.lower()
+        for pat in phone_pats:
+            matches = re.findall(pat, line)
+            for m in matches:
+                print "phone", m
+                res.append((name, 'p', "%s-%s-%s"%(m[0], m[1], m[2])))
+
+        line = line.replace('-', '')
         matches = re.findall(my_first_pat,line)
         for m in matches:
-            email = '%s@%s.edu' % m
+            if not m[2] == '':
+                email = '%s@%s.%s.%s' % (m[0], m[3], m[4], m[5])
+            else:
+                email = '%s@%s.%s' % (m[0], m[4], m[5])
             res.append((name,'e',email))
+        matches = re.findall(my_first_pat1, line)
+        for m in matches:
+            if not m[2] == '':
+                email = '%s@%s.%s.%s' % (m[0], m[3], m[5], m[7])
+            else:
+                email = '%s@%s.%s' % (m[0], m[5], m[7])
+            res.append((name,'e',email))
+        matches = re.findall(my_first_pat2, line)
+        for m in matches:
+            res.append((name, 'e', "%s@%s"%(m[1],m[0])))
     return res
 
 """
