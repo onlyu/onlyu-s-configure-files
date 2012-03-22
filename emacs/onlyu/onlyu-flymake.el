@@ -1,7 +1,7 @@
 (require 'flymake)
 
 (setq flymake-allowed-file-name-masks
-      (cons '(".+\\.cc?$"
+      (cons '(".+(\\.c|\\.cc|\\.cpp)$"
 	      flymake-simple-make-init
 	      flymake-simple-cleanup
 	      flymake-get-real-file-name)
@@ -64,7 +64,8 @@
 
 
 (defun of-c-mode-common-hook ()
-  (define-key c-mode-map "\C-ce" 'of-flymake-error))
+  (define-key c-mode-map "\C-ce" 'of-flymake-error)
+  (define-key c++-mode-map "\C-ce" 'of-flymake-error))
   
 ;; use \C-ce for flymake
 (setq flymake-log-level 0)

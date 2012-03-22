@@ -70,7 +70,7 @@
 ** DONE 资源扫描脚本
 ** DONE 地图打包工具更新
 ** DONE 增加自荐队长
-* client [3/9]							:work:client:
+* client [5/9] 							:work:client:
 ** DONE 封神精灵 [7/7]
 *** DONE 无vip
 *** DONE 头像
@@ -80,15 +80,15 @@
 *** DONE 最近联系人
 ** DONE 正则表达式
 ** TODO 客户端及时表现
-** TODO 寻路的优化
+** DONE 寻路的优化
 ** TODO 遮罩修改 [0/2]
 *** TODO 遮罩数据优化,把绿点数据转化为直线
 *** TODO 遮罩支持分层次 
 ** DONE 商城代购，赠送
 ** TODO fprop存盘
 ** TODO 动作条
-** TODO 客户端移植 [0/1]
-*** TODO Makefile
+** DONE 客户端移植 [1/1]
+*** DONE Makefile
 ** 11.24公测 [3/3]
 *** DONE 11.10客户端打包
 *** DONE 角色跳帧问题
@@ -111,10 +111,13 @@
 ** TODO 分级预加载(预加载管理器)
 ** TODO 时间要用64位来存
 
-* client filesytem tune [5/6]
+* client filesytem tune [6/6]
 ** DONE fstream
 ** DONE support package
 ** DONE support http
 ** DONE macos implement
 ** DONE io statistics
-** TODO 协助光光做splite文件系统
+** DONE 协助光光做splite文件系统
+
+* miniclient
+** 121.10.246.3 

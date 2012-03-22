@@ -1,0 +1,1 @@
+/usr/sbin/sshd -f /opt/local/etc/ssh/sshd_config
