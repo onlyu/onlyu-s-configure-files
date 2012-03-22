@@ -28,3 +28,13 @@
 * virtual machine at company
   ssh 192.168.0.153 -p 22 -l root
   pwd 175@game
+
+* 点击统计
+  http://rdcnzz.com/v1/login.php?siteid=1118375 迅雷报表
+  http://rdcnzz.com/v1/login.php?siteid=1118370 完整客户端报表
+  http://rdcnzz.com/v1/login.php?siteid=1118343 微端报表
+  密码都最175game.888
+* 统计查询
+  IP：183.60.41.251
+  LOG路径：/home/miniclient/logs/mini_stat_access.log
+
