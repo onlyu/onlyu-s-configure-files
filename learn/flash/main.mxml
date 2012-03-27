@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	layout="absolute"
+	width="600"
+	height="400"
+	frameRate="100"
+	creationComplete="CreationComplete()"
+	enterFrame="EnterFrame(event)"
+	currentState="MainMenu">
+  <mx:states>
+    <mx:State name="Game" 
+	      enterState="enterGame(event)"
+	      exitState="exitGame(event)">
+    </mx:State>
+    <mx:State name = "MainMenu">
+      <mx:AddChild relativeTo="{myCanvas}" position="lastChild">
+	<mx:Button x="525" y="368" label="Start" id="btnStart"
+		   click="startGameClicked(event)"/>
+      </mx:AddChild>
+    </mx:State>
+  </mx:states>
+  <mx:Canvas x="0" y="0" width="100%" height="100%" id="myCanvas"/>
+  <mx:Script>
+    <![CDATA[
+	     protected var inGame:Boolean = false;
+	     public function CreationComplete():void {
+	     
+	     }
+
+	     public function EnterFrame(event:Event):void {
+	     	 if (inGame) {
+		     GameObjectManager.getInstance().enterFrame();
+		     myCanvas.graphics.clear();
+		     myCanvas.graphics.beginBitmapFill(GameObjectManager.getInstance().backBuffer, null, false, false);
+		     myCanvas.graphics.drawRect(0,0, this.width, this.height);
+		     myCanvas.graphics.endFill();
+		 }
+	     }
+	     
+	     protected function startGameClicked(event:Event):void {
+		 currentState = "Game"
+	     }
+	     
+	     protected function enterGame(event:Event): void {
+		 GameObjectManager.getInstance().startup();
+		 inGame = true;
+	     }
+	     
+	     protected function exitGame(event:Event):void {
+		 GameObjectManager.getInstance().shutdown();
+		 inGame = false;
+	     }
+    ]]>
+  </mx:Script>
+</mx:Application>

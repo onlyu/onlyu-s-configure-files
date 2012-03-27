@@ -1,0 +1,7 @@
+
+* download the latest flex sdk:
+  http://opensource.adobe.com/wiki/display/flexsdk/download?build=4.6.0.23201B&pkgtype=1
+* download a debug flash player:
+  http://www.adobe.com/support/flashplayer/downloads.html
+* start reading:
+  http://blog.csdn.net/literza/article/details/4241318
