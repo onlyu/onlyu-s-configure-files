@@ -16,6 +16,7 @@
 (require 'onlyu-yasnippet)
 
 (require 'onlyu-lua-mode)
+(require 'onlyu-as-mode)
 (require 'onlyu-cc-mode)
 (require 'onlyu-dired-mode)
 (require 'onlyu-flymake)

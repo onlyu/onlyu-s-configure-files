@@ -40,6 +40,8 @@
 	     
 	     protected function startGameClicked(event:Event):void {
 		 currentState = "Game"
+		 var main:* = new main();
+		 main.main();
 	     }
 	     
 	     protected function enterGame(event:Event): void {
