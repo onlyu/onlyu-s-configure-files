@@ -24,5 +24,7 @@
 (require 'onlyu-find-func)
 
 (require 'fs-server)
+
+(semantic-mode 1)
 ;; init
 (provide 'init)
