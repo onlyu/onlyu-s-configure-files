@@ -162,20 +162,32 @@
     (symbol . "a")))
 
 ;; semantic
-
-(defun ac-semantic-candidates (prefix)
+(defun ac-lpc-candidates (prefix)
   (let ((alist '())
-	(thing (thing-at-point 'symbol)))
-    (setq alist (append '("test1" "yingying" "shi" "tou" "zhu") alist))
+	(thing ""))
+    (backward-char 3)
+    (setq thing (substring-no-properties (thing-at-point 'sexp)))
     (setq alist (cons thing alist))
     alist))
-  ;; (with-no-warnings
-  ;;   (delete ""            ; semantic sometimes returns an empty string
-  ;;           (mapcar 'semantic-tag-name
-  ;;                   (ignore-errors
-  ;;                     (or (semantic-analyze-possible-completions
-  ;;                          (semantic-analyze-current-context))
-  ;;                         (senator-find-tag-for-completion prefix)))))))
+
+(defun ac-semantic-candidates-1 (prefix)
+  (with-no-warnings
+    (delete ""            ; semantic sometimes returns an empty string
+            (mapcar 'semantic-tag-name
+                    (ignore-errors
+                      (or (semantic-analyze-possible-completions
+                           (semantic-analyze-current-context))
+                          (senator-find-tag-for-completion prefix)))))))
+
+(defun ac-semantic-candidates (prefix)
+  (let ((alist1 '())
+	(alist2 '()))
+    (setq alist1 (ac-semantic-candidates-1 prefix))
+    (setq alist2 (ac-lpc-candidates prefix))
+    (setq alist1 (append alist1 alist2))
+    (if (> (length alist2) 0)
+	alist2
+      alist1)))
 
 (ac-define-source semantic
   '((available . (or (require 'semantic-ia nil t)
