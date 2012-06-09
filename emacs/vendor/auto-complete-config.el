@@ -164,13 +164,18 @@
 ;; semantic
 
 (defun ac-semantic-candidates (prefix)
-  (with-no-warnings
-    (delete ""            ; semantic sometimes returns an empty string
-            (mapcar 'semantic-tag-name
-                    (ignore-errors
-                      (or (semantic-analyze-possible-completions
-                           (semantic-analyze-current-context))
-                          (senator-find-tag-for-completion prefix)))))))
+  (let ((alist '())
+	(thing (thing-at-point 'symbol)))
+    (setq alist (append '("test1" "yingying" "shi" "tou" "zhu") alist))
+    (setq alist (cons thing alist))
+    alist))
+  ;; (with-no-warnings
+  ;;   (delete ""            ; semantic sometimes returns an empty string
+  ;;           (mapcar 'semantic-tag-name
+  ;;                   (ignore-errors
+  ;;                     (or (semantic-analyze-possible-completions
+  ;;                          (semantic-analyze-current-context))
+  ;;                         (senator-find-tag-for-completion prefix)))))))
 
 (ac-define-source semantic
   '((available . (or (require 'semantic-ia nil t)
@@ -462,6 +467,7 @@
 
 (defun ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet ac-source-gtags) ac-sources)))
+
 
 (defun ac-ruby-mode-setup ()
   (make-local-variable 'ac-ignores)
