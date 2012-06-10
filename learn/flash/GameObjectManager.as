@@ -3,6 +3,7 @@ package
     import mx.core.*;
     import mx.collections.*;
     import flash.display.*;
+    import flash.geom.*;
     
     public class GameObjectManager
     {
@@ -59,6 +60,10 @@ package
 		if (gameObject.inuse)
 		    gameObject.copyToBackBuffer(backBuffer);
 	    }
+
+	    var graphics:GraphicsResource = ResourceManager.BrownPlaneGraphics;
+	    backBuffer.copyPixels(graphics.bitmap, graphics.bitmap.rect, new Point(0,0), graphics.bitmapAlpha, new Point(0,0), true);
+
 	}
 
 	public function addGameObject(gameObject:GameObject): void {
