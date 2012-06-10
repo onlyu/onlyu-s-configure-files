@@ -162,13 +162,27 @@
     (symbol . "a")))
 
 ;; semantic
+(defun get-lpc-functions (f)
+  (let ((alist))
+    (with-temp-buffer
+      (insert-file-contents f)
+      (semantic-default-c-setup)
+      (semantic-new-buffer-fcn)
+      (semantic-parse-region-default (point-min) (point-max))
+      (setq tags (semantic-fetch-tags))
+      (dolist (elt tags alist)
+	(setq first (car elt))
+	(if (stringp first)
+	    (setq alist (cons  first alist))))
+      alist)))
+
 (defun ac-lpc-candidates (prefix)
-  (let ((alist '())
-	(thing ""))
-    (backward-char 3)
-    (setq thing (substring-no-properties (thing-at-point 'sexp)))
-    (setq alist (cons thing alist))
-    alist))
+  (let ((thing ""))
+    (skip-chars-backward "-\.>\"")
+    (setq thing (substring-no-properties (thing-at-point 'filename)))
+    (if (file-exists-p (concat fs-logic-dir thing ".c"))
+	(get-lpc-functions (concat fs-logic-dir thing ".c"))
+      '())))
 
 (defun ac-semantic-candidates-1 (prefix)
   (with-no-warnings
@@ -184,9 +198,8 @@
 	(alist2 '()))
     (setq alist1 (ac-semantic-candidates-1 prefix))
     (setq alist2 (ac-lpc-candidates prefix))
-    (setq alist1 (append alist1 alist2))
     (if (> (length alist2) 0)
-	alist2
+    	alist2
       alist1)))
 
 (ac-define-source semantic
