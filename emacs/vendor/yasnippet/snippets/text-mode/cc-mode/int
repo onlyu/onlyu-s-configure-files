@@ -1,0 +1,5 @@
+#name : define function
+# --
+int ${1:fname}($2) {$3
+     return $4;
+}

@@ -493,7 +493,6 @@
 (defun ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet ac-source-gtags) ac-sources)))
 
-
 (defun ac-ruby-mode-setup ()
   (make-local-variable 'ac-ignores)
   (add-to-list 'ac-ignores "end"))
