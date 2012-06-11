@@ -172,17 +172,38 @@
       (setq tags (semantic-fetch-tags))
       (dolist (elt tags alist)
 	(setq first (car elt))
-	(if (stringp first)
+	(if (and (stringp first) 
+		 (not (string-match "\\.h" first))
+		 (not (eq (string-match "[_=]" first) 0)))
 	    (setq alist (cons  first alist))))
       alist)))
 
+;; get the function of a lpc file object
+(defvar macros-file "macros-file")
 (defun ac-lpc-candidates (prefix)
-  (let ((thing ""))
-    (skip-chars-backward "-\.>\"")
-    (setq thing (substring-no-properties (thing-at-point 'filename)))
-    (if (file-exists-p (concat fs-logic-dir thing ".c"))
-	(get-lpc-functions (concat fs-logic-dir thing ".c"))
-      '())))
+  (with-no-warnings
+    (ignore-errors
+      (let ((thing ""))
+	(skip-chars-backward "-\.>\"")
+	;(setq thing (substring-no-properties (thing-at-point 'filename)))
+	(setq thing (myfile-at-point))
+	(if (not (file-exists-p (concat fs-logic-dir thing ".c")))
+	  (progn
+	    (setq thing (myextract-symbol))
+	    (cscope-call (format "Finding global definition: %s" thing)
+			 (list "-1" thing) nil (lambda (process output)
+						  (setq macros-file output)
+						  (message output))
+			 nil)
+;	    (when (posix-string-match (fromat "define *%s *\"\\(.*\\)\"" "FLY_DATA_PATH") macros-file)
+;	    (when (posix-string-match "define *FLY_DATA_PATH *\"\\(.*\\)\""  macros-file)
+	    (when (posix-string-match (format "define *%s *\"\\(.*\\)\"" thing) macros-file)
+	      (setq thing  (match-string 1 macros-file) ))))
+	(if (string-match "\\.c" thing)
+	    (setq thing (concat fs-logic-dir thing))
+	  (setq thing (concat fs-logic-dir thing ".c")))
+	(when (file-exists-p thing)
+	  (get-lpc-functions thing))))))
 
 (defun ac-semantic-candidates-1 (prefix)
   (with-no-warnings
@@ -493,6 +514,9 @@
 (defun ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet ac-source-gtags) ac-sources)))
 
+(defun ac-pike-mode-setup ()
+  )
+
 (defun ac-ruby-mode-setup ()
   (make-local-variable 'ac-ignores)
   (add-to-list 'ac-ignores "end"))
@@ -504,10 +528,10 @@
   (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'pike-mode-hook 'ac-pike-mode-setup)
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t))
-
 (provide 'auto-complete-config)
 ;;; auto-complete-config.el ends here

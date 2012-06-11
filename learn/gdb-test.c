@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 	int b = 10;
 	int attach = 1;
 	struct test_s te;
-	te
 	for (i=0;i<b;i++){
 		int a = test(i);
 		printf("%d\n", a);
