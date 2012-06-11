@@ -23,7 +23,7 @@
 (require 'onlyu-flymake)
 
 (require 'onlyu-find-func)
-
+(require 'onlyu-util)
 
 
 (semantic-mode 1)

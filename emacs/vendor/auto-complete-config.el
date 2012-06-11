@@ -184,8 +184,8 @@
   (with-no-warnings
     (ignore-errors
       (let ((thing ""))
+	(require 'onlyu-xcscope)
 	(skip-chars-backward "-\.>\"")
-	;(setq thing (substring-no-properties (thing-at-point 'filename)))
 	(setq thing (myfile-at-point))
 	(if (not (file-exists-p (concat fs-logic-dir thing ".c")))
 	  (progn
@@ -195,8 +195,6 @@
 						  (setq macros-file output)
 						  (message output))
 			 nil)
-;	    (when (posix-string-match (fromat "define *%s *\"\\(.*\\)\"" "FLY_DATA_PATH") macros-file)
-;	    (when (posix-string-match "define *FLY_DATA_PATH *\"\\(.*\\)\""  macros-file)
 	    (when (posix-string-match (format "define *%s *\"\\(.*\\)\"" thing) macros-file)
 	      (setq thing  (match-string 1 macros-file) ))))
 	(if (string-match "\\.c" thing)
