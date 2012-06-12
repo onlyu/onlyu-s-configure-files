@@ -24,7 +24,7 @@
 
 (require 'onlyu-find-func)
 (require 'onlyu-util)
-
+(require 'onlyu-locale-settings)
 
 (semantic-mode 1)
 ;; init
