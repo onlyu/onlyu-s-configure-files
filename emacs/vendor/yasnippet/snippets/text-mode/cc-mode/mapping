@@ -1,6 +1,6 @@
 #name : define function
 # --
-mapping ${1:fname}($2) {
-     $0
-     return;
+mapping ${1:fname}($2) 
+{$3
+     return $4;
 }

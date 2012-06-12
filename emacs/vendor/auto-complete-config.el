@@ -160,9 +160,70 @@
     (candidate-face . ac-yasnippet-candidate-face)
     (selection-face . ac-yasnippet-selection-face)
     (symbol . "a")))
+;; ----------------------------------------- lpc parse -------------------------------------
+(defvar is-lpc-function-loaded nil)
+(defvar lpc-function-cache (make-hash-table :test 'equal))
+(defcustom lpc-function-cache-file "~/.emacs.d/lpc-function-cache"
+  ""
+  :type 'string
+  :group 'auto-complete)
+
+;; save and load parsed functions from file
+(defun lpc-function-cache-serialize (cache)
+  (let (alist)
+    (maphash (lambda (k v)
+               (push (cons k v) alist))
+             cache)
+    (list alist)))
+
+(defun lpc-function-cache-deserialize (sexp)
+  (condition-case nil
+      (progn
+	(mapc (lambda (cons)
+	      (puthash (car cons) (cdr cons) lpc-function-cache))
+	    (nth 0 sexp))
+	lpc-function-cache)))
+
+(defun load-lpc-functions ()
+  (if (file-exists-p lpc-function-cache-file)
+      (ignore-errors
+	(with-temp-buffer
+	  (insert-file-contents lpc-function-cache-file)
+	  (goto-char (point-min))
+	  (lpc-function-cache-deserialize (read (current-buffer)))))))
+
+(defun save-lpc-functions ()
+  (require 'pp)
+  (ignore-errors
+    (with-temp-buffer
+      (pp (lpc-function-cache-serialize lpc-function-cache) (current-buffer))
+      (write-region (point-min) (point-max) lpc-function-cache-file))))
+
+(defun clear-lpc-functions()
+  (setq lpc-function-cache (makehash :test 'equal)))
+
+(defun time-int (time)
+  (+ (* (nth 0 time) 65536 ) (nth 1 time)))
+
+(defun get-lpc-function-from-cache (f)
+  (progn
+    (unless is-lpc-function-loaded
+      (load-lpc-functions)
+      (setq is-lpc-function-loaded t))
+    (let ((file-cache (gethash f lpc-function-cache)))
+      (if file-cache
+	  (let ((time (car file-cache))
+		(functions (cdr file-cache))
+		(file-last-change-time (nth 6 (file-attributes f))))
+	    (when (and time (<= (time-int file-last-change-time) (time-int time)))
+	      functions))
+	nil))))
+
+(defun put-lpc-function-to-cache (f functions)
+  (puthash f (cons (current-time) functions) lpc-function-cache))
 
 ;; semantic
-(defun get-lpc-functions (f)
+(defun get-lpc-functions-from-file (f)
   (let ((alist))
     (with-temp-buffer
       (insert-file-contents f)
@@ -178,8 +239,30 @@
 	    (setq alist (cons  first alist))))
       alist)))
 
-;; get the function of a lpc file object
+(defun get-lpc-functions (f)
+  (or (get-lpc-function-from-cache f) (put-lpc-function-to-cache f (get-lpc-functions-from-file f))))
+
 (defvar macros-file "macros-file")
+;; MDL_LOG-> ...
+(defun get-lpc-symbol-file (symbol)
+  (save-excursion
+    (setq thing (myextract-symbol))
+    (cscope-call (format "Finding global definition: %s" thing)
+		 (list "-1" thing) nil (lambda (process output)
+					 (setq macros-file output))
+		 nil)
+    (if (posix-string-match (format "define *%s *\"\\(.*\\)\"" thing) macros-file)
+      (match-string 1 macros-file)
+      symbol)))
+
+;; logger-> or user->
+(defun get-lpc-object-file (symbol)
+  (cond ((string-match "[uU]ser" symbol) "char/user")
+	((string-match "logger" symbol) "module/log")
+	((string-match "_log" symbol) "module/log")
+	nil))
+
+;; get the function of a lpc file object
 (defun ac-lpc-candidates (prefix)
   (with-no-warnings
     (ignore-errors
@@ -188,21 +271,13 @@
 	(skip-chars-backward "-\.>\"")
 	(setq thing (myfile-at-point))
 	(if (not (file-exists-p (concat fs-logic-dir thing ".c")))
-	  (progn
-	    (setq thing (myextract-symbol))
-	    (cscope-call (format "Finding global definition: %s" thing)
-			 (list "-1" thing) nil (lambda (process output)
-						  (setq macros-file output)
-						  (message output))
-			 nil)
-	    (when (posix-string-match (format "define *%s *\"\\(.*\\)\"" thing) macros-file)
-	      (setq thing  (match-string 1 macros-file) ))))
+	    (setq thing (or (get-lpc-object-file thing) (get-lpc-symbol-file thing))))
 	(if (string-match "\\.c" thing)
 	    (setq thing (concat fs-logic-dir thing))
 	  (setq thing (concat fs-logic-dir thing ".c")))
 	(when (file-exists-p thing)
 	  (get-lpc-functions thing))))))
-
+;; ----------------------------------------- lpc parse end -------------------------------------
 (defun ac-semantic-candidates-1 (prefix)
   (with-no-warnings
     (delete ""            ; semantic sometimes returns an empty string
@@ -530,6 +605,8 @@
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
+  (global-auto-complete-mode t)
+  ;; auto save lpc-functions
+  (add-hook 'kill-emacs-hook 'save-lpc-functions))
 (provide 'auto-complete-config)
 ;;; auto-complete-config.el ends here

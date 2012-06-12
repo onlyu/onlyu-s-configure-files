@@ -1,5 +1,6 @@
 #name : define function
 # --
-mixed ${1:fname}($2) {$3
+mixed ${1:fname}($2) 
+{$3
      return $4;
 }
