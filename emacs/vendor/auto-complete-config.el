@@ -268,6 +268,7 @@
     (ignore-errors
       (let ((thing ""))
 	(require 'onlyu-xcscope)
+	(skip-chars-backward "[a-zA-Z0-9_]")
 	(skip-chars-backward "-\.>\"")
 	(setq thing (myfile-at-point))
 	(if (not (file-exists-p (concat fs-logic-dir thing ".c")))
