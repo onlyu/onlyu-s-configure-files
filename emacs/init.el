@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/emacs/vendor/")
 
 (require 'onlyu-custom)
+(require 'fs-server)
 (require 'onlyu-key)
 (require 'onlyu-alias)
 (require 'onlyu-linum)
@@ -16,12 +17,15 @@
 (require 'onlyu-yasnippet)
 
 (require 'onlyu-lua-mode)
+;;(require 'onlyu-as-mode)
 (require 'onlyu-cc-mode)
 (require 'onlyu-dired-mode)
 (require 'onlyu-flymake)
 
 (require 'onlyu-find-func)
+(require 'onlyu-util)
+(require 'onlyu-locale-settings)
 
-(require 'fs-server)
+(semantic-mode 1)
 ;; init
 (provide 'init)

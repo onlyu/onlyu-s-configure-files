@@ -34,7 +34,8 @@
     ))
 
 (add-hook 'c-mode-common-hook (lambda ()
-				(define-key c-mode-map "\C-cj" 'fs-update))
-	  )
+				(define-key c-mode-map "\C-cj" 'fs-update)))
+(add-hook 'pike-mode-hook (lambda ()
+			    (define-key pike-mode-map "\C-cj" 'fs-update)))
 
 (provide 'fs-server)

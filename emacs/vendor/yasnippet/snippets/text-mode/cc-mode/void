@@ -1,0 +1,7 @@
+#name : define function
+# --
+void ${1:fname}($2)
+{
+     $0
+     return;
+}

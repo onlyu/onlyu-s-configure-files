@@ -1,6 +1,6 @@
 ;; load path
 (add-to-list 'load-path "~/emacs/")
-
+(require 'init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -12,11 +12,10 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(completion-ignored-extensions (quote (".o" "~" ".bin" ".bak" ".obj" ".map" ".ico" ".pif" ".lnk" ".a" ".ln" ".blg" ".bbl" ".dll" ".drv" ".vxd" ".386" ".elc" ".lof" ".glo" ".idx" ".lot" ".svn/" ".hg/" ".git/" ".bzr/" "CVS/" "_darcs/" "_MTN/" ".fmt" ".tfm" ".class" ".fas" ".lib" ".mem" ".x86f" ".sparcf" ".fasl" ".ufsl" ".fsl" ".dxl" ".pfsl" ".dfsl" ".p64fsl" ".d64fsl" ".dx64fsl" ".lo" ".la" ".gmo" ".mo" ".toc" ".aux" ".cp" ".fn" ".ky" ".pg" ".tp" ".vr" ".cps" ".fns" ".kys" ".pgs" ".tps" ".vrs" ".pyc" ".pyo")))
- '(dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$|\\.lo$|~$")
+ '(dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^.*\\.lo$\\|^.*~$")
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
- '(fs-dir "F:/fs/trunk/")
  '(inverse-video t)
  '(ispell-dictionary "en")
  '(linum-delay t)
@@ -43,4 +42,4 @@
  '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Menlo")))))
 
-(require 'init)
+

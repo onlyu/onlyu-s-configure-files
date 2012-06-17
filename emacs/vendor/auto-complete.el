@@ -162,7 +162,7 @@
 (defcustom ac-modes
   '(emacs-lisp-mode
     lisp-interaction-mode
-    c-mode cc-mode c++-mode
+    c-mode cc-mode c++-mode pike-mode
     java-mode clojure-mode scala-mode
     scheme-mode
     ocaml-mode tuareg-mode
@@ -954,7 +954,7 @@ You can not use it in source definition like (prefix . `NAME')."
   (ac-inline-update)
   (popup-set-list ac-menu ac-candidates)
   (if (and (not ac-fuzzy-enable)
-           (<= (length ac-candidates) 1))
+¡Ö           (<= (length ac-candidates) 1))
       (popup-hide ac-menu)
     (if ac-show-menu
         (popup-draw ac-menu))))

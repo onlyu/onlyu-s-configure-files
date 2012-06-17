@@ -34,7 +34,16 @@
   http://rdcnzz.com/v1/login.php?siteid=1118370 完整客户端报表
   http://rdcnzz.com/v1/login.php?siteid=1118343 微端报表
   密码都最175game.888
+  lwk008@175game.com
+  fs.175game.com
 * 统计查询
   IP：183.60.41.251
   LOG路径：/home/miniclient/logs/mini_stat_access.log
-
+* errorfile
+** errorfile out server 121.10.246.5
+   su:mcs
+   pwd:mcs@qtzgame
+** errorfile internal server 192.168.0.10
+   su:root
+   pwd:
+* ssh -p 32222 onlyu@183.62.45.76

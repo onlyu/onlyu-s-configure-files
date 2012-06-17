@@ -1,0 +1,5 @@
+#name : foreach k,v in mapping
+# --
+foreach (${1:string key}, ${2:mapping value} in  ${3:mapping}){
+    $0
+}

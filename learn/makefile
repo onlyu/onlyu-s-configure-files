@@ -46,5 +46,5 @@ clean:
 CHK_SOURCES	= lassert.c
 .PHONY: check-syntax 
 check-syntax: 
-	$(CC) $(CFLAGS) -Wall -fsyntax-only $(CHK_SOURCES)
+	$(CC) $(CFLAGS) -Wall -fsyntax-only $(CHK_SOURCES)	
 

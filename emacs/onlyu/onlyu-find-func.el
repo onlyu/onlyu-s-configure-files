@@ -21,8 +21,10 @@
   (describe-function (function-called-at-point)))
 
 (defun off-init-key-map (map)
-  (define-key map "\C-cg" 'off-function-at-point)
-  (define-key map "\C-cl" 'off-describe-at-point))
+  (define-key map "\C-cv" 'off-variable-at-point)
+  (define-key map "\C-cl" 'off-library-at-point)
+  (define-key map "\C-cf" 'off-function-at-point)
+  (define-key map "\C-cd" 'off-describe-at-point))
 
 (defun off-lisp-mode-hook ()
   (off-init-key-map emacs-lisp-mode-map))

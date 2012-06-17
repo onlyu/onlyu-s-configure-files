@@ -1,0 +1,5 @@
+#name : case
+# --
+case ${1:condition}:
+     $2
+     break;$3
