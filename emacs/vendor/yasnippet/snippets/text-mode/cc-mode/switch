@@ -1,0 +1,7 @@
+#name : switch
+# --
+switch (${1:variable}) {
+$2
+default:
+	${3:break};
+} $4

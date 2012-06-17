@@ -261,9 +261,24 @@ Can also be a list of strings."
            (set-default symbol val)
            (if (fboundp 'yas/init-yas-in-snippet-keymap)
                (yas/init-yas-in-snippet-keymap))))
+
+(defcustom yas/real-next-field-key '("\C-n")
+  "The key to navigate to next field when a snippet is active.
+
+Value is a string that is converted to the internal Emacs key
+representation using `read-kbd-macro'.
+
+Can also be a list of strings."
+  :type '(choice (string :tag "String")
+                 (repeat :args (string) :tag "List of strings"))
+  :group 'yasnippet
+  :set #'(lambda (symbol val)
+           (set-default symbol val)
+           (if (fboundp 'yas/init-yas-in-snippet-keymap)
+               (yas/init-yas-in-snippet-keymap))))
            
 
-(defcustom yas/prev-field-key '("<backtab>" "<S-tab>")
+(defcustom yas/prev-field-key '("\C-p")
   "The key to navigate to previous field when a snippet is active.
 
 Value is a string that is converted to the internal Emacs key
@@ -416,6 +431,7 @@ This cafn only work when snippets are loaded from files."
     (mapc #'(lambda (binding)
               (yas/define-some-keys (car binding) map (cdr binding)))
           `((,yas/next-field-key     . yas/next-field-or-maybe-expand)
+	    (,yas/real-next-field-key . yas/next-field)
             (,yas/prev-field-key     . yas/prev-field)
             ("C-g"                   . yas/abort-snippet)
             (,yas/skip-and-clear-key . yas/skip-and-clear-or-delete-char)))
@@ -2841,7 +2857,9 @@ will be deleted before inserting template."
         (end (or end (point)))
         (inhibit-modification-hooks t)
         (column (current-column))
-        snippet)
+        snippet
+	start-point
+	end-point)
 
     ;; Delete the region to delete, this *does* get undo-recorded.
     ;;
@@ -2863,8 +2881,9 @@ will be deleted before inserting template."
         ;; them mostly to make the undo information
         ;;
         (setq yas/start-column (save-restriction (widen) (current-column)))
+	(setq start-point (point))
         (insert template)
-
+	(setq end-point (point))
         (setq snippet
               (if expand-env
                   (let ((read-vars (condition-case err
@@ -2902,8 +2921,10 @@ will be deleted before inserting template."
     ;;
     (let ((first-field (car (yas/snippet-fields snippet))))
       (when first-field
-        (yas/move-to-field snippet first-field))))
+        (yas/move-to-field snippet first-field)))
+    (indent-region start-point end-point))
   (message "[yas] snippet expanded."))
+  
 
 (defun yas/take-care-of-redo (beg end snippet)
   "Commits SNIPPET, which in turn pushes an undo action for

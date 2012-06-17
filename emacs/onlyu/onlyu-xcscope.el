@@ -143,6 +143,8 @@
 		 t)
     ))
 
+
+
 ;; make things more simple
 (define-key cscope:map "\C-cg" 'mycscope-goto)
 (define-key cscope:map "\C-cG" 'mycscope-goto-prompt)
