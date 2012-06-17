@@ -4,5 +4,4 @@
   (goto-char (point-min))
   (while (search-forward "\r\n" nil t)
     (replace-match "\n")))
-
 (provide 'onlyu-util)
