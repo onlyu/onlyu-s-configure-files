@@ -1,6 +1,7 @@
 ;; load path
 (add-to-list 'load-path "~/emacs/")
 
+(require 'init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -16,7 +17,7 @@
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
- '(fs-dir "F:/fs/trunk/")
+ '(fs-dir "F:/fs/fsegg/")
  '(inverse-video t)
  '(ispell-dictionary "en")
  '(linum-delay t)
@@ -43,4 +44,4 @@
  '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Menlo")))))
 
-(require 'init)
+
