@@ -16,7 +16,6 @@
  '(display-time-mode t)
  '(ecb-layout-name "right1")
  '(ecb-options-version "2.40")
- '(fs-dir "I:/document/projects/egg/trunk/")
  '(inverse-video t)
  '(ispell-dictionary "en")
  '(linum-delay t)
