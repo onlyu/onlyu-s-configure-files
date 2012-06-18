@@ -6,7 +6,7 @@
   )
 
 (require 'semantic)
-(let ((filter (format "%s.*\\.c" fs-logic-dir)))
+(let ((filter (format "%s.*\\.c" (fs-logic-dir))))
   (add-to-list 'auto-mode-alist (cons filter '(. pike-mode)))
   (add-to-list 'semantic-new-buffer-setup-functions '(pike-mode . semantic-default-c-setup)))
 

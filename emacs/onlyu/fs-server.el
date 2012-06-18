@@ -5,11 +5,11 @@
   :group 'fs
   :type 'sexp)
 
-(defvar fs-logic-dir (concat fs-server-dir "logic" "/")
-  "fs server logic directory")
+(defun fs-logic-dir ()
+  (concat fs-server-dir "logic" "/"))
 
-(defvar fs-engine-dir (concat fs-server-dir "engine" "/")
-  "fs server engine directory")
+(defun fs-engine-dir ()
+  (concat fs-server-dir "engine" "/"))
 
 (defun fs-update-filter (process str)
   (message str)
@@ -18,7 +18,7 @@
 (defun fs-update ()
   (interactive)
   (let* ((file-name (buffer-file-name)))
-    (if (string-match fs-logic-dir file-name)
+    (if (string-match (fs-logic-dir) file-name)
 	(progn 
 	  (setq file-name (replace-match "" nil nil file-name))
 	  ;; create process and run
