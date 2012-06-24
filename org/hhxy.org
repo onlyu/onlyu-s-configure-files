@@ -1,0 +1,5 @@
+
+1. domain: www.gamelanzi.com
+   control address: https://onlydomains.secure-admin.com/dashboard/view
+   uname:while1
+   passwd:gamelanzi2012
