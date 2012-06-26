@@ -1,4 +1,5 @@
 -module(prime).
+
 -export([
 	 prime/1,
 	 prime2/1
