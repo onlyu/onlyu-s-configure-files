@@ -1,6 +1,10 @@
 (custom-set-variables
  '(fs-dir "H:/document/projects/egg/trunk/"))
 
+(add-to-list
+   'load-path
+       (car (file-expand-wildcards "/opt/local/lib/erlang/lib/tools-*/emacs")))
+
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
