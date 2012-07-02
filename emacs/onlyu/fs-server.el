@@ -33,6 +33,12 @@
       (message "can not update this file!"))
     ))
 
+(defun fs-new-syntax ()
+  "change to new syntax"
+  (interactive)
+  (message "success"))
+  
+
 (add-hook 'c-mode-common-hook (lambda ()
 				(define-key c-mode-map "\C-cj" 'fs-update)))
 (add-hook 'pike-mode-hook (lambda ()

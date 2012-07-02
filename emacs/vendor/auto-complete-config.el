@@ -258,8 +258,8 @@
 ;; logger-> or user->
 (defun get-lpc-object-file (symbol)
   (cond ((string-match "[uU]ser" symbol) "char/user")
-	((string-match "logger" symbol) "module/log")
-	((string-match "_log" symbol) "module/log")
+	((string-match "logger" symbol) "common/log")
+	((string-match "_log" symbol) "common/log")
 	nil))
 
 ;; get the function of a lpc file object
