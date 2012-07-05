@@ -1,0 +1,74 @@
+
+void rpc_server_dazuo_start(object user);
+
+void rpc_client_dazuo_start(int uid);
+
+void rpc_server_dazuo_leave(object user);
+
+void rpc_client_dazuo_leave(int uid);
+
+void rpc_client_dazuo_info(int uid, int leftTime, int totalExp);
+
+void rpc_client_dazuo_addexp(int uid, int exp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

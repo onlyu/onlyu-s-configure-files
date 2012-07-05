@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/85731/wg01/program/server/logic/trunk/rc/simul_efun
+END
+array.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/array.c
+END
+chinese.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/chinese.c
+END
+item.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/item.c
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/85731/wg01/program/server/logic/trunk/rc/simul_efun/time.c
+END
+file.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84362/wg01/program/server/logic/trunk/rc/simul_efun/file.c
+END
+file_reader.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/file_reader.c
+END
+string.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/string.c
+END
+math.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/math.c
+END
+import.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/rc/simul_efun/import.c
+END
+util.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/rc/simul_efun/util.c
+END

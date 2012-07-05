@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qtz/!svn/ver/86131/wg01/program/server/logic/trunk/module/mission/template
+END
+finish_fuben.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/qtz/!svn/ver/86131/wg01/program/server/logic/trunk/module/mission/template/finish_fuben.c
+END
+find_npc.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/module/mission/template/find_npc.c
+END
+kill_npc.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/qtz/!svn/ver/86131/wg01/program/server/logic/trunk/module/mission/template/kill_npc.c
+END
