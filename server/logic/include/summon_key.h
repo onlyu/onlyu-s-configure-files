@@ -1,0 +1,64 @@
+#ifndef _SUMMON_KEY_H_
+#define _SUMMON_KEY_H_
+#include <common_key.h>
+
+#define K_SUMMON_TYPE       TYPE
+#define K_SUMMON_GRADE      GRADE
+#define K_SUMMON_EXP        EXP
+#define K_SUMMON_CUR_HP     FT_HP
+#define K_SUMMON_NAME       NAME
+#define K_SUMMON_SKILL      SKILL
+#define K_SUMMON_BDSKILL    BDSKILL 
+#define K_SUMMON_NORMAL_ATTACK      NORMAL_ATTACK
+#define K_SUMMON_XIBIE 	    "xibie"
+#define K_SUMMON_ZHAOJIANG_GRADE "zhaojiangGrade"
+
+#define K_SUMMON_EQUIP_BAGID "equipBagId"
+
+#define KT_SUMMON_GLOBALKEY_MAP "globalSummonKeyMap"
+#define KT_SUMMON_RESOURCE      RESOURCE
+
+#define KT_SUMMON_BAG BAG
+#define KT_SUMMON_POS POS
+#define KT_SUMMON_ICON     ICON
+#define KT_SUMMON_OWNER    OWNER 
+
+#define KT_SUMMON_NAILI	NAILI
+#define KT_SUMMON_LILIANG LILIANG
+#define KT_SUMMON_ZHILI   ZHILI
+#define KT_SUMMON_MINJIE  MINJIE
+
+#define KT_SUMMON_MAXHP	  FT_HP
+#define KT_SUMMON_DEFENCE FT_DEFENCE
+#define KT_SUMMON_QIANGFA FT_QIANGFA
+#define KT_SUMMON_KANGFA  FT_KANGFA	
+#define KT_SUMMON_ATTACK  FT_ATTACK
+#define KT_SUMMON_SPEED	  FT_SPEED
+
+#define K_FIGHT_TOTAL "fightTotal"
+#define K_FIGHT_BASE "fightBase"
+
+
+#define KT_SUMMON_INI_LILIANG INI_LILIANG
+#define KT_SUMMON_INI_LILIANG_GROW INI_LILIANG_GROW
+#define KT_SUMMON_INI_MINJIE INI_MINJIE
+#define KT_SUMMON_INI_MINJIE_GROW INI_MINJIE_GROW
+#define KT_SUMMON_INI_NAILI INI_NAILI
+#define KT_SUMMON_INI_NAILI_GROW INI_NAILI_GROW
+#define KT_SUMMON_INI_ZHILI INI_ZHILI
+#define KT_SUMMON_INI_ZHILI_GROW INI_ZHILI_GROW
+
+#define KT_SUMMON_INI_QINMI "iniQinmi"
+
+
+
+#define KT_SUMMON_EXP_NEXT   "iExpNext"
+
+#define LIFETIME "lifetime"
+#define KT_SUMMON_REALM    "iRealm"
+#define SUMMON_RACE     "iRace"
+#define SUMMON_TYPICAL  "iTypical"
+#define SUMMON_RARITY   "iRarity"
+#define SUMMON_TALENT_SKILL "talent_skill"
+
+#endif

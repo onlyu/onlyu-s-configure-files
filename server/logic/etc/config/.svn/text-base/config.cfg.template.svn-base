@@ -1,0 +1,47 @@
+
+
+#最大在线人数
+MAX_ONLINE = 11000;
+MAX_LOGIN = 10000 ;
+
+//netd 内部对game开放的ip 
+NETD_IP = "127.0.0.1";
+//dbd 内部对game开放的ip 
+DBD_IP = "127.0.0.1";
+
+//为了避免端口冲突， 以下三个端口都必须要根据个人需要进行修改，然后把此文件cp一份成为config.cfg文件，config.cfg文件不要提交svn。
+
+//netd 内部对game开放的port
+NETD_PORT = 60008;
+//netd对client开放的端口
+NETD_OUTER_PORT = 60009;
+//dbd 内部对game开放的port
+DBD_PORT = 60010;
+
+//对别的服务器开发的ip和端口，用来支持跳转服务器和他服验证
+//HOST_IP 
+//内部服务器跳转的端口
+NETD_HOST_PORT = 60012;
+//用来验证的端口
+NETD_AUTH_PORT = 60013;
+
+//httpd服务器端口
+HTTPD_PORT = 8089;
+
+HOST_ID = 110;
+
+UMS_IP = "192.168.0.5";
+UMS_PORT = 80;
+
+
+MCS_IP = "192.168.0.10";
+MCS_PORT = 80;
+
+GMTOOL_IP = "192.168.0.10";
+GMTOOL_PORT = 8310;
+
+HTDB_IP = "192.168.0.9";
+HTDB_PORT = 80;
+
+#服务器使用的encoding
+ENCODING = "GB18030";

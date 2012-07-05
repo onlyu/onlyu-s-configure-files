@@ -1,0 +1,15 @@
+{
+  "type":"Panel",
+  "name":"fubenleave",
+  "x":1175,
+  "version":"1.0.0",
+  "y":50,
+  "children":[
+    {
+      "type":"Button",
+      "name":"leavebtn",
+      "x":0,
+      "text":"离开副本",
+      "y":0,
+      "resKey":"common/ButtonName30"}],
+  "resKey":""}

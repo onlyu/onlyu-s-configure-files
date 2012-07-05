@@ -1,0 +1,26 @@
+{
+  "resKey":"",
+  "name":"jiangli_panel",
+  "x":551,
+  "version":"1.0.0",
+  "y":277,
+  "children":[
+    {
+      "resKey":"fubenUI/jiangli_shadow",
+      "name":"jiangli_shadow",
+      "type":"Image",
+      "x":0,
+      "y":70},
+    {
+      "resKey":"fubenUI/jiangli_box",
+      "name":"jiangli_box",
+      "type":"Button",
+      "x":15,
+      "y":0},
+    {
+      "resKey":"fubenUI/jiangli_over",
+      "name":"jiangli_over",
+      "type":"Image",
+      "x":3,
+      "y":10}],
+  "type":"Panel"}

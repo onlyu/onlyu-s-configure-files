@@ -1,0 +1,10 @@
+#ifndef _FS_RPC_ID_
+#define _FS_RPC_ID_
+
+#define RPC_CLIENT_UPDATE_PTO 1
+#define RPC_SERVER_VERSION 2
+#define RPC_CLIENT_VERSION_RETURN 3
+#define RPC_SERVER_LOGIN 64
+#define RPC_SERVER_NEW_UID 66
+
+#endif /*_FS_RPC_ID_*/

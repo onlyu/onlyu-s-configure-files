@@ -1,0 +1,27 @@
+
+
+#最大在线人数
+MAX_ONLINE = 50 ;
+MAX_LOGIN = 10 ;
+
+#netd 内部对game开放的ip 
+NETD_IP = "127.0.0.1";
+#dbd 内部对game开放的ip 
+DBD_IP = "127.0.0.1";
+
+#为了避免端口冲突， 以下三个端口都必须要根据个人需要进行修改，然后把此文件cp一份成为config.cfg文件，config.cfg文件不要提交svn。
+
+#netd 内部对game开放的port
+NETD_PORT = 4446;
+#dbd 内部对game开放的port
+DBD_PORT = 5556;
+#netd对client开放的端口
+NETD_OUTER_PORT = 6666;
+
+// 系統心跳間隔秒
+SYSTEM_INTERVAL_SEC = 0;
+// 系統心跳間隔毫秒                                                                                                                                                                          
+SYSTEM_INTERVAL_USEC = 50000;
+// ---------------------------------------------------------------                                                                                                                           
+RPC_CFG = "rc/rpc/rpc.cfg";
+FS_PATH = "/home/chenyh/work/server/logic";

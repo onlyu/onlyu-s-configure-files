@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/84922/wg01/program/server/logic/trunk/tools/locale
+END
+msginit.sh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qtz/!svn/ver/84922/wg01/program/server/logic/trunk/tools/locale/msginit.sh
+END
+xgettext.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/qtz/!svn/ver/84922/wg01/program/server/logic/trunk/tools/locale/xgettext.sh
+END
+msgfmt.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/84922/wg01/program/server/logic/trunk/tools/locale/msgfmt.sh
+END

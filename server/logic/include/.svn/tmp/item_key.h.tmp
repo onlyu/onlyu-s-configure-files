@@ -1,0 +1,206 @@
+
+
+#ifndef __ITEM_KEY_H__
+#define __ITEM_KEY_H__
+
+// =========================================
+// 存盘
+// cType
+<<<<<<< .mine
+#define C_ITEM_TYPE                      "cType"
+=======
+#define K_ITEM_TYPE "type"
+>>>>>>> .r76951
+// iAmount
+<<<<<<< .mine
+#define I_ITEM_AMOUNT                    "iAmount"
+=======
+#define K_ITEM_AMOUNT "amount"
+>>>>>>> .r76951
+// iLock
+<<<<<<< .mine
+#define I_ITEM_LOCK                      "iLock"
+=======
+#define K_ITEM_LOCK "lock"
+>>>>>>> .r76951
+// 物品的有效时间，0表示永久
+<<<<<<< .mine
+#define I_ITEM_TIMEOUT                   "iTimeOut"
+=======
+#define K_ITEM_TIMEOUT "timeOut"
+>>>>>>> .r76951
+// mission owner
+<<<<<<< .mine
+#define C_ITEM_TASK_OWNER                "cTaskOwner"
+=======
+#define K_ITEM_TASK_OWNER  "taskOwner"
+>>>>>>> .r76951
+// 物品的等价物品
+<<<<<<< .mine
+#define C_EQUI_ITEM                      "cEquiItem"
+=======
+#define K_EQUK_ITEM "equipItem"
+>>>>>>> .r76951
+
+// =========================================
+// 临时
+// iMaxAmount
+<<<<<<< .mine
+#define KT_ITEM_MAXAMOUNT                 "maxAmount"
+=======
+#define KT_ITEM_MAXAMOUNT "maxAmount"
+>>>>>>> .r76951
+// cName
+<<<<<<< .mine
+#define KT_ITEM_NAME                      "name"
+=======
+#define KT_ITEM_NAME "name"
+>>>>>>> .r76951
+// iOwner
+<<<<<<< .mine
+#define KT_ITEM_OWNER                     "owner"
+=======
+#define KT_ITEM_OWNER "owner"
+>>>>>>> .r76951
+// iBag
+<<<<<<< .mine
+#define KT_ITEM_BAG                       "bag"
+=======
+#define KT_ITEM_BAG "bag"
+>>>>>>> .r76951
+// iPos
+<<<<<<< .mine
+#define KT_ITEM_POS                       "pos"
+=======
+#define KT_ITEM_POS "pos"
+>>>>>>> .r76951
+// NoMerge
+<<<<<<< .mine
+#define KT_ITEM_NOMERGE                   "noMerge"
+=======
+#define KT_ITEM_NOMERGE "noMerge"
+>>>>>>> .r76951
+
+// 装备部位
+#define KT_ITEM_EQUIP_LOCATE              "iEquipLocate"
+
+#define KT_ITEM_DEFENCE                   "defence"
+#define KT_ITEM_QIANGFA                   "qiangfa"
+#define KT_ITEM_KANGFA                    "kangfa"
+#define KT_ITEM_ATTACK                    "attack"
+#define KT_ITEM_SPEED                     "speed"
+
+<<<<<<< .mine
+=======
+// iLast
+#define K_ITEM_LAST "iLast"
+// mixCoor
+#define K_ITEM_COOR	"mixCoor"
+// 兽笼里灵兽Type
+#define I_SHOULONG_SUMMTYPE "iSLSummType"
+// 兽笼里灵兽技能信息
+#define M_SHOULONG_SUMMSKILLS "mSLSummSkills"
+// 兽笼的随机数
+#define I_SHOULONG_RANDOM "iSLRandom"
+// 藏宝图的坐标
+#define M_CANGBAO_POS  "mCBPos"
+// 许愿灯信息
+#define M_XY_LAMP_INFO	"mXyLampInfo"
+// 存储的人物经验
+#define K_ITEM_STORE_USER_EXP		"iStoreUserExp"
+// 存储的灵兽经验		
+#define K_ITEM_STORE_SUMM_EXP		"iStoreSummExp"
+
+#ifndef C_GLOBAL_KEY
+#define C_GLOBAL_KEY             "cGblKey"
+>>>>>>> .r76951
+#endif
+<<<<<<< .mine
+=======
+// iBaseType
+#define K_ITEM_BASETYPE "iBaseType"
+// iLastBout
+#define K_ITEM_LASTBOUT "iLastBout"
+// iSlot
+#define K_ITEM_LOCATE "iLocate"
+// iValue
+#define K_ITEM_VALUE "iValue"
+// iSkill
+#define K_ITEM_SKILL "iSkill"
+// iSchool
+#define K_ITEM_SCHOOL "iSchool"
+// iSchool
+#define K_ITEM_GRADE "iGrade"
+// 最大耐久
+#define K_ITEM_MAX_LAST "iMaxLast"
+>>>>>>> .r76951
+
+<<<<<<< .mine
+=======
+#define K_ITEM_DRUGINFO "mDrugInfo"
+
+#define K_ITEM_EQUIPSET "iEquipSet"
+
+#define K_ITEM_COLOR "cColor"
+
+#define K_ITEM_LIFE  "iLife"
+
+// 换装编号
+#define K_ITEM_LOCATE_TYPE "iLocateType"
+
+
+// 新手锦囊(昊天宝鼎)
+#define K_ITEM_BD_GRADE "iBDGrade"
+
+// 礼包等级(包括以下物品)
+// "RW01052（17173特权礼包）"
+// "RW01053（sina特权礼包）"
+// "RW01054（YY特权礼包）"
+// "RW01055（叶子猪特权礼包）"
+// "RW01056（52pk特权礼包）"
+// "RW01057（封神特权礼包）"
+// "RW01067（迅雷特权礼包）"
+#define K_ITEM_LB_GRADE "iLBGrade"
+
+// 宝石属性
+#define M_GEM_ATTRIBUTE "aGemAttr"
+
+
+// 临时变量，不存盘的
+// callback file path
+#define K_ITEM_CALLBACK_FILE "cCallbackFile"
+#define K_ITEM_CALLBACK_FUNC "cCallbackFunc"
+
+
+
+// 所在位置
+#define KT_ITEM_BAG "iBag"
+#define KT_ITEM_POS "iPos"
+
+#define ITEM_BAGSIZE 24
+
+// 物品的类型
+#define K_ITEM_KIND "iKind" 
+// #define ITEMTYPE
+#define ITEM_PRODUCT 1      // CL	生产职业材料
+#define ITEM_BUFF 2 // BF  buff物品
+#define ITEM_LINGSHOU 3 // LS  灵兽物品
+#define ITEM_DH 4 // DH  兑换装备物品
+#define ITEM_DRUG 5 // YP	药品
+#define ITEM_MISSION 6 // RW	任务物品
+#define ITEM_SHANGCHENG 7 // SC	商城物品
+#define ITEM_EQUIP 8 // GE	绿色装备 BE	蓝色装备 PE	紫色装备
+#define ITEM_EQUIP_ACTIVATOR 9 // 激活套装
+#define ITEM_XIANGZI 10 //箱子
+#define ITEM_TUSHI 11 //图饰
+#define ITEM_EQUIP_DHT 12 // 兑换套装物品
+#define ITEM_QIANGHUA 13 // 强化材料
+#define ITEM_ZAHUO 14
+#define ITEM_FLY_TOOL 15 //飞行工具
+
+
+#endif
+
+#endif
+
+>>>>>>> .r76951

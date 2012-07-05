@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/86363/wg01/program/server/logic/trunk/module/fuben
+END
+sys.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/86198/wg01/program/server/logic/trunk/module/fuben/sys.c
+END
+base.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qtz/!svn/ver/86043/wg01/program/server/logic/trunk/module/fuben/base.h
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qtz/!svn/ver/86363/wg01/program/server/logic/trunk/module/fuben/main.c
+END
+rpc.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/86198/wg01/program/server/logic/trunk/module/fuben/rpc.c
+END
+base.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qtz/!svn/ver/86363/wg01/program/server/logic/trunk/module/fuben/base.c
+END
+wanfa.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/85993/wg01/program/server/logic/trunk/module/fuben/wanfa.c
+END

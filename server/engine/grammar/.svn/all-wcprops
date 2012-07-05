@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar
+END
+std.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/std.h
+END
+spec.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/spec.h
+END
+options.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/options.h
+END
+bsdmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/bsdmalloc.c
+END
+grammar.y.pre
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/grammar.y.pre
+END
+func_spec.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/func_spec.c
+END
+edit_source.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/edit_source.c
+END
+sysmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/sysmalloc.c
+END
+make_func.y
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/make_func.y
+END
+debugmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/debugmalloc.c
+END
+preprocess.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/preprocess.c
+END
+configure.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/configure.h
+END
+op_spec.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/op_spec.c
+END
+wrappedmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/wrappedmalloc.c
+END
+smalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/grammar/smalloc.c
+END

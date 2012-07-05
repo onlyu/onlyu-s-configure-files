@@ -1,0 +1,1652 @@
+rc/simul_efun.c 29 : Loading: simul_efuns ... Done.
+rc/config.c 65 : configFile = 
+rc/config.c 77 : READ CONFIG: "ENCODING"="GB18030"
+rc/config.c 77 : READ CONFIG: "GMTOOL_PORT"=8310
+rc/config.c 77 : READ CONFIG: "MCS_PORT"=80
+rc/config.c 77 : READ CONFIG: "UMS_IP"="192.168.0.5"
+rc/config.c 77 : READ CONFIG: "DBD_IP"="127.0.0.1"
+rc/config.c 77 : READ CONFIG: "NETD_IP"="127.0.0.1"
+rc/config.c 77 : READ CONFIG: "NETD_HOST_PORT"=1503
+rc/config.c 77 : READ CONFIG: "MAX_ONLINE"=25
+rc/config.c 77 : READ CONFIG: "HTDB_PORT"=80
+rc/config.c 77 : READ CONFIG: "GMTOOL_IP"="192.168.0.10"
+rc/config.c 77 : READ CONFIG: "MCS_IP"="192.168.0.10"
+rc/config.c 77 : READ CONFIG: "HTTPD_PORT"=1505
+rc/config.c 77 : READ CONFIG: "NETD_OUTER_PORT"=1500
+rc/config.c 77 : READ CONFIG: "HTDB_IP"="192.168.0.9"
+rc/config.c 77 : READ CONFIG: "ENGINE_NAME"="cyh150"
+rc/config.c 77 : READ CONFIG: "NETD_PORT"=1501
+rc/config.c 77 : READ CONFIG: "UMS_PORT"=80
+rc/config.c 77 : READ CONFIG: "DBD_PORT"=1502
+rc/config.c 77 : READ CONFIG: "MAX_LOGIN"=20
+rc/config.c 77 : READ CONFIG: "HOST_ID"=150
+[2012-05-30 17:36:22] [db_main.c:1329] [mod=12] info: dbd listen:127.0.0.1, 1502
+system is be initialized: interval=[500000]us
+rc/dbd_main.c 6 : loading dbd MASTER ... Done.
+open service
+dbd accept async game:7
+open service
+[2012-05-30 17:36:25] debug load cmd savename=globalkey sync=1
+[2012-05-30 17:36:25] [db_main.c:309] [mod=12] info: try restore file pathname=dat/globalkey.py
+[2012-05-30 17:36:25] debug load ok savename=globalkey sync=1
+[2012-05-30 17:36:26] debug load cmd savename=arena sync=1
+[2012-05-30 17:36:26] [db_main.c:309] [mod=12] info: try restore file pathname=dat/arena.py
+[2012-05-30 17:36:26] debug load ok savename=arena sync=1
+[2012-05-30 17:37:02] debug load cmd uid=6192 sync=0
+[2012-05-30 17:37:02] [db_main.c:309] [mod=12] info: try restore file pathname=user/92/u6192.py
+[2012-05-30 17:37:02] debug load ok uid=6192 sync=0
+[2012-05-30 17:38:52] debug unload cmd uid=6192 
+[2012-05-30 17:38:52] debug unload ok uid=6192 
+[2012-05-30 17:41:28] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 17:41:28] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 17:41:28] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 17:41:28] debug free uid=6192 
+[2012-05-30 17:41:46] debug load cmd uid=4140 sync=0
+[2012-05-30 17:41:46] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-30 17:41:46] debug load ok uid=4140 sync=0
+[2012-05-30 17:42:20] debug unload cmd uid=4140 
+[2012-05-30 17:42:20] debug unload ok uid=4140 
+[2012-05-30 17:42:24] debug load cmd uid=6192 sync=0
+[2012-05-30 17:42:24] [db_main.c:309] [mod=12] info: try restore file pathname=user/92/u6192.py
+[2012-05-30 17:42:24] debug load ok uid=6192 sync=0
+[2012-05-30 17:44:06] debug load cmd uid=2709 sync=0
+[2012-05-30 17:44:06] warn load null uid=2709 sync=0
+[2012-05-30 17:44:09] debug new cmd uid=2709 
+[2012-05-30 17:44:09] debug new ok uid=2709 
+[2012-05-30 17:46:28] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 17:46:28] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 17:46:28] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 17:46:28] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-30 17:46:28] debug free uid=4140 
+[2012-05-30 17:46:59] debug load cmd uid=441 sync=0
+[2012-05-30 17:46:59] warn load null uid=441 sync=0
+[2012-05-30 17:47:06] debug new cmd uid=441 
+[2012-05-30 17:47:06] debug new ok uid=441 
+[2012-05-30 17:47:18] debug load cmd uid=4788 sync=0
+[2012-05-30 17:47:18] warn load null uid=4788 sync=0
+[2012-05-30 17:47:23] debug new cmd uid=4788 
+[2012-05-30 17:47:23] debug new ok uid=4788 
+[2012-05-30 17:47:27] debug load cmd uid=5724 sync=0
+[2012-05-30 17:47:27] warn load null uid=5724 sync=0
+[2012-05-30 17:47:31] debug new cmd uid=5724 
+[2012-05-30 17:47:31] debug new ok uid=5724 
+[2012-05-30 17:47:47] debug load cmd uid=3753 sync=0
+[2012-05-30 17:47:47] warn load null uid=3753 sync=0
+[2012-05-30 17:47:49] debug new cmd uid=3753 
+[2012-05-30 17:47:49] debug new ok uid=3753 
+[2012-05-30 17:48:08] debug load cmd uid=1377 sync=0
+[2012-05-30 17:48:08] warn load null uid=1377 sync=0
+[2012-05-30 17:48:22] debug new cmd uid=1377 
+[2012-05-30 17:48:22] debug new ok uid=1377 
+[2012-05-30 17:49:01] debug unload cmd uid=3753 
+[2012-05-30 17:49:01] debug unload ok uid=3753 
+[2012-05-30 17:49:08] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:08] warn load null uid=5679 sync=0
+[2012-05-30 17:49:10] debug new cmd uid=5679 
+[2012-05-30 17:49:10] debug new ok uid=5679 
+[2012-05-30 17:49:11] debug unload cmd uid=5679 
+[2012-05-30 17:49:11] debug unload ok uid=5679 
+[2012-05-30 17:49:13] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:13] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:49:14] debug unload cmd uid=5679 
+[2012-05-30 17:49:14] debug unload ok uid=5679 
+[2012-05-30 17:49:16] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:16] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:49:19] debug unload cmd uid=5679 
+[2012-05-30 17:49:19] debug unload ok uid=5679 
+[2012-05-30 17:49:21] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:21] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:49:26] debug unload cmd uid=5679 
+[2012-05-30 17:49:26] debug unload ok uid=5679 
+[2012-05-30 17:49:28] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:28] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:49:31] debug unload cmd uid=5679 
+[2012-05-30 17:49:31] debug unload ok uid=5679 
+[2012-05-30 17:49:33] debug load cmd uid=5679 sync=0
+[2012-05-30 17:49:33] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:50:03] debug unload cmd uid=4788 
+[2012-05-30 17:50:03] debug unload ok uid=4788 
+[2012-05-30 17:50:05] debug load cmd uid=4788 sync=0
+[2012-05-30 17:50:05] debug load cache ok uid=4788 sync=0
+[2012-05-30 17:50:09] debug unload cmd uid=5679 
+[2012-05-30 17:50:09] debug unload ok uid=5679 
+[2012-05-30 17:50:11] debug load cmd uid=5679 sync=0
+[2012-05-30 17:50:11] debug load cache ok uid=5679 sync=0
+[2012-05-30 17:50:15] debug unload cmd uid=1377 
+[2012-05-30 17:50:15] debug unload ok uid=1377 
+[2012-05-30 17:51:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 17:51:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 17:51:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 17:51:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=8,workercnt=2
+[2012-05-30 17:51:29] debug free uid=1377 
+[2012-05-30 17:51:29] debug free uid=3753 
+[2012-05-30 17:56:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 17:56:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 17:56:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 17:56:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-30 17:57:20] debug unload cmd uid=5724 
+[2012-05-30 17:57:20] debug unload ok uid=5724 
+[2012-05-30 18:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:08:28] debug load cmd uid=5724 sync=0
+[2012-05-30 18:08:28] debug load cache ok uid=5724 sync=0
+[2012-05-30 18:09:17] debug unload cmd uid=5724 
+[2012-05-30 18:09:17] debug unload ok uid=5724 
+[2012-05-30 18:11:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 18:11:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 18:11:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 18:11:29] debug free uid=5724 
+[2012-05-30 18:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 18:41:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 18:41:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 18:41:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 18:41:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-30 18:42:17] debug load cmd uid=4140 sync=0
+[2012-05-30 18:42:17] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-30 18:42:17] debug load ok uid=4140 sync=0
+[2012-05-30 18:46:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 18:46:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 18:46:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 18:46:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-30 18:50:56] debug unload cmd uid=4140 
+[2012-05-30 18:50:56] debug unload ok uid=4140 
+[2012-05-30 18:51:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 18:51:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 18:51:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 18:51:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-30 18:51:29] debug free uid=4140 
+[2012-05-30 18:54:00] debug unload cmd uid=4788 
+[2012-05-30 18:54:00] debug unload ok uid=4788 
+[2012-05-30 18:56:12] debug unload cmd uid=6192 
+[2012-05-30 18:56:12] debug unload ok uid=6192 
+[2012-05-30 18:56:16] debug load cmd uid=6192 sync=0
+[2012-05-30 18:56:16] debug load cache ok uid=6192 sync=0
+[2012-05-30 18:56:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 18:56:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 18:56:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 18:56:29] debug free uid=4788 
+[2012-05-30 18:57:20] debug unload cmd uid=6192 
+[2012-05-30 18:57:20] debug unload ok uid=6192 
+[2012-05-30 18:57:27] debug load cmd uid=6192 sync=0
+[2012-05-30 18:57:27] debug load cache ok uid=6192 sync=0
+[2012-05-30 18:58:49] debug load cmd uid=4140 sync=0
+[2012-05-30 18:58:49] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-30 18:58:49] debug load ok uid=4140 sync=0
+[2012-05-30 18:59:00] debug unload cmd uid=4140 
+[2012-05-30 18:59:00] debug unload ok uid=4140 
+[2012-05-30 18:59:05] debug load cmd uid=4140 sync=0
+[2012-05-30 18:59:05] debug load cache ok uid=4140 sync=0
+[2012-05-30 18:59:17] debug unload cmd uid=4140 
+[2012-05-30 18:59:17] debug unload ok uid=4140 
+[2012-05-30 18:59:47] debug unload cmd uid=6192 
+[2012-05-30 18:59:47] debug unload ok uid=6192 
+[2012-05-30 18:59:48] debug load cmd uid=4140 sync=0
+[2012-05-30 18:59:48] debug load cache ok uid=4140 sync=0
+[2012-05-30 18:59:55] debug load cmd uid=6192 sync=0
+[2012-05-30 18:59:55] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:00:24] debug unload cmd uid=4140 
+[2012-05-30 19:00:24] debug unload ok uid=4140 
+[2012-05-30 19:00:25] debug unload cmd uid=6192 
+[2012-05-30 19:00:25] debug unload ok uid=6192 
+[2012-05-30 19:00:30] debug load cmd uid=6192 sync=0
+[2012-05-30 19:00:30] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:00:36] debug load cmd uid=4140 sync=0
+[2012-05-30 19:00:36] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:00:50] debug unload cmd uid=4140 
+[2012-05-30 19:00:50] debug unload ok uid=4140 
+[2012-05-30 19:00:57] debug load cmd uid=4140 sync=0
+[2012-05-30 19:00:57] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:01:09] debug unload cmd uid=4140 
+[2012-05-30 19:01:09] debug unload ok uid=4140 
+[2012-05-30 19:01:26] debug unload cmd uid=6192 
+[2012-05-30 19:01:26] debug unload ok uid=6192 
+[2012-05-30 19:01:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:01:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 19:01:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:01:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-30 19:01:29] debug free uid=6192 
+[2012-05-30 19:01:29] debug free uid=4140 
+[2012-05-30 19:01:36] debug load cmd uid=6192 sync=0
+[2012-05-30 19:01:36] [db_main.c:309] [mod=12] info: try restore file pathname=user/92/u6192.py
+[2012-05-30 19:01:36] debug load ok uid=6192 sync=0
+[2012-05-30 19:01:43] debug load cmd uid=4140 sync=0
+[2012-05-30 19:01:43] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-30 19:01:43] debug load ok uid=4140 sync=0
+[2012-05-30 19:02:36] debug unload cmd uid=6192 
+[2012-05-30 19:02:36] debug unload ok uid=6192 
+[2012-05-30 19:02:40] debug load cmd uid=6192 sync=0
+[2012-05-30 19:02:40] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:04:07] debug unload cmd uid=4140 
+[2012-05-30 19:04:07] debug unload ok uid=4140 
+[2012-05-30 19:04:18] debug load cmd uid=4140 sync=0
+[2012-05-30 19:04:18] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:04:40] debug unload cmd uid=4140 
+[2012-05-30 19:04:40] debug unload ok uid=4140 
+[2012-05-30 19:04:50] debug load cmd uid=4140 sync=0
+[2012-05-30 19:04:50] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:05:26] debug unload cmd uid=4140 
+[2012-05-30 19:05:26] debug unload ok uid=4140 
+[2012-05-30 19:06:02] debug load cmd uid=4140 sync=0
+[2012-05-30 19:06:02] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:06:15] debug unload cmd uid=4140 
+[2012-05-30 19:06:15] debug unload ok uid=4140 
+[2012-05-30 19:06:24] debug unload cmd uid=6192 
+[2012-05-30 19:06:24] debug unload ok uid=6192 
+[2012-05-30 19:06:27] debug load cmd uid=4140 sync=0
+[2012-05-30 19:06:27] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:06:28] debug load cmd uid=6192 sync=0
+[2012-05-30 19:06:28] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:06:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:06:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:06:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 19:06:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-30 19:06:35] debug unload cmd uid=6192 
+[2012-05-30 19:06:35] debug unload ok uid=6192 
+[2012-05-30 19:06:39] debug load cmd uid=6192 sync=0
+[2012-05-30 19:06:39] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:06:55] debug unload cmd uid=4140 
+[2012-05-30 19:06:55] debug unload ok uid=4140 
+[2012-05-30 19:07:12] debug load cmd uid=4140 sync=0
+[2012-05-30 19:07:12] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:07:25] debug unload cmd uid=4140 
+[2012-05-30 19:07:25] debug unload ok uid=4140 
+[2012-05-30 19:07:58] debug load cmd uid=4140 sync=0
+[2012-05-30 19:07:58] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:08:04] debug unload cmd uid=4140 
+[2012-05-30 19:08:04] debug unload ok uid=4140 
+[2012-05-30 19:08:19] debug load cmd uid=4140 sync=0
+[2012-05-30 19:08:19] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:08:30] debug unload cmd uid=4140 
+[2012-05-30 19:08:30] debug unload ok uid=4140 
+[2012-05-30 19:09:05] debug load cmd uid=4140 sync=0
+[2012-05-30 19:09:05] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:09:22] debug unload cmd uid=4140 
+[2012-05-30 19:09:22] debug unload ok uid=4140 
+[2012-05-30 19:09:29] debug load cmd uid=4140 sync=0
+[2012-05-30 19:09:29] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:09:46] debug unload cmd uid=4140 
+[2012-05-30 19:09:46] debug unload ok uid=4140 
+[2012-05-30 19:09:53] debug load cmd uid=4140 sync=0
+[2012-05-30 19:09:53] debug load cache ok uid=4140 sync=0
+[2012-05-30 19:11:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:11:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 19:11:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:11:30] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-30 19:11:55] debug unload cmd uid=4140 
+[2012-05-30 19:11:55] debug unload ok uid=4140 
+[2012-05-30 19:16:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:16:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:16:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 19:16:29] debug free uid=4140 
+[2012-05-30 19:21:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:21:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:21:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 19:24:00] debug unload cmd uid=2709 
+[2012-05-30 19:24:00] debug unload ok uid=2709 
+[2012-05-30 19:26:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:26:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:26:29] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-30 19:26:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-30 19:26:29] debug free uid=2709 
+[2012-05-30 19:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 19:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 19:39:02] debug unload cmd uid=6192 
+[2012-05-30 19:39:02] debug unload ok uid=6192 
+[2012-05-30 19:40:31] debug load cmd uid=6192 sync=0
+[2012-05-30 19:40:31] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:40:32] debug unload cmd uid=6192 
+[2012-05-30 19:40:32] debug unload ok uid=6192 
+[2012-05-30 19:40:41] debug load cmd uid=6192 sync=0
+[2012-05-30 19:40:41] debug load cache ok uid=6192 sync=0
+[2012-05-30 19:41:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:41:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:41:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 19:46:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 19:46:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 19:46:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 19:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 19:55:21] debug unload cmd uid=441 
+[2012-05-30 19:55:21] debug unload ok uid=441 
+[2012-05-30 19:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:11:58] debug unload cmd uid=5679 
+[2012-05-30 20:11:58] debug unload ok uid=5679 
+[2012-05-30 20:14:20] debug unload cmd uid=6192 
+[2012-05-30 20:14:20] debug unload ok uid=6192 
+[2012-05-30 20:15:44] debug load cmd uid=6192 sync=0
+[2012-05-30 20:15:44] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:16:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 20:16:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 20:16:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 20:16:29] debug free uid=5679 
+[2012-05-30 20:16:29] debug free uid=441 
+[2012-05-30 20:17:25] debug unload cmd uid=6192 
+[2012-05-30 20:17:25] debug unload ok uid=6192 
+[2012-05-30 20:17:30] debug load cmd uid=6192 sync=0
+[2012-05-30 20:17:30] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:17:39] debug unload cmd uid=6192 
+[2012-05-30 20:17:39] debug unload ok uid=6192 
+[2012-05-30 20:17:55] debug load cmd uid=6192 sync=0
+[2012-05-30 20:17:55] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:18:35] debug unload cmd uid=6192 
+[2012-05-30 20:18:35] debug unload ok uid=6192 
+[2012-05-30 20:18:39] debug load cmd uid=6192 sync=0
+[2012-05-30 20:18:39] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:19:16] debug unload cmd uid=6192 
+[2012-05-30 20:19:16] debug unload ok uid=6192 
+[2012-05-30 20:19:23] debug load cmd uid=6192 sync=0
+[2012-05-30 20:19:23] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:21:10] debug unload cmd uid=6192 
+[2012-05-30 20:21:10] debug unload ok uid=6192 
+[2012-05-30 20:21:11] debug load cmd uid=6192 sync=0
+[2012-05-30 20:21:11] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:21:11] debug unload cmd uid=6192 
+[2012-05-30 20:21:11] debug unload ok uid=6192 
+[2012-05-30 20:21:16] debug load cmd uid=6192 sync=0
+[2012-05-30 20:21:16] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:21:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 20:21:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 20:21:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 20:21:53] debug unload cmd uid=6192 
+[2012-05-30 20:21:53] debug unload ok uid=6192 
+[2012-05-30 20:21:57] debug load cmd uid=6192 sync=0
+[2012-05-30 20:21:57] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:22:54] debug unload cmd uid=6192 
+[2012-05-30 20:22:54] debug unload ok uid=6192 
+[2012-05-30 20:22:59] debug load cmd uid=6192 sync=0
+[2012-05-30 20:22:59] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:23:32] debug unload cmd uid=6192 
+[2012-05-30 20:23:32] debug unload ok uid=6192 
+[2012-05-30 20:23:38] debug load cmd uid=6192 sync=0
+[2012-05-30 20:23:38] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:25:42] debug unload cmd uid=6192 
+[2012-05-30 20:25:42] debug unload ok uid=6192 
+[2012-05-30 20:25:48] debug load cmd uid=6192 sync=0
+[2012-05-30 20:25:48] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:26:10] debug unload cmd uid=6192 
+[2012-05-30 20:26:10] debug unload ok uid=6192 
+[2012-05-30 20:26:15] debug load cmd uid=6192 sync=0
+[2012-05-30 20:26:15] debug load cache ok uid=6192 sync=0
+[2012-05-30 20:26:29] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-30 20:26:29] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-30 20:26:29] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-30 20:26:46] debug unload cmd uid=6192 
+[2012-05-30 20:26:46] debug unload ok uid=6192 
+[2012-05-30 20:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 20:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 21:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 22:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-30 23:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 00:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 01:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 02:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 03:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 04:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 05:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 06:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 07:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 08:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:16:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:21:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:26:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:31:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:36:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:41:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:46:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:51:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 09:56:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:01:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:06:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:11:29] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:13:31] debug load cmd uid=6192 sync=0
+[2012-05-31 10:13:32] debug load cache ok uid=6192 sync=0
+[2012-05-31 10:14:13] debug load cmd uid=4140 sync=0
+[2012-05-31 10:14:13] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 10:14:13] debug load ok uid=4140 sync=0
+[2012-05-31 10:14:36] debug unload cmd uid=4140 
+[2012-05-31 10:14:36] debug unload ok uid=4140 
+[2012-05-31 10:16:35] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:16:36] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 10:16:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 10:16:36] debug free uid=4140 
+[2012-05-31 10:17:36] debug load cmd uid=4140 sync=0
+[2012-05-31 10:17:36] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 10:17:36] debug load ok uid=4140 sync=0
+[2012-05-31 10:18:07] debug unload cmd uid=6192 
+[2012-05-31 10:18:07] debug unload ok uid=6192 
+[2012-05-31 10:18:11] debug load cmd uid=6192 sync=0
+[2012-05-31 10:18:11] debug load cache ok uid=6192 sync=0
+[2012-05-31 10:18:48] debug unload cmd uid=4140 
+[2012-05-31 10:18:48] debug unload ok uid=4140 
+[2012-05-31 10:18:53] debug load cmd uid=4140 sync=0
+[2012-05-31 10:18:53] debug load cache ok uid=4140 sync=0
+[2012-05-31 10:19:29] debug unload cmd uid=6192 
+[2012-05-31 10:19:29] debug unload ok uid=6192 
+[2012-05-31 10:21:35] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:21:35] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:21:35] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 10:21:35] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 10:21:35] debug free uid=6192 
+[2012-05-31 10:21:41] debug load cmd uid=6192 sync=0
+[2012-05-31 10:21:41] [db_main.c:309] [mod=12] info: try restore file pathname=user/92/u6192.py
+[2012-05-31 10:21:41] debug load ok uid=6192 sync=0
+[2012-05-31 10:21:42] debug unload cmd uid=6192 
+[2012-05-31 10:21:42] debug unload ok uid=6192 
+[2012-05-31 10:22:09] debug load cmd uid=3744 sync=0
+[2012-05-31 10:22:09] warn load null uid=3744 sync=0
+[2012-05-31 10:22:14] debug new cmd uid=3744 
+[2012-05-31 10:22:14] debug new ok uid=3744 
+[2012-05-31 10:23:20] debug load cmd uid=6192 sync=0
+[2012-05-31 10:23:20] debug load cache ok uid=6192 sync=0
+[2012-05-31 10:23:57] debug unload cmd uid=6192 
+[2012-05-31 10:23:57] debug unload ok uid=6192 
+[2012-05-31 10:24:26] debug unload cmd uid=4140 
+[2012-05-31 10:24:26] debug unload ok uid=4140 
+[2012-05-31 10:26:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:26:37] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 10:26:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:26:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=3,workercnt=2
+[2012-05-31 10:26:37] debug free uid=6192 
+[2012-05-31 10:26:37] debug free uid=4140 
+[2012-05-31 10:26:47] debug load cmd uid=6192 sync=0
+[2012-05-31 10:26:47] [db_main.c:309] [mod=12] info: try restore file pathname=user/92/u6192.py
+[2012-05-31 10:26:47] debug load ok uid=6192 sync=0
+[2012-05-31 10:27:46] debug unload cmd uid=6192 
+[2012-05-31 10:27:46] debug unload ok uid=6192 
+[2012-05-31 10:27:48] debug load cmd uid=4140 sync=0
+[2012-05-31 10:27:48] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 10:27:48] debug load ok uid=4140 sync=0
+[2012-05-31 10:27:53] debug load cmd uid=6192 sync=0
+[2012-05-31 10:27:53] debug load cache ok uid=6192 sync=0
+[2012-05-31 10:28:04] debug unload cmd uid=4140 
+[2012-05-31 10:28:04] debug unload ok uid=4140 
+[2012-05-31 10:31:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:31:37] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 10:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 10:31:37] debug free uid=4140 
+[2012-05-31 10:35:17] debug unload cmd uid=6192 
+[2012-05-31 10:35:17] debug unload ok uid=6192 
+[2012-05-31 10:35:23] debug load cmd uid=6192 sync=0
+[2012-05-31 10:35:23] debug load cache ok uid=6192 sync=0
+[2012-05-31 10:36:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:36:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:36:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 10:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 10:53:22] debug unload cmd uid=3744 
+[2012-05-31 10:53:22] debug unload ok uid=3744 
+[2012-05-31 10:56:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 10:56:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 10:56:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 10:56:37] debug free uid=3744 
+[2012-05-31 11:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 11:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 11:10:51] debug load cmd uid=4140 sync=0
+[2012-05-31 11:10:51] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:10:51] debug load ok uid=4140 sync=0
+[2012-05-31 11:11:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:11:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:11:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:12:56] debug unload cmd uid=4140 
+[2012-05-31 11:12:56] debug unload ok uid=4140 
+[2012-05-31 11:13:24] debug load cmd uid=4140 sync=0
+[2012-05-31 11:13:24] debug load cache ok uid=4140 sync=0
+[2012-05-31 11:16:13] debug unload cmd uid=4140 
+[2012-05-31 11:16:13] debug unload ok uid=4140 
+[2012-05-31 11:16:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:16:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:16:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:16:37] debug free uid=4140 
+[2012-05-31 11:17:01] debug load cmd uid=4140 sync=0
+[2012-05-31 11:17:01] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:17:01] debug load ok uid=4140 sync=0
+[2012-05-31 11:17:58] debug unload cmd uid=4140 
+[2012-05-31 11:17:58] debug unload ok uid=4140 
+[2012-05-31 11:21:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:21:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:21:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:21:36] debug free uid=4140 
+[2012-05-31 11:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 11:28:49] debug load cmd uid=4140 sync=0
+[2012-05-31 11:28:49] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:28:49] debug load ok uid=4140 sync=0
+[2012-05-31 11:29:04] debug unload cmd uid=4140 
+[2012-05-31 11:29:04] debug unload ok uid=4140 
+[2012-05-31 11:31:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:31:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:31:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:31:36] debug free uid=4140 
+[2012-05-31 11:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 11:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 11:41:55] debug load cmd uid=4140 sync=0
+[2012-05-31 11:41:55] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:41:55] debug load ok uid=4140 sync=0
+[2012-05-31 11:42:31] debug unload cmd uid=4140 
+[2012-05-31 11:42:31] debug unload ok uid=4140 
+[2012-05-31 11:46:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:46:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:46:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:46:37] debug free uid=4140 
+[2012-05-31 11:50:41] debug load cmd uid=4140 sync=0
+[2012-05-31 11:50:41] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:50:41] debug load ok uid=4140 sync=0
+[2012-05-31 11:50:52] debug unload cmd uid=4140 
+[2012-05-31 11:50:52] debug unload ok uid=4140 
+[2012-05-31 11:51:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:51:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:51:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 11:51:37] debug free uid=4140 
+[2012-05-31 11:52:04] debug load cmd uid=4140 sync=0
+[2012-05-31 11:52:04] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 11:52:04] debug load ok uid=4140 sync=0
+[2012-05-31 11:52:54] debug unload cmd uid=6192 
+[2012-05-31 11:52:54] debug unload ok uid=6192 
+[2012-05-31 11:56:08] debug load cmd uid=6192 sync=0
+[2012-05-31 11:56:08] debug load cache ok uid=6192 sync=0
+[2012-05-31 11:56:22] debug unload cmd uid=6192 
+[2012-05-31 11:56:22] debug unload ok uid=6192 
+[2012-05-31 11:56:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 11:56:37] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 11:56:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 11:56:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 11:56:37] debug free uid=6192 
+[2012-05-31 12:00:46] debug unload cmd uid=4140 
+[2012-05-31 12:00:46] debug unload ok uid=4140 
+[2012-05-31 12:00:50] debug load cmd uid=4140 sync=0
+[2012-05-31 12:00:50] debug load cache ok uid=4140 sync=0
+[2012-05-31 12:01:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:01:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:01:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:04:38] debug unload cmd uid=4140 
+[2012-05-31 12:04:38] debug unload ok uid=4140 
+[2012-05-31 12:04:45] debug load cmd uid=4140 sync=0
+[2012-05-31 12:04:45] debug load cache ok uid=4140 sync=0
+[2012-05-31 12:06:09] debug unload cmd uid=4140 
+[2012-05-31 12:06:09] debug unload ok uid=4140 
+[2012-05-31 12:06:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:06:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:06:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:06:37] debug free uid=4140 
+[2012-05-31 12:08:17] debug load cmd uid=4140 sync=0
+[2012-05-31 12:08:17] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 12:08:17] debug load ok uid=4140 sync=0
+[2012-05-31 12:08:32] debug unload cmd uid=4140 
+[2012-05-31 12:08:32] debug unload ok uid=4140 
+[2012-05-31 12:11:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:11:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:11:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:11:36] debug free uid=4140 
+[2012-05-31 12:12:48] debug load cmd uid=4140 sync=0
+[2012-05-31 12:12:48] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 12:12:48] debug load ok uid=4140 sync=0
+[2012-05-31 12:14:05] debug unload cmd uid=4140 
+[2012-05-31 12:14:05] debug unload ok uid=4140 
+[2012-05-31 12:16:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:16:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:16:37] debug free uid=4140 
+[2012-05-31 12:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 12:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 12:31:35] debug load cmd uid=4140 sync=0
+[2012-05-31 12:31:35] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 12:31:35] debug load ok uid=4140 sync=0
+[2012-05-31 12:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:34:31] debug unload cmd uid=4140 
+[2012-05-31 12:34:31] debug unload ok uid=4140 
+[2012-05-31 12:34:43] debug load cmd uid=4140 sync=0
+[2012-05-31 12:34:43] debug load cache ok uid=4140 sync=0
+[2012-05-31 12:36:03] debug unload cmd uid=4140 
+[2012-05-31 12:36:03] debug unload ok uid=4140 
+[2012-05-31 12:36:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 12:36:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 12:36:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 12:36:36] debug free uid=4140 
+[2012-05-31 12:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 12:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 12:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 12:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 13:50:33] debug load cmd uid=4140 sync=0
+[2012-05-31 13:50:33] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 13:50:33] debug load ok uid=4140 sync=0
+[2012-05-31 13:51:24] debug unload cmd uid=4140 
+[2012-05-31 13:51:24] debug unload ok uid=4140 
+[2012-05-31 13:51:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 13:51:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 13:51:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 13:51:37] debug free uid=4140 
+[2012-05-31 13:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 14:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:04:16] debug load cmd uid=4140 sync=0
+[2012-05-31 15:04:16] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 15:04:16] debug load ok uid=4140 sync=0
+[2012-05-31 15:04:53] debug unload cmd uid=4140 
+[2012-05-31 15:04:53] debug unload ok uid=4140 
+[2012-05-31 15:06:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 15:06:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 15:06:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 15:06:37] debug free uid=4140 
+[2012-05-31 15:06:40] debug load cmd uid=4140 sync=0
+[2012-05-31 15:06:40] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 15:06:40] debug load ok uid=4140 sync=0
+[2012-05-31 15:06:55] debug unload cmd uid=4140 
+[2012-05-31 15:06:55] debug unload ok uid=4140 
+[2012-05-31 15:08:02] debug load cmd uid=4140 sync=0
+[2012-05-31 15:08:02] debug load cache ok uid=4140 sync=0
+[2012-05-31 15:08:13] debug unload cmd uid=4140 
+[2012-05-31 15:08:13] debug unload ok uid=4140 
+[2012-05-31 15:08:54] debug load cmd uid=4140 sync=0
+[2012-05-31 15:08:54] debug load cache ok uid=4140 sync=0
+[2012-05-31 15:09:05] debug unload cmd uid=4140 
+[2012-05-31 15:09:05] debug unload ok uid=4140 
+[2012-05-31 15:09:46] debug load cmd uid=4140 sync=0
+[2012-05-31 15:09:46] debug load cache ok uid=4140 sync=0
+[2012-05-31 15:10:04] debug unload cmd uid=4140 
+[2012-05-31 15:10:04] debug unload ok uid=4140 
+[2012-05-31 15:11:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 15:11:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 15:11:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 15:11:37] debug free uid=4140 
+[2012-05-31 15:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:35:43] debug load cmd uid=1341 sync=0
+[2012-05-31 15:35:43] warn load null uid=1341 sync=0
+[2012-05-31 15:35:46] debug new cmd uid=1341 
+[2012-05-31 15:35:46] debug new ok uid=1341 
+[2012-05-31 15:36:18] debug unload cmd uid=1341 
+[2012-05-31 15:36:18] debug unload ok uid=1341 
+[2012-05-31 15:36:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 15:36:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 15:36:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 15:36:37] debug free uid=1341 
+[2012-05-31 15:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 15:54:13] debug load cmd uid=4032 sync=0
+[2012-05-31 15:54:13] warn load null uid=4032 sync=0
+[2012-05-31 15:54:19] debug new cmd uid=4032 
+[2012-05-31 15:54:19] debug new ok uid=4032 
+[2012-05-31 15:56:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 15:56:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 15:56:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 16:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:05:31] debug load cmd uid=4140 sync=0
+[2012-05-31 16:05:31] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 16:05:31] debug load ok uid=4140 sync=0
+[2012-05-31 16:05:43] debug unload cmd uid=4140 
+[2012-05-31 16:05:43] debug unload ok uid=4140 
+[2012-05-31 16:06:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 16:06:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 16:06:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 16:06:37] debug free uid=4140 
+[2012-05-31 16:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:20:55] debug load cmd uid=4140 sync=0
+[2012-05-31 16:20:55] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 16:20:55] debug load ok uid=4140 sync=0
+[2012-05-31 16:21:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 16:21:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 16:21:36] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 16:21:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 16:21:40] debug unload cmd uid=4140 
+[2012-05-31 16:21:40] debug unload ok uid=4140 
+[2012-05-31 16:21:47] debug load cmd uid=4140 sync=0
+[2012-05-31 16:21:47] debug load cache ok uid=4140 sync=0
+[2012-05-31 16:22:09] debug unload cmd uid=4140 
+[2012-05-31 16:22:09] debug unload ok uid=4140 
+[2012-05-31 16:22:10] debug load cmd uid=4140 sync=0
+[2012-05-31 16:22:10] debug load cache ok uid=4140 sync=0
+[2012-05-31 16:22:12] debug unload cmd uid=4140 
+[2012-05-31 16:22:12] debug unload ok uid=4140 
+[2012-05-31 16:22:17] debug load cmd uid=4140 sync=0
+[2012-05-31 16:22:17] debug load cache ok uid=4140 sync=0
+[2012-05-31 16:23:05] debug unload cmd uid=4140 
+[2012-05-31 16:23:05] debug unload ok uid=4140 
+[2012-05-31 16:26:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 16:26:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 16:26:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 16:26:37] debug free uid=4140 
+[2012-05-31 16:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 16:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 16:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 16:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:46:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 16:46:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 16:46:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 16:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 16:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:13:42] debug load cmd uid=4140 sync=0
+[2012-05-31 17:13:42] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 17:13:42] debug load ok uid=4140 sync=0
+[2012-05-31 17:14:10] debug unload cmd uid=4140 
+[2012-05-31 17:14:10] debug unload ok uid=4140 
+[2012-05-31 17:16:19] debug load cmd uid=4140 sync=0
+[2012-05-31 17:16:19] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:16:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 17:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 17:16:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 17:17:22] debug unload cmd uid=4140 
+[2012-05-31 17:17:22] debug unload ok uid=4140 
+[2012-05-31 17:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:26:58] debug load cmd uid=4140 sync=0
+[2012-05-31 17:26:58] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:27:25] debug unload cmd uid=4140 
+[2012-05-31 17:27:25] debug unload ok uid=4140 
+[2012-05-31 17:27:30] debug load cmd uid=4140 sync=0
+[2012-05-31 17:27:30] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:29:03] debug unload cmd uid=4140 
+[2012-05-31 17:29:03] debug unload ok uid=4140 
+[2012-05-31 17:29:07] debug load cmd uid=4140 sync=0
+[2012-05-31 17:29:07] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:30:34] debug unload cmd uid=4140 
+[2012-05-31 17:30:34] debug unload ok uid=4140 
+[2012-05-31 17:30:39] debug load cmd uid=4140 sync=0
+[2012-05-31 17:30:39] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:30:56] debug unload cmd uid=4140 
+[2012-05-31 17:30:56] debug unload ok uid=4140 
+[2012-05-31 17:31:00] debug load cmd uid=4140 sync=0
+[2012-05-31 17:31:00] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:31:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 17:31:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 17:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 17:31:47] debug unload cmd uid=4140 
+[2012-05-31 17:31:47] debug unload ok uid=4140 
+[2012-05-31 17:31:52] debug load cmd uid=4140 sync=0
+[2012-05-31 17:31:52] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:32:16] debug unload cmd uid=4140 
+[2012-05-31 17:32:16] debug unload ok uid=4140 
+[2012-05-31 17:32:41] debug load cmd uid=4140 sync=0
+[2012-05-31 17:32:41] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:33:35] debug unload cmd uid=4140 
+[2012-05-31 17:33:35] debug unload ok uid=4140 
+[2012-05-31 17:33:42] debug load cmd uid=4140 sync=0
+[2012-05-31 17:33:42] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:34:18] debug unload cmd uid=4140 
+[2012-05-31 17:34:18] debug unload ok uid=4140 
+[2012-05-31 17:35:21] debug load cmd uid=4140 sync=0
+[2012-05-31 17:35:21] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:35:30] debug unload cmd uid=4140 
+[2012-05-31 17:35:30] debug unload ok uid=4140 
+[2012-05-31 17:35:50] debug load cmd uid=4140 sync=0
+[2012-05-31 17:35:50] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:36:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 17:36:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 17:36:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 17:37:05] debug unload cmd uid=4140 
+[2012-05-31 17:37:05] debug unload ok uid=4140 
+[2012-05-31 17:37:10] debug load cmd uid=4140 sync=0
+[2012-05-31 17:37:10] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:38:18] debug unload cmd uid=4140 
+[2012-05-31 17:38:18] debug unload ok uid=4140 
+[2012-05-31 17:38:37] debug load cmd uid=4140 sync=0
+[2012-05-31 17:38:37] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:38:56] debug unload cmd uid=4140 
+[2012-05-31 17:38:56] debug unload ok uid=4140 
+[2012-05-31 17:39:10] debug load cmd uid=4140 sync=0
+[2012-05-31 17:39:10] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:39:15] debug unload cmd uid=4140 
+[2012-05-31 17:39:15] debug unload ok uid=4140 
+[2012-05-31 17:41:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 17:41:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 17:41:36] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-05-31 17:41:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-05-31 17:41:36] debug free uid=4140 
+[2012-05-31 17:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 17:57:38] debug load cmd uid=4140 sync=0
+[2012-05-31 17:57:38] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 17:57:38] debug load ok uid=4140 sync=0
+[2012-05-31 17:57:54] debug unload cmd uid=4140 
+[2012-05-31 17:57:54] debug unload ok uid=4140 
+[2012-05-31 17:57:59] debug load cmd uid=4140 sync=0
+[2012-05-31 17:57:59] debug load cache ok uid=4140 sync=0
+[2012-05-31 17:58:13] debug unload cmd uid=4140 
+[2012-05-31 17:58:13] debug unload ok uid=4140 
+[2012-05-31 18:01:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 18:01:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 18:01:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 18:01:36] debug free uid=4140 
+[2012-05-31 18:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:11:45] debug unload cmd uid=4032 
+[2012-05-31 18:11:45] debug unload ok uid=4032 
+[2012-05-31 18:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:40:51] debug load cmd uid=4140 sync=0
+[2012-05-31 18:40:51] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 18:40:51] debug load ok uid=4140 sync=0
+[2012-05-31 18:40:55] debug unload cmd uid=4140 
+[2012-05-31 18:40:55] debug unload ok uid=4140 
+[2012-05-31 18:41:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 18:41:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 18:41:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 18:41:36] debug free uid=4140 
+[2012-05-31 18:41:36] debug free uid=4032 
+[2012-05-31 18:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 18:54:34] debug load cmd uid=4140 sync=0
+[2012-05-31 18:54:34] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 18:54:34] debug load ok uid=4140 sync=0
+[2012-05-31 18:56:30] debug unload cmd uid=4140 
+[2012-05-31 18:56:30] debug unload ok uid=4140 
+[2012-05-31 18:56:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 18:56:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 18:56:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 18:56:36] debug free uid=4140 
+[2012-05-31 19:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:18:41] debug load cmd uid=4140 sync=0
+[2012-05-31 19:18:41] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 19:18:41] debug load ok uid=4140 sync=0
+[2012-05-31 19:18:48] debug unload cmd uid=4140 
+[2012-05-31 19:18:48] debug unload ok uid=4140 
+[2012-05-31 19:21:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 19:21:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 19:21:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 19:21:37] debug free uid=4140 
+[2012-05-31 19:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 19:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:04:46] debug load cmd uid=4140 sync=0
+[2012-05-31 20:04:46] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 20:04:46] debug load ok uid=4140 sync=0
+[2012-05-31 20:04:49] debug unload cmd uid=4140 
+[2012-05-31 20:04:49] debug unload ok uid=4140 
+[2012-05-31 20:06:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 20:06:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 20:06:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 20:06:36] debug free uid=4140 
+[2012-05-31 20:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:12:41] debug load cmd uid=4140 sync=0
+[2012-05-31 20:12:41] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-05-31 20:12:41] debug load ok uid=4140 sync=0
+[2012-05-31 20:16:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-05-31 20:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-05-31 20:16:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-05-31 20:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:27:05] debug unload cmd uid=4140 
+[2012-05-31 20:27:05] debug unload ok uid=4140 
+[2012-05-31 20:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 20:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 21:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 22:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-05-31 23:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 00:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 01:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 02:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 03:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 04:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 05:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:31:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 06:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 07:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 08:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:28:45] debug load cmd uid=909 sync=0
+[2012-06-01 09:28:45] warn load null uid=909 sync=0
+[2012-06-01 09:28:49] debug new cmd uid=909 
+[2012-06-01 09:28:49] debug new ok uid=909 
+[2012-06-01 09:30:44] debug unload cmd uid=909 
+[2012-06-01 09:30:44] debug unload ok uid=909 
+[2012-06-01 09:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 09:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 09:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 09:31:37] debug free uid=909 
+[2012-06-01 09:31:37] debug free uid=4140 
+[2012-06-01 09:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:41:42] debug load cmd uid=4140 sync=0
+[2012-06-01 09:41:42] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 09:41:42] debug load ok uid=4140 sync=0
+[2012-06-01 09:46:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 09:46:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 09:46:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 09:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 09:53:58] debug unload cmd uid=4140 
+[2012-06-01 09:53:58] debug unload ok uid=4140 
+[2012-06-01 09:54:02] debug load cmd uid=4140 sync=0
+[2012-06-01 09:54:02] debug load cache ok uid=4140 sync=0
+[2012-06-01 09:56:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 09:56:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 09:56:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 09:58:02] debug unload cmd uid=4140 
+[2012-06-01 09:58:02] debug unload ok uid=4140 
+[2012-06-01 09:58:08] debug load cmd uid=4140 sync=0
+[2012-06-01 09:58:08] debug load cache ok uid=4140 sync=0
+[2012-06-01 09:59:04] debug unload cmd uid=4140 
+[2012-06-01 09:59:04] debug unload ok uid=4140 
+[2012-06-01 10:01:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 10:01:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 10:01:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 10:01:37] debug free uid=4140 
+[2012-06-01 10:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:25:03] debug load cmd uid=4140 sync=0
+[2012-06-01 10:25:03] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 10:25:03] debug load ok uid=4140 sync=0
+[2012-06-01 10:25:08] debug unload cmd uid=4140 
+[2012-06-01 10:25:08] debug unload ok uid=4140 
+[2012-06-01 10:25:48] debug load cmd uid=4140 sync=0
+[2012-06-01 10:25:48] debug load cache ok uid=4140 sync=0
+[2012-06-01 10:26:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 10:26:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 10:26:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 10:29:20] debug unload cmd uid=4140 
+[2012-06-01 10:29:20] debug unload ok uid=4140 
+[2012-06-01 10:29:27] debug load cmd uid=4140 sync=0
+[2012-06-01 10:29:27] debug load cache ok uid=4140 sync=0
+[2012-06-01 10:29:41] debug unload cmd uid=4140 
+[2012-06-01 10:29:41] debug unload ok uid=4140 
+[2012-06-01 10:31:23] debug load cmd uid=4140 sync=0
+[2012-06-01 10:31:23] debug load cache ok uid=4140 sync=0
+[2012-06-01 10:31:28] debug unload cmd uid=4140 
+[2012-06-01 10:31:28] debug unload ok uid=4140 
+[2012-06-01 10:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 10:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 10:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 10:31:37] debug free uid=4140 
+[2012-06-01 10:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 10:52:17] debug load cmd uid=4140 sync=0
+[2012-06-01 10:52:17] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 10:52:17] debug load ok uid=4140 sync=0
+[2012-06-01 10:52:52] debug unload cmd uid=4140 
+[2012-06-01 10:52:52] debug unload ok uid=4140 
+[2012-06-01 10:53:00] debug load cmd uid=4140 sync=0
+[2012-06-01 10:53:00] debug load cache ok uid=4140 sync=0
+[2012-06-01 10:53:19] debug unload cmd uid=4140 
+[2012-06-01 10:53:19] debug unload ok uid=4140 
+[2012-06-01 10:53:26] debug load cmd uid=4140 sync=0
+[2012-06-01 10:53:26] debug load cache ok uid=4140 sync=0
+[2012-06-01 10:53:44] debug unload cmd uid=4140 
+[2012-06-01 10:53:44] debug unload ok uid=4140 
+[2012-06-01 10:56:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 10:56:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 10:56:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 10:56:37] debug free uid=4140 
+[2012-06-01 11:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:14:14] debug load cmd uid=4140 sync=0
+[2012-06-01 11:14:14] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 11:14:14] debug load ok uid=4140 sync=0
+[2012-06-01 11:15:21] debug unload cmd uid=4140 
+[2012-06-01 11:15:21] debug unload ok uid=4140 
+[2012-06-01 11:15:34] debug load cmd uid=4140 sync=0
+[2012-06-01 11:15:34] debug load cache ok uid=4140 sync=0
+[2012-06-01 11:16:12] debug load cmd uid=4122 sync=0
+[2012-06-01 11:16:12] warn load null uid=4122 sync=0
+[2012-06-01 11:16:14] debug new cmd uid=4122 
+[2012-06-01 11:16:14] debug new ok uid=4122 
+[2012-06-01 11:16:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 11:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 11:16:36] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-06-01 11:16:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-06-01 11:16:41] debug unload cmd uid=4122 
+[2012-06-01 11:16:41] debug unload ok uid=4122 
+[2012-06-01 11:16:49] debug load cmd uid=4122 sync=0
+[2012-06-01 11:16:49] debug load cache ok uid=4122 sync=0
+[2012-06-01 11:17:10] debug unload cmd uid=4140 
+[2012-06-01 11:17:10] debug unload ok uid=4140 
+[2012-06-01 11:17:11] debug unload cmd uid=4122 
+[2012-06-01 11:17:11] debug unload ok uid=4122 
+[2012-06-01 11:21:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 11:21:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 11:21:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 11:21:37] debug free uid=4122 
+[2012-06-01 11:21:37] debug free uid=4140 
+[2012-06-01 11:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:29:47] debug load cmd uid=4122 sync=0
+[2012-06-01 11:29:47] [db_main.c:309] [mod=12] info: try restore file pathname=user/22/u4122.py
+[2012-06-01 11:29:47] debug load ok uid=4122 sync=0
+[2012-06-01 11:30:01] debug unload cmd uid=4122 
+[2012-06-01 11:30:01] debug unload ok uid=4122 
+[2012-06-01 11:30:24] debug load cmd uid=4140 sync=0
+[2012-06-01 11:30:24] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 11:30:24] debug load ok uid=4140 sync=0
+[2012-06-01 11:30:59] debug unload cmd uid=4140 
+[2012-06-01 11:30:59] debug unload ok uid=4140 
+[2012-06-01 11:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 11:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 11:31:37] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-06-01 11:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-06-01 11:31:37] debug free uid=4122 
+[2012-06-01 11:31:37] debug free uid=4140 
+[2012-06-01 11:31:38] debug load cmd uid=4140 sync=0
+[2012-06-01 11:31:38] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 11:31:38] debug load ok uid=4140 sync=0
+[2012-06-01 11:34:34] debug unload cmd uid=4140 
+[2012-06-01 11:34:34] debug unload ok uid=4140 
+[2012-06-01 11:34:34] debug load cmd uid=4140 sync=0
+[2012-06-01 11:34:34] debug load cache ok uid=4140 sync=0
+[2012-06-01 11:34:39] debug unload cmd uid=4140 
+[2012-06-01 11:34:39] debug unload ok uid=4140 
+[2012-06-01 11:34:43] debug load cmd uid=4140 sync=0
+[2012-06-01 11:34:43] debug load cache ok uid=4140 sync=0
+[2012-06-01 11:35:09] debug unload cmd uid=4140 
+[2012-06-01 11:35:09] debug unload ok uid=4140 
+[2012-06-01 11:36:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 11:36:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 11:36:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 11:36:36] debug free uid=4140 
+[2012-06-01 11:38:53] debug load cmd uid=4140 sync=0
+[2012-06-01 11:38:53] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 11:38:53] debug load ok uid=4140 sync=0
+[2012-06-01 11:40:07] debug unload cmd uid=4140 
+[2012-06-01 11:40:07] debug unload ok uid=4140 
+[2012-06-01 11:41:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 11:41:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 11:41:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 11:41:37] debug free uid=4140 
+[2012-06-01 11:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:51:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 11:58:43] debug load cmd uid=4140 sync=0
+[2012-06-01 11:58:43] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 11:58:43] debug load ok uid=4140 sync=0
+[2012-06-01 12:01:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 12:01:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 12:01:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 12:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:11:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:21:13] debug unload cmd uid=4140 
+[2012-06-01 12:21:13] debug unload ok uid=4140 
+[2012-06-01 12:21:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:22:15] debug load cmd uid=4140 sync=0
+[2012-06-01 12:22:15] debug load cache ok uid=4140 sync=0
+[2012-06-01 12:22:21] debug unload cmd uid=4140 
+[2012-06-01 12:22:21] debug unload ok uid=4140 
+[2012-06-01 12:26:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 12:26:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 12:26:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 12:26:37] debug free uid=4140 
+[2012-06-01 12:27:29] debug load cmd uid=4140 sync=0
+[2012-06-01 12:27:29] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 12:27:29] debug load ok uid=4140 sync=0
+[2012-06-01 12:27:32] debug unload cmd uid=4140 
+[2012-06-01 12:27:32] debug unload ok uid=4140 
+[2012-06-01 12:31:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 12:31:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 12:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 12:31:37] debug free uid=4140 
+[2012-06-01 12:36:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:41:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:46:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 12:47:38] debug load cmd uid=4140 sync=0
+[2012-06-01 12:47:38] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 12:47:38] debug load ok uid=4140 sync=0
+[2012-06-01 12:47:45] debug unload cmd uid=4140 
+[2012-06-01 12:47:45] debug unload ok uid=4140 
+[2012-06-01 12:47:59] debug load cmd uid=4140 sync=0
+[2012-06-01 12:47:59] debug load cache ok uid=4140 sync=0
+[2012-06-01 12:48:01] debug unload cmd uid=4140 
+[2012-06-01 12:48:01] debug unload ok uid=4140 
+[2012-06-01 12:48:59] debug load cmd uid=4140 sync=0
+[2012-06-01 12:48:59] debug load cache ok uid=4140 sync=0
+[2012-06-01 12:49:05] debug unload cmd uid=4140 
+[2012-06-01 12:49:05] debug unload ok uid=4140 
+[2012-06-01 12:51:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 12:51:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 12:51:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 12:51:37] debug free uid=4140 
+[2012-06-01 12:56:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:01:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:06:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:07:53] debug load cmd uid=4140 sync=0
+[2012-06-01 13:07:53] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 13:07:53] debug load ok uid=4140 sync=0
+[2012-06-01 13:07:55] debug unload cmd uid=4140 
+[2012-06-01 13:07:55] debug unload ok uid=4140 
+[2012-06-01 13:08:29] debug load cmd uid=4140 sync=0
+[2012-06-01 13:08:29] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:08:30] debug unload cmd uid=4140 
+[2012-06-01 13:08:30] debug unload ok uid=4140 
+[2012-06-01 13:11:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:11:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:11:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:11:37] debug free uid=4140 
+[2012-06-01 13:16:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:25:04] debug load cmd uid=4140 sync=0
+[2012-06-01 13:25:04] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 13:25:04] debug load ok uid=4140 sync=0
+[2012-06-01 13:25:24] debug unload cmd uid=4140 
+[2012-06-01 13:25:24] debug unload ok uid=4140 
+[2012-06-01 13:26:06] debug load cmd uid=4140 sync=0
+[2012-06-01 13:26:06] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:26:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:26:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:26:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:26:38] debug unload cmd uid=4140 
+[2012-06-01 13:26:38] debug unload ok uid=4140 
+[2012-06-01 13:26:45] debug load cmd uid=4140 sync=0
+[2012-06-01 13:26:45] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:31:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:31:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:31:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:33:59] debug unload cmd uid=4140 
+[2012-06-01 13:33:59] debug unload ok uid=4140 
+[2012-06-01 13:34:04] debug load cmd uid=4140 sync=0
+[2012-06-01 13:34:04] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:36:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:36:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:36:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:36:42] debug unload cmd uid=4140 
+[2012-06-01 13:36:42] debug unload ok uid=4140 
+[2012-06-01 13:36:48] debug load cmd uid=4140 sync=0
+[2012-06-01 13:36:48] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:37:08] debug unload cmd uid=4140 
+[2012-06-01 13:37:08] debug unload ok uid=4140 
+[2012-06-01 13:40:38] debug load cmd uid=4140 sync=0
+[2012-06-01 13:40:38] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:41:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:41:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:41:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:41:40] debug unload cmd uid=4140 
+[2012-06-01 13:41:40] debug unload ok uid=4140 
+[2012-06-01 13:42:44] debug load cmd uid=4140 sync=0
+[2012-06-01 13:42:44] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:43:03] debug unload cmd uid=4140 
+[2012-06-01 13:43:03] debug unload ok uid=4140 
+[2012-06-01 13:43:13] debug load cmd uid=4140 sync=0
+[2012-06-01 13:43:13] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:43:21] debug unload cmd uid=4140 
+[2012-06-01 13:43:21] debug unload ok uid=4140 
+[2012-06-01 13:43:29] debug load cmd uid=4140 sync=0
+[2012-06-01 13:43:29] debug load cache ok uid=4140 sync=0
+[2012-06-01 13:46:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 13:46:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 13:46:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 13:47:00] debug unload cmd uid=4140 
+[2012-06-01 13:47:00] debug unload ok uid=4140 
+[2012-06-01 13:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 13:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 14:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:05:57] debug load cmd uid=4140 sync=0
+[2012-06-01 15:05:57] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:06:17] debug unload cmd uid=4140 
+[2012-06-01 15:06:17] debug unload ok uid=4140 
+[2012-06-01 15:06:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 15:06:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 15:06:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 15:06:37] debug free uid=4140 
+[2012-06-01 15:06:55] debug load cmd uid=4140 sync=0
+[2012-06-01 15:06:55] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 15:06:55] debug load ok uid=4140 sync=0
+[2012-06-01 15:07:37] debug unload cmd uid=4140 
+[2012-06-01 15:07:37] debug unload ok uid=4140 
+[2012-06-01 15:07:45] debug load cmd uid=4140 sync=0
+[2012-06-01 15:07:45] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:09:13] debug unload cmd uid=4140 
+[2012-06-01 15:09:13] debug unload ok uid=4140 
+[2012-06-01 15:09:39] debug load cmd uid=4140 sync=0
+[2012-06-01 15:09:39] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:10:37] debug unload cmd uid=4140 
+[2012-06-01 15:10:37] debug unload ok uid=4140 
+[2012-06-01 15:10:42] debug load cmd uid=4140 sync=0
+[2012-06-01 15:10:42] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:11:29] debug unload cmd uid=4140 
+[2012-06-01 15:11:29] debug unload ok uid=4140 
+[2012-06-01 15:11:34] debug load cmd uid=4140 sync=0
+[2012-06-01 15:11:34] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:11:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 15:11:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 15:11:36] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 15:12:08] debug unload cmd uid=4140 
+[2012-06-01 15:12:08] debug unload ok uid=4140 
+[2012-06-01 15:12:13] debug load cmd uid=4140 sync=0
+[2012-06-01 15:12:13] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:13:35] debug unload cmd uid=4140 
+[2012-06-01 15:13:35] debug unload ok uid=4140 
+[2012-06-01 15:13:40] debug load cmd uid=4140 sync=0
+[2012-06-01 15:13:40] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:14:55] debug unload cmd uid=4140 
+[2012-06-01 15:14:55] debug unload ok uid=4140 
+[2012-06-01 15:16:07] debug load cmd uid=4140 sync=0
+[2012-06-01 15:16:07] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:16:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 15:16:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 15:16:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 15:18:23] debug unload cmd uid=4140 
+[2012-06-01 15:18:23] debug unload ok uid=4140 
+[2012-06-01 15:18:39] debug load cmd uid=4140 sync=0
+[2012-06-01 15:18:39] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:18:41] debug unload cmd uid=4140 
+[2012-06-01 15:18:41] debug unload ok uid=4140 
+[2012-06-01 15:19:24] debug load cmd uid=4140 sync=0
+[2012-06-01 15:19:24] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:19:33] debug unload cmd uid=4140 
+[2012-06-01 15:19:33] debug unload ok uid=4140 
+[2012-06-01 15:19:38] debug load cmd uid=4140 sync=0
+[2012-06-01 15:19:38] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:19:51] debug unload cmd uid=4140 
+[2012-06-01 15:19:51] debug unload ok uid=4140 
+[2012-06-01 15:20:38] debug load cmd uid=4140 sync=0
+[2012-06-01 15:20:38] debug load cache ok uid=4140 sync=0
+[2012-06-01 15:21:03] debug unload cmd uid=4140 
+[2012-06-01 15:21:03] debug unload ok uid=4140 
+[2012-06-01 15:21:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 15:21:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 15:21:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 15:21:37] debug free uid=4140 
+[2012-06-01 15:26:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:31:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:36:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:41:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:46:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:51:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 15:56:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:01:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:06:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:11:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:16:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:21:36] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:26:37] [db_main.c:1062] [mod=12] info: multi-rw-thread sync no dirty to do
+[2012-06-01 16:29:06] debug load cmd uid=4140 sync=0
+[2012-06-01 16:29:06] [db_main.c:309] [mod=12] info: try restore file pathname=user/40/u4140.py
+[2012-06-01 16:29:06] debug load ok uid=4140 sync=0
+[2012-06-01 16:29:16] debug unload cmd uid=4140 
+[2012-06-01 16:29:16] debug unload ok uid=4140 
+[2012-06-01 16:29:29] debug load cmd uid=4140 sync=0
+[2012-06-01 16:29:29] debug load cache ok uid=4140 sync=0
+[2012-06-01 16:29:32] debug unload cmd uid=4140 
+[2012-06-01 16:29:32] debug unload ok uid=4140 
+[2012-06-01 16:31:03] debug load cmd uid=4122 sync=0
+[2012-06-01 16:31:03] [db_main.c:309] [mod=12] info: try restore file pathname=user/22/u4122.py
+[2012-06-01 16:31:03] debug load ok uid=4122 sync=0
+[2012-06-01 16:31:36] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 16:31:36] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 16:31:36] [db_main.c:918] [mod=12] info: 1th thread finish and send dos ok
+[2012-06-01 16:31:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=2,workercnt=2
+[2012-06-01 16:31:37] debug free uid=4140 
+[2012-06-01 16:34:32] debug unload cmd uid=4122 
+[2012-06-01 16:34:32] debug unload ok uid=4122 
+[2012-06-01 16:34:39] debug load cmd uid=4122 sync=0
+[2012-06-01 16:34:39] debug load cache ok uid=4122 sync=0
+[2012-06-01 16:35:01] debug unload cmd uid=4122 
+[2012-06-01 16:35:01] debug unload ok uid=4122 
+[2012-06-01 16:35:39] debug load cmd uid=4122 sync=0
+[2012-06-01 16:35:39] debug load cache ok uid=4122 sync=0
+[2012-06-01 16:36:02] debug unload cmd uid=4122 
+[2012-06-01 16:36:02] debug unload ok uid=4122 
+[2012-06-01 16:36:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 16:36:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 16:36:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 16:36:37] debug free uid=4122 
+[2012-06-01 16:37:16] debug load cmd uid=4113 sync=0
+[2012-06-01 16:37:16] warn load null uid=4113 sync=0
+[2012-06-01 16:37:45] debug new cmd uid=4113 
+[2012-06-01 16:37:45] debug new ok uid=4113 
+[2012-06-01 16:38:14] debug unload cmd uid=4113 
+[2012-06-01 16:38:14] debug unload ok uid=4113 
+[2012-06-01 16:38:37] [db_main.c:1082] [mod=12] info: multi-rw-thread sync dirty to disk begin
+[2012-06-01 16:38:37] [db_main.c:1117] [mod=12] error: recv gamed exit cmd
+[2012-06-01 16:38:37] [db_main.c:1190] [mod=12] error: game connection error:11
+[2012-06-01 16:38:37] [db_main.c:918] [mod=12] info: 0th thread finish and send dos ok
+[2012-06-01 16:38:37] [db_main.c:936] [mod=12] info: multi-rw-thread sync dirty to disk end.dirtycnt=1,workercnt=1
+[2012-06-01 16:38:37] debug free uid=4113 
+[2012-06-01 16:38:37] [db_main.c:1190] [mod=12] error: game connection error:11
+[2012-06-01 16:38:38] [db_main.c:978] [mod=12] info: check serialized event:18
+[2012-06-01 16:38:38] [db_main.c:706] [mod=12] info: sync dirty to disk begin
+[2012-06-01 16:38:38] [db_main.c:730] [mod=12] info: sync dirty to disk end
+[2012-06-01 16:38:38] [db_main.c:984] [mod=12] info: on serialized event:8
+[2012-06-01 16:38:38] [db_main.c:1197] [mod=12] error: dbd close service
+[2012-06-01 16:38:38] [db_main.c:984] [mod=12] info: on serialized event:10
+[2012-06-01 16:38:39] [db_main.c:1288] [mod=12] error: dbd catch signal:2
+[2012-06-01 16:38:39] [db_main.c:978] [mod=12] info: check serialized event:4
+[2012-06-01 16:38:39] [db_main.c:706] [mod=12] info: sync dirty to disk begin
+[2012-06-01 16:38:39] [db_main.c:730] [mod=12] info: sync dirty to disk end
+[2012-06-01 16:38:39] [db_main.c:984] [mod=12] info: on serialized event:4
+optind: 2
+Please wait while initializing internal tables....
+[DBD_PORT]type = [2] value = [1502]
+[SYSTEM_INTERVAL_SEC]type = [2] value = [0]
+[SYSTEM_INTERVAL_USEC]type = [2] value = [500000]
+dbd accept another async game for blocking:8

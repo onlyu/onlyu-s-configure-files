@@ -1,0 +1,37 @@
+#include "socket_err.h" 
+
+char *error_strings[ERROR_STRINGS] =
+{
+    "Meet problem when creating socket",
+    "Meet problem with setsockopt",
+    "meet problem when setting non-blocking mode",
+    "sorry, no more available efun sockets",
+    "sorry, descriptor out of range",
+    "sorry, socket is closed",
+    "sorry, security violation attempted",
+    "sorry, socket is already bound",
+    "sorry, this address is already in use",
+    "sorry, meet problem with bind",
+    "sorry, meet problem with getsockname",
+    "sorry, this socket mode is not supported",
+    "sorry, socket not bound to an address",
+    "sorry, socket is already connected",
+    "sorry, meept problem with listen",
+    "sorry, this socket is not listening",
+    "sorry, this operation would block",
+    "sorry, interrupted system call",
+    "sorry, meet problem with accept",
+    "sorry, this socket is listening",
+    "sorry, problem with address format",
+    "sorry, this operation is already in progress",
+    "sorry, connection refused",
+    "sorry, meet problem with connect",
+    "sorry, socket is not connected",
+    "sorry, this object type is not supported",
+    "sorry, meet problem with sendto",
+    "sorry, meet problem with send",
+    "sorry, please wait for callback",
+    "sorry, this socket is already released",
+    "sorry, this socket is not released",
+    "sorry, data nested too deeply"
+};

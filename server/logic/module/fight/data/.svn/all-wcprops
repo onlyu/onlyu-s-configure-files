@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/86329/wg01/program/server/logic/trunk/module/fight/data
+END
+skill.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/qtz/!svn/ver/86329/wg01/program/server/logic/trunk/module/fight/data/skill.c
+END
+skill_status.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/qtz/!svn/ver/86329/wg01/program/server/logic/trunk/module/fight/data/skill_status.c
+END
+status.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/qtz/!svn/ver/86329/wg01/program/server/logic/trunk/module/fight/data/status.c
+END
+status_rel.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/qtz/!svn/ver/86329/wg01/program/server/logic/trunk/module/fight/data/status_rel.c
+END
+shenge_skill.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/qtz/!svn/ver/84920/wg01/program/server/logic/trunk/module/fight/data/shenge_skill.c
+END
