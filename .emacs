@@ -1,6 +1,6 @@
 ;; load path
 (add-to-list 'load-path "~/emacs/")
-(require 'init)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,4 +42,4 @@
  '(linum-board ((t (:inherit (shadow default) :background "#888888"))))
  '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Menlo")))))
 
-
+(require 'init)

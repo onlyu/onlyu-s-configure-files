@@ -1,6 +1,7 @@
 ; custom settings
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
+(semantic-mode 1)
 
 (require 'onlyu-custom)
 (require 'fs-server)
@@ -25,7 +26,5 @@
 (require 'onlyu-find-func)
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
-
-(semantic-mode 1)
 ;; init
 (provide 'init)
