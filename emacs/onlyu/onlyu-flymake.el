@@ -65,6 +65,7 @@
 
 (defun of-c-mode-common-hook ()
   (define-key c-mode-map "\C-ce" 'of-flymake-error)
+  (define-key pike-mode-map "\C-ce" 'of-flymake-error)
   (define-key c++-mode-map "\C-ce" 'of-flymake-error))
   
 ;; use \C-ce for flymake
