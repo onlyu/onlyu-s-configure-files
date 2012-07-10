@@ -16,8 +16,8 @@
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; You should have received a copy of the GNU General Public License along with
+;; this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -220,7 +220,8 @@
 	nil))))
 
 (defun put-lpc-function-to-cache (f functions)
-  (puthash f (cons (current-time) functions) lpc-function-cache))
+  (puthash f (cons (current-time) functions) lpc-function-cache)
+  (save-lpc-functions))
 
 ;; semantic
 (defun get-lpc-functions-from-file (f)
