@@ -5,6 +5,7 @@
 (defalias 'sh 'shell)
 
 (defalias 'qrr 'query-replace-regexp)
+(defalias 'rs 'replace-string)
 (defalias 'lml 'list-matching-lines)
 (defalias 'dml 'delete-matching-lines)
 (defalias 'rof 'recentf-open-files)
