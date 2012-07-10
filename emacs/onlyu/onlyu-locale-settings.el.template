@@ -1,5 +1,3 @@
-(custom-set-variables
- '(fs-dir "H:/document/projects/egg/trunk/"))
 
 (add-to-list
    'load-path
