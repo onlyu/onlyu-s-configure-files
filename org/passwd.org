@@ -47,3 +47,5 @@
    su:root
    pwd:
 * ssh -p 32222 onlyu@183.62.45.76
+* 192.168.0.8 onlyu
+** 08king)*
