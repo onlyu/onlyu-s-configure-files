@@ -84,7 +84,7 @@
   (setq g-rep-new new)
   (setq g-rep-old old)
   (lambda (filename)
-    (if (string-match "\\.[ch]$" filename)
+    (if (and (string-match "\\.[ch]$" filename) (file-exists-p filename))
 	;(message (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
 	;(start-process "replace" "*fs*" "sh" (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
 	(with-temp-buffer
