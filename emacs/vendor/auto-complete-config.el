@@ -160,6 +160,7 @@
     (candidate-face . ac-yasnippet-candidate-face)
     (selection-face . ac-yasnippet-selection-face)
     (symbol . "a")))
+
 ;; ----------------------------------------- lpc parse -------------------------------------
 (defvar is-lpc-function-loaded nil)
 (defvar lpc-function-cache (make-hash-table :test 'equal))
@@ -587,7 +588,7 @@
   (setq ac-sources (append '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols) ac-sources)))
 
 (defun ac-cc-mode-setup ()
-  (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet ac-source-gtags) ac-sources)))
+  (setq ac-sources (append '(ac-source-yasnippet ac-source-semantic ac-source-gtags) ac-sources)))
 
 (defun ac-pike-mode-setup ()
   )
@@ -610,5 +611,6 @@
   (global-auto-complete-mode t)
   ;; auto save lpc-functions
   (add-hook 'kill-emacs-hook 'save-lpc-functions))
+
 (provide 'auto-complete-config)
 ;;; auto-complete-config.el ends here

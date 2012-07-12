@@ -2,6 +2,9 @@
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
 
+(defcustom onlyu-need-erlang nil
+  "")
+
 (require 'onlyu-custom)
 (require 'fs-server)
 (require 'onlyu-key)
@@ -19,13 +22,16 @@
 (require 'onlyu-lua-mode)
 ;;(require 'onlyu-as-mode)
 (require 'onlyu-cc-mode)
-(require 'onlyu-erlang)
+
 (require 'onlyu-dired-mode)
 (require 'onlyu-flymake)
 
 (require 'onlyu-find-func)
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
+
+(if onlyu-need-erlang
+    (require 'onlyu-erlang))
 
 (semantic-mode 1)
 ;; init
