@@ -42,6 +42,11 @@
       (string-match ".*\\.cc$" file)
       (string-match ".*\\.cpp$" file)))
 
+(defun myprompt-for-string ()
+  (let ((prompt "replace to:"))
+    (setq sym (read-from-minibuffer prompt))
+    sym))
+
 (defun myprompt-for-symbol ()
   (let* ( (symbol (mysymbol-at-point))
 	  (file (myfile-at-point))
