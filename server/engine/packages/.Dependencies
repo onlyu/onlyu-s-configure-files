@@ -1,0 +1,1896 @@
+obj/cksum.o: cksum.c
+obj/comm.o: comm.c fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/contrib.o: contrib.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/file_incl.h ../include/file.h ../include/marsh.h \
+ ../include/backend.h ../include/swap.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/main.h \
+ ../include/eoperators.h
+obj/dbi.o: dbi.c fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/develop.o: develop.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/md.h ../include/sprintf.h
+obj/escape.o: escape.c
+obj/fs_config.o: fs_config.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h
+obj/fs_curl.o: fs_curl.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/fs_data_save.o: fs_data_save.c fs_data_save.h fs_dbi.h fs_comm.h fs.h \
+ fs_ipc.h fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/malloc_incl.h \
+ fs_marshal.h ../include/dirty.h
+obj/fs_dns.o: fs_dns.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/fs_enigma.o: fs_enigma.c
+obj/fs_iconv.o: fs_iconv.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/fs_log.o: fs_log.c fs_log.h ../include/config.h ../include/cc.h
+obj/fs_lpc_ext.o: fs_lpc_ext.c fs_lpc_ext.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/fs_mbuf.o: fs_mbuf.c fs_mbuf.h
+obj/fs_mysql.o: fs_mysql.c /usr/local/include/mysql/mysql.h \
+ /usr/local/include/mysql/mysql_version.h \
+ /usr/local/include/mysql/mysql_com.h \
+ /usr/local/include/mysql/mysql_time.h /usr/local/include/mysql/typelib.h \
+ /usr/local/include/mysql/my_alloc.h /usr/local/include/mysql/my_list.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/gettext.o: gettext.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/http_lpc.o: http_lpc.c escape.h ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h http_lpc.h
+obj/kern_timeout.o: kern_timeout.c timeout.h ../include/queue.h
+obj/marshal.o: marshal.c fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/math.o: math.c ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/mkdir.o: mkdir.c
+obj/rpc.o: rpc.c fs_rpc.h fs_mbuf.h fs_rpc_c.h fs_rpc_id.h
+obj/rpc_c.o: rpc_c.c fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/rpc_lpc.o: rpc_lpc.c fs_mbuf.h fs_rpc_lpc.h fs_rpc.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h \
+ ../include/interpret.h fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_lpc_op.h fs_lpc_ext.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h
+obj/socket_err.o: socket_err.c ../include/socket_err.h
+obj/sockets.o: sockets.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/socket_err.h \
+ ../include/lpc_socket.h ../include/stack.h ../include/eoperators.h
+obj/z.o: z.c z.h zopen.h
+obj/zopen.o: zopen.c zopen.h z.h
+obj/game/cksum.o: cksum.c
+obj/game/comm.o: comm.c fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/game/contrib.o: contrib.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/file_incl.h ../include/file.h ../include/marsh.h \
+ ../include/backend.h ../include/swap.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/main.h \
+ ../include/eoperators.h
+obj/game/dbi.o: dbi.c fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/game/develop.o: develop.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/md.h ../include/sprintf.h
+obj/game/escape.o: escape.c
+obj/game/fs_config.o: fs_config.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h
+obj/game/fs_curl.o: fs_curl.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/game/fs_data_save.o: fs_data_save.c fs_data_save.h fs_dbi.h fs_comm.h fs.h \
+ fs_ipc.h fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/malloc_incl.h \
+ fs_marshal.h ../include/dirty.h
+obj/game/fs_dns.o: fs_dns.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/game/fs_enigma.o: fs_enigma.c
+obj/game/fs_iconv.o: fs_iconv.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/game/fs_log.o: fs_log.c fs_log.h ../include/config.h ../include/cc.h
+obj/game/fs_lpc_ext.o: fs_lpc_ext.c fs_lpc_ext.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/game/fs_mbuf.o: fs_mbuf.c fs_mbuf.h
+obj/game/fs_mysql.o: fs_mysql.c /usr/local/include/mysql/mysql.h \
+ /usr/local/include/mysql/mysql_version.h \
+ /usr/local/include/mysql/mysql_com.h \
+ /usr/local/include/mysql/mysql_time.h /usr/local/include/mysql/typelib.h \
+ /usr/local/include/mysql/my_alloc.h /usr/local/include/mysql/my_list.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/game/gettext.o: gettext.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/game/http_lpc.o: http_lpc.c escape.h ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h http_lpc.h
+obj/game/kern_timeout.o: kern_timeout.c timeout.h ../include/queue.h
+obj/game/marshal.o: marshal.c fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/game/math.o: math.c ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/game/mkdir.o: mkdir.c
+obj/game/rpc.o: rpc.c fs_rpc.h fs_mbuf.h fs_rpc_c.h fs_rpc_id.h
+obj/game/rpc_c.o: rpc_c.c fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/game/rpc_lpc.o: rpc_lpc.c fs_mbuf.h fs_rpc_lpc.h fs_rpc.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h \
+ ../include/interpret.h fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_lpc_op.h fs_lpc_ext.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h
+obj/game/socket_err.o: socket_err.c ../include/socket_err.h
+obj/game/sockets.o: sockets.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/socket_err.h \
+ ../include/lpc_socket.h ../include/stack.h ../include/eoperators.h
+obj/game/z.o: z.c z.h zopen.h
+obj/game/zopen.o: zopen.c zopen.h z.h
+obj/game/fs_atom.o: game/fs_atom.c ../include/hash.h game/fs_atom.h
+obj/game/fs_callout.o: game/fs_callout.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/eoperators.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ timeout.h game/fs_callout.h game/uthash.h game/fs_main.h \
+ ../include/std.h ../include/config.h ../include/lpc.h
+obj/game/fs_char_ob.o: game/fs_char_ob.c game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h fs_log.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h ../include/contrib.h
+obj/game/fs_data_map.o: game/fs_data_map.c game/fs_data_map.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_hlist.h ../include/hash.h \
+ ../include/stack.h game/fs_atom.h fs_lpc_op.h game/fs_common.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_log.h
+obj/game/fs_db.o: game/fs_db.c game/fs_main.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/config.h ../include/cc.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_db.h game/fs_user.h ../include/stack.h game/fs_prop_key.h \
+ fs_ipc.h fs.h fs_data_save.h fs_dbi.h fs_comm.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_marshal.h game/fs_hlist.h ../include/hash.h \
+ fs_log.h fs_comm.h
+obj/game/fs_hlist.o: game/fs_hlist.c game/fs_mem_pool.h game/fs_hlist.h \
+ ../include/hash.h
+obj/game/fs_item.o: game/fs_item.c game/fs_item.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_prop_key.h fs_lpc_op.h fs_log.h
+obj/game/fs_lpcob_table.o: game/fs_lpcob_table.c game/fs_lpcob_table.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_atom.h fs_lpc_op.h \
+ fs_log.h game/fs_common.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ ../include/contrib.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h fs_data_save.h fs_dbi.h fs_comm.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/game/fs_main.o: game/fs_main.c game/fs_main.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/config.h \
+ ../include/cc.h ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h fs_config.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h fs_dbi.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h game/fs_callout.h game/uthash.h \
+ game/fs_user.h ../include/stack.h game/fs_prop_key.h http_lpc.h \
+ game/fs_db.h fs_ipc.h fs_curl.h fs_dns.h fs_comm.h game/fs_common.h \
+ game/fs_atom.h ../include/hash.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ game/fs_mem_pool.h game/fs_lpcob_table.h game/fs_summon.h game/fs_item.h \
+ fs_log.h fs_data_save.h fs_dbi.h
+obj/game/fs_mem_pool.o: game/fs_mem_pool.c game/fs_mem_pool.h fs_log.h
+obj/game/fs_npc.o: game/fs_npc.c game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_common.h game/fs_atom.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_prop_key.h \
+ fs_lpc_op.h fs_log.h fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/game/fs_summon.o: game/fs_summon.c game/fs_summon.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_lpc_op.h fs_log.h
+obj/game/fs_user_manage.o: game/fs_user_manage.c game/fs_user.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h ../include/stack.h \
+ game/fs_prop_key.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_comm.h fs_data_save.h \
+ game/fs_int_array.h game/fs_db.h fs_ipc.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_common.h game/fs_atom.h
+obj/db/cksum.o: cksum.c
+obj/db/comm.o: comm.c fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/db/contrib.o: contrib.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/file_incl.h ../include/file.h ../include/marsh.h \
+ ../include/backend.h ../include/swap.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/main.h \
+ ../include/eoperators.h
+obj/db/dbi.o: dbi.c fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/db/develop.o: develop.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/md.h ../include/sprintf.h
+obj/db/escape.o: escape.c
+obj/db/fs_config.o: fs_config.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h
+obj/db/fs_curl.o: fs_curl.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/db/fs_data_save.o: fs_data_save.c fs_data_save.h fs_dbi.h fs_comm.h fs.h \
+ fs_ipc.h fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/malloc_incl.h \
+ fs_marshal.h ../include/dirty.h
+obj/db/fs_dns.o: fs_dns.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/db/fs_enigma.o: fs_enigma.c
+obj/db/fs_iconv.o: fs_iconv.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/db/fs_log.o: fs_log.c fs_log.h ../include/config.h ../include/cc.h
+obj/db/fs_lpc_ext.o: fs_lpc_ext.c fs_lpc_ext.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/db/fs_mbuf.o: fs_mbuf.c fs_mbuf.h
+obj/db/fs_mysql.o: fs_mysql.c /usr/local/include/mysql/mysql.h \
+ /usr/local/include/mysql/mysql_version.h \
+ /usr/local/include/mysql/mysql_com.h \
+ /usr/local/include/mysql/mysql_time.h /usr/local/include/mysql/typelib.h \
+ /usr/local/include/mysql/my_alloc.h /usr/local/include/mysql/my_list.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/db/gettext.o: gettext.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/db/http_lpc.o: http_lpc.c escape.h ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h http_lpc.h
+obj/db/kern_timeout.o: kern_timeout.c timeout.h ../include/queue.h
+obj/db/marshal.o: marshal.c fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/db/math.o: math.c ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/db/mkdir.o: mkdir.c
+obj/db/rpc.o: rpc.c fs_rpc.h fs_mbuf.h fs_rpc_c.h fs_rpc_id.h
+obj/db/rpc_c.o: rpc_c.c fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/db/rpc_lpc.o: rpc_lpc.c fs_mbuf.h fs_rpc_lpc.h fs_rpc.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h \
+ ../include/interpret.h fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_lpc_op.h fs_lpc_ext.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h
+obj/db/socket_err.o: socket_err.c ../include/socket_err.h
+obj/db/sockets.o: sockets.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/socket_err.h \
+ ../include/lpc_socket.h ../include/stack.h ../include/eoperators.h
+obj/db/z.o: z.c z.h zopen.h
+obj/db/zopen.o: zopen.c zopen.h z.h
+obj/db/fs_atom.o: game/fs_atom.c ../include/hash.h game/fs_atom.h
+obj/db/fs_callout.o: game/fs_callout.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/eoperators.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ timeout.h game/fs_callout.h game/uthash.h game/fs_main.h \
+ ../include/std.h ../include/config.h ../include/lpc.h
+obj/db/fs_char_ob.o: game/fs_char_ob.c game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h fs_log.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h ../include/contrib.h
+obj/db/fs_data_map.o: game/fs_data_map.c game/fs_data_map.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_hlist.h ../include/hash.h \
+ ../include/stack.h game/fs_atom.h fs_lpc_op.h game/fs_common.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_log.h
+obj/db/fs_db.o: game/fs_db.c game/fs_main.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/config.h ../include/cc.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_db.h game/fs_user.h ../include/stack.h game/fs_prop_key.h \
+ fs_ipc.h fs.h fs_data_save.h fs_dbi.h fs_comm.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_marshal.h game/fs_hlist.h ../include/hash.h \
+ fs_log.h fs_comm.h
+obj/db/fs_hlist.o: game/fs_hlist.c game/fs_mem_pool.h game/fs_hlist.h \
+ ../include/hash.h
+obj/db/fs_item.o: game/fs_item.c game/fs_item.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_prop_key.h fs_lpc_op.h fs_log.h
+obj/db/fs_lpcob_table.o: game/fs_lpcob_table.c game/fs_lpcob_table.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_atom.h fs_lpc_op.h \
+ fs_log.h game/fs_common.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ ../include/contrib.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h fs_data_save.h fs_dbi.h fs_comm.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/db/fs_main.o: game/fs_main.c game/fs_main.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/config.h \
+ ../include/cc.h ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h fs_config.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h fs_dbi.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h game/fs_callout.h game/uthash.h \
+ game/fs_user.h ../include/stack.h game/fs_prop_key.h http_lpc.h \
+ game/fs_db.h fs_ipc.h fs_curl.h fs_dns.h fs_comm.h game/fs_common.h \
+ game/fs_atom.h ../include/hash.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ game/fs_mem_pool.h game/fs_lpcob_table.h game/fs_summon.h game/fs_item.h \
+ fs_log.h fs_data_save.h fs_dbi.h
+obj/db/fs_mem_pool.o: game/fs_mem_pool.c game/fs_mem_pool.h fs_log.h
+obj/db/fs_npc.o: game/fs_npc.c game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_common.h game/fs_atom.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_prop_key.h \
+ fs_lpc_op.h fs_log.h fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/db/fs_summon.o: game/fs_summon.c game/fs_summon.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_lpc_op.h fs_log.h
+obj/db/fs_user_manage.o: game/fs_user_manage.c game/fs_user.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h ../include/stack.h \
+ game/fs_prop_key.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_comm.h fs_data_save.h \
+ game/fs_int_array.h game/fs_db.h fs_ipc.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_common.h game/fs_atom.h
+obj/db/db_format.o: db/db_format.c db/fs_db_format.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_cksum.h fs_log.h
+obj/db/db_main.o: db/db_main.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_ipc.h fs_dbi.h fs_marshal.h \
+ fs_dbi.h ../include/lpc.h fs_data_save.h db/fs_db_format.h fs_rpc_lpc.h \
+ fs_rpc.h ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h mkdir.h fs_log.h
+obj/netd/cksum.o: cksum.c
+obj/netd/comm.o: comm.c fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/netd/contrib.o: contrib.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/file_incl.h ../include/file.h ../include/marsh.h \
+ ../include/backend.h ../include/swap.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/main.h \
+ ../include/eoperators.h
+obj/netd/dbi.o: dbi.c fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/netd/develop.o: develop.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/comm.h ../include/command.h ../include/lpc_incl.h \
+ ../include/md.h ../include/sprintf.h
+obj/netd/escape.o: escape.c
+obj/netd/fs_config.o: fs_config.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h
+obj/netd/fs_curl.o: fs_curl.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/netd/fs_data_save.o: fs_data_save.c fs_data_save.h fs_dbi.h fs_comm.h fs.h \
+ fs_ipc.h fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/malloc_incl.h \
+ fs_marshal.h ../include/dirty.h
+obj/netd/fs_dns.o: fs_dns.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h fs_curl.h
+obj/netd/fs_enigma.o: fs_enigma.c
+obj/netd/fs_iconv.o: fs_iconv.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/netd/fs_log.o: fs_log.c fs_log.h ../include/config.h ../include/cc.h
+obj/netd/fs_lpc_ext.o: fs_lpc_ext.c fs_lpc_ext.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/netd/fs_mbuf.o: fs_mbuf.c fs_mbuf.h
+obj/netd/fs_mysql.o: fs_mysql.c /usr/local/include/mysql/mysql.h \
+ /usr/local/include/mysql/mysql_version.h \
+ /usr/local/include/mysql/mysql_com.h \
+ /usr/local/include/mysql/mysql_time.h /usr/local/include/mysql/typelib.h \
+ /usr/local/include/mysql/my_alloc.h /usr/local/include/mysql/my_list.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/netd/gettext.o: gettext.c ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h
+obj/netd/http_lpc.o: http_lpc.c escape.h ../include/lpc.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_lpc_op.h http_lpc.h
+obj/netd/kern_timeout.o: kern_timeout.c timeout.h ../include/queue.h
+obj/netd/marshal.o: marshal.c fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h \
+ fs_mbuf.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/netd/math.o: math.c ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h
+obj/netd/mkdir.o: mkdir.c
+obj/netd/rpc.o: rpc.c fs_rpc.h fs_mbuf.h fs_rpc_c.h fs_rpc_id.h
+obj/netd/rpc_c.o: rpc_c.c fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/netd/rpc_lpc.o: rpc_lpc.c fs_mbuf.h fs_rpc_lpc.h fs_rpc.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h \
+ ../include/interpret.h fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_lpc_op.h fs_lpc_ext.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h
+obj/netd/socket_err.o: socket_err.c ../include/socket_err.h
+obj/netd/sockets.o: sockets.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h ../include/socket_err.h \
+ ../include/lpc_socket.h ../include/stack.h ../include/eoperators.h
+obj/netd/z.o: z.c z.h zopen.h
+obj/netd/zopen.o: zopen.c zopen.h z.h
+obj/netd/fs_atom.o: game/fs_atom.c ../include/hash.h game/fs_atom.h
+obj/netd/fs_callout.o: game/fs_callout.c ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/eoperators.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ timeout.h game/fs_callout.h game/uthash.h game/fs_main.h \
+ ../include/std.h ../include/config.h ../include/lpc.h
+obj/netd/fs_char_ob.o: game/fs_char_ob.c game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h fs_lpc_op.h fs_log.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h ../include/contrib.h
+obj/netd/fs_data_map.o: game/fs_data_map.c game/fs_data_map.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_hlist.h ../include/hash.h \
+ ../include/stack.h game/fs_atom.h fs_lpc_op.h game/fs_common.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h fs_log.h
+obj/netd/fs_db.o: game/fs_db.c game/fs_main.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/config.h ../include/cc.h \
+ ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_db.h game/fs_user.h ../include/stack.h game/fs_prop_key.h \
+ fs_ipc.h fs.h fs_data_save.h fs_dbi.h fs_comm.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_marshal.h game/fs_hlist.h ../include/hash.h \
+ fs_log.h fs_comm.h
+obj/netd/fs_hlist.o: game/fs_hlist.c game/fs_mem_pool.h game/fs_hlist.h \
+ ../include/hash.h
+obj/netd/fs_item.o: game/fs_item.c game/fs_item.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_prop_key.h fs_lpc_op.h fs_log.h
+obj/netd/fs_lpcob_table.o: game/fs_lpcob_table.c game/fs_lpcob_table.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_atom.h fs_lpc_op.h \
+ fs_log.h game/fs_common.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ ../include/contrib.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h fs.h \
+ ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h game/fs_user.h \
+ ../include/stack.h game/fs_prop_key.h fs_data_save.h fs_dbi.h fs_comm.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h
+obj/netd/fs_main.o: game/fs_main.c game/fs_main.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/config.h \
+ ../include/cc.h ../include/lpc.h ../include/lpc_incl.h ../include/std.h \
+ ../include/origin.h ../include/applies.h ../include/config.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h fs_config.h \
+ ../include/object.h fs_lpc_op.h fs_rpc_lpc.h fs_rpc.h fs_mbuf.h fs_ipc.h \
+ fs.h ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h fs_rpc_c.h fs_rpc_id.h fs_dbi.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h game/fs_callout.h game/uthash.h \
+ game/fs_user.h ../include/stack.h game/fs_prop_key.h http_lpc.h \
+ game/fs_db.h fs_ipc.h fs_curl.h fs_dns.h fs_comm.h game/fs_common.h \
+ game/fs_atom.h ../include/hash.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ game/fs_mem_pool.h game/fs_lpcob_table.h game/fs_summon.h game/fs_item.h \
+ fs_log.h fs_data_save.h fs_dbi.h
+obj/netd/fs_mem_pool.o: game/fs_mem_pool.c game/fs_mem_pool.h fs_log.h
+obj/netd/fs_npc.o: game/fs_npc.c game/fs_npc.h game/fs_char_ob.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_lpcob_table.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h game/fs_common.h game/fs_atom.h \
+ ../include/lpc_args_op.h ../include/lpc_incl.h game/fs_prop_key.h \
+ fs_lpc_op.h fs_log.h fs_rpc_c.h fs_rpc.h fs_mbuf.h fs_rpc_id.h
+obj/netd/fs_summon.o: game/fs_summon.c game/fs_summon.h game/fs_char_ob.h \
+ game/fs_hlist.h ../include/hash.h game/fs_mem_pool.h \
+ game/fs_lpcob_table.h ../include/lpc_incl.h ../include/std.h \
+ ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ game/fs_common.h game/fs_atom.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_lpc_op.h fs_log.h
+obj/netd/fs_user_manage.o: game/fs_user_manage.c game/fs_user.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h ../include/stack.h \
+ game/fs_prop_key.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ fs_marshal.h fs_dbi.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ /usr/local/include/apr-1/apr_hash.h /usr/local/include/apr-1/apr_pools.h \
+ /usr/local/include/apr-1/apr.h /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_comm.h fs_data_save.h \
+ game/fs_int_array.h game/fs_db.h fs_ipc.h game/fs_hlist.h \
+ ../include/hash.h game/fs_mem_pool.h game/fs_common.h game/fs_atom.h
+obj/netd/db_format.o: db/db_format.c db/fs_db_format.h ../include/lpc.h \
+ ../include/lpc_incl.h ../include/std.h ../include/arch.h \
+ ../include/../grammar/options_incl.h ../packages/local_options.h \
+ ../grammar/options.h ../include/cc.h ../configure.h \
+ ../include/portability.h ../include/macros.h ../include/malloc.h \
+ ../include/std_incl.h ../include/malloc_incl.h ../include/bsdmalloc.h \
+ ../include/smalloc.h ../include/wrappedmalloc.h ../include/debugmalloc.h \
+ ../include/opcodes.h ../include/origin.h ../include/applies.h \
+ ../include/config.h ../include/cc.h ../include/program.h \
+ ../include/lpc.h ../include/function.h ../include/buffer.h \
+ ../include/object.h ../include/dirty.h ../include/array.h \
+ ../include/mapping.h ../include/class.h ../include/eoperators.h \
+ ../include/main.h ../include/stralloc.h ../include/simulate.h \
+ ../include/interpret.h ../include/rc.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h fs_cksum.h fs_log.h
+obj/netd/db_main.o: db/db_main.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_ipc.h fs_dbi.h fs_marshal.h \
+ fs_dbi.h ../include/lpc.h fs_data_save.h db/fs_db_format.h fs_rpc_lpc.h \
+ fs_rpc.h ../include/program.h ../include/compiler.h ../include/trees.h \
+ ../include/lex.h ../include/macros.h ../include/lpc_args_op.h \
+ ../include/lpc_incl.h mkdir.h fs_log.h
+obj/netd/netd_main.o: netd/netd_main.c fs_config.h ../include/lpc_incl.h \
+ ../include/std.h ../include/arch.h ../include/../grammar/options_incl.h \
+ ../packages/local_options.h ../grammar/options.h ../include/cc.h \
+ ../configure.h ../include/portability.h ../include/macros.h \
+ ../include/malloc.h ../include/std_incl.h ../include/malloc_incl.h \
+ ../include/bsdmalloc.h ../include/smalloc.h ../include/wrappedmalloc.h \
+ ../include/debugmalloc.h ../include/opcodes.h ../include/origin.h \
+ ../include/applies.h ../include/config.h ../include/cc.h \
+ ../include/program.h ../include/lpc.h ../include/function.h \
+ ../include/buffer.h ../include/object.h ../include/dirty.h \
+ ../include/array.h ../include/mapping.h ../include/class.h \
+ ../include/eoperators.h ../include/main.h ../include/stralloc.h \
+ ../include/simulate.h ../include/interpret.h ../include/rc.h \
+ ../include/object.h fs_lpc_op.h fs_comm.h fs.h fs_ipc.h fs_mbuf.h \
+ fs_comm.h /usr/local/include/apr-1/apr_hash.h \
+ /usr/local/include/apr-1/apr_pools.h /usr/local/include/apr-1/apr.h \
+ /usr/local/include/apr-1/apr_errno.h \
+ /usr/local/include/apr-1/apr_general.h \
+ /usr/local/include/apr-1/apr_want.h \
+ /usr/local/include/apr-1/apr_allocator.h \
+ /usr/local/include/apr-1/apr_thread_mutex.h \
+ /usr/local/include/apr-1/apr_pools.h fs_ipc.h fs_rpc.h fs_rpc_lpc.h \
+ fs_rpc.h ../include/lpc.h ../include/program.h ../include/compiler.h \
+ ../include/trees.h ../include/lex.h ../include/macros.h fs_rpc_c.h \
+ fs_rpc_id.h fs_rpc_id.h ../include/lpc_args_op.h ../include/lpc_incl.h \
+ fs_log.h yauthLib.h zopen.h z.h http_lpc.h

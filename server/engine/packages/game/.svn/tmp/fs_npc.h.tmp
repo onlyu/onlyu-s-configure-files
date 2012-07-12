@@ -1,0 +1,61 @@
+#ifndef _FS_npc_H_
+#define _FS_npc_H_
+
+#include "fs_char_ob.h"
+#include "fs_common.h"
+#include "fs_scene.h"
+#include "fs_prop_key.h"
+
+// NPC的AOI区域
+#if 0
+typedef struct fs_aoi_area_s {
+	int r;                                    /*半径, 以后可能添加不同形状*/
+} fs_aoi_area_t;
+#endif
+
+typedef struct fs_npc_object_s {
+	fs_scene_entry_t entry;
+	int iFighting;
+	
+	// 状态
+	int status;
+	int status_sec;
+	int status_tar;
+
+	// 是否可见
+	// 为-1时，不可见
+	// 为玩家ID时，表示只有某玩家可见
+	int visible;
+
+	// 特效物件(机关类的NPC, 不显示影子，鼠标指向不高亮)
+	int is_effect_npc;
+
+	int aoi_area_r;
+
+	// fs_aoi_area_t *aoi_area;
+
+
+	// NPC走路逻辑
+	int start_walk_msec;
+	int walk_msec;
+	int is_walk;
+	int to_x;
+	int to_y;
+	int to_z;
+
+} fs_npc_object_t;
+
+
+// 初始化npc module
+void fs_sys_init_npc_module(int max, int startid, int endid);
+// 新建一个NPC
+int fs_new_npc(char *path);
+// 销毁一个NPC
+void fs_destroy_npc(int npcid);
+// 获得一个NPC的场景entry
+fs_scene_entry_t *fs_find_npc_entry(int npcid);
+// 取NPC身上的变量
+svalue_t * get_npc_prop(int npcid, svalue_t *key);
+// 获取LPC ob
+object_t *get_npc_lpcob(int npcid);
+#endif

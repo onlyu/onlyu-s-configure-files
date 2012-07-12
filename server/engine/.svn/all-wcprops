@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/qtz/!svn/ver/84313/wg01/program/server/engine/trunk
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/start.sh
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/qtz/!svn/ver/84313/wg01/program/server/engine/trunk/Makefile
+END
+config.cfg.template
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/config.cfg.template
+END
+stop.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/qtz/!svn/ver/76811/wg01/program/server/engine/trunk/stop.sh
+END

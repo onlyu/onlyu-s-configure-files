@@ -1,0 +1,593 @@
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/simul_efun.c 29 : Loading: simul_efuns ... Done.
+2012-06-12 17:59:47	OS debug: compiling /rc/config.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/config.c 70 : configFile = 
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "GMTOOL_PORT"=8310
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "UMS_IP"="192.168.0.5"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "DBD_IP"="127.0.0.1"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "NETD_IP"="127.0.0.1"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "NETD_HOST_PORT"=1503
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "MAX_ONLINE"=25
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "GMTOOL_IP"="192.168.0.10"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "MCS_IP"="192.168.0.10"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "HTTPD_PORT"=1505
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "NETD_OUTER_PORT"=1500
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "HTDB_PORT"=80
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "ENGINE_NAME"="cyh150"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "NETD_PORT"=1501
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "HOST_ID"=150
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "ENCODING"="GB18030"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "HTDB_IP"="192.168.0.9"
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "MCS_PORT"=80
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "UMS_PORT"=80
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "DBD_PORT"=1502
+2012-06-12 17:59:47	rc/config.c 82 : READ CONFIG: "MAX_LOGIN"=20
+2012-06-12 17:59:47	system is be initialized: interval=[500000]us
+2012-06-12 17:59:47	OS debug: compiling /char/user.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/globals.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/log.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(LOG) = module/log.c
+2012-06-12 17:59:47	OS debug: compiling /rc/db.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(DB) = rc/db.c
+2012-06-12 17:59:47	OS debug: compiling /rc/http.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(HTTP) = rc/http.c
+2012-06-12 17:59:47	OS debug: compiling /module/wizards.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(WIZARD) = module/wizards.c
+2012-06-12 17:59:47	OS debug: compiling /module/util.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(UTIL) = module/util.c
+2012-06-12 17:59:47	OS debug: compiling /module/menu.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(MENU) = module/menu.c
+2012-06-12 17:59:47	OS debug: compiling /module/mission/data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(MISSION_DATA) = module/mission/data.c
+2012-06-12 17:59:47	OS debug: compiling /module/mission/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(MISSION_MAIN) = module/mission/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/mission/hook.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(MISSION_HOOK) = module/mission/hook.c
+2012-06-12 17:59:47	OS debug: compiling /module/uniq_npc_id.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(UNIQ_NPC) = module/uniq_npc_id.c
+2012-06-12 17:59:47	OS debug: compiling /module/scene/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(SCENE) = module/scene/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/item/util.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(ITEM_UTIL) = module/item/util.c
+2012-06-12 17:59:47	OS debug: compiling /module/summon/util.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/summon/summon_base_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(SUMMON_UTIL) = module/summon/util.c
+2012-06-12 17:59:47	OS debug: compiling /module/frame/base_bag.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(BASE_BAG) = module/frame/base_bag.c
+2012-06-12 17:59:47	OS debug: compiling /module/fight/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FIGHT) = module/fight/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/fuben.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/layout.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/numeric.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/reward.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/map.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/minglei.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/data/trigger.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FUBEN) = module/fuben/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/globalkey.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(GLOBAL_KEY) = module/globalkey.c
+2012-06-12 17:59:47	OS debug: compiling /module/hook.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(HOOK) = module/hook.c
+2012-06-12 17:59:47	OS debug: compiling /module/friend/friend.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FRIEND) = module/friend/friend.c
+2012-06-12 17:59:47	OS debug: compiling /module/cache/user_cache.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	include/cache.h 77 : restore[lruData]0
+2012-06-12 17:59:47	rc/globals.c 24 : Import(USER_CACHE) = module/cache/user_cache.c
+2012-06-12 17:59:47	OS debug: compiling /module/zhaocaimao/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(ZHAOCAIMAO) = module/zhaocaimao/main.c
+2012-06-12 17:59:47	checking file bin/module/fight/fightmatrix.b
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FIGHTMATRIX) = module/fight/fightmatrix.c
+2012-06-12 17:59:47	OS debug: compiling /module/dazuo/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/dazuo/data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(DAZUO) = module/dazuo/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/zhaojiang/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(ZHAOJIANG) = module/zhaojiang/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/equip/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/equip_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/equip_xilian_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/baoshi_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(EQUIP) = module/equip/main.c
+2012-06-12 17:59:47	OS debug: compiling /activity/sanjiecg/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(SANJIECG) = activity/sanjiecg/main.c
+2012-06-12 17:59:47	OS debug: compiling /module/confirm_dialog.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/prompt_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(CONFIRM_DLG) = module/confirm_dialog.c
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FUBEN_BASE) = module/fuben/base.c
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/sys.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	rc/globals.c 24 : Import(FUBEN_SYS) = module/fuben/sys.c
+2012-06-12 17:59:47	rc/main.c 32 : loading MASTER ... Done.
+2012-06-12 17:59:47	OS debug: compiling /tools/makerpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/getprop.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/update.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/eval.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/goto.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/parse.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/call.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/setprop.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/giveitem.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/clonenpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/online.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/addexp.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/newsummon.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/addcash.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/setyuanbao.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/addsummonexp.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/setheroattr.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/setsummonattr.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmds/bianshen.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/scene.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/item.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/summon.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /cmd/wizcmd.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/equip_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/declare.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/login_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/summon_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/chat_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/mission_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/client_drama_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/block_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/wizcmd_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/item_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/fight_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/user_cmd_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/menu_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/fuben_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/shop_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/storage_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/friend_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/worldmap_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/mail_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/zhaocaimao_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/dazuo_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/lscene_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/zhaojiang_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/arena_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/rpc/confirm_dlg_decl.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/array.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/chinese.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/item.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/time.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/file.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/file_reader.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/string.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/math.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/import.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/simul_efun/util.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/netd_main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/scheme.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/mysql.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/user_data_op.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/signal.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/func_prof.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/dbd_main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /rc/mongodb.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/data/skill.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/data/skill_status.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/data/status.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/data/status_rel.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/data/shenge_skill.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/skill.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	module/fight/skill.c 252 : initOutputStatus finish!
+2012-06-12 17:59:47	module/fight/skill.c 280 : can't find output status: AttUp30
+2012-06-12 17:59:47	module/fight/skill.c 289 : initSkillDesc finish!
+2012-06-12 17:59:47	OS debug: compiling /module/fight/status.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	module/fight/status.c 117 : initStatusDesc finish!
+2012-06-12 17:59:47	OS debug: compiling /module/fight/warrior.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/layout.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight/output.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/template/find_npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/template/find_npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/template/finish_fuben.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10111.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1021.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10112.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10121.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1022.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1031.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/10122.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/1032.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40101.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/template/kill_npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40101.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40022.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50021.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40122.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50042.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50061.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40062.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50082.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4000.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/500101.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40112.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40031.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50032.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40052.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50051.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40071.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50072.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40092.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50091.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2014.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4013.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2016.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2018.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40021.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40102.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40121.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50022.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50041.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40061.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50062.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50081.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/500102.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40111.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40032.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/20151.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50031.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40051.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50052.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40072.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50071.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/40091.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/50092.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2013.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/4012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2015.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/2017.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/missions/5009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/preload.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/test_npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/npc/template/option.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/npc/npc_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/npc/template/option.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mission/test_npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/frame/base_queue.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/scene/data/npc_chat.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/scene/data/scene_info.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/scene/data/npc_layout.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/scene/npc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/scene/scene_info.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/util/update.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/util/file_handle.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/summon/skill.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/summon/summon.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/summon/skill_grid.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/summon/shoulong_info.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/chat.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/client_drama.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/login.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fuben/wanfa.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/shop/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/friend/online_cache.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mail/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/mail/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/worldmap/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/worldmap/city.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/zhaocaimao/yuanbao.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/zhaocaimao/viptimes.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/zhaocaimao/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/zhaocaimao/grade_money.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/dazuo/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/arena/save.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/arena/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/arena/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/zhaojiang/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight_match/main.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/fight_match/data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /module/schedule.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/user/exp.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/user/init_attr.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/drama.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/all_items_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /data/equip_qianghua_cash_data.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/npc/template/shop.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/npc/template/transport.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/baoshi_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/baoshi_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02502.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/equip_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02502.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02306.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02702.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02506.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02902.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02804.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02706.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02906.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02808.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/equip_cailiao_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01101.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20503.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20801.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20307.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20703.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01301.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01203.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20507.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01105.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01501.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20805.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01701.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20707.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01305.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01207.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01109.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01505.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01901.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20809.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01803.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01309.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01705.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01509.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01905.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01807.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01709.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01909.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/equip_tupu_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00503.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00801.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00307.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00703.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00507.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00903.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00805.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00707.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00907.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00809.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02503.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02801.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02703.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02307.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02903.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02507.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02805.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02707.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02907.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02809.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20304.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL10801.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20504.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01102.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20802.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20308.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20704.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01302.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01204.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20508.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01106.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01502.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20806.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01702.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20708.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01306.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01208.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01902.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01506.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01804.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01706.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01906.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01808.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00304.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00504.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00802.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00704.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00308.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00904.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00508.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00806.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00708.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00908.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02304.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02504.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02802.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02704.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02308.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02508.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02904.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02806.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02708.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02908.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20301.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20501.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20701.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20305.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01201.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01103.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20901.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20505.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20803.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01303.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20705.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20309.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01205.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01107.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20509.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01503.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20807.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01801.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01307.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20709.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01703.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01209.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01507.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01903.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01805.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01707.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01907.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01809.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00301.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00501.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00305.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00701.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00505.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00901.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00803.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00309.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00705.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00509.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00905.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00807.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00709.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00909.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02301.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02501.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30008.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02305.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02701.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40009.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02505.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02901.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02803.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02309.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02705.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02509.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02905.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02807.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02709.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02909.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL10301.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL10501.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20302.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10011.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL10701.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20502.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20702.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20012.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40010.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL10901.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20306.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01202.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01104.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20506.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01006.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20804.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01304.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20706.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01206.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01108.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01504.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/CL20808.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01802.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01308.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01704.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01508.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01904.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01806.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01708.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ01908.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00302.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00502.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00306.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00702.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00506.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00902.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00804.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00706.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00906.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/TP00808.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30001.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10003.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS20004.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS40002.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS30005.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/BS10007.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/item/EQ02302.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/user_cmd.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /char/drug_base.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /activity/sanjiecg/data/minglei.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /activity/sanjiecg/data/scene.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /activity/sanjiecg/rpc.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	OS debug: compiling /test.c ...2012-06-12 17:59:47	 done
+2012-06-12 17:59:47	±‡“Î¥˙¬ÎÕÍ±œ

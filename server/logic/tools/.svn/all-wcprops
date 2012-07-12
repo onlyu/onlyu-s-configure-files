@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/qtz/!svn/ver/85844/wg01/program/server/logic/trunk/tools
+END
+mkdir.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/mkdir.sh
+END
+svnco.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/svnco.sh
+END
+fetch.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/fetch.sh
+END
+rpc_tr.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/69112/wg01/program/server/logic/trunk/tools/rpc_tr.sh
+END
+makerpc.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/tools/makerpc.c
+END
+dumprsa.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/dumprsa.sh
+END
+walk.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/walk.py
+END
+rsapub.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/rsapub.sh
+END
+parse_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/85802/wg01/program/server/logic/trunk/tools/parse_config.py
+END
+rpc2json.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/69378/wg01/program/server/logic/trunk/tools/rpc2json.py
+END
+genrsa.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/genrsa.sh
+END
+parse_table.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84370/wg01/program/server/logic/trunk/tools/parse_table.py
+END
+rpc_tr.lua
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/75992/wg01/program/server/logic/trunk/tools/rpc_tr.lua
+END
+policyServer.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/69882/wg01/program/server/logic/trunk/tools/policyServer.py
+END
