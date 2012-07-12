@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/80592/wg01/program/server/logic/trunk/module/mail
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/80592/wg01/program/server/logic/trunk/module/mail/main.c
+END
+rpc.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/80592/wg01/program/server/logic/trunk/module/mail/rpc.c
+END
+interface.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qtz/!svn/ver/80592/wg01/program/server/logic/trunk/module/mail/interface.h
+END

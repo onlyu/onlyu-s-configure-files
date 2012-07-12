@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src
+END
+crypt.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/crypt.c
+END
+make_malloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/make_malloc.c
+END
+class.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/class.c
+END
+stack.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/stack.c
+END
+object.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/object.c
+END
+otable.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/otable.c
+END
+simul_efun.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/simul_efun.c
+END
+sysmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/sysmalloc.c
+END
+program.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/program.c
+END
+swap.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/swap.c
+END
+disassembler.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/disassembler.c
+END
+array.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/array.c
+END
+debugmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/debugmalloc.c
+END
+trees.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/trees.c
+END
+hash.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/hash.c
+END
+efuns_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/efuns_main.c
+END
+port.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/port.c
+END
+backend.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/backend.c
+END
+wrappedmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/wrappedmalloc.c
+END
+mapping.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/mapping.c
+END
+dirty.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/dirty.c
+END
+bsdmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/bsdmalloc.c
+END
+dumpstat.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/dumpstat.c
+END
+strstr.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/strstr.c
+END
+avltree.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/avltree.c
+END
+replace_program.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/replace_program.c
+END
+rc.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/rc.c
+END
+strfuncs.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/strfuncs.c
+END
+mallocwrapper.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/mallocwrapper.c
+END
+qsort.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/qsort.c
+END
+buffer.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/buffer.c
+END
+marsh.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/marsh.c
+END
+compiler.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/compiler.c
+END
+list.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/list.c
+END
+interpret.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/interpret.c
+END
+reclaim.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/reclaim.c
+END
+scratchpad.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/scratchpad.c
+END
+file.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/file.c
+END
+ualarm.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/ualarm.c
+END
+icode.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/icode.c
+END
+eoperators.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/eoperators.c
+END
+simulate.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/simulate.c
+END
+stralloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/stralloc.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/main.c
+END
+efuns_port.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/efuns_port.c
+END
+preprocess.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/preprocess.c
+END
+sprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/sprintf.c
+END
+op_spec.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/op_spec.c
+END
+make_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/make_func.c
+END
+lex.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/lex.c
+END
+generate.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/generate.c
+END
+regexp.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/regexp.c
+END
+smalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/smalloc.c
+END
+comm.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/comm.c
+END
+binaries.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68825/wg01/program/server/engine/trunk/src/binaries.c
+END

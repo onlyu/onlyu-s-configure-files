@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/qtz/!svn/ver/84370/wg01/program/server/logic/trunk/tools/migrate
+END
+after_org.sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/migrate/after_org.sh
+END
+migrate_org.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/qtz/!svn/ver/84370/wg01/program/server/logic/trunk/tools/migrate/migrate_org.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/tools/migrate/README.txt
+END

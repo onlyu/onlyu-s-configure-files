@@ -1,0 +1,815 @@
+rc/simul_efun.c 29 : Loading: simul_efuns ... Done.
+rc/config.c 65 : configFile = 
+rc/config.c 77 : READ CONFIG: "ENCODING"="GB18030"
+rc/config.c 77 : READ CONFIG: "GMTOOL_PORT"=8310
+rc/config.c 77 : READ CONFIG: "MCS_PORT"=80
+rc/config.c 77 : READ CONFIG: "UMS_IP"="192.168.0.5"
+rc/config.c 77 : READ CONFIG: "DBD_IP"="127.0.0.1"
+rc/config.c 77 : READ CONFIG: "NETD_IP"="127.0.0.1"
+rc/config.c 77 : READ CONFIG: "NETD_HOST_PORT"=1503
+rc/config.c 77 : READ CONFIG: "MAX_ONLINE"=25
+rc/config.c 77 : READ CONFIG: "HTDB_PORT"=80
+rc/config.c 77 : READ CONFIG: "GMTOOL_IP"="192.168.0.10"
+rc/config.c 77 : READ CONFIG: "MCS_IP"="192.168.0.10"
+rc/config.c 77 : READ CONFIG: "HTTPD_PORT"=1505
+rc/config.c 77 : READ CONFIG: "NETD_OUTER_PORT"=1500
+rc/config.c 77 : READ CONFIG: "HTDB_IP"="192.168.0.9"
+rc/config.c 77 : READ CONFIG: "ENGINE_NAME"="cyh150"
+rc/config.c 77 : READ CONFIG: "NETD_PORT"=1501
+rc/config.c 77 : READ CONFIG: "UMS_PORT"=80
+rc/config.c 77 : READ CONFIG: "DBD_PORT"=1502
+rc/config.c 77 : READ CONFIG: "MAX_LOGIN"=20
+rc/config.c 77 : READ CONFIG: "HOST_ID"=150
+[2012-05-30 17:36:22] [netd_main.c:1019] [mod=10] info: get host port:1503
+[2012-05-30 17:36:22] [netd_main.c:1033] [mod=10] info: netd host_id:150,client_ip:0.0.0.0,client_port:1500,game_ip:127.0.0.1,game_port:1501,host_port:1503
+[2012-05-30 17:36:22] [netd_main.c:982] [mod=10] info: listen on game:127.0.0.1, 1501
+[2012-05-30 17:36:22] [netd_main.c:992] [mod=10] info: http host listen on:1503
+system is be initialized: interval=[500000]us
+rc/globals.c 24 : Import(LOG) = module/log.c
+rc/netd_main.c 8 : loading netd MASTER ... Done.
+[2012-05-30 17:36:25] [netd_main.c:693] [mod=10] info: open client service
+[2012-05-30 17:36:25] [netd_main.c:701] [mod=10] info: game accept:6
+[2012-05-30 17:36:25] [netd_main.c:707] [mod=10] info: listen on client:0.0.0.0, 1500
+[2012-05-30 17:37:02] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:256,srcip:192.168.12.15,dstip:192.168.0.8
+install lpc module object function:module/login,rpc_server_version
+install lpc module object function:module/login,rpc_server_login
+[2012-05-30 17:38:52] [netd_main.c:486] [mod=10] info: client connection close vfd=256,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 17:38:52] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:256,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 17:41:46] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:257,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 17:42:20] [netd_main.c:486] [mod=10] info: client connection close vfd=257,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 17:42:20] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:257,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 17:42:24] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:258,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 17:44:06] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:259,srcip:192.168.12.86,dstip:192.168.0.8
+install lpc module object function:module/login,rpc_netd_no_uid
+module/login.c 106 : rpc_netd_no_uid -3 259 2709
+install lpc module object function:module/login,rpc_server_new_uid
+module/login.c 114 : rpc_server_new_uid, uid:2709
+module/login.c 123 : rpc_server_new_uid 22222, uid:2709
+[2012-05-30 17:46:59] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:260,srcip:192.168.12.90,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 260 441
+module/login.c 114 : rpc_server_new_uid, uid:441
+module/login.c 123 : rpc_server_new_uid 22222, uid:441
+[2012-05-30 17:47:18] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:261,srcip:192.168.12.151,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 261 4788
+module/login.c 114 : rpc_server_new_uid, uid:4788
+module/login.c 123 : rpc_server_new_uid 22222, uid:4788
+[2012-05-30 17:47:27] [netd_main.c:548] [mod=10] info: accept client fs:12,vfd:262,srcip:192.168.12.92,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 262 5724
+module/login.c 114 : rpc_server_new_uid, uid:5724
+module/login.c 123 : rpc_server_new_uid 22222, uid:5724
+[2012-05-30 17:47:47] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:263,srcip:192.168.12.85,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 263 3753
+module/login.c 114 : rpc_server_new_uid, uid:3753
+module/login.c 123 : rpc_server_new_uid 22222, uid:3753
+[2012-05-30 17:48:08] [netd_main.c:548] [mod=10] info: accept client fs:14,vfd:264,srcip:192.168.12.87,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 264 1377
+module/login.c 114 : rpc_server_new_uid, uid:1377
+module/login.c 123 : rpc_server_new_uid 22222, uid:1377
+[2012-05-30 17:49:01] [netd_main.c:486] [mod=10] info: client connection close vfd=263,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:01] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:263,uid:3753,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:08] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:265,srcip:192.168.12.85,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 265 5679
+module/login.c 114 : rpc_server_new_uid, uid:5679
+module/login.c 123 : rpc_server_new_uid 22222, uid:5679
+[2012-05-30 17:49:11] [netd_main.c:486] [mod=10] info: client connection close vfd=265,what=21,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:11] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:265,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:13] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:266,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:49:14] [netd_main.c:486] [mod=10] info: client connection close vfd=266,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:14] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:266,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:16] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:267,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:49:19] [netd_main.c:486] [mod=10] info: client connection close vfd=267,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:19] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:267,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:21] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:268,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:49:26] [netd_main.c:486] [mod=10] info: client connection close vfd=268,what=21,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:26] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:268,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:28] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:269,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:49:31] [netd_main.c:486] [mod=10] info: client connection close vfd=269,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:49:31] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:269,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:49:33] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:270,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:50:03] [netd_main.c:486] [mod=10] info: client connection close vfd=261,what=11,srcip=192.168.12.151,dstip=192.168.0.8
+[2012-05-30 17:50:03] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:261,uid:4788,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:50:05] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:271,srcip:192.168.12.151,dstip:192.168.0.8
+[2012-05-30 17:50:09] [netd_main.c:486] [mod=10] info: client connection close vfd=270,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 17:50:09] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:270,uid:5679,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:50:11] [netd_main.c:548] [mod=10] info: accept client fs:13,vfd:272,srcip:192.168.12.85,dstip:192.168.0.8
+[2012-05-30 17:50:15] [netd_main.c:486] [mod=10] info: client connection close vfd=264,what=21,srcip=192.168.12.87,dstip=192.168.0.8
+[2012-05-30 17:50:15] [netd_main.c:143] [mod=10] info: passive close fd:14,vfd:264,uid:1377,conn_cnt:7,user_cnt:7
+checking file bin/cmd/login.b
+[2012-05-30 17:57:20] [netd_main.c:486] [mod=10] info: client connection close vfd=262,what=11,srcip=192.168.12.92,dstip=192.168.0.8
+[2012-05-30 17:57:20] [netd_main.c:143] [mod=10] info: passive close fd:12,vfd:262,uid:5724,conn_cnt:6,user_cnt:6
+checking file bin/cmd/login.b
+[2012-05-30 18:08:28] [netd_main.c:548] [mod=10] info: accept client fs:12,vfd:273,srcip:192.168.12.92,dstip:192.168.0.8
+[2012-05-30 18:09:17] [netd_main.c:486] [mod=10] info: client connection close vfd=273,what=11,srcip=192.168.12.92,dstip=192.168.0.8
+[2012-05-30 18:09:17] [netd_main.c:143] [mod=10] info: passive close fd:12,vfd:273,uid:5724,conn_cnt:6,user_cnt:6
+checking file bin/cmd/login.b
+[2012-05-30 18:42:17] [netd_main.c:548] [mod=10] info: accept client fs:12,vfd:274,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 18:50:56] [netd_main.c:486] [mod=10] info: client connection close vfd=274,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 18:50:56] [netd_main.c:143] [mod=10] info: passive close fd:12,vfd:274,uid:4140,conn_cnt:6,user_cnt:6
+checking file bin/cmd/login.b
+[2012-05-30 18:54:00] [netd_main.c:486] [mod=10] info: client connection close vfd=271,what=11,srcip=192.168.12.151,dstip=192.168.0.8
+[2012-05-30 18:54:00] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:271,uid:4788,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 18:56:12] [netd_main.c:486] [mod=10] info: client connection close vfd=258,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 18:56:12] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:258,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 18:56:16] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:275,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 18:57:20] [netd_main.c:486] [mod=10] info: client connection close vfd=275,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 18:57:20] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:275,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 18:57:27] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:276,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 18:58:49] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:277,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 18:59:00] [netd_main.c:486] [mod=10] info: client connection close vfd=277,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 18:59:00] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:277,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 18:59:05] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:278,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 18:59:17] [netd_main.c:486] [mod=10] info: client connection close vfd=278,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 18:59:17] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:278,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 18:59:47] [netd_main.c:486] [mod=10] info: client connection close vfd=276,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 18:59:47] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:276,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 18:59:47] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:279,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 18:59:55] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:280,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:00:24] [netd_main.c:486] [mod=10] info: client connection close vfd=279,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:00:24] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:279,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:00:25] [netd_main.c:486] [mod=10] info: client connection close vfd=280,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:00:25] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:280,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 19:00:30] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:281,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:00:36] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:282,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:00:50] [netd_main.c:486] [mod=10] info: client connection close vfd=282,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:00:50] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:282,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:00:57] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:283,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:01:09] [netd_main.c:486] [mod=10] info: client connection close vfd=283,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:01:09] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:283,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:01:26] [netd_main.c:486] [mod=10] info: client connection close vfd=281,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:01:26] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:281,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 19:01:36] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:284,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:01:43] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:285,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:02:36] [netd_main.c:486] [mod=10] info: client connection close vfd=284,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:02:36] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:284,uid:6192,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:02:40] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:286,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:04:07] [netd_main.c:486] [mod=10] info: client connection close vfd=285,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:04:07] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:285,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:04:18] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:287,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:04:40] [netd_main.c:486] [mod=10] info: client connection close vfd=287,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:04:40] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:287,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:04:50] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:288,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:05:26] [netd_main.c:486] [mod=10] info: client connection close vfd=288,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:05:26] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:288,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:06:02] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:289,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:06:15] [netd_main.c:486] [mod=10] info: client connection close vfd=289,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:06:15] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:289,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:06:24] [netd_main.c:486] [mod=10] info: client connection close vfd=286,what=21,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:06:24] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:286,uid:6192,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 19:06:27] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:290,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:06:28] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:291,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:06:35] [netd_main.c:486] [mod=10] info: client connection close vfd=291,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:06:35] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:291,uid:6192,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:06:39] [netd_main.c:548] [mod=10] info: accept client fs:11,vfd:292,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:06:55] [netd_main.c:486] [mod=10] info: client connection close vfd=290,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:06:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:290,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:07:12] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:293,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:07:25] [netd_main.c:486] [mod=10] info: client connection close vfd=293,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:07:25] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:293,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:07:58] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:294,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:08:04] [netd_main.c:486] [mod=10] info: client connection close vfd=294,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:08:04] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:294,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:08:19] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:295,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:08:30] [netd_main.c:486] [mod=10] info: client connection close vfd=295,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:08:30] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:295,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:09:05] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:296,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:09:22] [netd_main.c:486] [mod=10] info: client connection close vfd=296,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:09:22] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:296,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:09:29] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:297,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:09:46] [netd_main.c:486] [mod=10] info: client connection close vfd=297,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:09:46] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:297,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:09:53] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:298,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-30 19:11:55] [netd_main.c:486] [mod=10] info: client connection close vfd=298,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-30 19:11:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:298,uid:4140,conn_cnt:5,user_cnt:5
+checking file bin/cmd/login.b
+[2012-05-30 19:23:11] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:299,srcip:192.168.12.86,dstip:192.168.0.8
+[2012-05-30 19:23:11] [netd_main.c:867] [mod=10] error: close uid connection.vfd:259,ip:192.168.12.86
+[2012-05-30 19:23:11] [netd_main.c:140] [mod=10] info: active close fd:9,vfd:259,uid:2709,conn_cnt:5,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 19:24:00] [netd_main.c:486] [mod=10] info: client connection close vfd=299,what=11,srcip=192.168.12.86,dstip=192.168.0.8
+[2012-05-30 19:24:00] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:299,uid:2709,conn_cnt:4,user_cnt:4
+checking file bin/cmd/login.b
+[2012-05-30 19:39:02] [netd_main.c:486] [mod=10] info: client connection close vfd=292,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:39:02] [netd_main.c:143] [mod=10] info: passive close fd:11,vfd:292,uid:6192,conn_cnt:3,user_cnt:3
+checking file bin/cmd/login.b
+[2012-05-30 19:40:31] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:300,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:40:32] [netd_main.c:486] [mod=10] info: client connection close vfd=300,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 19:40:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:300,uid:6192,conn_cnt:3,user_cnt:3
+checking file bin/cmd/login.b
+[2012-05-30 19:40:41] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:301,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 19:55:21] [netd_main.c:486] [mod=10] info: client connection close vfd=260,what=11,srcip=192.168.12.90,dstip=192.168.0.8
+[2012-05-30 19:55:21] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:260,uid:441,conn_cnt:3,user_cnt:3
+checking file bin/cmd/login.b
+[2012-05-30 20:11:58] [netd_main.c:486] [mod=10] info: client connection close vfd=272,what=11,srcip=192.168.12.85,dstip=192.168.0.8
+[2012-05-30 20:11:58] [netd_main.c:143] [mod=10] info: passive close fd:13,vfd:272,uid:5679,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-30 20:14:20] [netd_main.c:486] [mod=10] info: client connection close vfd=301,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:14:20] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:301,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:15:44] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:302,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:17:25] [netd_main.c:486] [mod=10] info: client connection close vfd=302,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:17:25] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:302,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:17:30] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:303,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:17:39] [netd_main.c:486] [mod=10] info: client connection close vfd=303,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:17:39] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:303,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:17:55] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:304,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:18:35] [netd_main.c:486] [mod=10] info: client connection close vfd=304,what=21,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:18:35] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:304,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:18:39] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:305,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:19:16] [netd_main.c:486] [mod=10] info: client connection close vfd=305,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:19:16] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:305,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:19:23] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:306,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:21:10] [netd_main.c:486] [mod=10] info: client connection close vfd=306,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:21:10] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:306,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:21:10] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:307,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:21:11] [netd_main.c:486] [mod=10] info: client connection close vfd=307,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:21:11] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:307,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:21:16] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:308,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:21:53] [netd_main.c:486] [mod=10] info: client connection close vfd=308,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:21:53] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:308,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:21:57] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:309,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:22:54] [netd_main.c:486] [mod=10] info: client connection close vfd=309,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:22:54] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:309,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:22:59] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:310,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:23:32] [netd_main.c:486] [mod=10] info: client connection close vfd=310,what=21,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:23:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:310,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:23:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:311,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:25:42] [netd_main.c:486] [mod=10] info: client connection close vfd=311,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:25:42] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:311,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:25:47] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:312,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:26:10] [netd_main.c:486] [mod=10] info: client connection close vfd=312,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:26:10] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:312,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-30 20:26:15] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:313,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-30 20:26:46] [netd_main.c:486] [mod=10] info: client connection close vfd=313,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-30 20:26:46] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:313,uid:6192,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 10:13:26] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:314,srcip:192.168.12.15,dstip:192.168.0.8
+WARNING:frame interval is[537113]us, big than a tick.
+[2012-05-31 10:14:13] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:315,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 10:14:36] [netd_main.c:486] [mod=10] info: client connection close vfd=315,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 10:14:36] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:315,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:17:35] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:316,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 10:18:04] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:317,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:18:04] [netd_main.c:867] [mod=10] error: close uid connection.vfd:314,ip:192.168.12.15
+[2012-05-31 10:18:04] [netd_main.c:140] [mod=10] info: active close fd:8,vfd:314,uid:6192,conn_cnt:3,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:18:07] [netd_main.c:486] [mod=10] info: client connection close vfd=317,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:18:07] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:317,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:18:11] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:318,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:18:48] [netd_main.c:486] [mod=10] info: client connection close vfd=316,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 10:18:48] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:316,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:18:53] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:319,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 10:19:29] [netd_main.c:486] [mod=10] info: client connection close vfd=318,what=21,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:19:29] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:318,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:21:40] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:320,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:21:42] [netd_main.c:486] [mod=10] info: client connection close vfd=320,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:21:42] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:320,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:22:09] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:321,srcip:192.168.12.86,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 321 3744
+module/login.c 114 : rpc_server_new_uid, uid:3744
+module/login.c 123 : rpc_server_new_uid 22222, uid:3744
+[2012-05-31 10:23:20] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:322,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:23:57] [netd_main.c:486] [mod=10] info: client connection close vfd=322,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:23:57] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:322,uid:6192,conn_cnt:3,user_cnt:3
+checking file bin/cmd/login.b
+[2012-05-31 10:24:26] [netd_main.c:486] [mod=10] info: client connection close vfd=319,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 10:24:26] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:319,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:26:47] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:323,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:27:46] [netd_main.c:486] [mod=10] info: client connection close vfd=323,what=21,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:27:46] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:323,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:27:48] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:324,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 10:27:53] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:325,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:28:04] [netd_main.c:486] [mod=10] info: client connection close vfd=324,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 10:28:04] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:324,uid:4140,conn_cnt:3,user_cnt:3
+checking file bin/cmd/login.b
+[2012-05-31 10:35:17] [netd_main.c:486] [mod=10] info: client connection close vfd=325,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 10:35:17] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:325,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 10:35:23] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:326,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 10:53:22] [netd_main.c:486] [mod=10] info: client connection close vfd=321,what=11,srcip=192.168.12.86,dstip=192.168.0.8
+[2012-05-31 10:53:22] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:321,uid:3744,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:10:51] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:327,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:12:53] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:328,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:12:53] [netd_main.c:867] [mod=10] error: close uid connection.vfd:327,ip:192.168.12.25
+[2012-05-31 11:12:53] [netd_main.c:140] [mod=10] info: active close fd:8,vfd:327,uid:4140,conn_cnt:3,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:12:56] [netd_main.c:486] [mod=10] info: client connection close vfd=328,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:12:56] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:328,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:13:23] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:329,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:16:13] [netd_main.c:486] [mod=10] info: client connection close vfd=329,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:16:13] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:329,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:17:01] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:330,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:17:58] [netd_main.c:486] [mod=10] info: client connection close vfd=330,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:17:58] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:330,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:28:49] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:331,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:29:04] [netd_main.c:486] [mod=10] info: client connection close vfd=331,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:29:04] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:331,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:41:55] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:332,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:42:31] [netd_main.c:486] [mod=10] info: client connection close vfd=332,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:42:31] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:332,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:50:41] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:333,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:50:52] [netd_main.c:486] [mod=10] info: client connection close vfd=333,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 11:50:52] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:333,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:52:04] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:334,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 11:52:54] [netd_main.c:486] [mod=10] info: client connection close vfd=326,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 11:52:54] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:326,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 11:56:08] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:335,srcip:192.168.12.15,dstip:192.168.0.8
+[2012-05-31 11:56:22] [netd_main.c:486] [mod=10] info: client connection close vfd=335,what=11,srcip=192.168.12.15,dstip=192.168.0.8
+[2012-05-31 11:56:22] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:335,uid:6192,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 12:00:46] [netd_main.c:486] [mod=10] info: client connection close vfd=334,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:00:46] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:334,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:00:50] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:336,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:04:38] [netd_main.c:486] [mod=10] info: client connection close vfd=336,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:04:38] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:336,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:04:45] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:337,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:06:09] [netd_main.c:486] [mod=10] info: client connection close vfd=337,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:06:09] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:337,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:08:17] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:338,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:08:32] [netd_main.c:486] [mod=10] info: client connection close vfd=338,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:08:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:338,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:12:48] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:339,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:14:05] [netd_main.c:486] [mod=10] info: client connection close vfd=339,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:14:05] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:339,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:31:34] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:340,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:34:31] [netd_main.c:486] [mod=10] info: client connection close vfd=340,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:34:31] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:340,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 12:34:43] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:341,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 12:36:03] [netd_main.c:486] [mod=10] info: client connection close vfd=341,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 12:36:03] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:341,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 13:50:33] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:342,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 13:51:24] [netd_main.c:486] [mod=10] info: client connection close vfd=342,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 13:51:24] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:342,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:04:16] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:343,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 15:04:53] [netd_main.c:486] [mod=10] info: client connection close vfd=343,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 15:04:53] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:343,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:06:40] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:344,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 15:06:55] [netd_main.c:486] [mod=10] info: client connection close vfd=344,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 15:06:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:344,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:08:02] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:345,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 15:08:13] [netd_main.c:486] [mod=10] info: client connection close vfd=345,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 15:08:13] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:345,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:08:54] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:346,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 15:09:05] [netd_main.c:486] [mod=10] info: client connection close vfd=346,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 15:09:05] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:346,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:09:46] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:347,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 15:10:04] [netd_main.c:486] [mod=10] info: client connection close vfd=347,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 15:10:04] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:347,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:35:43] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:348,srcip:192.168.12.114,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 348 1341
+module/login.c 114 : rpc_server_new_uid, uid:1341
+module/login.c 123 : rpc_server_new_uid 22222, uid:1341
+[2012-05-31 15:36:18] [netd_main.c:486] [mod=10] info: client connection close vfd=348,what=11,srcip=192.168.12.114,dstip=192.168.0.8
+[2012-05-31 15:36:18] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:348,uid:1341,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 15:54:13] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:349,srcip:192.168.12.138,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 349 4032
+module/login.c 114 : rpc_server_new_uid, uid:4032
+module/login.c 123 : rpc_server_new_uid 22222, uid:4032
+[2012-05-31 16:05:31] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:350,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:05:42] [netd_main.c:486] [mod=10] info: client connection close vfd=350,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 16:05:42] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:350,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 16:20:55] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:351,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:21:37] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:352,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:21:37] [netd_main.c:867] [mod=10] error: close uid connection.vfd:351,ip:192.168.12.25
+[2012-05-31 16:21:37] [netd_main.c:140] [mod=10] info: active close fd:9,vfd:351,uid:4140,conn_cnt:3,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 16:21:40] [netd_main.c:486] [mod=10] info: client connection close vfd=352,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 16:21:40] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:352,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 16:21:47] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:353,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:22:09] [netd_main.c:548] [mod=10] info: accept client fs:10,vfd:354,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:22:09] [netd_main.c:486] [mod=10] info: client connection close vfd=353,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 16:22:09] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:353,uid:4140,conn_cnt:3,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 16:22:12] [netd_main.c:486] [mod=10] info: client connection close vfd=354,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 16:22:12] [netd_main.c:143] [mod=10] info: passive close fd:10,vfd:354,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 16:22:17] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:355,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 16:23:05] [netd_main.c:486] [mod=10] info: client connection close vfd=355,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 16:23:05] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:355,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:13:42] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:356,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:14:10] [netd_main.c:486] [mod=10] info: client connection close vfd=356,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:14:10] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:356,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:16:19] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:357,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:17:22] [netd_main.c:486] [mod=10] info: client connection close vfd=357,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:17:22] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:357,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:26:58] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:358,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:27:25] [netd_main.c:486] [mod=10] info: client connection close vfd=358,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:27:25] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:358,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:27:30] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:359,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:29:03] [netd_main.c:486] [mod=10] info: client connection close vfd=359,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:29:03] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:359,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:29:07] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:360,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:30:34] [netd_main.c:486] [mod=10] info: client connection close vfd=360,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:30:34] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:360,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:30:39] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:361,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:30:56] [netd_main.c:486] [mod=10] info: client connection close vfd=361,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:30:56] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:361,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:31:00] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:362,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:31:47] [netd_main.c:486] [mod=10] info: client connection close vfd=362,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:31:47] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:362,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:31:51] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:363,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:32:16] [netd_main.c:486] [mod=10] info: client connection close vfd=363,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:32:16] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:363,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:32:41] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:364,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:33:35] [netd_main.c:486] [mod=10] info: client connection close vfd=364,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:33:35] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:364,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:33:42] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:365,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:34:18] [netd_main.c:486] [mod=10] info: client connection close vfd=365,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:34:18] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:365,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:35:21] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:366,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:35:30] [netd_main.c:486] [mod=10] info: client connection close vfd=366,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:35:30] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:366,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:35:50] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:367,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:37:05] [netd_main.c:486] [mod=10] info: client connection close vfd=367,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:37:05] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:367,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:37:09] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:368,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:38:18] [netd_main.c:486] [mod=10] info: client connection close vfd=368,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:38:18] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:368,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:38:37] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:369,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:38:56] [netd_main.c:486] [mod=10] info: client connection close vfd=369,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:38:56] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:369,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:39:10] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:370,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:39:15] [netd_main.c:486] [mod=10] info: client connection close vfd=370,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:39:15] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:370,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:57:38] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:371,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:57:54] [netd_main.c:486] [mod=10] info: client connection close vfd=371,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:57:54] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:371,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 17:57:59] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:372,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 17:58:13] [netd_main.c:486] [mod=10] info: client connection close vfd=372,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 17:58:13] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:372,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-05-31 18:11:45] [netd_main.c:486] [mod=10] info: client connection close vfd=349,what=11,srcip=192.168.12.138,dstip=192.168.0.8
+[2012-05-31 18:11:45] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:349,uid:4032,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 18:40:51] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:373,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 18:40:55] [netd_main.c:486] [mod=10] info: client connection close vfd=373,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 18:40:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:373,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 18:54:34] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:374,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 18:56:30] [netd_main.c:486] [mod=10] info: client connection close vfd=374,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 18:56:30] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:374,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 19:18:41] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:375,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 19:18:48] [netd_main.c:486] [mod=10] info: client connection close vfd=375,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 19:18:48] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:375,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 20:04:46] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:376,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 20:04:49] [netd_main.c:486] [mod=10] info: client connection close vfd=376,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 20:04:49] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:376,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-05-31 20:12:41] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:377,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-05-31 20:27:05] [netd_main.c:486] [mod=10] info: client connection close vfd=377,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-05-31 20:27:05] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:377,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 09:28:44] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:378,srcip:192.168.12.114,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 378 909
+module/login.c 114 : rpc_server_new_uid, uid:909
+module/login.c 123 : rpc_server_new_uid 22222, uid:909
+[2012-06-01 09:30:44] [netd_main.c:486] [mod=10] info: client connection close vfd=378,what=11,srcip=192.168.12.114,dstip=192.168.0.8
+[2012-06-01 09:30:44] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:378,uid:909,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 09:41:42] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:379,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 09:53:58] [netd_main.c:486] [mod=10] info: client connection close vfd=379,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 09:53:58] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:379,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 09:54:02] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:380,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 09:58:02] [netd_main.c:486] [mod=10] info: client connection close vfd=380,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 09:58:02] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:380,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 09:58:08] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:381,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 09:59:04] [netd_main.c:486] [mod=10] info: client connection close vfd=381,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 09:59:04] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:381,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:25:03] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:382,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:25:08] [netd_main.c:486] [mod=10] info: client connection close vfd=382,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:25:08] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:382,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:25:48] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:383,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:29:20] [netd_main.c:486] [mod=10] info: client connection close vfd=383,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:29:20] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:383,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:29:27] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:384,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:29:41] [netd_main.c:486] [mod=10] info: client connection close vfd=384,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:29:41] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:384,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:31:23] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:385,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:31:28] [netd_main.c:486] [mod=10] info: client connection close vfd=385,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:31:28] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:385,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:52:17] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:386,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:52:49] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:387,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:52:49] [netd_main.c:867] [mod=10] error: close uid connection.vfd:386,ip:192.168.12.25
+[2012-06-01 10:52:49] [netd_main.c:140] [mod=10] info: active close fd:8,vfd:386,uid:4140,conn_cnt:2,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:52:52] [netd_main.c:486] [mod=10] info: client connection close vfd=387,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:52:52] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:387,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:53:00] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:388,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:53:19] [netd_main.c:486] [mod=10] info: client connection close vfd=388,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:53:19] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:388,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 10:53:26] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:389,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 10:53:44] [netd_main.c:486] [mod=10] info: client connection close vfd=389,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 10:53:44] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:389,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:14:14] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:390,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:15:13] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:391,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:15:13] [netd_main.c:867] [mod=10] error: close uid connection.vfd:390,ip:192.168.12.25
+[2012-06-01 11:15:13] [netd_main.c:140] [mod=10] info: active close fd:8,vfd:390,uid:4140,conn_cnt:2,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:15:21] [netd_main.c:486] [mod=10] info: client connection close vfd=391,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:15:21] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:391,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:15:34] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:392,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:16:12] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:393,srcip:192.168.12.25,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 393 4122
+module/login.c 114 : rpc_server_new_uid, uid:4122
+module/login.c 123 : rpc_server_new_uid 22222, uid:4122
+[2012-06-01 11:16:41] [netd_main.c:486] [mod=10] info: client connection close vfd=393,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:16:41] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:393,uid:4122,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-06-01 11:16:49] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:394,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:17:10] [netd_main.c:486] [mod=10] info: client connection close vfd=392,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:17:10] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:392,uid:4140,conn_cnt:2,user_cnt:2
+checking file bin/cmd/login.b
+[2012-06-01 11:17:11] [netd_main.c:486] [mod=10] info: client connection close vfd=394,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:17:11] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:394,uid:4122,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:29:47] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:395,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:30:01] [netd_main.c:486] [mod=10] info: client connection close vfd=395,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:30:01] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:395,uid:4122,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:30:24] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:396,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:30:59] [netd_main.c:486] [mod=10] info: client connection close vfd=396,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:30:59] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:396,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:31:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:397,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:34:34] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:398,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:34:34] [netd_main.c:486] [mod=10] info: client connection close vfd=397,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:34:34] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:397,uid:4140,conn_cnt:2,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:34:39] [netd_main.c:486] [mod=10] info: client connection close vfd=398,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:34:39] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:398,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:34:43] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:399,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:35:09] [netd_main.c:486] [mod=10] info: client connection close vfd=399,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:35:09] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:399,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:38:53] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:400,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 11:40:07] [netd_main.c:486] [mod=10] info: client connection close vfd=400,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 11:40:07] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:400,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 11:58:43] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:401,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:21:13] [netd_main.c:486] [mod=10] info: client connection close vfd=401,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:21:13] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:401,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 12:22:15] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:402,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:22:21] [netd_main.c:486] [mod=10] info: client connection close vfd=402,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:22:21] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:402,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 12:27:29] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:403,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:27:32] [netd_main.c:486] [mod=10] info: client connection close vfd=403,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:27:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:403,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 12:47:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:404,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:47:45] [netd_main.c:486] [mod=10] info: client connection close vfd=404,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:47:45] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:404,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 12:47:59] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:405,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:48:01] [netd_main.c:486] [mod=10] info: client connection close vfd=405,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:48:01] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:405,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 12:48:59] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:406,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 12:49:05] [netd_main.c:486] [mod=10] info: client connection close vfd=406,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 12:49:05] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:406,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:07:53] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:407,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:07:55] [netd_main.c:486] [mod=10] info: client connection close vfd=407,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:07:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:407,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:08:29] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:408,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:08:30] [netd_main.c:486] [mod=10] info: client connection close vfd=408,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:08:30] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:408,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:25:04] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:409,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:25:24] [netd_main.c:486] [mod=10] info: client connection close vfd=409,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:25:24] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:409,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:26:06] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:410,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:26:38] [netd_main.c:486] [mod=10] info: client connection close vfd=410,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:26:38] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:410,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:26:45] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:411,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:33:59] [netd_main.c:486] [mod=10] info: client connection close vfd=411,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:33:59] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:411,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:34:04] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:412,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:36:41] [netd_main.c:548] [mod=10] info: accept client fs:9,vfd:413,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:36:41] [netd_main.c:867] [mod=10] error: close uid connection.vfd:412,ip:192.168.12.25
+[2012-06-01 13:36:41] [netd_main.c:140] [mod=10] info: active close fd:8,vfd:412,uid:4140,conn_cnt:2,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:36:42] [netd_main.c:486] [mod=10] info: client connection close vfd=413,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:36:42] [netd_main.c:143] [mod=10] info: passive close fd:9,vfd:413,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:36:47] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:414,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:37:08] [netd_main.c:486] [mod=10] info: client connection close vfd=414,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:37:08] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:414,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:40:37] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:415,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:41:40] [netd_main.c:486] [mod=10] info: client connection close vfd=415,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:41:40] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:415,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:42:44] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:416,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:43:03] [netd_main.c:486] [mod=10] info: client connection close vfd=416,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:43:03] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:416,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:43:13] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:417,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:43:21] [netd_main.c:486] [mod=10] info: client connection close vfd=417,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:43:21] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:417,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 13:43:29] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:418,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 13:46:59] [netd_main.c:486] [mod=10] info: client connection close vfd=418,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 13:46:59] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:418,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:05:57] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:419,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:06:17] [netd_main.c:486] [mod=10] info: client connection close vfd=419,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:06:17] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:419,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:06:55] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:420,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:07:37] [netd_main.c:486] [mod=10] info: client connection close vfd=420,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:07:37] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:420,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:07:45] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:421,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:09:13] [netd_main.c:486] [mod=10] info: client connection close vfd=421,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:09:13] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:421,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:09:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:422,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:10:37] [netd_main.c:486] [mod=10] info: client connection close vfd=422,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:10:37] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:422,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:10:41] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:423,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:11:29] [netd_main.c:486] [mod=10] info: client connection close vfd=423,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:11:29] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:423,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:11:34] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:424,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:12:08] [netd_main.c:486] [mod=10] info: client connection close vfd=424,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:12:08] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:424,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:12:12] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:425,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:13:35] [netd_main.c:486] [mod=10] info: client connection close vfd=425,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:13:35] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:425,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:13:40] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:426,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:14:55] [netd_main.c:486] [mod=10] info: client connection close vfd=426,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:14:55] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:426,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:16:07] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:427,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:18:23] [netd_main.c:486] [mod=10] info: client connection close vfd=427,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:18:23] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:427,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:18:39] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:428,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:18:41] [netd_main.c:486] [mod=10] info: client connection close vfd=428,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:18:41] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:428,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:19:24] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:429,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:19:33] [netd_main.c:486] [mod=10] info: client connection close vfd=429,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:19:33] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:429,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:19:37] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:430,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:19:51] [netd_main.c:486] [mod=10] info: client connection close vfd=430,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:19:51] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:430,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 15:20:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:431,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 15:21:03] [netd_main.c:486] [mod=10] info: client connection close vfd=431,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 15:21:03] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:431,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:29:06] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:432,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 16:29:16] [netd_main.c:486] [mod=10] info: client connection close vfd=432,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:29:16] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:432,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:29:29] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:433,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 16:29:32] [netd_main.c:486] [mod=10] info: client connection close vfd=433,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:29:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:433,uid:4140,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:31:03] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:434,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 16:34:32] [netd_main.c:486] [mod=10] info: client connection close vfd=434,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:34:32] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:434,uid:4122,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:34:38] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:435,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 16:35:01] [netd_main.c:486] [mod=10] info: client connection close vfd=435,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:35:01] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:435,uid:4122,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:35:39] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:436,srcip:192.168.12.25,dstip:192.168.0.8
+[2012-06-01 16:36:02] [netd_main.c:486] [mod=10] info: client connection close vfd=436,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:36:02] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:436,uid:4122,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:37:16] [netd_main.c:548] [mod=10] info: accept client fs:8,vfd:437,srcip:192.168.12.25,dstip:192.168.0.8
+module/login.c 106 : rpc_netd_no_uid -3 437 4113
+module/login.c 114 : rpc_server_new_uid, uid:4113
+module/login.c 123 : rpc_server_new_uid 22222, uid:4113
+[2012-06-01 16:38:14] [netd_main.c:486] [mod=10] info: client connection close vfd=437,what=11,srcip=192.168.12.25,dstip=192.168.0.8
+[2012-06-01 16:38:14] [netd_main.c:143] [mod=10] info: passive close fd:8,vfd:437,uid:4113,conn_cnt:1,user_cnt:1
+checking file bin/cmd/login.b
+[2012-06-01 16:38:37] [netd_main.c:684] [mod=10] error: connection of gamed error:17
+[2012-06-01 16:38:37] [netd_main.c:666] [mod=10] info: close client service
+[2012-06-01 16:38:38] [netd_main.c:949] [mod=10] info: netd catch signal:2
+optind: 2
+Please wait while initializing internal tables....
+[NETD_PORT]type = [2] value = [1501]
+[NETD_OUTER_PORT]type = [2] value = [1500]
+[NETD_HOST_PORT]type = [2] value = [1503]
+[HOST_ID]type = [2] value = [150]
+[SYSTEM_INTERVAL_SEC]type = [2] value = [0]
+[SYSTEM_INTERVAL_USEC]type = [2] value = [500000]

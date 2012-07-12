@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtz/!svn/ver/86363/wg01/program/server/logic/trunk/module/fight
+END
+skill.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/module/fight/skill.c
+END
+output.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/84521/wg01/program/server/logic/trunk/module/fight/output.c
+END
+skill.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/module/fight/skill.h
+END
+status.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/module/fight/status.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qtz/!svn/ver/86363/wg01/program/server/logic/trunk/module/fight/main.c
+END
+record.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/81254/wg01/program/server/logic/trunk/module/fight/record.py
+END
+warrior.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/86057/wg01/program/server/logic/trunk/module/fight/warrior.c
+END
+fight.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/qtz/!svn/ver/86166/wg01/program/server/logic/trunk/module/fight/fight.h
+END
+status.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/84339/wg01/program/server/logic/trunk/module/fight/status.h
+END
+warrior.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qtz/!svn/ver/86120/wg01/program/server/logic/trunk/module/fight/warrior.h
+END
+layout.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qtz/!svn/ver/84521/wg01/program/server/logic/trunk/module/fight/layout.c
+END

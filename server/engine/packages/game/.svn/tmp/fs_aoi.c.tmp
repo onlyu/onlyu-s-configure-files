@@ -1,0 +1,3536 @@
+// Purpose  : 场景AOI机制
+// Created  : 2010-04-30
+// By       : Mouse
+// History  : 2010-04-30  Mouse create
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include "fs_scene.h"
+#include "fs_aoi.h"
+#include "fs_rpc_c.h"
+#include "lpc_incl.h"
+#include "fs_lpc_op.h"
+#include "fs_rpc_id.h"
+#include "fs_main.h"
+#include "fs_log.h"
+#include "fs_common.h"
+#include "fs_npc.h"
+#include "fs_user.h"
+#include "fs_team.h"
+#include "fs_ipc.h"
+#include "fs_summon.h"
+#include "fs_lpc_op.h"
+
+#define myrandom(x)		(1 + (int)((double)(x) * random() / (RAND_MAX+1.0)))
+
+// 名字和称谓的hash值
+#define StrHash(s)     (whashstr((s), 32))
+
+extern int get_current_time();
+
+enum { 
+	DIR_LOCAL=0,
+	DIR_ES,
+	DIR_WS,
+	DIR_WN,
+	DIR_EN,
+	DIR_S,
+	DIR_W,
+	DIR_N,
+	DIR_E,
+	DIR_MAX
+};
+static int lsDir[DIR_MAX][2] = {{0,0},{1,-1},{-1,-1},{-1,1},{1,1},{0,-1},{-1,0},{0,1},{1,0},};
+
+#define  NORMAL_CELL            255
+
+enum {
+	ELE_TYPE_NULL = 0,
+	ELE_TYPE_CHAR, 
+};
+
+typedef struct fs_scene_element_s {
+	int type;
+	void * element;
+} fs_scene_element_t;
+
+typedef void (*hook_func)(fs_grid_t *, void *); 
+
+static struct msg_team_s *team_msg = NULL;
+
+// 用于多播
+static fs_uid_t global_uid1p[MAX_ONLINE];
+static int global_uid1_cnt = 0;
+static fs_uid_t global_uid2p[MAX_ONLINE];
+static int global_uid2_cnt = 0;
+
+#define  SCENE_DEL_MAX_NUM        MAX_ONLINE
+// 用于发送删除
+static fs_rpc_int_t global_intp[SCENE_DEL_MAX_NUM];
+static int global_int_cnt = 0;
+
+static fs_uid_t global_charidp[MAX_ONLINE * 2];
+static int global_char_num = 0;
+
+extern int current_time;
+
+// 每个格子大于400不发走路包
+static int gGridCountLimit = 400;
+// 兼容一个走路包的阻挡个数
+static int gBlockCount = 0;
+// 根据飞行的最高速度计算
+static int gWalkSecondStep = 100;
+
+void debug_array(char *debugstr, int n, fs_int_array_t *arr);
+int get_entry_npc_pos(fs_scene_entry_t *entry, int *x, int *y);
+
+
+static inline fs_grid_t *fs_pos_in_grid(fs_scene_t *scene, int x, int y)
+{
+	if (POS_NOT_VALID(scene, x, y)) {
+		return NULL;
+	}
+	int grid_size = scene->grid_size;
+	return &(scene->grids[scene->grid_w*(y / grid_size) + (x / grid_size)]);
+}
+
+static inline int fs_is_block_cell(fs_scene_t *scene, int x, int y)
+{
+	if (POS_NOT_VALID(scene, x, y)) {
+		return 0;
+	}
+	fs_cell_t *pcell = fs_get_cell(scene, x, y);
+	return CELL_BLOCK(pcell);
+}
+
+static inline int fs_is_block_or_jump_cell(fs_scene_t *scene, int x, int y)
+{
+	if (POS_NOT_VALID(scene, x, y)) {
+		return 0;
+	}
+	fs_cell_t *pcell = fs_get_cell(scene, x, y);
+	return (CELL_BLOCK(pcell) || (pcell->jmp_id != NORMAL_CELL));
+}
+
+// 是否有奇遇事件
+static inline int fs_aoi_event_accident(fs_scene_entry_t *entry, int x, int y, int z)
+{
+	int i;
+	int val;
+	fs_aoi_event_t *ev;
+	for (i = 0; i < entry->acc_events->n; i++) {
+		val = entry->acc_events->intp[i];
+		ev = find_acc_event(val);
+		if (ev) {
+			if (ev->z == z \
+					&& (x >= ev->x && x <= (ev->x + ev->w)) \
+					&& (y >= ev->y && y <= (ev->y + ev->h)))
+			{
+				return val;
+			}
+		}
+	}
+	return 0;
+}
+
+// ================================================
+// Point Queue: 用于获取非阻挡点
+
+struct _point_queue_s {
+#define	MAX_POINTS	(800*500*20)           // 足够大就行
+	struct fs_pos_s arr[MAX_POINTS];
+	int curr;							// 下一个将取出的 Point 的位置
+	int end;							// 下一个压入 arr 的位置
+
+	unsigned char check[MAX_POINTS];	// check[y*width + x] = is_check
+	int map_w, map_h;					// map size
+};
+
+static struct _point_queue_s gPointQueue;
+
+static void _reset_queue(int w, int h)
+{
+	gPointQueue.curr = gPointQueue.end  = 0;
+
+	assert(w*h <= MAX_POINTS);
+	gPointQueue.map_w = w;
+	gPointQueue.map_h = h;
+	memset((void *)gPointQueue.check, 0, sizeof(gPointQueue.check));
+}
+
+static int _is_queue_empty(void)
+{
+	return (gPointQueue.curr >= gPointQueue.end);
+}
+
+static void _push_point(int x, int y)
+{
+	int index;
+	struct fs_pos_s *p;
+
+	assert(gPointQueue.end < MAX_POINTS);
+
+	index = y*gPointQueue.map_w + x;
+	if ( gPointQueue.check[index] ) return;
+	gPointQueue.check[index] = 1;
+
+	p = &(gPointQueue.arr[gPointQueue.end]);
+	p->x = x;
+	p->y = y;
+
+	gPointQueue.end++;
+}
+
+static void _pop_point(int *x, int *y)
+{
+	struct fs_pos_s *p;
+	
+	assert( !_is_queue_empty() );
+
+	p = &(gPointQueue.arr[gPointQueue.curr]);
+	*x = p->x;
+	*y = p->y;
+
+	gPointQueue.curr++;
+}
+
+static int fs_find_blank_cell(fs_scene_t *scene, int *x, int *y)
+{
+	int ix, iy;
+
+	ix = *x;
+	iy = *y;	
+
+	_reset_queue(scene->w, scene->h);
+	_push_point(ix, iy);
+	while ( !_is_queue_empty() )
+	{
+		_pop_point(&ix, &iy);
+
+		if (!fs_is_block_or_jump_cell(scene, ix, iy))
+		{
+			*x = ix;
+			*y = iy;
+			return 1;
+		}
+
+		// 上下左右四个点 push into queue
+		if (iy-1 > 0) _push_point(ix, iy-1);
+		if (iy+1 < scene->h-1) _push_point(ix, iy+1);
+		if (ix-1 > 0) _push_point(ix-1, iy);
+		if (ix+1 < scene->w-1) _push_point(ix+1, iy);
+	}
+	return 0;
+}
+
+// ================================================
+// INT ARRAY: 用于存储奇遇事件，NPC AOI等
+
+#define INT_ARRAY_INI_SIZE                8
+
+// ===========================================================
+// 场景AOI管理:(九格场景管理)
+
+// 初始化格子
+void fs_init_grid(fs_grid_t *grid, fs_scene_t *scene, int x, int y)
+{
+	int i;
+	for (i = 0; i < T_ENTRY_COUNT; i++) {
+		grid->list[i].head = (struct fs_entry_head_s *) malloc(sizeof(struct fs_entry_head_s));
+		grid->list[i].count = 0;
+		TAILQ_INIT(grid->list[i].head);
+	}
+	grid->scene = scene;
+	grid->grid_x = x;
+	grid->grid_y = y;
+}
+
+
+// 是否有NPC或者玩家在场景中
+int fs_char_in_grid(fs_grid_t *grid)
+{
+	int i;
+	// 先检测是否还有人在场景里面
+	for (i = 0; i < T_ENTRY_COUNT; i++) {
+		if (grid->list[i].count) return 1;
+	}
+	return 0;
+}
+
+void fs_remove_grid(fs_grid_t *grid)
+{
+	int i;
+	// 先检测是否还有人在场景里面
+	for (i = 0; i < T_ENTRY_COUNT; i++) {
+		free(grid->list[i].head);
+	}
+}
+
+// 初始化场景entry
+void fs_init_scene_entry(fs_scene_entry_t *entry, int type, int owner, void *entry_data)
+{
+	memset(entry, 0x00, sizeof(fs_scene_entry_t));
+	entry->type = type;
+	entry->owner = owner;
+	entry->mygrid = NULL;
+	entry->acc_events = NULL;
+	entry->npc_aoi_evs = NULL;
+	entry->run_method = T_RUN_NORMAL;
+	entry->run_terrain = 0;  /*即无地形*/
+	entry->run_hook = 0;
+	entry->dir = 0;
+	entry->camp = 0;
+	entry->speed = 0;
+	entry->flytoolid = 0;
+	entry->name_color = 0;
+	entry->title_color = 0;
+
+	if (type == T_ENTRY_NPC) {
+		entry->npc_data = entry_data;
+	} else if (type == T_ENTRY_USR) {
+		entry->user_data = entry_data;
+		entry->camp = USER_CAMP;
+	}
+}
+
+// 移除场景entry
+void fs_remove_scene_entry(fs_scene_entry_t *entry)
+{
+
+}
+
+// 进入格子
+static int fs_aoi_enter_grid(fs_scene_entry_t *entry, fs_grid_t *grid)
+{
+	if (!entry || entry->mygrid) {
+		log_error(MOD_SCENE, "enter error: %d", entry->owner );
+		// throw_error();
+		return 0;
+	}
+
+	entry->mygrid = grid;
+
+	assert(grid->list[entry->type].head->tqh_first != entry);
+
+	TAILQ_INSERT_HEAD(grid->list[entry->type].head, entry, list);
+	grid->list[entry->type].count++;
+
+	// log_debug(MOD_SCENE, "%d enter: %d, %d, %d, %d", entry->owner, grid->list[entry->type].count, grid->scene->id, grid->grid_x, grid->grid_y);
+	return 1;
+}
+
+// 离开格子
+static int fs_aoi_leave_grid(fs_scene_entry_t *entry)
+{
+	int type;
+	if (!(entry->mygrid))
+	{
+		return 0;
+	}
+	type = entry->type;
+	entry->mygrid->list[type].count--;
+
+	TAILQ_REMOVE(entry->mygrid->list[type].head, entry, list);
+
+	// log_debug(MOD_SCENE, "%d leave: %d, %d, %d, %d", entry->owner, entry->mygrid->list[type].count, entry->mygrid->scene->id, entry->mygrid->grid_x, entry->mygrid->grid_y);
+	entry->mygrid = NULL;
+	return 1;
+}
+
+#define  AOI_SCOPE   1
+
+// 遍历临近的玩家
+inline void fs_aoi_foreach_neighbor_grids(fs_scene_t *scene, fs_grid_t *grid, hook_func func, void *arg)
+{
+	int cx, cy, x, y;
+	int scope = scene->aoi_scope;
+
+	cx = grid->grid_x;
+	cy = grid->grid_y;
+
+	for (y = cy - scope; y <= cy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = cx - scope; x <= cx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			func(&scene->grids[scene->grid_w * y + x], arg);
+		}
+	}
+}
+
+// 遍历离去的格子
+// from -> to , 表示进入to之后，from远去的格子
+inline void fs_aoi_foreach_leave_grids(fs_scene_t *scene, fs_grid_t *from, fs_grid_t *to, hook_func func, void *arg)
+{
+	int fx, fy, tx, ty, x, y;
+	int scope = scene->aoi_scope;
+
+	fx = from->grid_x; fy = from->grid_y;
+	tx = to->grid_x; ty = to->grid_y;
+
+	for (y = fy - scope; y <= fy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = fx - scope; x <= fx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			if (abs(x - tx) <= scope && abs(y - ty) <= scope) continue;
+			func(&scene->grids[scene->grid_w * y + x], arg);
+		}
+	}
+}
+
+
+// 跳转
+// 移动格子
+inline static int fs_aoi_move(fs_scene_element_t *el, fs_grid_t *to, fs_grid_t *from)
+{
+	fs_scene_entry_t *entry;
+
+	entry = (fs_scene_entry_t *) el->element;
+	if (from && from != entry->mygrid) {
+		// 这是可能存在的，当玩家经过走路后产生一些逻辑时，他的from已经改变
+		// log_error(MOD_SCENE, "[%d] move grid error", entry->owner);
+		return 0;
+	}
+
+	fs_aoi_leave_grid(entry);
+	fs_aoi_enter_grid(entry, to);
+	return 1;
+}
+
+inline static void fs_aoi_leave(fs_scene_element_t *el, fs_grid_t *from)
+{
+	fs_scene_entry_t *entry;
+
+	entry = (fs_scene_entry_t *) el->element;
+	if (from && from != entry->mygrid) {
+		return;
+	}
+	fs_aoi_leave_grid(entry);
+}
+
+inline static void fs_aoi_enter(fs_scene_element_t *el, fs_grid_t *to)
+{
+	fs_scene_entry_t *entry;
+
+	entry = (fs_scene_entry_t *) el->element;
+	fs_aoi_enter_grid(entry, to);
+}
+
+// ================================================
+// NPC AOI
+// 1. NPC进入人物视野时给人物添加AOI事件
+// 2. NPC离开人物视野时给人物删除AOI事件
+// 3. npc的AOI不能超过九格的视野
+
+// 初始化NPC AOI事件的个数
+#define INK_NPC_AOI_EV_SIZE  8
+
+// NPC进入玩家视野，添加AOI检测
+static inline void user_enter_npc_field(fs_scene_entry_t *nent, fs_scene_entry_t *ent)
+{
+	//int dr1, dr2, r;
+	// log_debug(MOD_SCENE, "[%d] enter npc[%d]'s field", ent->owner, nent->owner);
+	if (!ent->npc_aoi_evs) {
+		INIT_INT_ARRAY(ent->npc_aoi_evs, INK_NPC_AOI_EV_SIZE);
+	}
+
+	ADD_INT_ARRAY(ent->npc_aoi_evs, nent->owner);
+}
+
+// NPC离开玩家视野，删去AOI检测
+static inline void user_leave_npc_field(fs_scene_entry_t *nent, fs_scene_entry_t *ent)
+{
+	//  log_debug(MOD_SCENE, "[%d] leave npc[%d]'s field", ent->owner, nent->owner);
+	if (nent->npc_data->aoi_area_r) {
+		if (ent->npc_aoi_evs) {
+			SUB_INT_ARRAY(ent->npc_aoi_evs, nent->owner);
+		}
+	}
+}
+
+// ================================================
+// 人物移动对周围玩家产生的response:
+// 1. 在视野中
+// 2. 离开视野
+// 3. 进入视野
+
+#define  SET_NPC_MSG(m, e) do { \
+	m.id = e->owner; \
+	m.icon = e->resid; \
+	m.pos = 0; \
+	m.pos |= e->x << 16; \
+	m.pos |= e->y; \
+	m.dir = e->dir; \
+	m.name.n = 0; \
+	m.title.n = 0; \
+	if (IS_LPC_STR(&e->name)) { \
+		m.name.n = strlen(e->name.u.string) + 1; \
+		m.name.str = e->name.u.string; \
+	} \
+	if (e->npc_data->iFighting) { \
+		m.addon |= FIGHT_FLAG; \
+	} \
+	if (e->run_method == T_RUN_FLY) { \
+		m.addon |= FLY_FLAG; \
+	} \
+	if (IS_LPC_STR(&e->title)) { \
+		m.title.n = strlen(e->title.u.string) + 1; \
+		m.title.str = e->title.u.string; \
+	} \
+	m.is_effect_npc = e->npc_data->is_effect_npc;\
+} while(0)
+
+
+#define  PACK_DEL_ENTRY_ID(e, st, i, max) { \
+	if (i < max) st[i++] = e->owner; \
+}
+
+#define  PACK_DEL_SUMMON_ID(e, st, i, max) { \
+	if (i < max && e->user_data->follow_summon) { \
+		st[i++] = e->user_data->follow_summon; \
+	} \
+}
+
+int fs_rpc_c_unicast(fs_uid_t uid, fs_protocol_id_t pid, void *value);
+int fs_rpc_c_multicast(fs_uid_t *uidp, int uidc, fs_protocol_id_t pid, void *value);
+
+inline static void send_team_msg(fs_scene_entry_t *user_entry, fs_team_entry_t *team) 
+{
+	int i;
+	int uid;
+
+	if (user_entry->user_data->iFighting) {
+		return;
+	}
+	uid = user_entry->owner;
+
+	if (!team_msg) {
+		team_msg = calloc(1, sizeof(msg_team_s) + (sizeof(struct msg_member_s) * TEAM_NUM_MAX));
+		team_msg->members.u.data = team_msg + 1;
+	} 
+	team_msg->leader = team->leader->owner;
+	team_msg->members.n = team->n;
+	team_msg->is_full = team->is_full;
+	for (i = 0; i < team->n; i++) {
+		team_msg->members.u.msg_member_sp[i].uid = team->entry[i]->owner;
+	}
+	fs_rpc_c_unicast(uid, RPC_CLIENT_TEAM, team_msg);
+}
+
+inline void send_char_effect(int uid, fs_scene_entry_t *entry)
+{
+	svalue_t key;
+	svalue_t *pval = NULL, *sv, *itemsv;
+	struct msg_char_effect_s effect_info;
+
+	if (entry->type == T_ENTRY_NPC) {
+		TO_LPC_STR(key, K_NPC_EFFECTS);
+		pval = get_npc_prop(entry->owner, &key);
+	} else {
+		TO_LPC_STR(key, KT_USER_EFFECTS);
+		pval = get_user_temp_prop(entry->user_data, &key);
+	}
+	if (pval && IS_LPC_MAP(pval)) {
+		mapping_node_t *elt,  *nelt;
+		mapping_t *m = LPC_MAP_VALUE(pval);
+		int j = (int)m->table_size;
+		// 发送特效
+		do {
+			for (elt = m->table[j]; elt; elt = nelt) {
+				nelt = elt->next;
+				sv = elt->values + 1;
+				if (IS_LPC_INT(elt->values) && LPC_INT_VALUE(elt->values) 
+						&& IS_LPC_ARR(sv) && LPC_ARR_SIZE(sv) == 3) {
+
+					effect_info.id = entry->owner;
+
+					effect_info.effect_id = LPC_INT_VALUE(elt->values);
+
+					itemsv = LPC_ARR_ITEM(sv, 0);
+					if (!IS_LPC_INT(itemsv)) continue;
+					effect_info.res_id = LPC_INT_VALUE(itemsv);
+
+					itemsv = LPC_ARR_ITEM(sv, 1);
+					if (!IS_LPC_INT(itemsv)) continue;
+					effect_info.last_time = LPC_INT_VALUE(itemsv);
+
+					itemsv = LPC_ARR_ITEM(sv, 2);
+					if (!IS_LPC_INT(itemsv)) continue;
+					effect_info.play_times = LPC_INT_VALUE(itemsv);
+
+					fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_ADD_EFFECT, &effect_info);
+				}
+			}
+		}
+		while (j--);
+	}
+}
+
+
+#define SHOW_IN_WARFOG       0            /*可见开灯*/
+#define HIDE_IN_WARFOG       1            /*不显示*/
+#define OPEN_WARFOG          2            /*显示不开灯*/
+
+inline static int get_camp_relation(fs_scene_entry_t *user_ent, fs_scene_entry_t *char_ent)
+{
+	if (char_ent->camp == CAMP_NEUTRAL) {
+		return SHOW_IN_WARFOG;
+	} 
+
+	// 相同团体的人
+	if ((user_ent->camp & CAMP_GROUP_BIT) == (char_ent->camp & CAMP_GROUP_BIT)) {
+		return OPEN_WARFOG;
+	}
+
+	// 不同一个队伍, 且不同团体的人
+	if ((user_ent->camp & CAMP_TEAM_BIT) != (char_ent->camp & CAMP_TEAM_BIT)) {
+		return HIDE_IN_WARFOG;
+	}
+	// 不同团体，相同队伍的，显示但不开灯
+	return SHOW_IN_WARFOG;
+}
+
+inline static void send_add_user_msg(fs_scene_entry_t *user_entry, fs_scene_entry_t *entry, int warfog)
+{
+	struct msg_new_player_s player_info;
+	struct msg_new_summon_s summon_info;
+	struct msg_char_status_s prop_info;
+	int follow_summon;
+	int uid;
+
+	if (user_entry->user_data->iFighting) {
+		return;
+	}
+
+	// 如果隐身，那么不将玩家发给
+	if (user_entry->owner != entry->owner && entry->user_data->yinshen)  {
+		return;
+	}
+
+	uid = user_entry->owner;
+	fs_user_t *user = entry->user_data;
+
+	// 添加玩家
+	player_info.id = entry->owner; 
+	player_info.icon = entry->resid;
+	player_info.pos = 0;
+	player_info.pos |= (unsigned int)entry->x << 16;
+	player_info.pos |= entry->y;
+	player_info.addon = 0;
+	player_info.speed = entry->speed;
+
+	if (user_entry->owner == entry->owner) {
+		player_info.timestamp = (++user->walk_time_stamp);
+	} else {
+		player_info.timestamp = 0;
+	}
+
+	if (user->iFighting) {
+		player_info.addon |= FIGHT_FLAG;
+	} 
+	if (entry->run_method == T_RUN_FLY) { 
+		player_info.addon |= FLY_FLAG; 
+		player_info.flytoolid = entry->flytoolid;
+	} else {
+		player_info.flytoolid = 0;
+	}
+
+	// player_info.version = user->version; 
+	player_info.version = user->name_title_hash; 
+
+	fs_rpc_c_unicast(uid, RPC_CLIENT_ADD_PLAYER, &player_info);
+
+	// 方向
+	if (entry->dir > 0) {
+		struct msg_dir_info_s dir_info;
+		dir_info.charid = entry->owner;
+		// 因为0也是方向
+		dir_info.dir = entry->dir - 1;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_DIR, &dir_info);
+	}
+
+	if (user->parts_weapon) {
+		struct msg_parts_equip_prop_s equip_info;
+		equip_info.charid = entry->owner;
+		equip_info.parts_weapon = user->parts_weapon;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_PARTS_EQUIP_PROP, &equip_info);
+	}
+
+	follow_summon = user->follow_summon;
+	// 添加召唤兽
+	if (follow_summon) {
+		svalue_t key;
+		svalue_t *v;
+		summon_info.id = follow_summon;
+
+		TO_LPC_STR(key, K_SUMM_RES);
+		v = fs_get_summon_var(follow_summon, &key, 1);
+		if (v && IS_LPC_INT(v)) {
+			summon_info.icon = v->u.number;
+		}
+		else {
+			summon_info.icon = 0;
+		}
+
+		TO_LPC_STR(key, K_SUMM_NAME);
+		v = fs_get_summon_var(follow_summon, &key, 1);
+		if (v && IS_LPC_STR(v)) {
+			summon_info.name.n = strlen(v->u.string) + 1; 
+			summon_info.name.str = v->u.string;
+		}
+		else {
+			summon_info.name.n = 0;
+		}
+
+		summon_info.follow_owner = entry->owner;
+
+		fs_rpc_c_unicast(uid, RPC_CLIENT_ADD_SUMMON, &summon_info);
+	}
+
+	// 阵营
+	if(user->faction){
+		struct msg_char_faction_s faction_info;	
+		faction_info.uid = user->usernum;
+		faction_info.faction = user->faction;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_FACTION, &faction_info);
+	}
+
+	if (user->status) {
+		int time = get_current_time();
+		// debug_message("status : %d %d %d %d\n", entry->owner, user->status, user->status_sec, time);
+		if (time >= user->status_sec) {
+			// 清掉状态
+			user->status = 0;
+			user->status_sec = 0;
+			user->status_tar = 0;
+		}
+		else {
+			prop_info.id = entry->owner;
+			prop_info.status = user->status;
+			prop_info.status_sec = user->status_sec - time;
+			prop_info.status_tar = user->status_tar;
+			fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_STATUS, &prop_info);
+		}
+	}
+	send_char_effect(uid, entry);
+
+	if (user->add_user_hook) {
+		// call_object_func(user->user_obj, "EnterUserField", "o", user_entry->user_data->user_obj); 
+		call_script_func("module/scene/main.c", "SceneAddUser", "oo", user->user_obj, user_entry->user_data->user_obj);
+	}
+
+	if (warfog) {
+		int relation = get_camp_relation(user_entry, entry);
+		struct msg_char_warfog_prop_s fog_info;
+		fog_info.id = entry->owner;
+		fog_info.fog_affect = relation;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_WARFOG_PROP, &fog_info);
+	}
+
+	// 玩家的名字称谓放在脚本发
+	/*
+	if (entry->name_color || entry->title_color) {
+		struct msg_name_title_color_s color_info;
+		color_info.char_id = entry->owner;
+		color_info.name_color = entry->name_color ? entry->name_color : PLAYER_NAME_COLOR;
+		color_info.title_color = entry->title_color ? entry->title_color : PLAYER_TITLE_COLOR;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_NAME_TITLE_COLOR, &color_info);
+	}
+	*/
+}
+
+inline static void send_add_npc_msg(fs_scene_entry_t *leader_entry, fs_scene_entry_t *user_entry, fs_scene_entry_t *entry, struct msg_new_npc_s *npc_info, int warfog)
+{
+	struct msg_char_status_s prop_info;
+	int uid;
+	svalue_t key;
+	svalue_t *pval;
+
+	if (user_entry->user_data->iFighting) {
+		return;
+	}
+	fs_npc_object_t *npc = entry->npc_data;
+
+	uid = user_entry->owner;
+
+	if (npc->visible) {
+		if (npc->visible == -1) {
+			return;
+		}
+		if (npc->visible != user_entry->owner) {
+			if (!leader_entry || (npc->visible != leader_entry->owner)) {
+				return;
+			}
+		}
+	}
+
+	TO_LPC_STR(key, K_NPC_STORY_FLAG);
+	pval = get_npc_prop(entry->owner, &key);
+	if (pval && IS_LPC_INT(pval) && LPC_INT_VALUE(pval)) {
+		svalue_t *ret = call_script_func("mission/mission_element.c", "CanShow", "ii", user_entry->owner, entry->owner);
+		if (!ret || !IS_LPC_INT(ret) || !LPC_INT_VALUE(ret)) {
+			return;
+		}
+	}
+
+	/*
+	if (user_entry->mygrid && entry->mygrid) {
+	debug_message("add user: %d[grid:%d,%d](%d,%d), npc: %d %s[grid:%d, %d](%d,%d)\n", 
+			user_entry->owner, user_entry->mygrid->grid_x, user_entry->mygrid->grid_y, 
+			user_entry->x, user_entry->y,
+			entry->owner, entry->name.u.string, entry->mygrid->grid_x, entry->mygrid->grid_y, 
+			entry->x, entry->y);
+	}
+	*/
+
+	fs_rpc_c_unicast(uid, RPC_CLIENT_ADD_NPC, npc_info);
+
+	if (npc->status) {
+		int time = get_current_time();
+		if (time < npc->status_sec) {
+			prop_info.id = entry->owner;
+			prop_info.status = npc->status;
+			prop_info.status_sec = npc->status_sec - time;
+			prop_info.status_tar = npc->status_tar;
+			fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_STATUS, &prop_info);
+		}
+		else {
+			// 清掉状态
+			npc->status = 0;
+			npc->status_sec = 0;
+			npc->status_tar = 0;
+		}
+	}
+
+	send_char_effect(uid, entry);
+
+	if (warfog) {
+		int relation = get_camp_relation(user_entry, entry);
+		struct msg_char_warfog_prop_s fog_info;
+		fog_info.id = entry->owner;
+		fog_info.fog_affect = relation;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_WARFOG_PROP, &fog_info);
+	}
+
+	if (entry->name_color || entry->title_color) {
+		struct msg_name_title_color_s color_info;
+		color_info.char_id = entry->owner;
+		color_info.name_color = entry->name_color ? entry->name_color : NPC_NAME_COLOR;
+		color_info.title_color = entry->title_color ? entry->title_color : NPC_TITLE_COLOR;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_CHAR_NAME_TITLE_COLOR, &color_info);
+	}
+
+	call_script_func("module/scene/main.c", "SceneAddNpc", "io", entry->owner, user_entry->user_data->user_obj);
+	// other
+}
+
+inline static void send_del_user_msg(fs_scene_entry_t *user_entry, fs_scene_entry_t *entry)
+{
+	struct msg_del_char_s del_player_msg;
+	struct msg_del_char_s del_summon_msg;
+	int follow_summon;
+	int uid = user_entry->owner;
+
+	// 如果处于战斗中，不需要发送信息，战斗后反正会重进场
+	if (user_entry->user_data->iFighting) {
+		return;
+	}
+
+	del_player_msg.charid = entry->owner;
+	fs_rpc_c_unicast(uid, RPC_CLIENT_DEL_CHAR, &del_player_msg);
+
+	follow_summon = entry->user_data->follow_summon;
+	// 删除召唤兽
+	if (follow_summon) {
+		del_summon_msg.charid = follow_summon;
+		fs_rpc_c_unicast(uid, RPC_CLIENT_DEL_CHAR, &del_summon_msg);
+	}
+}
+
+// 玩家在某格子的视野中移动
+void fs_aoi_resp_move(fs_grid_t *grid, void *arg)
+{
+	fs_scene_entry_t *ent, *ent_temp, *entry;
+	fs_scene_t *scene;
+	struct msg_player_move_s move_msg;
+	fs_move_info_t *move_info = (fs_move_info_t *) arg;
+	int sdr, edr, dr, sedr;
+	object_t * ob;
+	int is_walk;
+
+	entry = move_info->entry;
+	scene = move_info->scene;
+
+	// 隐身不发走路包
+	if (entry->type == T_ENTRY_USR && entry->user_data->yinshen) {
+		return;
+	}
+
+
+	move_msg.id = entry->owner;
+	move_msg.cur_pos = 0;
+	move_msg.cur_pos |= (unsigned int)move_info->from_x << 16;
+	move_msg.cur_pos |= move_info->from_y;
+	move_msg.mov_pos = 0;
+	move_msg.mov_pos |= (unsigned int)move_info->to_x << 16;
+	move_msg.mov_pos |= move_info->to_y;
+	is_walk = move_info->is_walk;
+
+
+	// 大于gGridCountLimit的时候不发走路包
+	if (grid->list[T_ENTRY_USR].count && grid->list[T_ENTRY_USR].count <= gGridCountLimit) {
+		global_uid1_cnt = 0;
+		global_uid2_cnt = 0;
+
+		TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+			// 自己不发走路包
+			if (entry->owner == ent->owner || ent->user_data->iFighting) {
+				continue;
+			}
+			// NPC分走路和跑路
+			if (entry->type == T_ENTRY_NPC && is_walk) { 
+				global_uid1p[global_uid1_cnt++] = ent->owner;
+				// fs_rpc_c_unicast(ent->owner, RPC_CLIENT_WALK, &move_msg);
+			} else {
+				global_uid2p[global_uid2_cnt++] = ent->owner;
+				// fs_rpc_c_unicast(ent->owner, RPC_CLIENT_MOVE, &move_msg);
+			}
+		}
+		if (global_uid1_cnt) {
+			fs_rpc_c_multicast(global_uid1p, global_uid1_cnt, RPC_CLIENT_WALK, &move_msg);
+		}
+
+		if (global_uid2_cnt) {
+			fs_rpc_c_multicast(global_uid2p, global_uid2_cnt, RPC_CLIENT_MOVE, &move_msg);
+		}
+	}
+
+	// 如果是NPC, 检测部分放到脚本
+	// 如果是玩家，需要考虑周围NPC的位置
+	if (entry->type == T_ENTRY_USR) {
+		if (entry->run_method == T_RUN_FLY) return;
+
+		if (!entry->npc_aoi_evs || !entry->npc_aoi_evs->n) {
+			return;
+		}
+		if (!grid->list[T_ENTRY_NPC].count) {
+			return;
+		}
+
+		// 玩家移动, 那么计算移动的初点和终点与NPC的相对位置
+
+		// 初点终点的距离
+
+		sedr = (move_info->to_x - move_info->from_x) * (move_info->to_x - move_info->from_x) \
+			   + (move_info->to_y - move_info->from_y) * (move_info->to_y - move_info->from_y);
+
+		if (!sedr) {
+			return;
+		}
+
+		TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_NPC].head, list, ent_temp) {
+			fs_npc_object_t *npc = ent->npc_data;
+			int npc_x, npc_y;
+			if (!npc->aoi_area_r) {
+				continue;
+			}
+			get_entry_npc_pos(ent, &npc_x, &npc_y);
+			// npc_x = ent->x;
+			// npc_y = ent->y;
+
+			// 初点距离NPC的位置
+			sdr = (move_info->from_x - npc_x) * (move_info->from_x - npc_x) \
+				  + (move_info->from_y - npc_y) * (move_info->from_y - npc_y);
+			// 终点距离NPC的位置
+			edr = (move_info->to_x - npc_x) * (move_info->to_x - npc_x) \
+				  + (move_info->to_y - npc_y) * (move_info->to_y - npc_y);
+			// NPC的AOI区间
+			dr = npc->aoi_area_r * npc->aoi_area_r;
+
+			ob = get_npc_lpcob(ent->owner);
+			if (ob) {
+				// 1. 如果感应区域里面还走钝角，说明在靠近
+				// 2. 如果感应区域外面走钝角，并且垂直边小于区域，那么说明在靠近
+				// 在区域里面靠近NPC, 或者穿越NPC区域(靠近)
+				if ((sdr < dr) && (edr <= (sdr + sedr)) ) {
+					call_object_func(ob, "AcrossNpcField", "ii", entry->owner, ent->owner);
+				}
+				if(sdr >= dr && edr < dr) {
+					call_object_func(ob, "EnterNpcField", "ii", entry->owner, ent->owner);
+				} else if(sdr < dr && edr >= dr) {
+					// 离开区域: 从感应区里面走向感应区外面
+					call_object_func(ob, "LeaveNpcField", "iii", entry->owner, ent->owner, 1);
+				}
+			}
+		}
+	}
+}
+
+void fs_aoi_add_player(fs_grid_t *grid, void *arg)
+{
+	fs_scene_entry_t *ent, *ent_temp;
+	fs_scene_entry_t *entry = arg;
+	int warfog;
+
+	if (!entry) return;
+
+	warfog = grid->scene->warfog;
+
+	if (grid->list[T_ENTRY_USR].count) {
+		TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+			if (ent->owner == entry->owner) continue;
+			send_add_user_msg(ent, entry, warfog);
+		}
+	}
+}
+
+// 玩家离开某格子的视野
+inline static void _fs_aoi_resp_leave_field(fs_grid_t *grid, void *arg, int leavescene)
+{
+	// 1.删除信息
+	fs_scene_entry_t *entry;
+	fs_scene_entry_t *ent, *ent_temp;
+	struct msg_del_char_s del_char_msg;
+	struct msg_del_chars_s del_chars_msg;
+	fs_scene_element_t *pel = (fs_scene_element_t *) arg;
+	int infight = 0;
+
+	// 队伍离开区域
+
+		entry = (fs_scene_entry_t *) pel->element;
+
+		// log_debug( MOD_SCENE, "fs_aoi_resp_leave_field: %d leave %d %d", entry->owner, grid->grid_x, grid->grid_y);
+		if (entry->type == T_ENTRY_USR) {
+
+			infight = entry->user_data->iFighting;
+			global_int_cnt = 0;
+
+			if (grid->list[T_ENTRY_USR].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+					if (ent->owner == entry->owner) continue;
+					send_del_user_msg(ent, entry);
+					// 如果是离开场景，那么不发送删除信息
+					if (!leavescene && !infight) {
+						// send_del_user_msg(entry, ent);
+						PACK_DEL_ENTRY_ID(ent, global_intp, global_int_cnt, SCENE_DEL_MAX_NUM);
+						PACK_DEL_SUMMON_ID(ent, global_intp, global_int_cnt, SCENE_DEL_MAX_NUM);
+					}
+				}
+			}
+
+			// 删除NPC
+			if (grid->list[T_ENTRY_NPC].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_NPC].head, list, ent_temp) {
+					// 如果是离开场景，那么不发送删除信息
+					if (!leavescene) {
+						// del_npc_msg.delid = ent->owner;
+						// fs_rpc_c_unicast(entry->owner, RPC_CLIENT_DEL_NPC, &del_npc_msg);
+						PACK_DEL_ENTRY_ID(ent, global_intp, global_int_cnt, SCENE_DEL_MAX_NUM);
+					}
+					user_leave_npc_field(ent, entry);
+				}
+			}
+
+			if (global_int_cnt) {
+				del_chars_msg.charids.n = global_int_cnt;
+				del_chars_msg.charids.u.intp = global_intp;
+				fs_rpc_c_unicast(entry->owner, RPC_CLIENT_DEL_CHARS, &del_chars_msg);
+			}
+		} else if (entry->type == T_ENTRY_NPC) {
+			del_char_msg.charid = entry->owner;
+			if (grid->list[T_ENTRY_USR].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+					fs_rpc_c_unicast(ent->owner, RPC_CLIENT_DEL_CHAR, &del_char_msg);
+					user_leave_npc_field(entry, ent);
+				}
+			}
+		}
+}
+
+// 玩家离开某格子的视野
+void fs_aoi_resp_leave_field(fs_grid_t *grid, void *arg)
+{
+	_fs_aoi_resp_leave_field(grid, arg, 0);
+}
+
+// 玩家离开场景(离开场景时调用, 因为离开场景时不需要删除玩家NPC了)
+// 此函数实现跟fs_aoi_resp_leave_field类似
+void fs_aoi_resp_leave_scene(fs_grid_t *grid, void *arg)
+{
+	_fs_aoi_resp_leave_field(grid, arg, 1);
+}
+
+// 玩家进入某格子的视野
+void fs_aoi_resp_enter_field(fs_grid_t *grid, void *arg)
+{
+	// 1.添加信息
+	// 2.接收新场景信息
+	// 3.队伍信息
+	fs_scene_entry_t *entry;
+	fs_scene_entry_t *ent, *ent_temp, *leader_ent;
+	struct msg_new_npc_s npc_info;
+	fs_scene_element_t *pel = (fs_scene_element_t *) arg;
+	fs_scene_t *scene = grid->scene;
+	int warfog = scene->warfog;
+
+	// log_debug(MOD_SCENE, "%d enter filed[%d, %d, %d]", entry->owner, grid->grid_x, grid->grid_y, grid->list[T_ENTRY_USR].count );
+
+	// Team
+		// User or Npc
+		entry = (fs_scene_entry_t *) pel->element;
+
+		// log_debug( MOD_SCENE, "fs_aoi_resp_enter_field: %d leave %d %d", entry->owner, grid->grid_x, grid->grid_y);
+
+		if (entry->type == T_ENTRY_USR) {
+			if (grid->list[T_ENTRY_USR].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+					if (ent->owner == entry->owner ) continue;
+					send_add_user_msg(entry, ent, warfog);
+					send_add_user_msg(ent, entry, warfog);
+				}
+
+			}
+			// 接收新格子的东西
+			if (grid->list[T_ENTRY_NPC].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_NPC].head, list, ent_temp) {
+					SET_NPC_MSG(npc_info, ent);
+					send_add_npc_msg(NULL, entry, ent, &npc_info, warfog);
+					if (ent->npc_data->aoi_area_r) {
+						user_enter_npc_field(ent, entry);
+					}
+				}
+			}
+		} else if (entry->type == T_ENTRY_NPC) {
+			int npc_x, npc_y, dr, r;
+			if (grid->list[T_ENTRY_USR].count) {
+				// NPC
+				SET_NPC_MSG(npc_info, entry);
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+					leader_ent = NULL;
+					send_add_npc_msg(leader_ent, ent, entry, &npc_info, warfog);
+					if (entry->npc_data->aoi_area_r) {
+						user_enter_npc_field(entry, ent);
+					}
+				}
+			}
+			if (grid->list[T_ENTRY_NPC].count) {
+				TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_NPC].head, list, ent_temp) {
+					fs_npc_object_t *npc = ent->npc_data;
+					if (!npc->aoi_area_r) {
+						continue;
+					}
+					npc_x = ent->x;
+					npc_y = ent->y;
+					dr = npc->aoi_area_r * npc->aoi_area_r;
+					r = (npc_x - entry->x) * (npc_x - entry->x) + (npc_y - entry->y) * (npc_y - entry->y);
+					// debug_message("status :%d --%d %d, %d, %d, %d %d %d %s, %d %s\n", grid->list[T_ENTRY_USR].count, npc_x, npc_y, entry->x, entry->y, r, dr, entry->owner, entry->name.u.string, ent->owner, ent->name.u.string);
+					if (r <= dr) {
+						object_t *ob = get_npc_lpcob(ent->owner);
+						call_object_func(ob, "NpcEnterNpcField", "ii", entry->owner, ent->owner);
+					}
+				}
+			}
+		}
+}
+
+void fs_aoi_refresh_player(fs_grid_t *grid, void *arg)
+{
+	fs_scene_entry_t *entry = (fs_scene_entry_t *) arg;
+	fs_scene_entry_t *ent, *ent_temp;
+	fs_team_entry_t team_entry;
+	int warfog = grid->scene->warfog;
+	int teamno = entry->user_data->iTeamID;
+	int sendteam = 0;
+
+	if (teamno && get_team_members(teamno, &team_entry)) {
+		sendteam = 1;
+	}
+	if (grid->list[T_ENTRY_USR].count) {
+		TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+			send_add_user_msg(ent, entry, warfog);
+
+			// 发队伍信息
+			if (sendteam) {
+				send_team_msg(ent, &team_entry);
+			}
+		}
+	}
+}
+
+void fs_aoi_refresh_npc(fs_grid_t *grid, void *arg)
+{
+	fs_scene_entry_t *entry = (fs_scene_entry_t *) arg;
+	fs_scene_entry_t *ent, *ent_temp;
+	int warfog = grid->scene->warfog;
+	struct msg_new_npc_s npc_info;
+
+	if (grid->list[T_ENTRY_USR].count) {
+		SET_NPC_MSG(npc_info, entry);
+		TAILQ_FOREACH_SAFE(ent, grid->list[T_ENTRY_USR].head, list, ent_temp) {
+			send_add_npc_msg(NULL, ent, entry, &npc_info, warfog);
+		}
+	}
+}
+
+// ===========================================================
+// 场景相关的外部接口
+// 以fs_do开头
+
+// 进场景
+// send_enter : 是否发送进场协议
+int fs_enter_scene(fs_scene_element_t *el, int x, int y, fs_scene_t *scene, int send_enter)
+{
+	fs_scene_entry_t *entry;
+	fs_grid_t *from_grid, *to_grid;
+	struct msg_enter_scene_s scene_info;
+	struct msg_scene_prop_s scene_prop;
+	int mapid, sceneid;
+	int warfog;
+	int from_scene;
+
+	mapid = scene->map->id;
+	sceneid = scene->id;
+
+	if (!x && !y) {
+		int scale = 12;
+		x = scene->w * scale / 100 + myrandom(scene->w * (100 - scale) / 100 - 1);
+		y = scene->h * scale / 100 + myrandom(scene->h * (100 - scale) / 100 - 1);
+		x = x > 0 ? x : scene->w / 2;
+		y = y > 0 ? y : scene->h / 2;
+
+		if (fs_is_block_or_jump_cell(scene, x, y)) {
+			fs_find_blank_cell(scene, &x, &y);
+		}
+	}
+
+	to_grid   = fs_pos_in_grid(scene, x, y);
+
+	if (!to_grid) {
+		log_error(MOD_SCENE, "pos[%d, %d, %d] not exist!", sceneid, x, y);
+		// throw_error();
+		return 0;
+	}
+
+	scene_info.scene = mapid;
+	scene_info.x = x;
+	scene_info.y = y;
+
+	scene_prop.weather = scene->weather;
+	scene_prop.isnight = scene->isnight;
+	scene_prop.synctime = scene->synctime;
+	scene_prop.warfog = scene->warfog;
+
+	warfog = scene->warfog;
+
+
+	fs_cell_t *to_cell = fs_get_cell(scene, x, y);
+	fs_cell_t *from_cell = NULL;
+	fs_scene_t *last_scene = NULL;
+
+		entry = (fs_scene_entry_t *) el->element;
+		from_grid = entry->mygrid;
+		from_scene = entry->z;
+
+		if (from_grid) {
+			last_scene = from_grid->scene;
+			from_cell = fs_get_cell(from_grid->scene, entry->x, entry->y);
+			fs_aoi_foreach_neighbor_grids(from_grid->scene, from_grid, fs_aoi_resp_leave_scene, el);
+		}
+
+		// 设置坐标
+		entry->x = x;
+		entry->y = y;
+		entry->z = sceneid;
+
+		if (entry->type == T_ENTRY_USR) {
+			// 先进场再添加自己
+			if (send_enter) {
+				fs_rpc_c_unicast(entry->owner, RPC_CLIENT_ENTER_SCENE, &scene_info);
+				fs_rpc_c_unicast(entry->owner, RPC_CLIENT_SCENE_PROP, &scene_prop);
+			}
+			send_add_user_msg(entry, entry, warfog);
+		}
+
+		if (from_grid) {
+			fs_aoi_leave(el, from_grid);
+		}
+
+
+	fs_aoi_foreach_neighbor_grids(scene, to_grid, fs_aoi_resp_enter_field, el);
+	fs_aoi_enter(el, to_grid);
+
+	if (send_enter) {
+		int from_terrain = from_cell?CELL_TERRAIN(from_cell):0;
+		int to_terrain = to_cell?CELL_TERRAIN(to_cell):0;
+
+			entry = (fs_scene_entry_t *) el->element;
+			if (entry->type == T_ENTRY_USR) {
+				// 通知地形改变
+				if (from_terrain != to_terrain){
+					if(last_scene && last_scene != scene){
+						call_script_func("module/scene/terrain.c", "OnPlayerTerrainChange",
+								"iiii",
+								entry->owner,last_scene->id, from_terrain ,to_terrain);
+
+					}
+					call_script_func("module/scene/terrain.c", "OnPlayerTerrainChange",
+							"iiii",
+							entry->owner,scene->id, from_terrain ,to_terrain);
+
+				}
+				call_script_func("module/scene/main.c", "PlayerEnterScene", "iii", entry->owner, from_scene, sceneid);
+			}
+	}
+	return 1;
+}
+
+static inline fs_scene_element_t *pack_scene_element(fs_scene_entry_t *entry)
+{
+	fs_scene_element_t *el = calloc(1, sizeof(fs_scene_element_t));
+	// 注意，这里必须用动态内存，当嵌套的时候会出现问题！！！
+
+	el->type = ELE_TYPE_CHAR;
+	el->element = entry;
+	return el;
+}
+
+void free_scene_element(fs_scene_element_t *el)
+{
+	free(el);
+}
+
+static int find_entry_next_pos(fs_scene_entry_t *entry, int *next_x, int *next_y, int *acc_index, int check_block)
+{
+	int cur_x, cur_y, to_x, to_y;
+	fs_scene_t *scene;
+	fs_cell_t *cell;
+	int last_x, last_y;
+	int _acc_index = 0;
+
+	to_x = *next_x;
+	to_y = *next_y;
+
+	if (!entry->mygrid) {
+		return 0;
+	}
+
+	scene = entry->mygrid->scene;
+
+	if (!scene) {
+		return 0;
+	}
+
+	// 坐标非法, 直接返回
+	if (POS_NOT_VALID(scene, to_x, to_y)) {
+		return 0;
+	}
+
+	if (fs_is_block_or_jump_cell(scene, to_x, to_y)) {
+		fs_find_blank_cell(scene, &to_x, &to_y);
+	}
+
+	cur_x = entry->x;
+	cur_y = entry->y;
+
+	if (to_x == cur_x && to_y == cur_y) {
+		return 0;
+	}
+
+	if (check_block) {
+		last_x = cur_x;
+		last_y = cur_y;
+	} else {
+		last_x = to_x;
+		last_y = to_y;
+	}
+
+	// 检查是否有阻挡(直线检查)
+	if (to_y == cur_y) {
+		int dr = (to_x - cur_x > 0) ? 1 : -1;
+		int fx, fy;
+		fy = cur_y;
+		for (fx = cur_x; fx != to_x; fx += dr) {
+			cell = fs_get_cell(scene, fx, fy);
+
+			// 检查奇遇点
+			if (!_acc_index && cell->acc_index) {
+				_acc_index = cell->acc_index;
+			}
+
+			// 需要检查阻挡
+			if (check_block) {
+				if (!CELL_BLOCK(cell)) {
+					last_x = fx;
+					last_y = fy;
+					continue;
+				}
+				break;
+			}
+		}
+	} else {
+		int dx = (to_x - cur_x > 0) ? 1 : -1;
+		int dy = (to_y - cur_y > 0) ? 1 : -1;
+		int fx = 0, fy = 0, last_fx = 0, dh = 0, block = 0;
+		float slope = (float) (to_x - cur_x) / (float) (to_y - cur_y);
+		fx = cur_x;
+		for (fy = cur_y; fy != to_y; fy += dy) {
+			dh = (int) ((float) slope * dy);
+			last_fx = fx;
+			fx = fx + dh;
+			do {
+				// 检查奇遇点
+				cell = fs_get_cell(scene, last_fx, fy);
+				if (!_acc_index && cell->acc_index) {
+					_acc_index = cell->acc_index;
+				}
+				if (check_block) {
+					if (CELL_BLOCK(cell)) {
+						block = 1;
+						break;
+					}
+					last_x = last_fx;
+					last_y = fy;
+				}
+				if (dh) {
+					last_fx += dx;
+					dh -= dx;
+				}
+			} while(dh);
+			if (block) break;
+		}
+	}
+
+	if (last_x == cur_x && last_y == cur_y) {
+		return 0;
+	}
+
+	*next_x = last_x;
+	*next_y = last_y;
+	*acc_index = _acc_index;
+	return 1;
+}
+
+int fs_entry_change_pos(fs_scene_entry_t *entry, int to_x, int to_y)
+{
+	fs_grid_t *from_grid, *to_grid;
+	fs_scene_t *scene;
+
+	if (!entry->mygrid) {
+		return 0;
+	}
+
+	from_grid = entry->mygrid;
+	scene = from_grid->scene;
+	to_grid   = fs_pos_in_grid(scene, to_x, to_y);
+
+	if (!to_grid) {
+		return 0;
+	}
+	entry->x = to_x;
+	entry->y = to_y;
+
+	if (from_grid != to_grid) {
+		fs_scene_element_t *el = pack_scene_element(entry);
+		fs_aoi_move(el, to_grid, from_grid);
+		free_scene_element(el);
+	}
+	return 1;
+}
+
+static void sync_npc_pos(fs_scene_entry_t *entry)
+{
+	if (entry->type != T_ENTRY_NPC) {
+		return;
+	}
+
+	fs_npc_object_t *npc_ob = entry->npc_data;
+
+	if (!npc_ob->walk_msec) return;
+
+	if (npc_ob->to_z == entry->z) {
+		fs_entry_change_pos(entry, npc_ob->to_x, npc_ob->to_y);
+	}
+
+	/*
+	int to_x = 0, to_y = 0;
+	if (get_entry_npc_pos(entry, &to_x, &to_y)) {
+		fs_scene_t *scene = entry->mygrid->scene;
+		if (fs_is_block_or_jump_cell(scene, to_x, to_y)) {
+			to_x = npc_ob->to_x;
+			to_y = npc_ob->to_y;
+		}
+		fs_entry_change_pos(entry, to_x, to_y);
+	}
+	*/
+
+	npc_ob->start_walk_msec = 0;
+	npc_ob->walk_msec = 0;
+	npc_ob->is_walk = 0;
+	npc_ob->to_x = 0;
+	npc_ob->to_y = 0;
+	npc_ob->to_z = 0;
+}
+
+// 获取当前时钟的微秒
+#define TIME_BASE 1284912000 // 2010年 9月20日 星期一 00时00分00秒 CST   
+static int get_cur_time_msec()
+{
+	struct timeval nowval;
+	gettimeofday(&nowval,0);
+	return (nowval.tv_sec - TIME_BASE) * 1000 + nowval.tv_usec / 1000;
+}
+
+int get_entry_npc_pos(fs_scene_entry_t *entry, int *x, int *y)
+{
+	/*
+	if (entry->type != T_ENTRY_NPC) {
+		*x = entry->x;
+		*y = entry->y;
+		return 0;
+	}
+	*/
+
+	fs_npc_object_t *npc_ob = entry->npc_data;
+
+	if ((npc_ob->to_z != entry->z) || (npc_ob->start_walk_msec <= 0)) {
+		*x = entry->x;
+		*y = entry->y;
+		return 0;
+	}
+
+	int cur_msec = get_cur_time_msec();
+	int last_msec = cur_msec - npc_ob->start_walk_msec;
+	int walk_msec = npc_ob->walk_msec;
+
+	if (last_msec <= 0 || !walk_msec) {
+		*x = entry->x;
+		*y = entry->y;
+		if (last_msec < 0) log_error(MOD_SCENE, "time error: %d, %d, %d", cur_msec, npc_ob->start_walk_msec, walk_msec);
+		return 0;
+	}
+
+	// int is_walk = npc_ob->is_walk;
+	int to_x = npc_ob->to_x;
+	int to_y = npc_ob->to_y;
+
+	int from_x = entry->x;
+	int from_y = entry->y;
+
+	float rate = last_msec * 1.0 / walk_msec;  
+	rate = rate > 1 ? 1 : rate; 
+	*x = (int) (from_x + (to_x - from_x) * rate); 
+	*y = (int) (from_y + (to_y - from_y) * rate); 
+	return 1;
+}
+
+static inline int fs_entry_do_goto_pos(fs_scene_entry_t *entry, int to_x, int to_y, int acc_index, int is_walk, int chg_pos)
+{
+	int cur_x, cur_y;
+	fs_grid_t *from_grid, *to_grid;
+	fs_move_info_t move_info;
+	fs_scene_element_t *el;
+	fs_scene_t *scene;
+
+	cur_x = entry->x;
+	cur_y = entry->y;
+	scene = entry->mygrid->scene;
+
+	from_grid = fs_pos_in_grid(scene, cur_x, cur_y);
+	to_grid   = fs_pos_in_grid(scene, to_x, to_y);
+
+	if (!to_grid) {
+		log_error(MOD_SCENE, "FS_ERROR, pos unvalid(%d, %d)", to_x, to_y);
+		return 0;
+	}
+
+	el = pack_scene_element(entry);
+
+	if (!el) return 0;
+
+	if (chg_pos) {
+		// 设置坐标
+		entry->x = to_x;
+		entry->y = to_y;
+	}
+
+	move_info.entry = entry;
+	move_info.scene = scene;
+	move_info.from_x = cur_x;
+	move_info.from_y = cur_y;
+	move_info.to_x = to_x;
+	move_info.to_y = to_y;
+	move_info.is_walk = is_walk;
+
+	// 不响应跳转
+	fs_aoi_foreach_neighbor_grids(scene, from_grid, fs_aoi_resp_move, &move_info);
+
+	if (from_grid != to_grid) {
+		// AOI响应
+		// 三个函数的顺序是这样考虑:
+		//     1. 先进入在发送走路包，则进入区域的玩家可以看到玩家是走着进来的
+		//     2. 先发送走路包后离开，则离开区域的玩家可以看到玩家是走着离开的
+		//     3. 先发送走路包后离开，则走路过程中离开区域的NPC还关注着这些玩家，也就是NPC可能需要关心离开事件
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_enter_field, el);
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_move, &move_info);
+		fs_aoi_foreach_leave_grids(scene, from_grid, to_grid, fs_aoi_resp_leave_field, el);
+
+		if (chg_pos) {
+			// AOI操作
+			fs_aoi_move(el, to_grid, from_grid);
+		}
+	}
+
+	free_scene_element(el);
+
+	if (acc_index) {
+		call_script_func("module/scene/acc_event.c", "AccEventHappen", "iiii", entry->owner, acc_index, cur_x, cur_y);
+		return 1;
+	}
+	return 1;
+}
+
+int fs_entry_goto_pos(fs_scene_entry_t *entry, int to_x, int to_y, int is_walk, int not_check_blk, int chg_pos)
+{
+	int acc_index = 0;
+
+	if (!find_entry_next_pos(entry, &to_x, &to_y, &acc_index, !not_check_blk)) {
+		return 0;
+	}
+	return fs_entry_do_goto_pos(entry, to_x, to_y, acc_index, is_walk, chg_pos);
+}
+
+static inline void fs_send_goto_info(fs_scene_entry_t *entry, int to_x, int to_y, const char *message)
+{
+	struct msg_goto_s goto_info;
+	if (entry->type == T_ENTRY_USR) {
+		goto_info.timestamp = (++entry->user_data->walk_time_stamp);
+	} else {
+		goto_info.timestamp = 0;
+	}
+	goto_info.x = to_x;
+	goto_info.y = to_y;
+	fs_rpc_c_unicast(entry->owner, RPC_CLIENT_GOTO, &goto_info);
+	// log_error(MOD_SCENE, "pull happen[%d] (%d,%d) %s", entry->owner, entry->x, entry->y, message);
+}
+
+// 玩家/NPC移动
+static inline int fs_entry_move(fs_scene_entry_t *entry, int timestamp, int len, const char* path, int is_walk)
+{
+	int cur_x, cur_y, to_x, to_y, pre_x, pre_y, i, dir;
+	int width, heigth, aoi_ev, acc_index;
+	fs_cell_t *cell;
+	fs_grid_t *from_grid, *to_grid;
+	fs_scene_t *scene;
+	fs_move_info_t move_info;
+	fs_scene_element_t *el;
+	int blkref;
+	fs_jmp_t *jmp;
+
+	// if (!path || !len) return 0;
+
+	cur_x = pre_x = to_x = entry->x;
+	cur_y = pre_y = to_y = entry->y;
+	scene = entry->mygrid->scene;
+
+	if (!scene) {
+		log_error(MOD_SCENE, "no scene %d", entry->owner);
+		return 0;
+	}
+
+	el = pack_scene_element(entry);
+
+	if (!el) return 0;
+
+
+	width = scene->w;
+	heigth = scene->h;
+	i = 0;
+	// blkref = 0;
+	jmp = NULL;
+	cell = NULL;
+	acc_index = 0;
+	aoi_ev = 0;
+
+	// log_error(MOD_SCENE, "from(%d,%d), pathlen %d", cur_x, cur_y, len);
+
+	cell = fs_get_cell(scene, to_x, to_y);
+
+	if (cell->acc_index) {
+		acc_index = cell->acc_index;
+	}
+
+	blkref = 0;
+
+	while (i<len)
+	{
+		if (path[i] < 0 || path[i] >= DIR_MAX)
+		{
+			i++;
+			fprintf(stderr, "skip error path i:%d dir:%d", i, path[i]);
+			continue;
+		}
+		dir = path[i];
+		to_x += lsDir[dir][0]*8;
+		to_y += lsDir[dir][1]*8;
+
+		if ((to_x < 0 || to_x >= width) \
+				|| (to_y < 0 || to_y >= heigth)) return 0;
+
+		cell = fs_get_cell(scene, to_x, to_y);
+
+		// 跳转
+		// 如果是NPC,不考虑跳转
+		if (entry->type == T_ENTRY_USR && cell->jmp_id != NORMAL_CELL) {
+			jmp = FS_HT_FIND_INT(scene->jmp_table, cell->jmp_id);
+			if (jmp) {
+				if (jmp->fly_limit && (entry->run_method == T_RUN_FLY)) {
+					jmp = NULL;
+				}
+				else {
+					break;
+				}
+			}
+		}
+
+		if (!acc_index && cell->acc_index) {
+			acc_index = cell->acc_index;
+		}
+
+		// 飞行(允许跳转，奇异点, 跨越所有阻挡)
+		if (entry->run_method == T_RUN_NORMAL) {
+			if (CELL_BLOCK(cell)) {
+				// 规避一个跳转点
+				if (blkref >= gBlockCount || (i >= len - 1)) {
+					// 如果是NPC不需要拉回
+					if (entry->type == T_ENTRY_USR) {
+						// 同步坐标
+						fs_send_goto_info(entry, pre_x, pre_y, "block");
+					}
+					to_x = pre_x;
+					to_y = pre_y;
+					break;
+				}
+				blkref++;
+			}
+			else {
+				pre_x = to_x;
+				pre_y = to_y;
+			}
+		}
+		else if (entry->run_method == T_RUN_TERRAIN) {
+			if (entry->run_terrain != CELL_TERRAIN(cell))  {
+				// 如果是NPC不需要拉回
+				if (entry->type == T_ENTRY_USR) {
+					// 同步坐标
+					fs_send_goto_info(entry, pre_x, pre_y, "block");
+				}
+				to_x = pre_x;
+				to_y = pre_y;
+				break;
+			}
+			pre_x = to_x;
+			pre_y = to_y;
+		}
+		else {
+			pre_x = to_x;
+			pre_y = to_y;
+		}
+		i++;
+	}
+
+	if (to_x == cur_x && to_y == cur_y) {
+		return 0;
+	}
+
+	from_grid = fs_pos_in_grid(scene, cur_x, cur_y);
+	to_grid   = fs_pos_in_grid(scene, to_x, to_y);
+
+	if (!to_grid) {
+		log_error(MOD_SCENE, "FS_ERROR, pos unvalid(%d, %d)", to_x, to_y);
+		return 0;
+	}
+
+	// 如果目的地为跳转, 而且没有奇遇事件, 奇遇事件优先跳转
+	if (jmp && !acc_index) {
+		fs_scene_t *jmp_scene;
+		int result = 0;
+		jmp_scene = fs_find_scene_node(jmp->scene);
+		if (jmp_scene) {
+			fs_enter_scene(el, jmp->x, jmp->y, jmp_scene, 1);
+			result = 1;
+		}
+		free_scene_element(el);
+		return result;
+	}
+
+	// 设置坐标
+	if (el->type == ELE_TYPE_CHAR) {
+		fs_scene_entry_t *pentry = el->element;
+		pentry->x = to_x;
+		pentry->y = to_y;
+	}
+
+	move_info.entry = entry;
+	move_info.scene = scene;
+	move_info.from_x = cur_x;
+	move_info.from_y = cur_y;
+	move_info.to_x = to_x;
+	move_info.to_y = to_y;
+	move_info.is_walk = is_walk;
+
+	fs_aoi_foreach_neighbor_grids(scene, from_grid, fs_aoi_resp_move, &move_info);
+
+		// move可能导致移动格子, 如果已经移动了格子，那么不做后面操作了
+	if (from_grid != entry->mygrid) {
+		free_scene_element(el);
+		log_error(MOD_SCENE, "[%d] grid change1 [%x, %x]", entry->owner, from_grid, entry->mygrid);
+		return 1;
+	}
+
+	if (from_grid != to_grid) {
+		// AOI响应
+		// 三个函数的顺序是这样考虑:
+		//     1. 先进入在发送走路包，则进入区域的玩家可以看到玩家是走着进来的
+		//     2. 先发送走路包后离开，则离开区域的玩家可以看到玩家是走着离开的
+		//     3. 先发送走路包后离开，则走路过程中离开区域的NPC还关注着这些玩家，也就是NPC可能需要关心离开事件
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_enter_field, el);
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_move, &move_info);
+
+		// move可能导致移动格子, 如果已经移动了格子，那么不做后面操作了
+		if (from_grid != entry->mygrid) {
+			free_scene_element(el);
+			log_error(MOD_SCENE, "[%d] grid change2 [%x, %x]", entry->owner, from_grid, entry->mygrid);
+			return 1;
+		}
+
+		fs_aoi_foreach_leave_grids(scene, from_grid, to_grid, fs_aoi_resp_leave_field, el);
+
+		// AOI操作
+		if (!fs_aoi_move(el, to_grid, from_grid)) {
+			free_scene_element(el);
+			return 1;
+		}
+	}
+	/*
+	else {
+		// 如果已经移动了格子，那么不做后面操作了
+		if (from_grid && from_grid != entry->mygrid) {
+			free_scene_element(el);
+			log_error(MOD_SCENE, "[%d] grid change [%x, %x]", entry->owner, from_grid, entry->mygrid);
+			return 1;
+		}
+	}
+	*/
+
+	free_scene_element(el);
+
+	// 注意，奇遇事件之前必须完成所有的场景格子转换
+	if (acc_index) {
+		call_script_func("module/scene/acc_event.c", "AccEventHappen", "iiii", entry->owner, acc_index, cur_x, cur_y);
+		return 1;
+	}
+
+	fs_cell_t *from_cell = fs_get_cell(scene, cur_x, cur_y);
+	fs_cell_t *to_cell = fs_get_cell(scene, to_x, to_y);
+	// 跨了地形
+	if ( CELL_TERRAIN(from_cell)!= CELL_TERRAIN(to_cell)){
+		call_script_func("module/scene/terrain.c", "OnPlayerTerrainChange", 
+						"iiii", entry->owner,scene->id,CELL_TERRAIN(from_cell), CELL_TERRAIN(to_cell));
+	}
+
+	if (entry->run_method == T_RUN_NORMAL && scene->anlei) {   // 暗雷
+		if (entry->type == T_ENTRY_USR) {
+			int run_step;
+			run_step = entry->user_data->run_step;
+			if (run_step <= 60) {
+				int dx, dy, dmax;
+				dx = abs(to_x - cur_x);
+				dy = abs(to_y - cur_y);
+				dmax = dx > dy ? dx : dy;
+				run_step += dmax;
+				entry->user_data->run_step = run_step;
+			} 
+			if (run_step > 60) {
+				if (myrandom(4) != 1) {
+					return 0;
+				}
+				entry->user_data->run_step = 0;
+				call_script_func("module/scene/main.c", "AnleiHappen", "ii", entry->owner, scene->id);
+			}
+		}
+	}
+	return 1;
+}
+
+int fs_player_move(int uid, int timestamp, int len, const char* path, int is_walk)
+{
+	fs_user_t * user;
+	fs_scene_entry_t *entry;
+
+	user = FindUserOnline(uid);
+	// 是否在线 
+	if (!user) {
+		return 0;
+	}
+
+	entry = &user->entry;
+
+	// 没有初始化
+	if (entry->type != T_ENTRY_USR || !entry->owner || !entry->mygrid) {
+		return 0;
+	}
+
+	if (!path || !len) return 0;
+
+	// 人物移动清掉状态(人物表情)
+	user->status_sec = 0;
+
+	int last_walk_time = user->last_walk_time;
+
+	// 时间戳不对，不处理
+	if (timestamp && (timestamp != user->walk_time_stamp)) {
+		return 0;
+	}
+
+	// 每秒只允许有两个走路包
+	if (last_walk_time != current_time) {
+		user->last_walk_time = current_time;
+		user->last_walk_step = len;
+	} else {
+		user->last_walk_step += len;
+		if (user->last_walk_step > gWalkSecondStep) {
+			fs_send_goto_info(entry, entry->x, entry->y, "step exceed");
+			return 0;
+		}
+	}
+
+	if (entry->mygrid->scene->anlei) {
+		call_script_func("module/scene/main.c", "userMove", "iiii", entry->owner, entry->z, entry->x, entry->y);
+	}
+
+	// 1. 如果处于禁止行走的时间，那么不让行走
+	// 2. 如果在摆摊，那么拉回
+	if (user->forbid_walk_time > current_time
+			|| user->iStallID) {
+		fs_send_goto_info(entry, entry->x, entry->y, "forbid");
+		return 0;
+	}
+
+	return fs_entry_move(entry, timestamp, len, path, is_walk);
+}
+
+int fs_npc_move(int npcid, int len, const char* path, int is_walk)
+{
+	fs_scene_entry_t *entry;
+
+	entry = fs_find_npc_entry(npcid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		return 0;
+	}
+
+	// 没有初始化, 则初始化
+	if (entry->type != T_ENTRY_NPC || !entry->owner || !entry->mygrid) {
+		log_error(MOD_SCENE, "npc[%d] isn't inited!", npcid);
+		return 0;
+	}
+
+	if (!path || !len) return 0;
+
+	return fs_entry_move(entry, 0, len, path, is_walk);
+}
+
+int fs_refresh_player(fs_user_t *user, int broadcast)
+{
+	fs_scene_entry_t *entry;
+	svalue_t key;
+	svalue_t *pval;
+	int uid;
+
+	entry = &user->entry;
+	uid = entry->owner;
+
+	// 没有初始化, 则初始化
+	if (entry->type != T_ENTRY_USR || !entry->owner ) {
+		log_error(MOD_SCENE, "user[%d] isn't inited!", uid);
+		return 0;
+	}
+	// 进场刷新资源编号
+	TO_LPC_STR(key, K_USER_LAYOUT);
+	pval = get_user_prop(user, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "user[%d] prop[%s] error", uid, K_USER_LAYOUT);
+		return 0;
+	}
+	entry->resid = LPC_INT_VALUE(pval);
+
+	// 更新名字
+	TO_LPC_STR(key, K_USER_NAME);
+	pval = get_user_prop(user, &key);
+	if (!pval || !IS_LPC_STR(pval)) {
+		log_error(MOD_SCENE, "user[%d] prop[%s] error", uid, K_USER_NAME);
+		return 0;
+	}
+	set_svalue_shared_string(&entry->name, LPC_STR_VALUE(pval));
+	user->name_hash = StrHash(LPC_STR_VALUE(pval));
+
+	/*
+	// 名字颜色
+	TO_LPC_STR(key, KT_USER_NAME_COLOR);
+	pval = get_user_temp_prop(user, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "user[%d] prop[%s] error", uid, KT_USER_NAME_COLOR);
+		return 0;
+	}
+	entry->name_color = LPC_INT_VALUE(pval);
+	*/
+
+	// 更新称谓
+	TO_LPC_STR(key, KT_USER_TITLE);
+	pval = get_user_temp_prop(user, &key);
+	if (!pval || !IS_LPC_STR(pval)) {
+		set_svalue_undefined(&entry->title);
+		user->title_hash = 0;
+	} else {
+		set_svalue_shared_string(&entry->title, LPC_STR_VALUE(pval));
+		user->title_hash = StrHash(LPC_STR_VALUE(pval));
+	}
+
+	user->name_title_hash = ((unsigned int) user->name_hash << 24) | (user->title_hash & 0x00FFFFFF);
+
+	// 刷新方向
+	TO_LPC_STR(key, K_USER_DIR);
+	pval = get_user_temp_prop(user, &key);
+	if (!pval || !IS_LPC_INT(pval) || !LPC_INT_VALUE(pval)) {
+		entry->dir = 0;
+	} else {
+		// 存下下来的方向必须+1, 避免存下来的方向<=0
+		entry->dir = LPC_INT_VALUE(pval) + 1;
+	}
+
+	if (user->iFighting) {
+		return 0;
+	}
+
+	// 称谓颜色
+	/*
+	TO_LPC_STR(key, KT_USER_TITLE_COLOR);
+	pval = get_user_temp_prop(user, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "user[%d] prop[%s] error", uid, KT_USER_TITLE_COLOR);
+		return 0;
+	}
+	entry->title_color = LPC_INT_VALUE(pval);
+	*/
+	if (broadcast) {
+		fs_grid_t *from_grid = entry->mygrid;
+		if(!from_grid){
+			return 1;
+		}
+		fs_scene_t *scene = from_grid->scene;
+		fs_aoi_foreach_neighbor_grids(scene, from_grid, fs_aoi_refresh_player, entry);
+	}
+	return 1;
+}
+
+// 玩家进场
+// send_enter : 是否发送进场协议
+int fs_player_enter_scene(int uid, int x, int y, int z, int send_enter)
+{
+	fs_scene_entry_t *entry;
+	fs_user_t * user;
+	fs_scene_element_t el;
+	int isteam;
+	fs_team_entry_t team_entry;
+	fs_scene_t *scene;
+
+	user = FindUserOnline(uid);
+
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		return 0;
+	}
+
+	if (user->iFighting) {
+		return 0;
+	}
+
+	isteam = 0;
+
+	if (user->iTeamID && (!user->iTempLeave)) {
+		if ((get_team_leader(user->iTeamID) != uid)) {
+			return 0;
+		}
+		if (!get_team_members(user->iTeamID, &team_entry)) {
+			log_error(MOD_SCENE, "user[%d] teamid[%d] is not exist", uid, user->iTeamID);
+			return 0;
+		}
+		isteam = 1;
+	}
+
+	if (!fs_refresh_player(user, 0)) {
+		return 0;
+	}
+
+	entry = &user->entry;
+
+	el.type = ELE_TYPE_CHAR;
+	el.element = entry;
+
+	scene = fs_find_scene_node(z);
+	if (!scene) {
+		log_error(MOD_SCENE, "scene[%d] is not exist, [%d,%d]", z, x, y);
+		return 0;
+	}
+
+	if (!x && !y) {
+		x = myrandom(scene->w - 1) + 1;
+		y = myrandom(scene->h - 1) + 1;
+	}
+
+	/*人物不可以进阻挡*/
+	if (fs_is_block_or_jump_cell(scene, x, y)) {
+		fs_find_blank_cell(scene, &x, &y);
+	}
+
+	fs_enter_scene(&el, x, y, scene, send_enter);
+	return 0;
+}
+
+// 玩家离开战斗
+void fs_player_leave_fight(int uid)
+{
+
+}
+
+// 玩家离场
+void fs_player_leave_scene(int uid)
+{
+	fs_scene_entry_t *entry;
+	fs_scene_t *scene;
+	fs_user_t * user;
+	fs_scene_element_t el;
+
+	user = FindUserOnline(uid);
+
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		return;
+	}
+
+	entry = &user->entry;
+	
+	if (entry->type != T_ENTRY_USR || !entry->owner || !entry->mygrid) {
+		return;
+	}
+
+	// 如果是队伍，需要解散队伍, 这里只做报错
+	// 具体解散队伍，在脚本中完成
+	if (user->iTeamID) {
+		// log_error(MOD_SCENE, "user[%d] must leave team first", uid);
+	}
+
+	scene = entry->mygrid->scene;
+
+	el.type = ELE_TYPE_CHAR;
+	el.element = entry;
+
+	if (entry->mygrid) {
+		fs_aoi_foreach_neighbor_grids(scene, entry->mygrid, fs_aoi_resp_leave_field, &el);
+	}
+
+	fs_aoi_leave_grid(entry);
+}
+
+int fs_refresh_npc(int npcid, int broadcast)
+{
+	svalue_t *pval;
+	svalue_t key;
+
+	fs_scene_entry_t * entry = fs_find_npc_entry(npcid);
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		return 0;
+	}
+
+	// 没有初始化, 则初始化
+	if (entry->type != T_ENTRY_NPC || !entry->owner ) {
+		log_error(MOD_SCENE, "npc[%d] isn't inited!", npcid);
+		return 0;
+	}
+
+	// 进场刷新资源编号
+	TO_LPC_STR(key, K_NPC_ICON);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "npc[%d] prop[%s] error", npcid, K_NPC_ICON);
+		return 0;
+	}
+	entry->resid = LPC_INT_VALUE(pval);
+
+	// 刷新方向
+	TO_LPC_STR(key, K_NPC_DIR);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		entry->dir = 0;
+	} else {
+		entry->dir = LPC_INT_VALUE(pval);
+	}
+
+	// 更新名字
+	TO_LPC_STR(key, K_NPC_NAME);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_STR(pval)) {
+		log_error(MOD_SCENE, "npc[%d] prop[%s] error", npcid, K_NPC_NAME);
+		return 0;
+	}
+	set_svalue_shared_string(&entry->name, LPC_STR_VALUE(pval));
+
+	// 名字颜色
+	TO_LPC_STR(key, K_NPC_NAME_COLOR);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "npc[%d] prop[%s] error", npcid, K_NPC_NAME_COLOR);
+		return 0;
+	}
+	entry->name_color = LPC_INT_VALUE(pval);
+
+	// 称谓颜色
+	TO_LPC_STR(key, K_NPC_TITLE_COLOR);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_INT(pval)) {
+		log_error(MOD_SCENE, "npc[%d] prop[%s] error", npcid, K_NPC_TITLE_COLOR);
+		return 0;
+	}
+	entry->title_color = LPC_INT_VALUE(pval);
+
+	// 更新称谓
+	TO_LPC_STR(key, K_NPC_TITLE);
+	pval = get_npc_prop(npcid, &key);
+	if (!pval || !IS_LPC_STR(pval)) {
+		set_svalue_undefined(&entry->title);
+	} else {
+		set_svalue_shared_string(&entry->title, LPC_STR_VALUE(pval));
+	}
+
+	fs_npc_object_t *npc = entry->npc_data;
+
+	// 是否可见
+	TO_LPC_STR(key, K_NPC_VISIBLE);
+	pval = get_npc_prop(npcid, &key);
+	if (pval && IS_LPC_INT(pval)) {
+		npc->visible = LPC_INT_VALUE(pval);
+	} else {
+		npc->visible = 0;
+	}
+
+	if (broadcast) {
+		fs_grid_t *from_grid = entry->mygrid;
+		if(!from_grid){
+			return 1;
+		}
+		fs_scene_t *scene = from_grid->scene;
+		fs_aoi_foreach_neighbor_grids(scene, from_grid, fs_aoi_refresh_npc, entry);
+	}
+	return 1;
+}
+
+// NPC进场
+int fs_npc_enter_scene(int npcid, int x, int y, int z)
+{
+	fs_scene_entry_t *entry;
+	fs_scene_element_t el;
+	fs_scene_t *scene;
+
+	if (!fs_refresh_npc(npcid, 0)) {
+		return 0;
+	}
+
+	entry = fs_find_npc_entry(npcid);
+
+	el.type = ELE_TYPE_CHAR;
+	el.element = entry;
+
+	scene = fs_find_scene_node(z);
+	if (!scene) {
+		log_error(MOD_SCENE, "[%s] scene[%d] is not exist, [%d,%d]", entry->name.u.string, z, x, y);
+		// throw_error();
+		return 0;
+	}
+
+	/*
+	  NPC可以进阻挡
+	if (fs_is_block_cell(scene, x, y)) {
+		fs_find_blank_cell(scene, &x, &y);
+	}
+	*/
+	if (!fs_enter_scene(&el, x, y, scene, 0)) {
+		log_error(MOD_SCENE, "%s, enter place error!", entry->name.u.string);
+	}
+	return 1;
+}
+
+// NPC离场(删除)
+void fs_npc_leave_scene(int npcid)
+{
+	// TODO:注意删除AOI
+	// 注意删除奇遇事件
+	fs_scene_entry_t *entry;
+	fs_scene_t *scene;
+	fs_scene_element_t el;
+
+	entry = fs_find_npc_entry(npcid);
+	if (!entry) {
+		// log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		return;
+	}
+
+	if (entry->type != T_ENTRY_NPC || !entry->owner || !entry->mygrid) {
+		return;
+	}
+
+	scene = entry->mygrid->scene;
+
+	el.type = ELE_TYPE_CHAR;
+	el.element = entry;
+
+	if (entry->mygrid) {
+		fs_aoi_foreach_neighbor_grids(scene, entry->mygrid, fs_aoi_resp_leave_field, &el);
+	}
+
+	fs_aoi_leave_grid(entry);
+}
+
+
+// ====================================================
+// test rpc
+
+void rpc_server_move(int Uid, msg_player_move_path_s *mp)
+{
+	// log_info(MOD_SCENE, "rpc_server_move, %d: ", mp->path.n);
+	/*
+	int i = 0;
+	while ( i < mp->path.n) {
+		char tmp = mp->path.str[i];
+		debug_message( "%d,", tmp );
+		i++;
+	}
+	debug_message("\n");
+	*/
+
+	fs_player_move(Uid, mp->timestamp, mp->path.n, mp->path.str, 0);
+}
+
+// 测试协议
+void rpc_server_move_test(int uid, msg_player_move_s *player_move)
+{
+	/*
+	fs_grid_t *from_grid, *to_grid;
+	struct msg_player_move_s *player_move = (struct msg_player_move_s *) msg;
+	int cur_x, cur_y, to_x, to_y;
+	struct msg_player_move_s move_info;
+	fs_user_t *user;
+	fs_scene_entry_t *entry;
+	fs_scene_t *scene;
+
+	user = FindUserOnline(uid);
+	// 是否在线 
+	if (!user) {
+		return;
+	}
+
+	entry = &user->entry;
+
+	// 没有初始化
+	if (entry->type != T_ENTRY_USR || !entry->owner ) {
+		return;
+	}
+
+	scene = entry->mygrid->scene;
+
+	cur_x = entry->x;
+	cur_y = entry->y;
+	to_x = player_move->mov_x + cur_x;
+	to_y = player_move->mov_y + cur_y;
+
+	// log_debug(MOD_SCENE, "user move test: %d, %d -> %d, %d\n", cur_x, cur_y, to_x, to_y );
+
+	from_grid = fs_pos_in_grid(scene, cur_x, cur_y);
+	to_grid   = fs_pos_in_grid(scene, to_x, to_y);
+	if (!to_grid) {
+		log_error(MOD_SCENE, "pos unvalid(%d, %d)", to_x, to_y);
+		return;
+	}
+
+	move_info.id = uid;
+	move_info.cur_x = cur_x;
+	move_info.cur_y = cur_y;
+	move_info.mov_x = to_x - cur_x;
+	move_info.mov_y = to_y - cur_y;
+
+	fs_aoi_foreach_neighbor_grids(scene, from_grid, fs_aoi_resp_move, &move_info);
+
+	entry->x = to_x;
+	entry->y = to_y;
+
+	if (from_grid != to_grid) {
+		// AOI响应
+		fs_aoi_foreach_leave_grids(scene, from_grid, to_grid, fs_aoi_resp_leave_field, entry);
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_enter_field, entry);
+		fs_aoi_foreach_leave_grids(scene, to_grid, from_grid, fs_aoi_resp_move, &move_info);
+		if (!entry->npc_data->aoi_area_r) {
+			return;
+		}
+
+		// AOI操作
+		fs_aoi_move(entry, to_grid, from_grid);
+	}
+	*/
+}
+
+// 获得某格子视野的玩家数
+int fs_field_char_num(fs_scene_t *scene, fs_grid_t *grid, int type)
+{
+	int cx, cy, x, y;
+	fs_grid_t *tmpgrid;
+	int count = 0;
+	int scope = scene->aoi_scope;
+
+	cx = grid->grid_x;
+	cy = grid->grid_y;
+
+	for (y = cy - scope; y <= cy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = cx - scope; x <= cx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			tmpgrid = &scene->grids[scene->grid_w * y + x];
+			count += tmpgrid->list[type].count;
+		}
+	}
+	return count;
+}
+
+// 将一个数组转换为一个array
+static array_t *ints_2_array(int *intsp, int num)
+{
+	array_t *vec;
+	int i = 0;
+	if (!num) return NULL;
+
+	vec = allocate_array(num);
+	while (i < num) {
+		vec->item[i].type = T_NUMBER;
+		vec->item[i].u.number = intsp[i];
+		i++;
+	}
+	return vec;
+}
+
+fs_uid_t *fs_field_chars(fs_scene_entry_t *entry, int type, int nofight, int *char_num)
+{
+	int cx, cy, x, y;
+	fs_scene_entry_t *ent, *ent_temp;
+	fs_grid_t *tmpgrid;
+	fs_scene_t *scene;
+	fs_grid_t *grid;
+	int scope;
+
+	if (!entry->mygrid) {
+		return NULL;
+	}
+
+	scene = entry->mygrid->scene;
+	grid = entry->mygrid;
+
+	cx = grid->grid_x;
+	cy = grid->grid_y;
+
+	scope = scene->aoi_scope;
+	global_char_num = 0;
+
+	for (y = cy - scope; y <= cy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = cx - scope; x <= cx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			tmpgrid = &scene->grids[scene->grid_w * y + x];
+			if (tmpgrid->list[type].count) {
+				TAILQ_FOREACH_SAFE(ent, tmpgrid->list[type].head, list, ent_temp) {
+					if ((type == type) && (nofight && ent->user_data->iFighting)) continue;
+					global_charidp[global_char_num++] = ent->owner;
+				}
+			}
+		}
+	}
+
+	*char_num = global_char_num;
+	return global_charidp;
+}
+
+// 获得某格子相对视野的玩家
+fs_uid_t* fs_get_field_players(fs_scene_entry_t *entry, int nofight, int *char_num)
+{
+	return fs_field_chars(entry, T_ENTRY_USR, nofight, char_num);
+}
+
+// 获得在某个区域的npc
+int *fs_get_field_npcs(fs_scene_entry_t *entry, int *char_num)
+{
+	return fs_field_chars(entry, T_ENTRY_NPC, 0, char_num);
+}
+
+// 获得某场景的玩家数
+inline int fs_scene_player_num(fs_scene_t *scene)
+{
+	int x, y;
+	fs_grid_t *tmpgrid;
+	int count = 0;
+
+	for (y = 0; y < scene->grid_h; y++) {
+		for (x = 0; x < scene->grid_w; x++) {
+			tmpgrid = &scene->grids[scene->grid_w * y + x];
+			count += tmpgrid->list[T_ENTRY_USR].count;
+		}
+	}
+	return count;
+}
+
+#define  FS_SCENE_CHARS(scene, notfight, player_num, type) do { \
+	int x, y; \
+	fs_scene_entry_t *ent, *ent_temp; \
+	fs_grid_t *tmpgrid; \
+	global_char_num = 0; \
+	for (y = 0; y < scene->grid_h; y++) { \
+		for (x = 0; x < scene->grid_w; x++) { \
+			tmpgrid = &scene->grids[scene->grid_w * y + x]; \
+			if (tmpgrid->list[type].count) { \
+				TAILQ_FOREACH_SAFE(ent, tmpgrid->list[type].head, list, ent_temp) { \
+					if (notfight && ent->user_data->iFighting) continue; \
+					global_charidp[global_char_num++] = ent->owner; \
+				} \
+			} \
+		} \
+	} \
+	*player_num = global_char_num; \
+	return global_charidp; \
+} while(0)
+
+// 获得某场景的玩家
+fs_uid_t * fs_scene_players(fs_scene_t *scene, int notfight, int *player_num)
+{
+	FS_SCENE_CHARS(scene, notfight, player_num, T_ENTRY_USR);
+}
+
+// 获得某场景的玩家
+fs_uid_t * fs_scene_npcs(fs_scene_t *scene, int notfight, int *player_num)
+{
+	FS_SCENE_CHARS(scene, notfight, player_num, T_ENTRY_NPC);
+}
+
+// 获得在某NPC感应区内的所有NPC
+inline array_t * fs_get_my_field_chars(fs_scene_entry_t *entry, int type)
+{
+	int cx, cy, x, y;
+	fs_scene_entry_t *ent, *ent_temp;
+	fs_grid_t *tmpgrid;
+	fs_scene_t *scene;
+	fs_grid_t *grid;
+	int dx, dy, dr, aoi_r;
+	int scope;
+
+	if (!entry->mygrid) {
+		return NULL;
+	}
+
+	// 没有感应区域
+	if (!entry->npc_data->aoi_area_r) {
+		return NULL;
+	}
+
+	scene = entry->mygrid->scene;
+	grid = entry->mygrid;
+	scope = scene->aoi_scope;
+
+	cx = grid->grid_x;
+	cy = grid->grid_y;
+
+	global_char_num = 0;
+
+	aoi_r  = entry->npc_data->aoi_area_r * entry->npc_data->aoi_area_r;
+	for (y = cy - scope; y <= cy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = cx - scope; x <= cx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			tmpgrid = &scene->grids[scene->grid_w * y + x];
+			if (tmpgrid->list[type].count) {
+				TAILQ_FOREACH_SAFE(ent, tmpgrid->list[type].head, list, ent_temp) {
+					if (ent->owner == entry->owner) {
+						continue;
+					}
+					dx = abs(ent->x - entry->x);
+					dy = abs(ent->y - entry->y);
+					dr = dx * dx + dy * dy;
+					if (dr <= aoi_r) {
+						global_charidp[global_char_num++] = ent->owner;
+					}
+				}
+			}
+		}
+	}
+
+	if (!global_char_num) {
+		return NULL;
+	}
+	return ints_2_array(global_charidp, global_char_num);
+}
+
+// 获得在某NPC周围能够感应到自己的NPC
+inline array_t * fs_get_contain_field_npcs(fs_scene_entry_t *entry)
+{
+	int cx, cy, x, y;
+	fs_scene_entry_t *ent, *ent_temp;
+	fs_grid_t *tmpgrid;
+	fs_scene_t *scene;
+	fs_grid_t *grid;
+	int dx, dy, dr, aoi_r;
+	int scope;
+
+	if (!entry->mygrid) {
+		return NULL;
+	}
+
+	scene = entry->mygrid->scene;
+	grid = entry->mygrid;
+	scope = scene->aoi_scope;
+	cx = grid->grid_x;
+	cy = grid->grid_y;
+
+	global_char_num = 0;
+	for (y = cy - scope; y <= cy + scope; y++) {
+		if (y < 0 || y >= scene->grid_h) continue;
+		for (x = cx - scope; x <= cx + scope; x++) {
+			if (x < 0 || x >= scene->grid_w) continue;
+			tmpgrid = &scene->grids[scene->grid_w * y + x];
+			if (tmpgrid->list[T_ENTRY_NPC].count) {
+				TAILQ_FOREACH_SAFE(ent, tmpgrid->list[T_ENTRY_NPC].head, list, ent_temp) {
+					if (ent->owner == entry->owner) {
+						continue;
+					}
+					// 没有感应区域
+					if (!ent->npc_data->aoi_area_r) {
+						continue;
+					}
+					aoi_r  = ent->npc_data->aoi_area_r * ent->npc_data->aoi_area_r;
+					dx = abs(ent->x - entry->x);
+					dy = abs(ent->y - entry->y);
+					dr = dx * dx + dy * dy;
+					if (dr <= aoi_r) {
+						global_charidp[global_char_num++] = ent->owner;
+					}
+				}
+			}
+		}
+	}
+	if (!global_char_num) {
+		return NULL;
+	}
+	return ints_2_array(global_charidp, global_char_num);
+}
+
+// 获得玩家视野的玩家
+// notfight : 是否在战斗中
+fs_scene_entry_t *fs_get_user_entry(int uid)
+{
+	fs_user_t *user;
+	fs_scene_entry_t *entry;
+
+	user = FindUserOnline(uid);
+
+	if (!user) {
+		return NULL;
+	}
+
+	entry = &user->entry;
+	// 未初始化
+	if (entry->type != T_ENTRY_USR || !entry->owner ) {
+		return NULL;
+	}
+	return entry;
+}
+
+fs_scene_entry_t *fs_get_npc_entry(int npcid)
+{
+	fs_scene_entry_t *entry;
+
+	entry = fs_find_npc_entry(npcid);
+
+	if (!entry) {
+		return NULL;
+	}
+
+	if (entry->type != T_ENTRY_NPC || !entry->owner ) {
+		return NULL;
+	}
+	return entry;
+}
+
+// uid: 走路玩家
+// 设置走路方式
+inline void fs_set_user_run_method(fs_user_t *user, int run_method)
+{
+	user->entry.run_method = run_method;
+}
+
+// 设置走路地形
+inline void fs_set_user_run_terrain(fs_user_t *user, int run_terrain)
+{
+	user->entry.run_terrain = run_terrain;
+}
+
+// 设置走路速度
+inline void fs_set_user_run_speed(fs_user_t *user, int speed)
+{
+	user->entry.speed = speed;
+}
+
+inline int fs_get_user_run_speed(fs_user_t *user)
+{
+	return user->entry.speed;
+}
+
+// ====================================================
+// efun
+
+void f_player_enter_scene(void)
+{
+	int uid, scene, x, y, ret;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	scene = ARGS(1)->u.number;
+	x = ARGS(2)->u.number;
+	y = ARGS(3)->u.number;
+	ret = fs_player_enter_scene(uid, x, y, scene, 1);
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_player_enter_pos(void)
+{
+	int uid, scene, x, y, ret;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	scene = ARGS(1)->u.number;
+	x = ARGS(2)->u.number;
+	y = ARGS(3)->u.number;
+	ret = fs_player_enter_scene(uid, x, y, scene, 0);
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_refresh_player(void)
+{
+	int uid, broadcast = 0;
+	fs_user_t *user;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	broadcast = ARGS(1)->u.number;
+	POP_ALL_ARGS
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		return;
+	}
+	fs_refresh_player(user, broadcast);
+}
+
+void f_refresh_npc(void)
+{
+	int npcid;
+	SET_ALL_ARGS
+	npcid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+	fs_refresh_npc(npcid, 1);
+}
+
+void f_npc_enter_scene(void)
+{
+	int npc, scene, x, y, ret;
+	SET_ALL_ARGS
+	npc = ARGS(0)->u.number;
+	scene = ARGS(1)->u.number;
+	x = ARGS(2)->u.number;
+	y = ARGS(3)->u.number;
+	ret = fs_npc_enter_scene(npc, x, y, scene);
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_npc_reenter_scene(void)
+{
+	int npc, scene, x, y, ret;
+	SET_ALL_ARGS
+	npc = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	fs_scene_entry_t * entry = fs_find_npc_entry(npc);
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npc);
+		goto ret_null;
+	}
+	sync_npc_pos(entry);
+
+	scene = entry->z;
+	x = entry->x;
+	y = entry->y;
+
+	ret = fs_npc_enter_scene(npc, x, y, scene);
+	push_number(ret);
+	return;
+ret_null:
+	push_number(0);
+}
+
+// NPC走路
+void f_npc_walk(void)
+{
+	SET_ALL_ARGS
+	int ret = fs_npc_move(ARGS(0)->u.number, ARGS(1)->u.number, ARGS(2)->u.string, 1);
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_user_move(void)
+{
+	SET_ALL_ARGS
+	int ret = fs_player_move(ARGS(0)->u.number, 0, ARGS(1)->u.number, ARGS(2)->u.string, ARGS(3)->u.number);
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_npc_goto_pos(void)
+{
+	SET_ALL_ARGS
+	fs_scene_entry_t *entry;
+	int npcid = ARGS(0)->u.number;
+	int ret = 0;;
+
+	entry = fs_find_npc_entry(npcid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		goto ret_null;
+	}
+
+	sync_npc_pos(entry);
+
+	ret = fs_entry_goto_pos(entry, ARGS(1)->u.number, ARGS(2)->u.number, ARGS(3)->u.number, ARGS(4)->u.number, 1);
+
+ret_null:
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+// 延时进入目标位置
+void f_npc_delay_goto_pos(void)
+{
+	SET_ALL_ARGS
+	fs_scene_entry_t *entry;
+	int npcid = ARGS(0)->u.number;
+	int speed = ARGS(1)->u.number;
+	svalue_t *pos = ARGS(2);
+	int is_walk = ARGS(3)->u.number;
+	int not_check = ARGS(4)->u.number;
+	int acc_index;
+	int to_x, to_y;
+	int delay_time = 0;
+
+	if (!IS_LPC_ARR(pos) || LPC_ARR_SIZE(pos) != 2) {
+		goto ret_null;
+	}
+
+	to_x = LPC_ARR_ITEM(pos,0)->u.number;
+	to_y = LPC_ARR_ITEM(pos,1)->u.number;
+
+	entry = fs_find_npc_entry(npcid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		goto ret_null;
+	}
+
+	sync_npc_pos(entry);
+
+	if (!find_entry_next_pos(entry, &to_x, &to_y, &acc_index, !not_check)) {
+		goto ret_null;
+	}
+
+	// speed表示每一步需要的msec
+
+	int r = sqrt((to_x - entry->x) * (to_x - entry->x) + (to_y - entry->y) * (to_y - entry->y));
+	delay_time = r * speed;
+
+	fs_npc_object_t *npc_ob = entry->npc_data;
+
+	npc_ob->start_walk_msec = get_cur_time_msec();
+	npc_ob->walk_msec = delay_time;
+	npc_ob->is_walk = is_walk;
+	npc_ob->to_x = to_x;
+	npc_ob->to_y = to_y;
+	npc_ob->to_z = entry->z;
+
+	// log_error(MOD_SCENE, "npc[%d] delay goto(%d,%d)", npcid, to_x, to_y);
+
+	// 发送走路协议，暂时不同步坐标
+	// fs_entry_goto_pos(entry, to_x, to_y, is_walk, not_check, 0);
+
+	fs_entry_do_goto_pos(entry, to_x, to_y, acc_index, is_walk, 0);
+
+ret_null:
+	POP_ALL_ARGS
+	push_number(delay_time);
+}
+
+void f_user_goto_pos(void)
+{
+	SET_ALL_ARGS
+	fs_scene_entry_t *entry;
+	int uid = ARGS(0)->u.number;
+	int ret = 0;
+
+	entry = fs_get_user_entry(uid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_null;
+	}
+
+	if (entry->user_data->iFighting) {
+		log_error(MOD_SCENE, "user[%d] in fight", uid);
+		goto ret_null;
+	}
+
+	ret = fs_entry_goto_pos(entry, ARGS(1)->u.number, ARGS(2)->u.number, ARGS(3)->u.number, ARGS(4)->u.number, 1);
+
+ret_null:
+	POP_ALL_ARGS
+	push_number(ret);
+}
+
+void f_set_user_run_speed(void)
+{
+	SET_ALL_ARGS
+	fs_user_t *user;
+	int uid = ARGS(0)->u.number;
+	int speed = ARGS(1)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		return;
+	}
+	fs_set_user_run_speed(user, speed);
+}
+
+void f_get_user_run_speed(void)
+{
+	SET_ALL_ARGS
+	fs_user_t *user;
+	int uid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		push_number(0);
+		return;
+	}
+	push_number(fs_get_user_run_speed(user));	
+}
+
+void f_set_user_fly(void)
+{
+	SET_ALL_ARGS
+	fs_user_t * user;
+	int uid = ARGS(0)->u.number;
+	int flytool = ARGS(1)->u.number;
+	int speed = ARGS(2)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_null;
+	}
+
+	if (flytool) {
+		fs_set_user_run_method(user, T_RUN_FLY);
+		fs_set_user_run_terrain(user, 0);
+		user->entry.flytoolid = flytool;
+		fs_set_user_run_speed(user, speed);
+	} else {
+		fs_set_user_run_method(user, T_RUN_NORMAL);
+		fs_set_user_run_terrain(user, 0);
+		fs_set_user_run_speed(user, 0);
+	}
+
+ret_null:
+	return;
+}
+
+
+// 设置人物走路方式(普通，飞行, 遁)
+void f_set_user_run_method(void)
+{
+	fs_user_t * user;
+	SET_ALL_ARGS
+	int uid = ARGS(0)->u.number;
+	int method = ARGS(1)->u.number;
+	int terrain = ARGS(2)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_null;
+	}
+
+	fs_set_user_run_method(user, method);
+	fs_set_user_run_terrain(user, terrain);
+ret_null:
+	return;
+}
+
+void f_is_user_fly(void)
+{
+	fs_user_t * user;
+	int uid;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_null;
+	}
+	if (user->entry.run_method == T_RUN_FLY) {
+		push_number(1);
+		return;
+	}
+ret_null:
+	push_number(0);
+}
+
+void f_set_npc_fly(void)
+{
+	fs_scene_entry_t *entry;
+	int npcid;
+	int bfly;
+	SET_ALL_ARGS
+	npcid = ARGS(0)->u.number;
+	bfly = ARGS(1)->u.number;
+	POP_ALL_ARGS
+
+	entry = fs_find_npc_entry(npcid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "npc[%d] is not exist", npcid);
+		return;
+	}
+
+	entry->run_method = T_RUN_FLY;
+}
+
+void f_set_summon_follow(void)
+{
+	fs_user_t * user;
+	int uid, follow_id;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	follow_id = ARGS(1)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_error;
+	}
+	user->follow_summon = follow_id;
+
+	push_number(1);
+	return;
+ret_error:
+	push_number(0);
+	return;
+}
+
+void f_set_summon_hide(void)
+{
+	fs_user_t * user;
+	int uid;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		return;
+	}
+	
+	user->follow_summon = 0;
+	/*
+	user->follow_summon.icon = 0;
+	if (user->follow_summon.name) {
+		free_svalue(user->follow_summon.name, "set_summon_hide");
+	}
+	user->follow_summon.name = NULL;
+	*/
+}
+
+void f_get_follow_summon(void)
+{
+	fs_user_t * user;
+	int uid;
+	SET_ALL_ARGS
+	uid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	user = FindUserOnline(uid);
+	if (!user) {
+		log_error(MOD_SCENE, "user[%d] is not exist", uid);
+		goto ret_error;
+	}
+	push_number(user->follow_summon);
+	return;
+ret_error:
+	push_number(0);
+}
+
+void f_get_my_field_npcs(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	array_t *field_npcs;
+	POP_ALL_ARGS
+	
+	entry = fs_find_npc_entry(charid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d] is not exist", charid);
+		goto ret_null;
+	}
+	field_npcs = fs_get_my_field_chars(entry, T_ENTRY_NPC);
+
+	if (!field_npcs) {
+		goto ret_null;
+	}
+
+	push_refed_array(field_npcs);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_get_my_field_users(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	array_t *field_usrs;
+	POP_ALL_ARGS
+	
+	entry = fs_find_npc_entry(charid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d] is not exist", charid);
+		goto ret_null;
+	}
+	field_usrs = fs_get_my_field_chars(entry, T_ENTRY_USR);
+
+	if (!field_usrs) {
+		goto ret_null;
+	}
+
+	push_refed_array(field_usrs);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_get_contain_field_npcs(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	int is_user = ARGS(1)->u.number;
+	array_t *field_npcs;
+	POP_ALL_ARGS
+	
+	if (is_user) {
+		entry = fs_get_user_entry(charid);
+	}
+	else {
+		entry = fs_find_npc_entry(charid);
+	}
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d:%d] is not exist", charid, is_user);
+		// throw_error();
+		goto ret_null;
+	}
+	field_npcs = fs_get_contain_field_npcs(entry);
+
+	if (!field_npcs) {
+		goto ret_null;
+	}
+
+	push_refed_array(field_npcs);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_get_scene_players(void)
+{
+	SET_ALL_ARGS
+	int sceneid = ARGS(0)->u.number;
+	array_t *users;
+	fs_scene_t *scene;
+	int *players;
+	int num;
+
+	POP_ALL_ARGS
+	
+	scene = fs_find_scene_node(sceneid);
+	if (!scene) {
+		log_error(MOD_SCENE, "scene[%d] is not exist", sceneid);
+		// throw_error();
+		goto ret_null;
+	}
+
+	players = fs_scene_players(scene, 0, &num);
+
+	if (!num) {
+		goto ret_null;
+	}
+	users = ints_2_array(players, num);
+	push_refed_array(users);
+	return;
+ret_null:
+	push_svalue(&const0u);
+
+}
+
+void f_get_scene_npcs(void)
+{
+	SET_ALL_ARGS
+	int sceneid = ARGS(0)->u.number;
+	array_t *arr_npcs;
+	fs_scene_t *scene;
+	int *npcs;
+	int num;
+
+	POP_ALL_ARGS
+	
+	scene = fs_find_scene_node(sceneid);
+	if (!scene) {
+		log_error(MOD_SCENE, "scene[%d] is not exist", sceneid);
+		// throw_error();
+		goto ret_null;
+	}
+
+	npcs = fs_scene_npcs(scene, 0, &num);
+
+	if (!num) {
+		goto ret_null;
+	}
+	arr_npcs = ints_2_array(npcs, num);
+	push_refed_array(arr_npcs);
+	return;
+ret_null:
+	push_svalue(&const0u);
+
+}
+
+void f_get_field_players(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	int is_user = ARGS(1)->u.number;
+	int nofight = ARGS(2)->u.number;
+	int *players;
+	int player_num;
+	array_t *field_chars;
+	POP_ALL_ARGS
+	
+	if (is_user) {
+		entry = fs_get_user_entry(charid);
+	}
+	else {
+		entry = fs_find_npc_entry(charid);
+	}
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d : %d] is not exist", charid, is_user);
+		// throw_error();
+		goto ret_null;
+	}
+	players = fs_get_field_players(entry, nofight, &player_num);
+
+	if (!player_num) {
+		goto ret_null;
+	}
+	field_chars = ints_2_array(players, player_num);
+
+	push_refed_array(field_chars);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_get_field_npcs(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	int is_user = ARGS(1)->u.number;
+	int *npcs;
+	int npc_num = 0;
+	array_t *field_chars;
+	POP_ALL_ARGS
+	
+	if (is_user) {
+		entry = fs_get_user_entry(charid);
+	}
+	else {
+		entry = fs_find_npc_entry(charid);
+	}
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d : %d] is not exist", charid, is_user);
+		// throw_error();
+		goto ret_null;
+	}
+	npcs = fs_get_field_npcs(entry, &npc_num);
+	if (!npc_num) {
+		goto ret_null;
+	}
+	field_chars = ints_2_array(npcs, npc_num);
+
+	push_refed_array(field_chars);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_find_blank_cell(void)
+{
+	SET_ALL_ARGS
+	int sceneid = ARGS(0)->u.number;
+	int x = ARGS(1)->u.number;
+	int y = ARGS(2)->u.number;
+	array_t *vec;
+	fs_scene_t *scene;
+
+	POP_ALL_ARGS
+
+	scene = fs_find_scene_node(sceneid);
+	if (!scene) {
+		log_error(MOD_SCENE, "scene[%d] is not exist", sceneid);
+		// throw_error();
+		goto ret_null;
+	}
+
+	if (POS_NOT_VALID(scene, x, y)) {
+		log_error(MOD_SCENE, "scene[%d,%d,%d] is not exist", sceneid, x, y);
+		goto ret_null;
+	}
+
+	if (fs_is_block_or_jump_cell(scene, x, y)) {
+		fs_find_blank_cell(scene, &x, &y);
+	}
+	vec = allocate_array(3);
+	vec->item[0].type = T_NUMBER;
+	vec->item[0].u.number = sceneid;
+	vec->item[1].type = T_NUMBER;
+	vec->item[1].u.number = x;
+	vec->item[2].type = T_NUMBER;
+	vec->item[2].u.number = y;
+	push_refed_array(vec);
+	return;
+ret_null:
+	push_svalue(&const0u);
+}
+
+void f_is_block_cell(void)
+{
+	SET_ALL_ARGS
+	int sceneid = ARGS(0)->u.number;
+	int x = ARGS(1)->u.number;
+	int y = ARGS(2)->u.number;
+	fs_scene_t *scene;
+
+	POP_ALL_ARGS
+
+	scene = fs_find_scene_node(sceneid);
+	if (!scene) {
+		log_error(MOD_SCENE, "scene[%d] is not exist", sceneid);
+		push_number(-1);
+		return;
+	}
+
+	if (POS_NOT_VALID(scene, x, y)) {
+		// log_error(MOD_SCENE, "scene[%d,%d,%d] is not exist", sceneid, x, y);
+		push_number(-1);
+		return;
+	}
+
+	if (fs_is_block_cell(scene, x, y)) {
+		push_number(1);
+		return;
+	}
+	push_number(0);
+}
+
+void f_set_run_hook(void)
+{
+	SET_ALL_ARGS
+	int id = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	fs_scene_entry_t *entry = fs_get_user_entry(id);
+	if (!entry) {
+		entry = fs_get_npc_entry(id);
+		if (!entry) {
+			return;
+		}
+	}
+	entry->run_hook = 1;
+}
+
+void f_set_char_camp(void)
+{
+	SET_ALL_ARGS
+	int id = ARGS(0)->u.number;
+	int camp = ARGS(1)->u.number;
+	POP_ALL_ARGS
+
+	fs_scene_entry_t *entry = fs_get_user_entry(id);
+	if (!entry) {
+		entry = fs_get_npc_entry(id);
+		if (!entry) {
+			return;
+		}
+	}
+	entry->camp = camp;
+}
+
+void f_get_char_camp(void)
+{
+	SET_ALL_ARGS
+	int id = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	fs_scene_entry_t *entry = fs_get_user_entry(id);
+	if (!entry) {
+		entry = fs_get_npc_entry(id);
+		if (!entry) {
+			push_number(-1);
+			return;
+		}
+	}
+	push_number(entry->camp);
+}
+
+void f_sync_user_pos(void)
+{
+	SET_ALL_ARGS
+	int uid = ARGS(0)->u.number;
+	int target = ARGS(1)->u.number;
+	fs_grid_t *target_grid;
+	POP_ALL_ARGS
+
+	// 将uid拉到target的位置
+	fs_scene_entry_t *entry = fs_get_user_entry(uid);
+	fs_scene_entry_t *target_entry = fs_get_user_entry(target);
+	if (!entry || !target_entry) {
+		return;
+	}
+	target_grid = target_entry->mygrid;
+	if (target_grid) {
+		entry->z = target_entry->z;
+		entry->x = target_entry->x;
+		entry->y = target_entry->y;
+		fs_scene_element_t el;
+		el.type = ELE_TYPE_CHAR;
+		el.element = entry;
+		fs_aoi_foreach_neighbor_grids(target_grid->scene, target_grid, fs_aoi_resp_enter_field, &el);
+		fs_aoi_leave_grid(entry);
+		fs_aoi_enter_grid(entry, target_grid);
+		// 接受grid的信息
+	}
+}
+
+void f_sync_npc_pos(void)
+{
+	fs_scene_entry_t *entry;
+	SET_ALL_ARGS
+	int charid = ARGS(0)->u.number;
+	POP_ALL_ARGS
+	
+	entry = fs_find_npc_entry(charid);
+
+	if (!entry) {
+		log_error(MOD_SCENE, "char[%d] is not exist", charid);
+		return;
+	}
+	sync_npc_pos(entry);
+}
+
+void f_set_grid_move_max(void)
+{
+	SET_ALL_ARGS
+	int move_max = ARGS(0)->u.number;
+	POP_ALL_ARGS
+
+	if (move_max > 0) {
+		gGridCountLimit = move_max;
+	}
+}
+
+void f_set_walk_args(void)
+{
+	SET_ALL_ARGS
+	int blk_cnt = ARGS(0)->u.number;
+	int walk_step_cnt = ARGS(1)->u.number;
+	POP_ALL_ARGS
+
+	if (blk_cnt >= 0) {
+		gBlockCount = blk_cnt;
+	}
+	if (walk_step_cnt >= 0) {
+		gWalkSecondStep = walk_step_cnt;
+	}
+}
+
+void debug_array(char *debugstr, int n, fs_int_array_t *arr)
+{
+	int i = 0;
+	if (!arr) {
+		debug_message("%s %d NULL", debugstr, n);
+		return;
+	}
+	debug_message("%s %d %d:", debugstr, n, arr->n);
+	while (i < arr->size) {
+		debug_message("%d,", arr->intp[i]);
+		i++;
+	}
+	debug_message("\n");
+	debug_message("\n");
+}
+

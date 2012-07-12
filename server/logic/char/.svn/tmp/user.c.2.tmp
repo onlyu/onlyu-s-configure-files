@@ -1,0 +1,554 @@
+// 用户数据文件
+// ------------------------------------------------------
+// 本文件将只存放一个用户的数据
+// 对数据测操作，请参照char/user_op.c
+// 引擎中会存贮用户数据，脚本管理char/user_op实例
+// 在char/user_op中会缓存用户数据的实例
+// ------------------------------------------------------
+
+static object logger;
+void setProp(mixed key, mixed value);
+varargs mixed getTemp(mixed key, mixed defValue);
+void setTemp(mixed key, mixed defValue);
+
+#include <macros.h>
+// 数据include from user_data
+#include <user_data.h>
+#include <user_key.h>
+#include <debug.h>
+#include "/char/item_op.h"
+#include "/char/summon_op.h"
+#include "/rc/rpc/user_cmd.h"
+#include <frames.h>
+//////////////////////////////////////////////////////////
+//返回值声明区
+static int GRADE_UP=1;
+static int GRADE_STAY=0;
+//////////////////////////////////////////////////////////
+
+
+void giveTestSummons()
+{
+	int* testSummonTypes = ({11000, 22013, 21044, 12012, 11001, 41041 });
+	foreach (int summonType in testSummonTypes)
+	{
+		int summonId = Import("SUMMON_UTIL")->addNewSummonByType(this_object(), summonType);
+		debug_message(sprintf("givetestsummon id=%d", summonId));
+	}
+}
+
+void giveTestItems()
+{
+	Import("ITEM_UTIL")->addNewItem(this_object(), "ZH0001", 3, ITEM_BAG_NORMAL);
+	Import("ITEM_UTIL")->addNewItem(this_object(), "EQ0001", 6, ITEM_BAG_NORMAL);
+}
+
+static int checkUpGrade();
+int upGrades();
+int calNextExp();
+int getGrade();
+int getExp();
+void addExp(int expAdded);
+int getHP();
+private void onUpOneGrade();
+private void onUpGrades();
+int getBaseProp(int grade);
+int getBuzhengNaili(int grade);
+int getNaili(int grade);
+int getFujiaNaili();
+void restoreAllTempAttr();
+
+void RestoreAllItem();
+void MoveItem(int itemId, int badId, int pos);
+
+
+int getHeroFightPos()
+{
+	return prop[K_USER_FIGHT_POS];
+}
+
+void setHeroFightPos(int pos)
+{
+	prop[K_USER_FIGHT_POS] = pos;
+}
+
+void restoreAllSummon()
+{
+	//restore Summon
+	//add summon to frames
+	//send info to client
+	foreach(int bagId, mapping mpSummons in summon) 
+	{
+		foreach( int pos, mapping mpSave in mpSummons) 
+		{
+			int summonId;
+			
+			if (catch(summonId = Import("SUMMON_UTIL")->restoreSummon(mpSave)) != 0) {
+				debug_message(sprintf("[%d] pos[%d] load summon error: %O", usernum, pos, mpSave));
+				continue;
+			}
+
+			assert(summonId > 0);
+/*
+
+			if (ItemIsTimeOut( ItemId ))
+			{
+				//DestroyItem( ItemId );
+				continue;
+			}
+*/
+			debug_message("restore one Summon");
+			addRestoreSummon(summonId, bagId, pos);
+			addSummonType(mpSave[I_SUMM_TYPE]);
+		}
+	}
+}
+
+varargs mixed getProp(mixed key, mixed defValue)
+{
+	mixed v = prop[key];
+
+	if (undefinedp(v) && !undefinedp(defValue)) {
+		prop[key] = defValue;
+		return defValue;
+	} else {
+		return v;
+	}
+}
+
+void setProp(mixed key, mixed value)
+{
+	prop[key] = value;
+}
+
+void delProp(mixed key)
+{
+	map_delete(prop, key);	
+}
+
+void setTemp(mixed key, mixed val)
+{
+	temp_var[key] = val;
+	return;
+}
+
+void delTemp(mixed key)
+{
+	map_delete(temp_var, key);
+}
+
+varargs mixed getTemp(mixed key, mixed defValue)
+{
+	mixed v = temp_var[key];
+
+	if (undefinedp(v) && !undefinedp(defValue)) {
+		temp_var[key] = defValue;
+		return defValue;
+	} else {
+		return v;
+	}
+}
+
+
+void RestoreAllItem()
+{
+	debug_message("enter Restore All Item");
+	foreach(int iBagId, mapping mpItems in item) 
+	{
+		foreach( int iPos, mapping mpSave in mpItems) 
+		{
+			int ItemId;
+			
+			if (catch(ItemId = Import("ITEM_UTIL")->restoreItem(mpSave)) != 0) {
+				debug_message(sprintf("[%d] pos[%d] load item error: %O", usernum, iPos, mpSave));
+				continue;
+			}
+
+			assert(ItemId > 0);
+/*
+
+			if (ItemIsTimeOut( ItemId ))
+			{
+				//DestroyItem( ItemId );
+				continue;
+			}
+*/
+			debug_message("restoreOneItem Item");
+			AddRestoreItem(ItemId, iBagId, iPos);
+		}
+	}
+}
+void initFellowFightPlate()
+{
+}
+
+string getName()
+{
+	return prop[K_USER_NAME];
+}
+
+void setName(string name)
+{
+	prop[K_USER_NAME] = name;
+}
+
+
+int getGrade()
+{
+	return prop[K_USER_GRADE];
+}
+
+int getId()
+{
+	return usernum;
+}
+
+
+int getMaxHP()
+{
+
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_MAX_HP];
+}
+
+
+int getDefence()
+{
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_DEFENCE];
+}
+
+
+
+int getQiangfa()
+{
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_QIANGFA];
+}
+
+
+int getKangfa()
+{
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_KANGFA];
+}
+
+
+int getSpeed()
+{
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_SPEED];
+}
+
+private mapping calculateBaseAttr_()
+{
+	int grade = getGrade();
+	int growRate = 10;
+	mapping baseAttr = ([]);
+	baseAttr[KT_USER_NAILI] =  to_int(pow(grade,1.2)/5*10);
+	baseAttr[KT_USER_LILIANG] =  to_int(pow(grade,1.2)/5*10);
+	baseAttr[KT_USER_ZHILI] =  to_int(pow(grade,1.2)/5*10);
+	baseAttr[KT_USER_MINJIE] =  to_int(pow(grade,1.2)/5*10);
+	return baseAttr;
+}
+
+
+void calculateAllAttr()
+{
+	/*
+	//主属性 
+	mapping baseAttr = ([]);
+	
+	mapping equipAttr = ([]);
+
+	// 力量，敏捷
+	mapping total = ([]);
+
+
+	// 计算攻击，速度.. 速度百分比
+
+	*/
+	temp_att = ([]);
+	mapping baseAttr = calculateBaseAttr_();
+	mapping equipAttr = ([]);
+	mapping finalAttr = ([]);
+
+	// TODO: 装备属性计算
+	equipAttr[KT_USER_MAX_HP] = 0;
+	equipAttr[KT_USER_DEFENCE] = 0;
+	equipAttr[KT_USER_ATTACK] = 0;
+	equipAttr[KT_USER_QIANGFA] = 0;
+	equipAttr[KT_USER_KANGFA] = 0;
+	equipAttr[KT_USER_SPEED] = 0;
+
+	finalAttr[KT_USER_MAX_HP] = equipAttr[KT_USER_MAX_HP] + to_int(baseAttr[KT_USER_NAILI] * 5);
+	finalAttr[KT_USER_DEFENCE] = equipAttr[KT_USER_DEFENCE] + to_int(baseAttr[KT_USER_LILIANG] * 0.5);
+	finalAttr[KT_USER_ATTACK] = equipAttr[KT_USER_ATTACK] + to_int(baseAttr[KT_USER_LILIANG] * 1.5);
+	finalAttr[KT_USER_QIANGFA] = equipAttr[KT_USER_QIANGFA] + to_int(baseAttr[KT_USER_ZHILI] * 1.5);
+	finalAttr[KT_USER_KANGFA] = equipAttr[KT_USER_KANGFA] + to_int(baseAttr[KT_USER_ZHILI] * 0.5);
+	finalAttr[KT_USER_SPEED] = equipAttr[KT_USER_SPEED] + to_int(baseAttr[KT_USER_MINJIE] * 1);
+
+	temp_att[KT_USER_FIGHT_BASE] = baseAttr;
+	temp_att[KT_USER_FIGHT_FINAL] = finalAttr;
+	prop[K_USER_HP_KEY] = finalAttr[KT_USER_MAX_HP];
+}
+
+int getAttack()
+{
+	return temp_att[KT_USER_FIGHT_FINAL][KT_USER_ATTACK];
+}
+
+int getHeroFightMatrixPos()
+{
+	return prop[K_USER_FIGHT_POS];
+}
+
+void initHeroFightPos()
+{
+	if (undefinedp(prop[K_USER_FIGHT_POS]))
+		prop[K_USER_FIGHT_POS] = 5;
+}
+
+static void setup(int uid)
+{
+	//restoreAllTempAttr();
+	//todo remove me!!
+	//prop[K_USER_ICON] = 10001;
+	//prop[K_USER_LAYOUT] = 10001;
+	//prop[K_USER_Z] = 1001;
+	//
+	//初始化玩家战斗位置
+	calculateAllAttr();
+	initItemFrames();
+	RestoreAllItem();
+
+
+	/*
+	InitSummonFrames();
+
+	catch(RestoreItem());
+	catch(RestoreSummon());
+	// 计算人物属性
+	*/
+	
+	int x = prop[K_USER_X];
+	int y = prop[K_USER_Y];
+	int z = prop[K_USER_Z];
+	"char/user_cmd"->new_hero(this_object());
+	player_enter_scene(uid, z, x, y);
+	debug_message(sprintf("uid:%d enter scene z:%d, x:%d, y:%d\n", uid, z, x, y));
+	"char/user_cmd"->rpc_server_hero_specinfo(this_object());
+
+	initHeroFightPos();
+	initSummonGlobalKeyMap();
+	initSummonFrames();
+	restoreAllSummon();
+	initFightMatrix();
+}
+
+void test(object user)
+{
+	"module/fight/main"->test(user);
+}
+
+static void commonLoginCheck(object user)
+{
+	Import("MISSION_MAIN")->loginCheck(user);
+}
+
+static void firstLoginCheck(object user)
+{
+        commonLoginCheck(user);
+        Import("MISSION_MAIN")->firstLogin(user);
+}
+
+static void loginCheck(object user)
+{
+	commonLoginCheck(user);
+}
+
+void onUserLoad(int uid)
+{
+	usernum = uid;
+	setup(uid);
+	loginCheck(this_object());
+}
+
+static void init(int uid, int icon, string name)
+{
+	usernum = uid;
+	prop[K_USER_NAME] = name;
+	prop[K_USER_ICON] = icon;
+	prop[K_USER_GRADE] = 1;
+	prop[K_USER_CASH] = 0;
+	prop[K_USER_X] = 600;
+	prop[K_USER_Y] = 500;
+	prop[K_USER_Z] = 1001;
+
+	prop[K_USER_CREATED_TIME] = time();
+}
+
+void born(int uid, int icon, string name)
+{
+        debug_message("new user born, uid:%d, icon:%d, name:%s", uid, icon, name);
+	init(uid, icon, name);
+	setup(uid);
+	Import("DB")->new_user(this_object());
+	giveTestSummons();
+	giveTestItems();
+    firstLoginCheck(this_object());
+}
+
+string getUMS()
+{
+        return "jun37213721";
+}
+
+mapping getMission()
+{
+        return mission;
+}
+
+// ------------------------------------------------------------------------------
+
+
+int getExp()
+{
+	return prop[K_USER_EXP];
+}
+
+int getHP()
+{
+	return to_int(prop[K_USER_HP_KEY]);
+}
+
+int getGradeUpExp(int iGrade)
+{
+	mapping gradeExpDict =  "data/user/exp"->get_data();
+        return gradeExpDict[iGrade]["expr"];
+}
+
+int getMaxExp(int grade)
+{
+	return getGradeUpExp(grade);
+}
+
+int checkUpGrade()
+{
+	int grade = getGrade();
+        int exp = getExp();
+        int gradeUpExp = getGradeUpExp(grade);
+	if (exp > gradeUpExp)
+		return GRADE_UP;
+	return GRADE_STAY;
+}
+
+void addExp(int expAdded)
+{
+	if (expAdded <= 0)
+		return;
+	prop[K_USER_EXP] += expAdded;	
+	upGrades();
+	return;
+}
+
+private void onUpOneGrade()
+{
+	int oldGrade = prop[K_USER_GRADE];
+	int newGrade = prop[K_USER_GRADE] = oldGrade + 1;
+	int exp = getExp();
+	int oldGradeMaxExp = getMaxExp(oldGrade);
+	int newExp = exp - oldGradeMaxExp;
+	if (newExp < 0)
+		return;
+	prop[K_USER_EXP] = newExp;
+	//restoreAllTempAttr();
+	prop[K_USER_HP_KEY] = getMaxHP();
+	class HeroGradeUpInfo gradeUpInfo = new(class HeroGradeUpInfo);
+	gradeUpInfo->hp = gradeUpInfo->maxHP = getMaxHP();
+	gradeUpInfo->grade = newGrade;
+	
+	"char/user_cmd"->rpc_server_hero_specinfo(this_object());
+	rpc_client_hero_gradeup(usernum, gradeUpInfo);
+
+	//更新战阵大小
+	sendMaxFightAmount();
+}
+
+private void onUpGrades()
+{
+
+}
+
+int upGrades()
+{
+	int upGradeFlag = 0;
+	while(1)
+	{
+		if (checkUpGrade() == GRADE_UP)
+		{
+			upGradeFlag = 1;
+			onUpOneGrade();
+		}
+		else
+			break;
+	}
+	if (upGradeFlag)
+		onUpGrades();
+		return GRADE_UP;
+	return GRADE_STAY;
+}
+
+// 提示频道
+void tellTips(string format, mixed *args...)
+{
+	// TODO: 暂时用系统频道
+	
+	string cMsg = "";
+	if (sizeof(args)) {
+		cMsg = sprintf(format, args...);	
+	} else {
+		cMsg = format;
+	}
+	"module/chat"->tips(usernum, "", cMsg);
+}
+
+int getFightId()
+{
+	return getTemp(T_FIGHT_ID);
+}
+
+int getIcon() 
+{
+	return prop[K_USER_ICON];
+}
+
+void syncPos()
+{
+        int *pos = get_user_pos(usernum);
+        if (!sizeof(pos)) return;
+        prop[K_USER_X] = pos[1];
+        prop[K_USER_Y] = pos[2];
+        prop[K_USER_Z] = pos[0];
+}
+
+static void ReleaseResource()
+{
+        Import("DB")->unload_user(this_object());
+
+	/*
+        DestSummonFrames();
+        DestItemFrames();
+        RemoveFollowNpcs();
+	*/
+}
+
+//call back by engine
+void Logout()
+{
+        syncPos();
+        ReleaseResource();
+}
+
+mapping getEquip()
+{
+	if (undefinedp(prop[K_USER_EQUIP])) {
+		prop[K_USER_EQUIP] = ([]);
+	}
+	return prop[K_USER_EQUIP];
+}

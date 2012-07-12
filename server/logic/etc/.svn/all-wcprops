@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/qtz/!svn/ver/86169/wg01/program/server/logic/trunk/etc
+END
+globals
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/86169/wg01/program/server/logic/trunk/etc/globals
+END
+preload
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/etc/preload
+END
+dbd_globals
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/qtz/!svn/ver/68911/wg01/program/server/logic/trunk/etc/dbd_globals
+END
+netd_globals
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/qtz/!svn/ver/69258/wg01/program/server/logic/trunk/etc/netd_globals
+END
