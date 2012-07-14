@@ -1,61 +1,0 @@
-10
-
-dir
-86387
-https://192.168.0.3/qtz/wg01/program/server/logic/trunk
-https://192.168.0.3/qtz
-
-
-
-2012-06-12T09:28:06.870221Z
-86363
-chenyh
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6bc9461d-a74c-e011-a7d1-00e04c772494
-
-chat
-dir
-
-tools
-dir
-
-cmd
-dir
-
-include
-dir
-
-rc
-dir
-
-module
-dir
-
-lib
-dir
-
-data
-dir
-
-etc
-dir
-
-activity
-dir
-
-char
-dir
-
