@@ -1,3 +1,4 @@
+#include <string>
 enum Token {
 	tok_eof = -1,
 	tok_def = -2,
@@ -9,7 +10,7 @@ enum Token {
 static std::string IdentifierStr;
 static double NumVal;
 
-static gettok()
+static char gettok()
 {
 	static int LastChar = ' ';
 
