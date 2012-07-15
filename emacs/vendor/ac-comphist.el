@@ -117,7 +117,7 @@
       (write-region (point-min) (point-max) ac-comphist-file))))
 
 
-(require 'ac-comphist)
+(provide 'ac-comphist)
  
  ;;;; Auto completion internals
  
