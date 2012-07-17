@@ -1,5 +1,14 @@
 (require 'flymake)
 
+(defun flymake-get-make-cmdline (source base-dir)
+  (list "gmake"
+	(list "-s"
+	      "-C"
+	      base-dir
+	      (concat "CHK_SOURCES=" source)
+	      "SYNTAX_CHECK_MODE=1"
+	      "check-syntax")))
+
 (setq flymake-allowed-file-name-masks
       (cons '(".+(\\.c|\\.cc|\\.cpp)$"
 	      flymake-simple-make-init
