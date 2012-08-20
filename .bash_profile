@@ -12,5 +12,5 @@ alias fc='find . -name "*.c"|xargs grep'
 alias fh='find . -name "*.h"|xargs grep'
 
 CLICOLOR=1;     export CLICOLOR
-CSCOPE_DB=/home/only/trunk/cscope.out;	export CSCOPE_DB
+CSCOPE_DB=/home/only/trunk/cscope.out;/usr/src/sys/cscope.out;	export CSCOPE_DB
 NODE_PATH=/opt/local/lib/node_modules/; export NODE_PATH
