@@ -1,3 +1,6 @@
+;; by Jr.White
+;; auto complete history
+
 ;;;; Intelligent completion history
 
 (defvar ac-comphist nil

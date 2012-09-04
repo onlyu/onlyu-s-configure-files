@@ -34,6 +34,8 @@
 (if onlyu-need-erlang
     (require 'onlyu-erlang))
 
+(require 'elixir-mode)
+
 ;; (semantic-mode 1)
 ;; init
 (provide 'init)

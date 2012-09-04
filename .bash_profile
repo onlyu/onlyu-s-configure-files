@@ -10,7 +10,8 @@ LC_ALL=zh_CN.UTF-8; export LC_ALL
 
 alias fc='find . -name "*.c"|xargs grep'
 alias fh='find . -name "*.h"|xargs grep'
+alias gmake=make
 
 CLICOLOR=1;     export CLICOLOR
-CSCOPE_DB=/home/only/trunk/cscope.out;	export CSCOPE_DB
+CSCOPE_DB=/home/only/trunk/cscope.out;/Users/while1/llvm/cscope.out; export CSCOPE_DB
 NODE_PATH=/opt/local/lib/node_modules/; export NODE_PATH
