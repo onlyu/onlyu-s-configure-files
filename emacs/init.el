@@ -33,8 +33,7 @@
 
 (if onlyu-need-erlang
     (require 'onlyu-erlang))
-
-(require 'elixir-mode)
+;; (catch (require 'elixir-mode))
 
 ;; (semantic-mode 1)
 ;; init
