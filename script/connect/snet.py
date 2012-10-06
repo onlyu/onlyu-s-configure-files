@@ -75,7 +75,7 @@ def current_path():
 
 def ssh_openssh(config, ip):
 	username = config.get('global', 'username')
-	cmd = "ssh -F ~/.ssh/config " + ip + " -l " + username
+	cmd = "ssh -p 32222 -F ~/.ssh/config " + ip + " -l " + username
 	os.system(cmd)
 
 def ssh_securecrt(config, ip):
@@ -137,12 +137,13 @@ def process():
 				continue
 			ip = server_set[user_input][0]
 			ssh(config, ip)
-		elif user_input in ("game", "sync", "game_wan", "new_game"):
+		elif user_input in ("game", "sync", "game_wan", "new_game", "adam"):
 			ip_table = {
 						"game":"192.168.0.8",
 						"sync":"192.168.0.9",
 						"game_wan":"183.62.45.76",
 						"new_game":"192.168.0.18",
+						"adam":"61.143.222.49",
 						}
 			ip = ip_table[user_input]
 			ssh(config, ip)
