@@ -1,5 +1,5 @@
 #!/usr/bin/env python 
-#-*- coding:gbk -*-
+#-*- coding:utf-8 -*-
 import urllib2
 import subprocess
 import ConfigParser
@@ -8,29 +8,29 @@ import ch2py
 import os
 import inspect
 
-#ÓÃÓÚµÃµ½Êı¾İµÄÁĞ±í
+#ç”¨äºå¾—åˆ°æ•°æ®çš„åˆ—è¡¨
 server_list = []
 
-#´¦ÀíÍêÒÔºóµÄserver list×Öµä
+#å¤„ç†å®Œä»¥åçš„server listå­—å…¸
 server_set = {}
 
-#´ò¿ªhttpÁ´½Ó£¬µÃµ½Êı¾İ
+#æ‰“å¼€httpé“¾æ¥ï¼Œå¾—åˆ°æ•°æ®
 def open_http(product):
 	global server_list
-	print '¿ªÊ¼È¡µÃserverinfo£¬²úÆ·Îª', product
+	print 'å¼€å§‹å–å¾—serverinfoï¼Œäº§å“ä¸º', product
 	f = urllib2.urlopen( "http://mcs.175game.com/%s/serverinfo"%(product) )
-	print 'µÃµ½ÁĞ±íÍê±Ï£¬¿ªÊ¼·ÖÎö¸ñÊ½...'
+	print 'å¾—åˆ°åˆ—è¡¨å®Œæ¯•ï¼Œå¼€å§‹åˆ†ææ ¼å¼...'
 	server_list = f.readlines()
 	f.close()
 	if len(server_list) == 0:
-		print "Ã»ÓĞÈ¡µ½Êı¾İ£¬ÇëÖØÊÔ"
+		print "æ²¡æœ‰å–åˆ°æ•°æ®ï¼Œè¯·é‡è¯•"
 		sys.exit(1)
 
 def head_py(cname):
 	py = ch2py.ch2pr(cname)
 	py_set = py.split(" ")
 	if ( len(py_set) < 2):
-		print "µÃµ½·şÎñÆ÷ËõĞ´Ãû×Ö´íÎó %s" %(cname)
+		print "å¾—åˆ°æœåŠ¡å™¨ç¼©å†™åå­—é”™è¯¯ %s" %(cname)
 		return ""
 	
 	short_name = py_set[0][0] + py_set[1][0]
@@ -45,7 +45,7 @@ def parse_server_list(product):
 			if not line.startswith("*"):
 				continue
 			
-			#*1001,»ìãç³õ¿ª(Ô¤Ô¼),121.10.246.12:119.38.128.204:121.10.246.12,10013,10015,2,ÓÎÏ·,10011,10012,10010	
+			#*1001,æ··æ²Œåˆå¼€(é¢„çº¦),121.10.246.12:119.38.128.204:121.10.246.12,10013,10015,2,æ¸¸æˆ,10011,10012,10010	
 			hostid,cname,ips,port1,port2,load_avg,tag,port3,port4,port5 = line.split(",")
 			hostid = hostid.split("*")[1]
 			
@@ -54,11 +54,11 @@ def parse_server_list(product):
 			py_name = head_py(cname)
 			server_set[hostid] = [ip, py_name, cname, tag]
 	else:
-		print "´íÎóµÄÁĞ±í!"
+		print "é”™è¯¯çš„åˆ—è¡¨!"
 		sys.exit(1)
 
 	print "=============================="
-	print "¹²ÓĞserver %d ×é" % len(server_set)
+	print "å…±æœ‰server %d ç»„" % len(server_set)
 	print "=============================="
 	#print server_set
 
@@ -75,7 +75,7 @@ def current_path():
 
 def ssh_openssh(config, ip):
 	username = config.get('global', 'username')
-	cmd = "ssh -F ~/.ssh/config " + ip + " -l " + username
+	cmd = "ssh -p 32222 -F ~/.ssh/config " + ip + " -l " + username
 	os.system(cmd)
 
 def ssh_securecrt(config, ip):
@@ -108,20 +108,20 @@ def ssh(config, ip):
 
 def process():
 	global server_set
-	#¶ÁÈ¡ÅäÖÃÎÄ¼ş
+	#è¯»å–é…ç½®æ–‡ä»¶
 	config = ConfigParser.ConfigParser()
 	config.read(current_path() + '/snet.ini')
 	product = config.get('global', 'product')
 	
-	#µÃµ½ÁĞ±í
+	#å¾—åˆ°åˆ—è¡¨
 	open_http("fs")
 	
-	#´¦ÀíÁĞ±í
+	#å¤„ç†åˆ—è¡¨
 	parse_server_list(product)
 
-	#ÊäÈëÑ­»·
+	#è¾“å…¥å¾ªç¯
 	while 1:
-		user_input = raw_input("ÎªÖĞ»ªÖ®áÈÆğ¶ø¶ÁÊé\r\nÇëÊäÈëÄ¿±ê·şÎñÆ÷µÄÇ°Á½¸öÆ´Òô×ÖÄ¸»òhostid,all,qÍË³ö£º").strip()
+		user_input = raw_input("ä¸ºä¸­åä¹‹å´›èµ·è€Œè¯»ä¹¦\r\nè¯·è¾“å…¥ç›®æ ‡æœåŠ¡å™¨çš„å‰ä¸¤ä¸ªæ‹¼éŸ³å­—æ¯æˆ–hostid,all,qé€€å‡ºï¼š").strip()
 		if user_input == "q":
 			return
 		elif user_input == "all" or len(user_input) == 2 :
@@ -133,20 +133,22 @@ def process():
 
 		elif is_number(user_input):
 			if not server_set.has_key(user_input):
-				print "Ã»ÓĞÕâ¸öhostid"
+				print "æ²¡æœ‰è¿™ä¸ªhostid"
 				continue
 			ip = server_set[user_input][0]
 			ssh(config, ip)
-		elif user_input in ("game", "sync", "game_wan"):
+		elif user_input in ("game", "sync", "game_wan", "new_game", "adam"):
 			ip_table = {
 						"game":"192.168.0.8",
 						"sync":"192.168.0.9",
 						"game_wan":"183.62.45.76",
+						"new_game":"192.168.0.18",
+						"adam":"61.143.222.49",
 						}
 			ip = ip_table[user_input]
 			ssh(config, ip)
 		else :
-			print "ÊäÈë´íÎó"
+			print "è¾“å…¥é”™è¯¯"
 
 if __name__ == "__main__":
 	process()

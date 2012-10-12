@@ -1,7 +1,7 @@
 ; custom settings
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
-(semantic-mode 1)
+;; (semantic-mode 1)
 
 (defcustom onlyu-need-erlang nil
   "")
@@ -33,7 +33,8 @@
 
 (if onlyu-need-erlang
     (require 'onlyu-erlang))
+;; (catch (require 'elixir-mode))
 
-(semantic-mode 1)
+;; (semantic-mode 1)
 ;; init
 (provide 'init)

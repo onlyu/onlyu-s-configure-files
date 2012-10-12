@@ -1,1 +1,0 @@
-SRC=fs_mysql.c fs_dbd.c fs_http_lpc.c fs_netd.c fs_rpc_lpc.c fs_main.c contrib.c sockets.c develop.c math.c 

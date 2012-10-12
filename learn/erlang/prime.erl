@@ -2,11 +2,12 @@
 
 -export([
 	 prime/1,
-	 prime2/1
+	 prime2/1,
+	 test/0,
+	 test1/0
 	 ]).
 
-prime(2) ->
-    [2];
+prime(2) -> [2];
 
 prime(N) ->
     Set = [X || X <- lists:seq(2, N-1), N rem X =:= 0],
@@ -33,5 +34,11 @@ prime2(X, Y, List) ->
 	   end,
     prime2(X-1, Y+1, NewList).
 
+
+test() ->
+    prime(100).
+
+test1() ->
+    prime2(100).
 
     

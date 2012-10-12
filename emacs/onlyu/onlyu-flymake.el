@@ -1,5 +1,30 @@
 (require 'flymake)
 
+;; overide this function
+(defun flymake-get-file-name-mode-and-masks (file-name)
+  "Return the corresponding entry from `flymake-allowed-file-name-masks'."
+  (if (file-writable-p file-name)
+    (progn
+      (unless (stringp file-name)
+	(error "Invalid file-name"))
+      (let ((fnm flymake-allowed-file-name-masks)
+	    (mode-and-masks  nil))
+	(while (and (not mode-and-masks) fnm)
+	  (if (string-match (car (car fnm)) file-name)
+	      (setq mode-and-masks (cdr (car fnm))))
+	  (setq fnm (cdr fnm)))
+	(flymake-log 3 "file %s, init=%s" file-name (car mode-and-masks))
+	mode-and-masks))))
+
+(defun flymake-get-make-cmdline (source base-dir)
+  (list "gmake"
+	(list "-s"
+	      "-C"
+	      base-dir
+	      (concat "CHK_SOURCES=" source)
+	      "SYNTAX_CHECK_MODE=1"
+	      "check-syntax")))
+
 (setq flymake-allowed-file-name-masks
       (cons '(".+(\\.c|\\.cc|\\.cpp)$"
 	      flymake-simple-make-init
@@ -62,6 +87,7 @@
 			     temp-master-file-name buildfile-dir t t 'flymake-get-make-cmdline)))))
     make-args))
 
+;; flymake-simple-make-init
 
 (defun of-c-mode-common-hook ()
   (define-key c-mode-map "\C-ce" 'of-flymake-error)
@@ -69,7 +95,7 @@
   (define-key c++-mode-map "\C-ce" 'of-flymake-error))
   
 ;; use \C-ce for flymake
-(setq flymake-log-level 0)
+(setq flymake-log-level 3)
 (setq flymake-gui-warnings-enabled nil)
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
 (add-hook 'c-mode-common-hook 'of-c-mode-common-hook)

@@ -1,3 +1,0 @@
-#按顺序载入的，请留意
-#类似 #define
-({ "LOG", "module/log.c", })
