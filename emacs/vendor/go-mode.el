@@ -59,46 +59,41 @@
     st)
   "Syntax table for Go mode.")
 
+(defcustom lpc-mode-hook nil
+  "*Hook called by all LPC Mode modes for common initializations."
+  :type 'hook
+  :group 'lpc)
+
 (defvar go-mode-keywords
-  '("break"    "default"     "func"   "interface" "select"
-    "case"     "defer"       "go"     "map"       "struct"
-    "chan"     "else"        "goto"   "package"   "switch"
-    "const"    "fallthrough" "if"     "range"     "type"
-    "continue" "for"         "import" "return"    "var")
+  '("import" "new" "class" 
+;;    "int" "float" "string" "void" "mixed" "mapping" "fun" "bool"
+     "if" "else" "switch" "case" "default" "and" "or" "not"
+    "for" "foreach" "in" "break" "return" "continue" "do" "while")
   "All keywords in the Go language.  Used for font locking and
 some syntax analysis.")
 
 (defvar go-mode-font-lock-keywords
   (let ((builtins '("cap" "close" "closed" "len" "make" "new"
                     "panic" "panicln" "print" "println"))
-        (constants '("nil" "true" "false" "iota"))
-        (type-name "\\s *\\(?:[*(]\\s *\\)*\\(?:\\w+\\s *\\.\\s *\\)?\\(\\w+\\)")
+        (constants '("nil" "true" "false" "YES" "NO"))
+        (type-name '("int" "float" "string" "void" "mixed" "mapping" "fun" "bool"))
+	(type-str "void\\|int\\|float\\|string\\|mixed\\|mapping\\|fun\\|bool")
         )
     `((,(regexp-opt go-mode-keywords 'words) . font-lock-keyword-face)
       (,(regexp-opt builtins 'words) . font-lock-builtin-face)
       (,(regexp-opt constants 'words) . font-lock-constant-face)
+      (,(regexp-opt type-name 'words) . font-lock-type-face)
       ;; Function names in declarations
-      ("\\<func\\>\\s *\\(\\w+\\)" 1 font-lock-function-name-face)
+      (,(concat "\\<\\(" type-str "\\)\\>\\s *\\(\\w+\\)\\s *\(") 2 font-lock-function-name-face)
+      (,(concat "\\<\\(" type-str "\\)\\>\\s *\\(\\s *\\(\\w+\\)\\s *\\(= \\w+\\)?\\)+") 3 font-lock-variable-name-face)
+      
       ;; Function names in methods are handled by function call pattern
       ;; Function names in calls
       ;; XXX Doesn't match if function name is surrounded by parens
-      ("\\(\\w+\\)\\s *(" 1 font-lock-function-name-face)
-      ;; Type names
-      ("\\<type\\>\\s *\\(\\w+\\)" 1 font-lock-type-face)
-      (,(concat "\\<type\\>\\s *\\w+\\s *" type-name) 1 font-lock-type-face)
+
       ;; Arrays/slices/map value type
       ;; XXX Wrong.  Marks 0 in expression "foo[0] * x"
 ;;      (,(concat "]" type-name) 1 font-lock-type-face)
-      ;; Map key type
-      (,(concat "\\<map\\s *\\[" type-name) 1 font-lock-type-face)
-      ;; Channel value type
-      (,(concat "\\<chan\\>\\s *\\(?:<-\\)?" type-name) 1 font-lock-type-face)
-      ;; new/make type
-      (,(concat "\\<\\(?:new\\|make\\)\\>\\(?:\\s \\|)\\)*(" type-name) 1 font-lock-type-face)
-      ;; Type conversion
-      (,(concat "\\.\\s *(" type-name) 1 font-lock-type-face)
-      ;; Method receiver type
-      (,(concat "\\<func\\>\\s *(\\w+\\s +" type-name) 1 font-lock-type-face)
       ;; Labels
       ;; XXX Not quite right.  Also marks compound literal fields.
       ("^\\s *\\(\\w+\\)\\s *:\\(\\S.\\|$\\)" 1 font-lock-constant-face)
@@ -435,7 +430,6 @@ indented one level."
                      (when first
                        (setq inside-indenting-paren t)))))
                 (setq first nil))))
-
           ;; case, default, and labels are outdented 1 level
           (when (looking-at "\\<case\\>\\|\\<default\\>\\|\\w+\\s *:\\(\\S.\\|$\\)")
             (decf indent tab-width))
@@ -487,7 +481,7 @@ indented one level."
 ;;
 
 ;;;###autoload
-(define-derived-mode go-mode nil "Go"
+(define-derived-mode go-mode nil "LPC"
   "Major mode for editing Go source text.
 
 This provides basic syntax highlighting for keywords, built-ins,
@@ -522,7 +516,9 @@ functions, and some types.  It also provides indentation that is
   (set (make-local-variable 'comment-start) "// ")
   (set (make-local-variable 'comment-end)   "")
 
+  (run-mode-hooks 'lpc-mode-hook)
   ;; Go style
+  (setq tab-width 4)
   (setq indent-tabs-mode t))
 
 ;;;###autoload
