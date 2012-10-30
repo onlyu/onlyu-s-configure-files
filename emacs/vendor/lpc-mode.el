@@ -119,6 +119,7 @@ should be of the form `#x...' where `x' is not a blank or a tab, and
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key map
 ;;
+(require 'fs-server) ;; for fs-update
 
 (defvar lpc-mode-map
   (let ((m (make-sparse-keymap)))
@@ -126,7 +127,8 @@ should be of the form `#x...' where `x' is not a blank or a tab, and
     (define-key m ")" #'lpc-mode-insert-and-indent)
     (define-key m ":" #'lpc-mode-delayed-electric)
     (define-key m "\C-c\C-f" 'gofmt)
-	(define-key m "\C-c#" 'go-comment-region)
+    (define-key m "\C-c#" 'go-comment-region)
+    (define-key m "\C-cj" 'fs-update)
     ;; In case we get : indentation wrong, correct ourselves
     (define-key m "=" #'lpc-mode-insert-and-indent)
     m)
@@ -516,13 +518,19 @@ functions, and some types.  It also provides indentation that is
   (set (make-local-variable 'comment-start) "// ")
   (set (make-local-variable 'comment-end)   "")
 
-  (run-mode-hooks 'lpc-mode-hook)
   ;; Go style
   (setq tab-width 4)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode t)
+  (run-mode-hooks 'lpc-mode-hook)
+
+  ;; error with hooks, hard code it
+  (cscope:hook)
+  (ac-cc-mode-setup)
+  (aoto-complete-mode))
+
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist (cons "\\.go$" #'lpc-mode))
+(add-to-list 'auto-mode-alist (cons "\\.lpc$" #'lpc-mode))
 
 (defun lpc-mode-reload ()
   "Reload lpc-mode.el and put the current buffer into Go mode.

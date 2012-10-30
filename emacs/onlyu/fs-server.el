@@ -143,5 +143,8 @@
 (add-hook 'pike-mode-hook (lambda ()
 			    (define-key pike-mode-map "\C-cj" 'fs-update)))
 
+(add-hook 'lpc-mode-hook (lambda ()
+			   (define-key pike-mode-map "\C-cj" 'fs-update)))
+
 (global-set-key "\C-cr" 'fs-rename)
 (provide 'fs-server)
