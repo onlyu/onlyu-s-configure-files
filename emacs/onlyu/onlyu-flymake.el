@@ -90,7 +90,7 @@
 ;; flymake-simple-make-init
 
 (defun of-c-mode-common-hook ()
-  (define-key go-mode-map "\C-ce" 'of-flymake-error)
+  (define-key lpc-mode-map "\C-ce" 'of-flymake-error)
   (define-key pike-mode-map "\C-ce" 'of-flymake-error)
   (define-key c++-mode-map "\C-ce" 'of-flymake-error))
   
@@ -99,6 +99,6 @@
 (setq flymake-gui-warnings-enabled nil)
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
 (add-hook 'c-mode-common-hook 'of-c-mode-common-hook)
-(add-hook 'go-mode-hook 'of-c-mode-common-hook)
+(add-hook 'lpc-mode-hook 'of-c-mode-common-hook)
 
 (provide 'onlyu-flymake)

@@ -2464,6 +2464,7 @@ file."
 				     minor-mode-map-alist)))
 
 (add-hook 'c-mode-hook (function cscope:hook))
+(add-hook 'lpc-mode-hook (function cscope:hook))
 (add-hook 'pike-mode-hook (function cscope:hook))
 (add-hook 'c++-mode-hook (function cscope:hook))
 (add-hook 'dired-mode-hook (function cscope:hook))

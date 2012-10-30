@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
 ;; (semantic-mode 1)
-(require 'go-mode)
+(require 'lpc-mode)
 
 (defcustom onlyu-need-erlang nil
   "")
