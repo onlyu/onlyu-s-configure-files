@@ -1,6 +1,8 @@
 ; custom settings
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
+
+
 ;; (semantic-mode 1)
 (require 'lpc-mode)
 
@@ -22,8 +24,8 @@
 (require 'onlyu-yasnippet)
 
 (require 'onlyu-lua-mode)
-;;(require 'onlyu-as-mode)
 (require 'onlyu-cc-mode)
+(require 'onlyu-hs)
 
 (require 'onlyu-dired-mode)
 (require 'onlyu-flymake)
