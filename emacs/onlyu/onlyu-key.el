@@ -35,4 +35,6 @@
 ;; (global-set-key [deletechar] 'delete-backward-char)
 ;; (global-set-key "\C-h" 'delete-backward-char)
 
+(global-set-key "\C-x\C-x" 'execute-extended-command)
+
 (provide 'onlyu-key)

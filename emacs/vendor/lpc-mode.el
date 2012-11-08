@@ -530,7 +530,7 @@ functions, and some types.  It also provides indentation that is
 
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist (cons "\\.lpc$" #'lpc-mode))
+(add-to-list 'auto-mode-alist (cons "\\.decl$" #'lpc-mode))
 
 (defun lpc-mode-reload ()
   "Reload lpc-mode.el and put the current buffer into Go mode.
