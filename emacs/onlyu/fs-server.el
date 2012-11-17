@@ -27,7 +27,7 @@
 	  ;; create process and run
 	  (setq update-process (apply 'start-process "update-file" 
 				      "*fs*" 
-				      (concat fs-server-dir "shell/update_file")
+				      (concat fs-server-dir "engine/update_file")
 				      (list file-name)))
 	  (set-process-filter update-process 'fs-update-filter)
 	  (process-kill-without-query update-process)
