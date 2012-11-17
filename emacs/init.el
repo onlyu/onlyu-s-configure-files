@@ -1,7 +1,10 @@
 ; custom settings
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
+
+
 ;; (semantic-mode 1)
+(require 'lpc-mode)
 
 (defcustom onlyu-need-erlang nil
   "")
@@ -21,8 +24,8 @@
 (require 'onlyu-yasnippet)
 
 (require 'onlyu-lua-mode)
-;;(require 'onlyu-as-mode)
 (require 'onlyu-cc-mode)
+(require 'onlyu-hs)
 
 (require 'onlyu-dired-mode)
 (require 'onlyu-flymake)
@@ -33,6 +36,7 @@
 
 (if onlyu-need-erlang
     (require 'onlyu-erlang))
+
 ;; (catch (require 'elixir-mode))
 
 ;; (semantic-mode 1)

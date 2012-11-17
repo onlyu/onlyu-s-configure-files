@@ -1,3 +1,4 @@
+;; my c-mode hook
 (defun my-c-mode-common-hook ()
   (setq tab-width 4)
   (setq indent-tabs-mode t)
@@ -11,8 +12,8 @@
 
 (require 'semantic)
 (let ((filter (format "%s.*\\.c" (fs-logic-dir))))
-  (add-to-list 'auto-mode-alist (cons filter '(. pike-mode)))
-  (add-to-list 'semantic-new-buffer-setup-functions '(pike-mode . semantic-default-c-setup)))
+  (add-to-list 'auto-mode-alist (cons filter '(. lpc-mode)))
+  (add-to-list 'semantic-new-buffer-setup-functions '(lpc-mode . semantic-default-c-setup)))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 

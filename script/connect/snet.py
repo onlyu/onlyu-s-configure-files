@@ -137,13 +137,14 @@ def process():
 				continue
 			ip = server_set[user_input][0]
 			ssh(config, ip)
-		elif user_input in ("game", "sync", "game_wan", "new_game", "adam"):
+		elif user_input in ("x8", "x9", "xwan", "x18", "xrelease", "x62"):
 			ip_table = {
-						"game":"192.168.0.8",
-						"sync":"192.168.0.9",
-						"game_wan":"183.62.45.76",
-						"new_game":"192.168.0.18",
-						"adam":"61.143.222.49",
+						"x8":"192.168.0.8",
+						"x9":"192.168.0.9",
+						"x62":"192.168.12.62",
+						"xwan":"183.62.45.76",
+						"x18":"192.168.0.18",
+						"xrelease":"61.143.222.49",
 						}
 			ip = ip_table[user_input]
 			ssh(config, ip)

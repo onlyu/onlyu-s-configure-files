@@ -1,3 +1,4 @@
+
 (setq cscope:map (make-sparse-keymap))
 (define-key cscope:map "\C-cc" 'cscope-find-functions-calling-this-function)
 
