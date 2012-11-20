@@ -25,4 +25,16 @@ diff_select' n xs = do
   return (x : rest)
 
 rnd_permu xs = diff_select' (length xs) xs 
-  
+
+-- combinations 3 "abcdef"
+combinations :: Int -> [a] -> [[a]]
+combinations n list
+  | n == 0 		= [[]]
+  | length list <= n 	= [list]
+  | otherwise 		= let (x:xs) = list in (map (x:) $ combinations (n-1) xs) ++ combinations n xs
+
+group :: [Int] -> [a] -> [[[a]]]
+group [] _ = [[[]]]
+group (x:xs) ys
+  | x == 0 = group xs ys
+  | otherwise = 

@@ -3,7 +3,7 @@
 
 export SVN_EDITOR=emacs
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$HOME/Library/Haskell/bin:$PATH
 
 LANG=zh_CN.UTF-8; export LANG
 LC_ALL=zh_CN.UTF-8; export LC_ALL
