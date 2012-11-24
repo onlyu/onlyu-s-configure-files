@@ -1,9 +1,11 @@
 (defun msdos-to-unix-file()
   "make line ends with \n"
   (interactive)
+  (flymake-mode-off)
   (goto-char (point-min))
   (while (search-forward "\r\n" nil t)
-    (replace-match "\n")))
+    (replace-match "\n"))
+  (flymake-mode-on))
 
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)

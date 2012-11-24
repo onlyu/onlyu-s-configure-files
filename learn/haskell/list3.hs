@@ -1,5 +1,8 @@
 import System.Random
 import List2
+import Data.List
+import Data.Ord (comparing)
+import Data.Function
 
 -- insertAt 'X' "abcd" 2
 insertAt :: a -> [a] -> Int -> [a]
@@ -33,8 +36,19 @@ combinations n list
   | length list <= n 	= [list]
   | otherwise 		= let (x:xs) = list in (map (x:) $ combinations (n-1) xs) ++ combinations n xs
 
-group :: [Int] -> [a] -> [[[a]]]
-group [] _ = [[[]]]
-group (x:xs) ys
-  | x == 0 = group xs ys
-  | otherwise = 
+combination :: Int -> [a] -> [([a],[a])]
+combination 0 xs     = [([],xs)]
+combination n []     = []
+combination n (x:xs) = ts ++ ds
+  where
+        ts = [ (x:ys,zs) | (ys,zs) <- combination (n-1) xs ]
+        ds = [ (ys,x:zs) | (ys,zs) <- combination  n    xs ]
+
+myGroup :: [Int] -> [a] -> [[[a]]]
+myGroup [] _ = [[]]
+myGroup (n:ns) xs = concatMap helper $ combination n xs
+  where
+    helper (as,bs) = map (as:) $ myGroup ns bs
+
+lsort = sortBy (comparing length)
+lfsort = concat . lsort . groupBy ((==) `on` length) . lsort
