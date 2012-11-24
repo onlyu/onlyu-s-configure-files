@@ -85,8 +85,6 @@
   (setq g-rep-old old)
   (lambda (filename)
     (if (and (string-match "\\.[ch]$" filename) (file-exists-p filename))
-	;(message (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
-	;(start-process "replace" "*fs*" "sh" (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
 	(with-temp-buffer
 	  (insert-file-contents-literally filename)
 	  (goto-char (point-min))
@@ -100,7 +98,7 @@
 
 (defun fs-rename (old new)
   (interactive (list ((lambda ()
-  		       (let* ( (symbol (mysymbol-at-point))
+			(let* ((symbol (mysymbol-at-point))
   			       (file (myfile-at-point))
   			       (thing (if (mycfile-p file)
   					  ;; find for file

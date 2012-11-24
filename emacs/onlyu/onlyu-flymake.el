@@ -26,7 +26,7 @@
 	      "check-syntax")))
 
 (setq flymake-allowed-file-name-masks
-      (cons '(".+(\\.c|\\.cc|\\.cpp)$"
+      (cons '(".+(\\.c|\\.cc)$"
 	      flymake-simple-make-init
 	      flymake-simple-cleanup
 	      flymake-get-real-file-name)
