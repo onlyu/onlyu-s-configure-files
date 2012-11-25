@@ -1,4 +1,5 @@
 (require 'flymake)
+(require 'onlyu-locale-settings)
 
 ;; overide this function
 (defun flymake-get-file-name-mode-and-masks (file-name)
@@ -17,7 +18,7 @@
 	mode-and-masks))))
 
 (defun flymake-get-make-cmdline (source base-dir)
-  (list "gmake"
+  (list make-command
 	(list "-s"
 	      "-C"
 	      base-dir
@@ -26,7 +27,7 @@
 	      "check-syntax")))
 
 (setq flymake-allowed-file-name-masks
-      (cons '(".+(\\.c|\\.cc)$"
+      (cons '(".+(\\.c|\\.cc|\\.cpp)$"
 	      flymake-simple-make-init
 	      flymake-simple-cleanup
 	      flymake-get-real-file-name)
@@ -97,7 +98,7 @@
 ;; use \C-ce for flymake
 (setq flymake-log-level 3)
 (setq flymake-gui-warnings-enabled nil)
-(add-hook 'find-file-hooks 'flymake-find-file-hook)
+;; (add-hook 'find-file-hooks 'flymake-find-file-hook)
 (add-hook 'c-mode-common-hook 'of-c-mode-common-hook)
 (add-hook 'lpc-mode-hook 'of-c-mode-common-hook)
 

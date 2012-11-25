@@ -28,7 +28,9 @@
  
 ;;设置默认工作目录
 (setq default-directory "~/")
- 
+
+;; auto-revert-mode
+(setq global-auto-revert-mode t) 
 ;;默认为text模式
 ;;(setq default-major-mode 'org-mode)
 
