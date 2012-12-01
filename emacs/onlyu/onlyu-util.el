@@ -20,5 +20,7 @@
   (delq nil
 	(mapcar (lambda (x) (and (funcall condp x) x)) lst)))
 
+(defun parent-dir (dir)
+  (replace-regexp-in-string "\\/[^/]*$" "" dir))
 
 (provide 'onlyu-util)

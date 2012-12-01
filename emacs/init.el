@@ -33,6 +33,7 @@
 (require 'onlyu-find-func)
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
+(require 'onlyu-iedit)
 
 (if onlyu-need-erlang
     (require 'onlyu-erlang))

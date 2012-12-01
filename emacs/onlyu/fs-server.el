@@ -1,11 +1,10 @@
 ;; 封神服务器端相关脚本
+(require 'onlyu-util)
 
 (defcustom fs-server-dir "/home/onlyu/trunk/"
   "fs server trunk directory"
   :group 'fs
   :type 'sexp)
-
-
 
 (defun fs-logic-dir ()
   (concat fs-server-dir "logic" "/"))
@@ -75,8 +74,6 @@
 	  (t
 	   (funcall action dir))))
 
-(defun parent-dir (dir)
-  (replace-regexp-in-string "\\/[^/]*$" "" dir))
 
 (defun project-root-helper (dir)
   (if (string= dir "")
@@ -145,10 +142,10 @@
   			 (setq sym (read-from-minibuffer prompt))
   			 sym)))))
 
-  (walk-project (replace-in-c-visitor (concat "\\([^_0-9a-zA-Z:]\\)" old "\\([^_0-9a-zA-Z:]\\)")
-					  (concat "\\1" new "\\2")))
+  (walk-project (replace-in-c-visitor (concat "\\([^_0-9a-zA-Z]\\)" old "\\([^_0-9a-zA-Z]\\)")
+					  (concat "\\1" new "\\2"))))
   ;(puppy-reload)
-  (revert-buffer (current-buffer) t t))
+  ;(revert-buffer (current-buffer) t t))
 
 (defun walk-path-visitor (file)
   "Called by walk-path for each file found"
