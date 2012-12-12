@@ -8,7 +8,6 @@ struct test{
 
 void test_function()
 {
-
 }
 
 int foo(int val)

@@ -34,6 +34,7 @@
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
 (require 'onlyu-iedit)
+(require 'onlyu-clang)
 
 (if onlyu-need-erlang
     (require 'onlyu-erlang))

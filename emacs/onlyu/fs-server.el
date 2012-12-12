@@ -118,24 +118,10 @@
 
 (defun fs-rename (old new)
   (interactive (list ((lambda ()
-			(let* ((symbol (mysymbol-at-point))
-  			       (file (myfile-at-point))
-  			       (thing (if (mycfile-p file)
-  					  ;; find for file
-  					  file
-  					;; find symbol
-  					symbol))
-  			       (prompt (if (or (not thing)
-  					       (string= thing ""))
-  					   "rename:"
-  					 (concat "rename (" thing "):")))
-  			       )
-			 (setq sym (read-from-minibuffer prompt))
-			 
-			 (if (or (not sym)
-				 (string= sym ""))
-			     thing
-			   sym))))
+			(let* ((thing (current-thing))
+  			       (prompt (if (not thing) "rename:" (concat "rename (" thing "):"))))
+			 (setq sym (read-from-minibuffer prompt))			 
+			 (if (or (not sym) (string= sym "")) thing sym))))
 
   		     ((lambda()
   		       (let ((prompt "rename to:"))
@@ -144,8 +130,16 @@
 
   (walk-project (replace-in-c-visitor (concat "\\([^_0-9a-zA-Z]\\)" old "\\([^_0-9a-zA-Z]\\)")
 					  (concat "\\1" new "\\2"))))
-  ;(puppy-reload)
-  ;(revert-buffer (current-buffer) t t))
+
+(defun current-thing ()
+  (let* ((symbol (mysymbol-at-point))
+	 (file (myfile-at-point))
+	 (thing (if (mycfile-p file) file symbol)))
+    (if (or (not thing) (string= thing "")) nil thing)))
+
+(defun current-thing-regxp ()
+  (let ((thing (current-thing)))
+    (if thing (concat "\\([^_0-9a-zA-Z]\\)" thing "\\([^_0-9a-zA-Z]\\)") nil)))  
 
 (defun walk-path-visitor (file)
   "Called by walk-path for each file found"
