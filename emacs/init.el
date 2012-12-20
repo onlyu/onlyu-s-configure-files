@@ -30,6 +30,8 @@
 (require 'onlyu-find-func)
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
+(require 'onlyu-iedit)
+(require 'onlyu-clang)
 
 (require 'onlyu-erlang)
 

@@ -1,4 +1,5 @@
 ;; 封神服务器端相关脚本
+(require 'onlyu-util)
 
 (defcustom fs-server-dir "/home/onlyu/trunk/"
   "fs server trunk directory"
@@ -36,7 +37,7 @@
       (message "can not update this file!"))
     ))
 
-(defun fs-reload-all ()
+(defun puppy-reload ()
   (interactive)
   (mapcar (lambda (buffer)
 	    (let ((file (buffer-file-name buffer)))
@@ -74,60 +75,71 @@
 	   (funcall action dir))))
 
 
+(defun project-root-helper (dir)
+  (if (string= dir "")
+      nil
+    (if (file-exists-p (concat dir "/.eproject"))
+	dir
+      (project-root-helper (parent-dir dir)))))
+
+(defun project-root ()
+  (project-root-helper (parent-dir (buffer-file-name))))
+
 (defun fs-walk-all-file (action)
   (walk-path fs-server-dir action))
 
-(defvar g-rep-old nil)
-(defvar g-rep-new nil)
+(defun walk-project (action)
+  (walk-path (project-root) action))
 
+(defun suffixs-regexp (list)
+  (if (null (cdr list))
+      (concat "\\." (car list))
+    (concat "\\." (car list) "\\|" (suffixs-regexp (cdr list)))))
+
+(defvar src-regexp (suffixs-regexp '("c" "cc" "cpp" "h")))
+
+(defvar g_old nil)
+(defvar g_new nil)
 (defun replace-in-c-visitor (old new)
-  (setq g-rep-new new)
-  (setq g-rep-old old)
+  (setq g_old old)
+  (setq g_new new)
   (lambda (filename)
-    (if (and (string-match "\\.[ch]$" filename) (file-exists-p filename))
-	;(message (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
-	;(start-process "replace" "*fs*" "sh" (format "cat %s | sed 's/%s/%s/g' > %s" filename g-rep-old g-rep-new filename))
+    (if (and (string-match src-regexp filename) (file-exists-p filename))
 	(with-temp-buffer
 	  (insert-file-contents-literally filename)
 	  (goto-char (point-min))
-	  (if (re-search-forward g-rep-old nil t 1)
+	  (if (re-search-forward g_old nil t 1)
 	      (progn
 		(goto-char (point-min))
-		(replace-regexp g-rep-old g-rep-new)
+		(replace-regexp g_old g_new)
 		(write-region (point-min) (point-max) filename)))
 	  t)
       t)))
 
 (defun fs-rename (old new)
   (interactive (list ((lambda ()
-  		       (let* ( (symbol (mysymbol-at-point))
-  			       (file (myfile-at-point))
-  			       (thing (if (mycfile-p file)
-  					  ;; find for file
-  					  file
-  					;; find symbol
-  					symbol))
-  			       (prompt (if (or (not thing)
-  					       (string= thing ""))
-  					   "rename:"
-  					 (concat "rename (" thing "):")))
-  			       )
-			 (setq sym (read-from-minibuffer prompt))
-			 
-			 (if (or (not sym)
-				 (string= sym ""))
-			     thing
-			   sym))))
+			(let* ((thing (current-thing))
+  			       (prompt (if (not thing) "rename:" (concat "rename (" thing "):"))))
+			 (setq sym (read-from-minibuffer prompt))			 
+			 (if (or (not sym) (string= sym "")) thing sym))))
 
   		     ((lambda()
   		       (let ((prompt "rename to:"))
   			 (setq sym (read-from-minibuffer prompt))
   			 sym)))))
 
-  (fs-walk-all-file (replace-in-c-visitor (concat "\\([^_0-0a-zA-Z]\\)" old "\\([^_0-0a-zA-Z]\\)") 
-					  (concat "\\1" new "\\2")))
-  (fs-reload-all)
-  (revert-buffer (current-buffer) t t))
+  (walk-project (replace-in-c-visitor (concat "\\([^_0-9a-zA-Z]\\)" old "\\([^_0-9a-zA-Z]\\)")
+					  (concat "\\1" new "\\2"))))
+
+(defun current-thing ()
+  (let* ((symbol (mysymbol-at-point))
+	 (file (myfile-at-point))
+	 (thing (if (mycfile-p file) file symbol)))
+    (if (or (not thing) (string= thing "")) nil thing)))
+
+(defun current-thing-regxp ()
+  (let ((thing (current-thing)))
+    (if thing (concat "\\([^_0-9a-zA-Z]\\)" thing "\\([^_0-9a-zA-Z]\\)") nil)))  
 
 (defun walk-path-visitor (file)
   "Called by walk-path for each file found"
