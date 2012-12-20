@@ -1,3 +1,6 @@
 [submodule "emacs/externals/haskell-mode"]
 	path = emacs/externals/haskell-mode
 	url = git://github.com/haskell/haskell-mode.git
+[submodule "emacs/externals/erlang-mode"]
+	path = emacs/externals/erlang-mode
+	url = git://github.com/smtlaissezfaire/erlang_mode.git

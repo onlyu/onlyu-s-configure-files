@@ -6,9 +6,6 @@
 ;; (semantic-mode 1)
 (require 'lpc-mode)
 
-(defcustom onlyu-need-erlang nil
-  "")
-
 (require 'onlyu-custom)
 (require 'fs-server)
 (require 'onlyu-key)
@@ -34,8 +31,7 @@
 (require 'onlyu-util)
 (require 'onlyu-locale-settings)
 
-(if onlyu-need-erlang
-    (require 'onlyu-erlang))
+(require 'onlyu-erlang)
 
 ;; (catch (require 'elixir-mode))
 
