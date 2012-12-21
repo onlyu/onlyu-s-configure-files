@@ -182,7 +182,8 @@ Commands:
   (if iedit-mode
       (iedit-done)
     (let ((occurrence nil)
-	  (thing (current-thing-regxp)))
+	  (thing (current-thing-regxp))
+	  (search-variable nil))
       (cond ((and arg iedit-last-occurrence-in-history)
              (setq occurrence iedit-last-occurrence-in-history))
             ((and transient-mark-mode mark-active (not (equal (mark) (point))))
@@ -190,15 +191,16 @@ Commands:
             ((and isearch-mode (not (string= isearch-string "")))
              (setq occurrence isearch-string)
              (isearch-exit))
-;;	    ((and thing)
-;;	     (setq occurrence thing))
+	    ((and thing)
+	     (setq occurrence thing)
+	     (setq search-variable t))
             ((and iedit-current-word-default (current-word t))
              (setq occurrence (current-word)))
             (t (error "No candidate of the occurrence, cannot enable iedit mode.")))
       (deactivate-mark)
-      (iedit-start occurrence))))
+      (iedit-start occurrence search-variable))))
 
-(defun iedit-start (occurrence-exp)
+(defun iedit-start (occurrence-exp search-variable)
   "Start an iedit for the occurrence-exp in the current buffer."
   (setq	iedit-mode " Iedit")
   (setq iedit-occurrences-overlays nil)
@@ -214,8 +216,10 @@ Commands:
   (save-excursion
     (goto-char (point-min))
     (while (re-search-forward occurrence-exp nil t)
-      (push (iedit-make-occurrence-overlay (match-beginning 0) (match-end 0))
-            iedit-occurrences-overlays)
+      (if search-variable (push (iedit-make-occurrence-overlay (+ (match-beginning 0) 1) (- (match-end 0) 1))
+				iedit-occurrences-overlays)
+	(push (iedit-make-occurrence-overlay (match-beginning 0) (match-end 0))
+	      iedit-occurrences-overlays))
       (setq counter (1+ counter)))      ; at less 1
       (setq iedit-occurrences-overlays (nreverse iedit-occurrences-overlays))
       (if iedit-unmatched-lines-invisible
