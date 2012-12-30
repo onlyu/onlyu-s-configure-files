@@ -3,4 +3,6 @@
    control address: https://onlydomains.secure-admin.com/dashboard/view
    uname:while1
    passwd:gamelanzi2012
-2. http://www.godaddy.com/ efiish Gamelanzi2012
+
+2. http://www.godaddy.com/ while1 Gamelanzi2012
+ftp:efiish Gamelanzi201@
