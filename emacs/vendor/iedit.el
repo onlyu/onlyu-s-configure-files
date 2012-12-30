@@ -175,7 +175,6 @@ the current search string are highlighted.
 With a prefix argument, the occurrence when iedit is turned off
 last time is used as occurrence.  This is intended to recover
 last iedit which is turned off by mistake.
-
 Commands:
 \\{iedit-mode-map}"
   (interactive "P")
@@ -200,6 +199,8 @@ Commands:
       (deactivate-mark)
       (iedit-start occurrence search-variable))))
 
+
+
 (defun iedit-start (occurrence-exp search-variable)
   "Start an iedit for the occurrence-exp in the current buffer."
   (setq	iedit-mode " Iedit")
@@ -221,14 +222,14 @@ Commands:
 	(push (iedit-make-occurrence-overlay (match-beginning 0) (match-end 0))
 	      iedit-occurrences-overlays))
       (setq counter (1+ counter)))      ; at less 1
-      (setq iedit-occurrences-overlays (nreverse iedit-occurrences-overlays))
-      (if iedit-unmatched-lines-invisible
-          (iedit-hide-unmatched-lines))
-      (message "%d matches for \"%s\""
-               counter
-               (if (> (length occurrence-exp) 50)
-                   (concat (substring occurrence-exp 0 50) "...")
-                 occurrence-exp)))))
+    (setq iedit-occurrences-overlays (nreverse iedit-occurrences-overlays))
+    (if iedit-unmatched-lines-invisible
+	(iedit-hide-unmatched-lines))
+    (message "%d matches for \"%s\""
+	     counter
+	     (if (> (length occurrence-exp) 50)
+		 (concat (substring occurrence-exp 0 50) "...")
+	       occurrence-exp)))))
 
 (defun iedit-hide-unmatched-lines ()
   "Hide unmatched lines using invisible overlay."

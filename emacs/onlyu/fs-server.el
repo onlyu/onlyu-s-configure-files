@@ -139,7 +139,7 @@
 
 (defun current-thing-regxp ()
   (let ((thing (current-thing)))
-    (if thing (concat "\\([^_0-9a-zA-Z]\\)" thing "\\([^_0-9a-zA-Z]\\)") nil)))  
+    (if thing (concat "\\([^_0-9a-zA-Z]\\)" thing "\\([^_0-9a-zA-Z]\\)") nil)))
 
 (defun walk-path-visitor (file)
   "Called by walk-path for each file found"

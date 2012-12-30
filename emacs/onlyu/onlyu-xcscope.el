@@ -26,10 +26,14 @@
 	 )))
     ))
     
+;; get the simple according to the language
 (defun mysymbol-at-point ()
-  (let* ( (chars "A-Za-z0-9_") )
-    (mything-at-point chars)
-    ))
+  (let* ((chars "A-Za-z0-9_") 
+	 (lisp-chars "-A-Za-z0-9_")
+	 (mode (buffer-local-value 'mode-name (current-buffer))))
+    (if (string-match "lisp" mode)
+	(mything-at-point lisp-chars)
+      (mything-at-point chars))))
        
 
 (defun myfile-at-point ()
