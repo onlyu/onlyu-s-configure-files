@@ -137,7 +137,7 @@ def process():
 				continue
 			ip = server_set[user_input][0]
 			ssh(config, ip)
-		elif user_input in ("x8", "x9", "xwan", "x18", "xrelease", "x62"):
+		elif user_input in ("x8", "x9", "xwan", "x18", "xrelease", "x62", "centos"):
 			ip_table = {
 						"x8":"192.168.0.8",
 						"x9":"192.168.0.9",
@@ -145,6 +145,7 @@ def process():
 						"xwan":"183.62.45.76",
 						"x18":"192.168.0.18",
 						"xrelease":"61.143.222.49",
+						"centos":"192.168.12.238",
 						}
 			ip = ip_table[user_input]
 			ssh(config, ip)
