@@ -1,5 +1,6 @@
 import Data.List
 import Data.Maybe
+import Debug.Trace
 
 data Tree a = Empty | Branch a (Tree a) (Tree a)
                       deriving (Show, Eq)
@@ -157,6 +158,33 @@ layout3 t = layout' x1 1 sep1 t
           	  (layout' (x-sep) (y+1) (sep `div` 2) l)
           	  (layout' (x+sep) (y+1) (sep `div` 2) r)
 
+layout4 :: Tree a -> Tree (a, (Int, Int))
+layout4 Empty = Empty
+layout4 (Branch x l r) = Branch (x, (ltop + sep, 1))
+                                 (edit 0 1 layoutl)
+                                 (edit (ltop + 2 * sep - rtop) 1 layoutr)
+  where
+    edit _ _ Empty = Empty
+    edit x y (Branch (item, (x_, y_)) l r) = Branch (item, (x_ + x, y + y_)) (edit x y l) (edit x y r)
+    ltop = top layoutl
+    rtop = top layoutr
+    top Empty = 0
+    top (Branch (_, (x,y)) _ _) = x
+    layoutl = layout4 l
+    layoutr = layout4 r
+    sep = getsep layoutl layoutr 
+    getsep Empty _ = 1
+    getsep _ Empty = 1
+    getsep tl tr =
+      let dis = foldr min 0 [x2 - x1 | (x1, y1) <- flatten tl,
+                                       (x2, y2) <- flatten tr,
+                                       y1 == y2]
+          topl = top tl
+          topr = top tr
+      in ceiling $ toRational (topr - dis + 1 - topl) / 2
+    flatten Empty = []
+    flatten (Branch (_, (x,y)) l r) = (x,y) : flatten l ++ flatten r
+
 depth :: Tree a -> Int
 depth Empty = 0
 depth (Branch _ l r) = 1 + max (depth l) (depth r)
@@ -200,7 +228,7 @@ tree2ds Empty = "."
 tree2ds (Branch x l r) = x : tree2ds l ++ tree2ds r
 
 ds2tree' :: Monad m => String -> m (String, Tree Char)
-ds2tree' "." = return ("", Empty)
+ds2tree' ('.':xs) = return (xs, Empty)
 ds2tree' (x:xs) = do (remain_, l) <- ds2tree' xs
                      (remain, r) <- ds2tree' remain_
                      return (remain, Branch x l r)
@@ -229,3 +257,9 @@ tree65 = Branch 'n'
           )
           Empty
          )
+
+tree1 = Branch 'x' Empty Empty
+tree2 = Branch 'a'
+          (Branch 'b' Empty Empty)
+          (Branch 'b' Empty Empty)
+           
