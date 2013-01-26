@@ -128,11 +128,14 @@
   (define-key c++-mode-map "\C-c\C-n" 'flymake-goto-next-error)
   (define-key c++-mode-map "\C-c\C-p" 'flymake-goto-prev-error))
   
+(defun haskell-flymake-hook ()
+  (flymake-mode-off))
 ;; use \C-ce for flymake
 (setq flymake-log-level -1)
 (setq flymake-gui-warnings-enabled nil)
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
 (add-hook 'c-mode-common-hook 'of-c-mode-common-hook)
 (add-hook 'lpc-mode-hook 'of-c-mode-common-hook)
+(add-hook 'haskell-mode-hook 'haskell-flymake-hook)
 
 (provide 'onlyu-flymake)
