@@ -1,3 +1,5 @@
+import Data.List
+
 r = 5.0
 area = pi * r ^ 2
        
@@ -60,3 +62,17 @@ doGreeting "John" =  putStrLn "Haskell is a great programming language."
 doGreeting "Phil" =  putStrLn "Haskell is a great programming language."
 doGreeting "Koen" =  putStrLn "debugging Haskell is fun."
 doGreeting _ = putStrLn "I don't known who you are"
+
+test :: [[Int]]
+test = nub $ map splitToNum $ perm [1..9] 
+
+perm :: Eq a => [a] -> [[a]]
+perm [] = [[]]
+perm xs = concat [map (x:) $ perm $ delete x xs | x <- xs]
+
+splitToNum :: [Int] -> [Int]
+splitToNum xs = sort $ map toNum [head3, middle3, tail3]
+    where head3 = take 3 xs
+          middle3 = take 3 $ drop 3 xs
+          tail3 = drop 6 xs
+          toNum (x:y:z:[]) = x * 100 + y * 10 + z 

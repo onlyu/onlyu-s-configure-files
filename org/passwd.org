@@ -49,5 +49,7 @@
 * ssh -p 32222 onlyu@183.62.45.76
 * 192.168.0.8 onlyu
 ** 08king)*
+* 192.168.0.18 onlyu
+** 18king)*
 * ssh -p 32222 onlyu@61.143.222.49 120.31.48.191
 ** root qtz@qtzgame
