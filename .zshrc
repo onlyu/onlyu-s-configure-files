@@ -37,4 +37,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 source ~/.bash_profile
+source ~/.profile
 export PATH=~/.cabal/bin:$PATH
