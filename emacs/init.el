@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/emacs/onlyu/")
 (add-to-list 'load-path "~/emacs/vendor/")
 
-
 ;; (semantic-mode 1)
 (require 'lpc-mode)
 

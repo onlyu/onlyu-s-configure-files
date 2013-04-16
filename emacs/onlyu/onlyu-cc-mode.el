@@ -3,17 +3,16 @@
   (setq tab-width 4)
   (setq indent-tabs-mode t)
   (setq c-basic-offset 4)
-  (hs-minor-mode) ;; ДњТыелЕў
-  )
+  (hs-minor-mode))
 
 (setq tab-width 4)
 (setq indent-tabs-mode t)
 (setq c-basic-offset 4)
 
-(require 'semantic)
-(let ((filter (format "%s.*\\.c" (fs-logic-dir))))
-  (add-to-list 'auto-mode-alist (cons filter '(. lpc-mode)))
-  (add-to-list 'semantic-new-buffer-setup-functions '(lpc-mode . semantic-default-c-setup)))
+;;(require 'semantic)
+;; (let ((filter (format "%s.*\\.c" (fs-logic-dir))))
+;;   (add-to-list 'auto-mode-alist (cons filter '(. lpc-mode)))
+;;   (add-to-list 'semantic-new-buffer-setup-functions '(lpc-mode . semantic-default-c-setup)))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 

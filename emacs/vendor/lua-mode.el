@@ -385,7 +385,7 @@ to `lua-mode-map', otherwise they are prefixed with `lua-prefix-key'."
 (defun lua-electric-match (arg)
   "Insert character and adjust indentation."
   (interactive "P")
-  (insert-char last-command-char (prefix-numeric-value arg))
+  (insert-char last-command-event (prefix-numeric-value arg))
   (if lua-electric-flag 
       (lua-indent-line))
   (blink-matching-open))

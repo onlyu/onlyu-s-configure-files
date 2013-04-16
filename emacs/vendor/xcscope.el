@@ -715,7 +715,7 @@ for this to work."
   :group 'cscope)
 
 
-(defcustom cscope-program "cscope"
+(defcustom cscope-program "/opt/local/bin/cscope"
   "*The pathname of the cscope executable to use."
   :type 'string
   :group 'cscope)

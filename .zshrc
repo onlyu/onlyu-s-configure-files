@@ -36,6 +36,5 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.bash_profile
-source ~/.profile
-export PATH=~/.cabal/bin:$PATH
+# Customize to your needs...
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/while1/scala/sbt/bin/:/opt/local/bin:/opt/local/sbin:/Users/while1/Library/Haskell/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
